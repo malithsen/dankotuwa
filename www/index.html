@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- materializecss -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="lib/Materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+
+    <link href="lib/map-icons/dist/css/map-icons.min.css" rel="stylesheet">
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- materializecss -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/Materialize/dist/js/materialize.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <script src="js/controllers/MapViewCtrl.js"></script>
+    <script src="js/controllers/CardListCtrl.js"></script>
+
+    <script src="js/services/CurrentLocation.js"></script>
+    <script src="js/services/MapService.js"></script>
+    <script src="js/services/ShedInfo.js"></script>
+
+    <script src="http://maps.google.com/maps/api/js"></script>
+
+    <script type="text/javascript" src="lib/map-icons/dist/js/map-icons.min.js"></script>
+  </head>
+
+  <body ng-app="dankotuwa">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

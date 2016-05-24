@@ -1,0 +1,23 @@
+<div class="settings">
+
+  <div class='fuel-preference'>
+    <div class="input-label" ng-if="!initial">Fuel Preference</div>
+    <div class="fuel-pref-buttons">
+      <button ng-click="setFuelType('petrol')" ng-class="{'selected': prefs.type == 'petrol'}" class="button button-block button-fuel-type">Petrol</button>
+      <button ng-click="setFuelType('diesel')" ng-class="{'selected': prefs.type == 'diesel'}" class="button button-block button-fuel-type">Diesel</button>
+    </div>
+  </div>
+
+  <div class="fuel-sub-type" ng-show="prefs.type=='petrol'">
+    <ion-checkbox ng-model="prefs.petrolPrefs['Petrol 92']" ng-click="updatePrefs()">Petrol 92</ion-checkbox>
+    <ion-checkbox ng-model="prefs.petrolPrefs['Xtra Premium Euro 3']" ng-click="updatePrefs()"> Xtra Premium Euro 3 </ion-checkbox>
+    <ion-checkbox ng-model="prefs.petrolPrefs['Xtra Premium 95']" ng-click="updatePrefs()"> Xtra Premium 95 </ion-checkbox>
+  </div>
+
+  <div class="fuel-sub-type" ng-show="prefs.type=='diesel'">
+    <ion-checkbox ng-model="prefs.dieselPrefs['Lanka Diesel']" ng-click="updatePrefs()">Lanka Diesel</ion-checkbox>
+    <ion-checkbox ng-model="prefs.dieselPrefs['Lanka Super Diesel']" ng-click="updatePrefs()">Lanka Super Diesel</ion-checkbox>
+    <ion-checkbox ng-model="prefs.dieselPrefs['Diesel Xtra Mile']" ng-click="updatePrefs()">Diesel Xtra Mile</ion-checkbox>
+  </div>
+
+</div>
