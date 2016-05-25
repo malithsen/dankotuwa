@@ -41,5 +41,3 @@ angular.module('dankotuwa')
 ***REMOVED***
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
