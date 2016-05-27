@@ -4,10 +4,11 @@ angular.module('dankotuwa')
 
   var map;
   var currentPos;
+  var shedMarkers;
 
   var o = {};
 
-  o.draw = function(position, sheds) {
+  o.draw = function(position, sheds, shedClickCallback) {
     currentPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var mapOptions = {
@@ -30,8 +31,8 @@ angular.module('dankotuwa')
     });
 
     // Mark sheds
-    var shedMarkers = sheds.map(function(shed) {
-      return new google.maps.Marker({
+    shedMarkers = sheds.map(function(shed) {
+      var marker = new google.maps.Marker({
         position: new google.maps.LatLng(shed.lat, shed.lng),
         map: map,
         icon: {
@@ -43,7 +44,17 @@ angular.module('dankotuwa')
           scale: 0.8
         },
       });
+
+      marker.addListener('click', function() {
+        shedClickCallback(shed.id);
+      });
+
+      return {
+        id: shed.id,
+        marker: marker
+    ***REMOVED***
     });
+
     return map;
 ***REMOVED***
 

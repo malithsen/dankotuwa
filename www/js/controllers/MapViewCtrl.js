@@ -1,9 +1,14 @@
 angular.module('dankotuwa')
 
 .controller('MapViewCtrl', function($scope, $state, CurrentLocation, MapService, ShedInfo) {
+
+  var shedClickCallback = function(id) {
+    $state.go('app.detailview', {location: location});
+***REMOVED***
+
   var currentPosSuccess = function(position) {
     ShedInfo.get().then(function(sheds) {
-      $scope.map = MapService.draw(position, sheds);
+      $scope.map = MapService.draw(position, sheds, shedClickCallback);
     });
 ***REMOVED***
 

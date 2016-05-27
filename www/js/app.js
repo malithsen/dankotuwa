@@ -47,6 +47,19 @@ angular.module('dankotuwa', ['ionic', 'ngCordova'])
     }
   })
 
+  .state('app.detailview', {
+    url: '/detailview',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/detailview.html',
+        controller: 'DetailViewCtrl'
+      }
+    },
+    params: {
+      location: null
+    }
+  })
+
   .state('app.cardlist', {
     url: '/cardlist',
     views: {
