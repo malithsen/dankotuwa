@@ -28,15 +28,6 @@ angular.module('dankotuwa', ['ionic', 'ngCordova'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
   .state('app.mapview', {
     url: '/mapview',
     views: {
