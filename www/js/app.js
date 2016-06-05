@@ -51,6 +51,19 @@ angular.module('dankotuwa', ['ionic', 'ngCordova'])
     }
   })
 
+  .state('app.orderview', {
+    url: '/orderview',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/orderview.html',
+        controller: 'OrderViewCtrl'
+      }
+    },
+    params: {
+      location: null
+    }
+  })
+
   .state('app.cardlist', {
     url: '/cardlist',
     views: {

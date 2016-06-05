@@ -3,6 +3,10 @@ angular.module('dankotuwa')
 .controller('DetailViewCtrl', function($scope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation) {
   $scope.location = $stateParams.location;
 
+  $scope.goToPlaceOrderView = function() {
+    $state.go('app.orderview', {location: $scope.location});
+***REMOVED***
+
   $scope.navigate = function (lat, lng) {
 
     var dest = [parseFloat(lat), parseFloat(lng)];
