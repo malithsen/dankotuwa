@@ -21,6 +21,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+/* Override material css select */
+select{
+  display: inline;
+}
+
 
 /* Google Maps */
 .scroll {
@@ -53,3 +58,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   }
 }
 /* /Lower-right buttons */
+
+/* Google Maps */
+
+.card-content {
+  .quantity {
+    text-align: right;
+  }
+}
+
+/* /Google Maps */
