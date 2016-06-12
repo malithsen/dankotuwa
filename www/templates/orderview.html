@@ -1,41 +1,16 @@
 <ion-view>
   <ion-content class="order-view">
-    <div>
-      <div class="card">
-        <div class="card-content">
-
-          <span class="card-title">Place order</span>
-
-          <label class = "item item-input item-select">
-             <div class = "input-label">
-                Product
-             </div>
-
-             <select>
-                <option>Dinner plate</option>
-                <option selected>Salad plate</option>
-                <option>Cereak bowl</option>
-             </select>
-          </label>
-
-          <label class = "item item-input item-select">
-             <div class = "input-label">
-                Category
-             </div>
-
-             <select>
-                <option>Blue rose</option>
-                <option selected>Livy</option>
-                <option>Lasting rose</option>
-             </select>
-          </label>
-
-          <label class="item item-input">
-            <span class="input-label">Quantity</span>
-            <input type="number" class="quantity">
-          </label>
-
+    <div class="order-group">
+      <form ng-submit="submit()">
+        <div class="order-submit-btn">
+          <button type="submit" class="button button-positive">
+            Submit
+          </button>
         </div>
+        <div ng-repeat="item in items" new-Item="item"></div>
+      </form>
+      <div class="order-fabs">
+        <a ng-click="addItem()" class="btn-floating btn-large waves-effect waves-light purple-btn center-btn"><i class="material-icons">add</i></a>
       </div>
     </div>
   </ion-content>
