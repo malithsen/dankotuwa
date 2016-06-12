@@ -36,7 +36,7 @@ angular.module('dankotuwa')
 
     validate(function(res) {
       if (res) {
-        console.log("submit");
+        console.log("submit", $scope.submit);
       } else {
         console.log("Did not submit");
       }
