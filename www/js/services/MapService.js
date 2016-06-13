@@ -9,7 +9,11 @@ angular.module('dankotuwa')
   var o = {};
 
   o.draw = function(position, sheds, shedClickCallback) {
-    currentPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    if (position) {
+      currentPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    } else {
+      currentPos = new google.maps.LatLng(6.9327031, 79.843654);
+    }
 
     var mapOptions = {
       center: currentPos,
