@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "angular": false,
+    "_": true
+  },
+  "browser": true,
+  "jquery": true,
+  "node": true
+}
+

@@ -1,0 +1,23 @@
+{
+  "name": "dankotuwa-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "g40",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-nodemon": "~0.2.0",
+    "grunt-concurrent": "~0.4.3"
+  }
+}
