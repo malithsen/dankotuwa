@@ -28,7 +28,7 @@
               }
           }
       });
-***REMOVED***
+  };
 
   // Horizontal staggered list
   Materialize.showStaggeredList = function(selector) {
@@ -43,7 +43,7 @@
         { duration: 800, delay: time, easing: [60, 10] });
       time += 120;
     });
-***REMOVED***
+  };
 
 
   $(document).ready(function() {

@@ -139,7 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function createCloner(func) {
 	  return function(object) {
 	    return func({}, object);
-	***REMOVED***
+	  };
 	}
 
 	/**
@@ -164,7 +164,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var result = args[0] = cloner.apply(undefined, args);
 	    func.apply(undefined, args);
 	    return result;
-	***REMOVED***
+	  };
 	}
 
 	/**
@@ -203,7 +203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'fixed': 'fixed' in options ? options.fixed : true,
 	    'immutable': 'immutable' in options ? options.immutable : true,
 	    'rearg': 'rearg' in options ? options.rearg : true
-	***REMOVED***
+	  };
 
 	  var forceCurry = ('curry' in options) && options.curry,
 	      forceFixed = ('fixed' in options) && options.fixed,
@@ -224,7 +224,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'rearg': util.rearg,
 	    'spread': util.spread,
 	    'toPath': util.toPath
-	***REMOVED***
+	  };
 
 	  var ary = helpers.ary,
 	      assign = helpers.assign,
@@ -247,7 +247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return isArray(value)
 	          ? castArray(cloneArray(value))
 	          : castArray.apply(undefined, arguments);
-	    ***REMOVED***
+	      };
 	    },
 	    'iteratee': function(iteratee) {
 	      return function() {
@@ -261,7 +261,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return (length && length <= arity) ? result : baseAry(result, arity);
 	        }
 	        return result;
-	    ***REMOVED***
+	      };
 	    },
 	    'mixin': function(mixin) {
 	      return function(source) {
@@ -287,14 +287,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        });
 	        return func;
-	    ***REMOVED***
+	      };
 	    },
 	    'runInContext': function(runInContext) {
 	      return function(context) {
 	        return baseConvert(util, runInContext(context), options);
-	    ***REMOVED***
+	      };
 	    }
-	***REMOVED***
+	  };
 
 	  /*--------------------------------------------------------------------------*/
 
@@ -353,7 +353,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          newOptions = assign(assign({}, oldOptions), options);
 
 	      return baseConvert(newUtil, name, newFunc, newOptions);
-	  ***REMOVED***
+	    };
 	  }
 
 	  /**
@@ -411,7 +411,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var index = config.rearg ? 0 : (length - 1);
 	      args[index] = transform(args[index]);
 	      return func.apply(undefined, args);
-	  ***REMOVED***
+	    };
 	  }
 
 	  /**
@@ -481,7 +481,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (result == func) {
 	      result = forceCurry ? curry(result, 1) : function() {
 	        return func.apply(this, arguments);
-	    ***REMOVED***
+	      };
 	    }
 	    result.convert = createConverter(name, func);
 	    if (mapping.placeholder[name]) {

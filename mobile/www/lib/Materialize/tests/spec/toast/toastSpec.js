@@ -39,7 +39,7 @@ describe( 'Toasts:', function() {
       var boolObj = {wasCalled: false};
       var callback = function() {
         boolObj.wasCalled = true;
-    ***REMOVED***
+      };
       Materialize.toast('I am a toast', 100, '', callback);
       setTimeout(function() {
         expect(boolObj.wasCalled).toBe(true,

@@ -66,7 +66,7 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
                'snippet</p>';
              $scope.deliberatelyTrustDangerousSnippet = function() {
                return $sce.trustAsHtml($scope.snippet);
-           ***REMOVED***
+             };
            }]);
      </script>
      <div ng-controller="ExampleController">
@@ -157,7 +157,7 @@ function $SanitizeProvider() {
         return !/^unsafe:/.test($$sanitizeUri(uri, isImage));
       }));
       return buf.join('');
-  ***REMOVED***
+    };
   }];
 
 
@@ -198,7 +198,7 @@ function $SanitizeProvider() {
     } else {
       return svgEnabled;
     }
-***REMOVED***
+  };
 }
 
 function sanitizeText(chars) {
@@ -477,7 +477,7 @@ function htmlSanitizeWriter(buf, uriValidator) {
         out(encodeEntities(chars));
       }
     }
-***REMOVED***
+  };
 }
 
 
@@ -710,7 +710,7 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
       addText(text);
       html.push('</a>');
     }
-***REMOVED***
+  };
 }]);
 
 

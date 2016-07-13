@@ -61,7 +61,7 @@
                          f(this.getUTCHours())     + ':' +
                          f(this.getUTCMinutes())   + ':' +
                          f(this.getUTCSeconds())   + 'Z';
-              ***REMOVED***
+                };
 
             You can provide an optional replacer method. It will be passed the
             key and value of each member, with this bound to the containing
@@ -203,7 +203,7 @@ if (typeof JSON !== 'object') {
                         f(this.getUTCMinutes()) + ':' +
                         f(this.getUTCSeconds()) + 'Z'
                 : null;
-      ***REMOVED***
+        };
 
         Boolean.prototype.toJSON = this_value;
         Number.prototype.toJSON = this_value;
@@ -384,7 +384,7 @@ if (typeof JSON !== 'object') {
             '\r': '\\r',
             '"': '\\"',
             '\\': '\\\\'
-      ***REMOVED***
+        };
         JSON.stringify = function (value, replacer, space) {
 
 // The stringify method takes a value and an optional replacer, and an optional
@@ -425,7 +425,7 @@ if (typeof JSON !== 'object') {
 // Return the result of stringifying the value.
 
             return str('', {'': value});
-      ***REMOVED***
+        };
     }
 
 
@@ -514,6 +514,6 @@ if (typeof JSON !== 'object') {
 // If the text is not JSON parseable, then a SyntaxError is thrown.
 
             throw new SyntaxError('JSON.parse');
-      ***REMOVED***
+        };
     }
 }());

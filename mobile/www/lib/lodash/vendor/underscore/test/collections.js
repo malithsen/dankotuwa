@@ -279,7 +279,7 @@
       b: {x: 2, z: 2},
       c: {x: 3, z: 4},
       d: {x: 4, z: 1}
-  ***REMOVED***
+    };
 
     assert.deepEqual(_.find(obj, {x: 2}), {x: 2, z: 2}, 'works on objects');
     assert.deepEqual(_.find(obj, {x: 2, z: 1}), void 0);
@@ -484,7 +484,7 @@
   QUnit.test('invoke when strings have a call method', function(assert) {
     String.prototype.call = function() {
       return 42;
-  ***REMOVED***
+    };
     var list = [[5, 1, 7], [3, 2, 1]];
     var s = 'foo';
     assert.equal(s.call(), 42, 'call function exists');
@@ -829,7 +829,7 @@
 
     var func = function() {
       return _.size(arguments);
-  ***REMOVED***
+    };
 
     assert.equal(func(1, 2, 3, 4), 4, 'can test the size of the arguments object');
 

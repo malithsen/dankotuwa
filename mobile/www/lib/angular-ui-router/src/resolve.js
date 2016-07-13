@@ -179,8 +179,8 @@ function $Resolve(  $q,    $injector) {
       }
       
       return result;
-  ***REMOVED***
-***REMOVED***
+    };
+  };
   
   /**
    * @ngdoc function
@@ -245,7 +245,7 @@ function $Resolve(  $q,    $injector) {
    */
   this.resolve = function (invocables, locals, parent, self) {
     return this.study(invocables)(locals, parent, self);
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.util').service('$resolve', $Resolve);

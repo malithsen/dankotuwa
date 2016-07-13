@@ -53,7 +53,7 @@ ngCordovaMocks.factory('$cordovaAppVersion', ['$q', function ($q) {
       defer.resolve('mock v');
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -145,7 +145,7 @@ ngCordovaMocks.factory('$cordovaBarcodeScanner', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -162,7 +162,7 @@ ngCordovaMocks.factory('$cordovaBLE', ['$q', '$timeout', '$interval', '$log', fu
     id: 'AA:BB:CC:DD:EE:FF',
     advertising: [2, 1, 6, 3, 3, 15, 24, 8, 9, 66, 97, 116, 116, 101, 114, 121],
     rssi: -55
-***REMOVED***
+  };
 
   var deviceConnect = {
     name: 'Test Device',
@@ -197,7 +197,7 @@ ngCordovaMocks.factory('$cordovaBLE', ['$q', '$timeout', '$interval', '$log', fu
         descriptors: [{'uuid': '2901'}, {'uuid': '2904'}]
       }
     ]
-***REMOVED***
+  };
 
   var readData = new ArrayBuffer(8);
 
@@ -312,7 +312,7 @@ ngCordovaMocks.factory('$cordovaBLE', ['$q', '$timeout', '$interval', '$log', fu
       q.resolve(true);
       return q.promise;
     }
-***REMOVED***
+  };
 }]);
 
 ngCordovaMocks.factory('$cordovaBrightness', ['$q', function ($q) {
@@ -389,7 +389,7 @@ ngCordovaMocks.factory('$cordovaCamera', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -449,7 +449,7 @@ ngCordovaMocks.factory('$cordovaCapture', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -570,7 +570,7 @@ ngCordovaMocks.factory('$cordovaContacts', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -589,7 +589,7 @@ ngCordovaMocks.factory('$cordovaDatePicker', ['$q', function ($q) {
       q.resolve(options.date);
       return q.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -713,7 +713,7 @@ ngCordovaMocks.factory('$cordovaDevice', function () {
     getManufacturer: function () {
       return this.manufacturer;
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -823,7 +823,7 @@ ngCordovaMocks.factory('$cordovaDeviceMotion', ['$interval', '$q', function ($in
       return {
         watchId: watchId,
         promise: defer.promise
-    ***REMOVED***
+      };
     },
 
     clearWatch: function (watchId) {
@@ -851,7 +851,7 @@ ngCordovaMocks.factory('$cordovaDeviceMotion', ['$interval', '$q', function ($in
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -974,15 +974,15 @@ ngCordovaMocks.factory('$cordovaDeviceOrientation', ['$interval', '$q', function
         if (removed !== -1) {
           self.watchIntervals.splice(removed, 1);
         }
-    ***REMOVED***
+      };
 
       defer.promise.cancel = function () {
         cancel(watchID);
-    ***REMOVED***
+      };
 
       defer.promise.clearWatch = function (id) {
         cancel(id || watchID);
-    ***REMOVED***
+      };
 
       defer.promise.watchID = watchID;
 
@@ -1014,7 +1014,7 @@ ngCordovaMocks.factory('$cordovaDeviceOrientation', ['$interval', '$q', function
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -1171,7 +1171,7 @@ ngCordovaMocks.factory('$cordovaDialogs', ['$q', function ($q) {
     beep: function (times) {
       this.beepCount = times;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -1242,7 +1242,7 @@ ngCordovaMocks.factory('$cordovaFacebook', ['$q', function ($q) {
         return $q.reject();
       }
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -1268,7 +1268,7 @@ ngCordovaMocks.factory('$cordovaFile', ['$q', function ($q) {
     }
 
     return defer.promise;
-***REMOVED***
+  };
 
   return {
     /**
@@ -1368,7 +1368,7 @@ ngCordovaMocks.factory('$cordovaFile', ['$q', function ($q) {
         this.files[filePath] = {
           isFile: true,
           fileContent: ''
-      ***REMOVED***
+        };
         defer.resolve();
         return defer.promise;
       }
@@ -1385,7 +1385,7 @@ ngCordovaMocks.factory('$cordovaFile', ['$q', function ($q) {
         this.files[filePath] = {
           isFile: true,
           fileContent: data
-      ***REMOVED***
+        };
       }
 
       return mockIt.call(this, 'There was an error writing the file.');
@@ -1433,7 +1433,7 @@ ngCordovaMocks.factory('$cordovaFile', ['$q', function ($q) {
     readFileMetadataAbsolute: function (filePath) {
       return mockIt.call(this, 'There was an error reading the file metadta from the absolute path');
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -1512,7 +1512,7 @@ ngCordovaMocks.factory('$cordovaFileOpener2', ['$q', function ($q) {
 
     }
 
-***REMOVED***
+  };
 
 }]);
 
@@ -1536,7 +1536,7 @@ ngCordovaMocks.factory('$cordovaFileTransfer', ['$q', function ($q) {
             defer.resolve();
         }
         return defer.promise;
-  ***REMOVED***
+    };
 
     return {
         /**
@@ -1557,7 +1557,7 @@ ngCordovaMocks.factory('$cordovaFileTransfer', ['$q', function ($q) {
         upload: function (server, filePath, options) {
             return mockIt.call(this, 'There was an error uploading the file.'); 
         }
-  ***REMOVED***
+    };
 }]);
 
 /**
@@ -1732,7 +1732,7 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
                       speed: ((Math.random() * 100) + 1)
                     },
                     timestamp: Date.now()
-                ***REMOVED***
+                  };
 
                   self.currentPosition = result;
                   self.locations.push(result);
@@ -1758,15 +1758,15 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
         if (removed !== -1) {
           self.watchIntervals.splice(removed, 1);
         }
-    ***REMOVED***
+      };
 
       defer.promise.cancel = function () {
         cancel(watchID);
-    ***REMOVED***
+      };
 
       defer.promise.clearWatch = function (id) {
         cancel(id || watchID);
-    ***REMOVED***
+      };
 
       defer.promise.watchID = watchID;
 
@@ -1798,7 +1798,7 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -2058,7 +2058,7 @@ ngCordovaMocks.factory('$cordovaGlobalization', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -2106,7 +2106,7 @@ ngCordovaMocks.factory('$cordovaGoogleAnalytics', ['$q', function ($q) {
         defer.resolve();
 
       return defer.promise;
-  ***REMOVED***
+    };
   });
 
   return methods;
@@ -2267,7 +2267,7 @@ ngCordovaMocks.factory('$cordovaGooglePlayGame', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 
 }]);
 
@@ -2301,7 +2301,7 @@ ngCordovaMocks.factory('$cordovaKeyboard', function () {
       return isVisible;
     }
 
-***REMOVED***
+  };
 });
 
 /**
@@ -2364,7 +2364,7 @@ ngCordovaMocks.factory('$cordovaKeychain', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 
@@ -2488,7 +2488,7 @@ ngCordovaMocks.factory('$cordovaLocalNotification', ['$q', function ($q) {
       defer.resolve();
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 /**
  * @ngdoc service
@@ -2547,7 +2547,7 @@ ngCordovaMocks.factory('$cordovaNetwork', ['$rootScope',function ($rootScope) {
     isOffline: function () {
       return !this.isConnected;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -2699,7 +2699,7 @@ ngCordovaMocks.factory('$cordovaProgress', [
       hide: function () {
         console.info('$cordovaProgress.hide');
       }
-  ***REMOVED***
+    };
   }
 ]);
 
@@ -2777,7 +2777,7 @@ ngCordovaMocks.factory('$cordovaPush', ['$q', '$timeout', '$rootScope', function
       }
       return defer.promise;
     },
-***REMOVED***
+  };
 }]);
 
 /**
@@ -2828,7 +2828,7 @@ ngCordovaMocks.factory('$cordovaScreenshot', ['$q', function ($q) {
 
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -3092,7 +3092,7 @@ ngCordovaMocks.factory('$cordovaSocialSharing', ['$q', function ($q) {
       }
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -3130,7 +3130,7 @@ ngCordovaMocks.factory('$cordovaSplashscreen', function () {
       this.isVisible = true;
       return true;
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -3257,7 +3257,7 @@ ngCordovaMocks.factory('$cordovaStatusbar', function () {
     isVisible: function () {
       return this.isStatusBarVisible;
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -3357,7 +3357,7 @@ ngCordovaMocks.factory('$cordovaToast', ['$q', function ($q) {
       }
       return defer.promise;
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -3437,7 +3437,7 @@ ngCordovaMocks.factory('$cordovaVibration', ['$timeout', function ($timeout) {
         }
       }
     }
-***REMOVED***
+  };
 }]);
 
 })();

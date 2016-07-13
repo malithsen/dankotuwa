@@ -20,7 +20,7 @@ function $ViewScrollProvider() {
    */
   this.useAnchorScroll = function () {
     useAnchorScroll = true;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -45,7 +45,7 @@ function $ViewScrollProvider() {
       $timeout(function () {
         $element[0].scrollIntoView();
       }, 0, false);
-  ***REMOVED***
+    };
   }];
 }
 

@@ -19,7 +19,7 @@
             QUnit.config.done.length = 0;
           }
           global_test_results = { 'message': message };
-      ***REMOVED***
+        };
       }
     </script>
     <script src="../node_modules/lodash/lodash.js"></script>
@@ -60,7 +60,7 @@
         function constant(value) {
           return function() {
             return value;
-        ***REMOVED***
+          };
         }
 
         function createToString(funcName) {
@@ -92,7 +92,7 @@
               object.prototype = undefined;
             }
             return result || {};
-        ***REMOVED***
+          };
         }()));
 
         setProperty(Object, '_getOwnPropertySymbols', Object.getOwnPropertySymbols);
@@ -114,7 +114,7 @@
               var result = {};
               setProperty(window, 'Map', Map);
               return result;
-          ***REMOVED***
+            };
           }(_Map)));
 
           setProperty(Map, 'toString', createToString('Map'));
@@ -258,7 +258,7 @@
                 'exports': '_'
               }
             }
-        ***REMOVED***
+          };
 
           if (ui.isModularize) {
             result.packages.push({
@@ -345,7 +345,7 @@
             clearInterval(timeoutId);
           }
         }, 16);
-    ***REMOVED***
+      };
     </script>
   </body>
 </html>

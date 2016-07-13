@@ -777,7 +777,7 @@ this.getStyle = this.isIE ?
     {
         return el.ownerDocument.defaultView.getComputedStyle(el,null)[name]
             || el.style[name] || undefined;
-  ***REMOVED***
+    };
 
 
 // ************************************************************************************************
@@ -860,7 +860,7 @@ e(0x200b, '#8203', attr, text, white, editor); // zero-width space (ZWSP)
 var entityConversionRegexes = {
         normal : {},
         reverse : {}
-  ***REMOVED***
+    };
 
 var escapeEntitiesRegEx = {
     normal : function(list)
@@ -929,7 +929,7 @@ function createSimpleEscape(name, direction)
                     return list[ch];
                 }
                );
-  ***REMOVED***
+    };
 };
 
 function escapeGroupsForEntities(str, lists)
@@ -964,7 +964,7 @@ function escapeGroupsForEntities(str, lists)
                     'class' : list['class'],
                     'extra' : list.extra[cur] ? list['class']
                             + list.extra[cur] : ''
-              ***REMOVED***
+                };
                 break;
             }
         }
@@ -974,7 +974,7 @@ function escapeGroupsForEntities(str, lists)
                 'str' : cur,
                 'class' : '',
                 'extra' : ''
-          ***REMOVED***
+            };
         ri++;
     }
     return results;
@@ -1072,7 +1072,7 @@ function escapeHTMLAttribute(value)
                 return quot;
         }
         return "?";
-  ***REMOVED***
+    };
     var apos = "&#39;", quot = "&quot;", around = '"';
     if( value.indexOf('"') == -1 ) {
         quot = '"';
@@ -1103,7 +1103,7 @@ function escapeHTML(value)
                 return "&quot;";
         }
         return "?";
-  ***REMOVED***
+    };
     return String(value).replace(/[<>&"']/g, replaceChars);
 }
 
@@ -1338,7 +1338,7 @@ this.getClientOffset = function(elt)
             if (!otherView.opener && otherView.frameElement)
                 addOffset(otherView.frameElement, coords, otherView);
         }
-  ***REMOVED***
+    };
 
     var isIE = this.isIE;
     var coords = {x: 0, y: 0};
@@ -1752,7 +1752,7 @@ this.readBoxStyles = function(style)
         "padding-top": "paddingTop", "padding-right": "paddingRight",
         "padding-left": "paddingLeft", "padding-bottom": "paddingBottom",
         "z-index": "zIndex"
-  ***REMOVED***
+    };
 
     var styles = {};
     for (var styleName in styleNames)
@@ -3422,7 +3422,7 @@ this.Property = function(object, name)
     this.getObject = function()
     {
         return object[name];
-  ***REMOVED***
+    };
 };
 
 this.ErrorCopy = function(message)
@@ -5779,7 +5779,7 @@ if (typeof KeyEvent == "undefined") {
         DOM_VK_CLOSE_BRACKET: 221,
         DOM_VK_QUOTE: 222,
         DOM_VK_META: 224
-  ***REMOVED***
+    };
 }
 
 
@@ -5920,7 +5920,7 @@ this.Ajax =
         t.onreadystatechange = function()
         {
             FBL.Ajax.onStateChange(r);
-      ***REMOVED***
+        };
 
         // send the request
         t.send(data);
@@ -6051,7 +6051,7 @@ var calculatePixelsPerInch = function calculatePixelsPerInch(doc, body)
     FBL.pixelsPerInch = {
         x: inch.offsetWidth,
         y: inch.offsetHeight
-  ***REMOVED***
+    };
 
     body.removeChild(inch);
 };
@@ -6516,7 +6516,7 @@ FBL.Firebug =
     {
         var prefs = {
             options: {}
-      ***REMOVED***
+        };
 
         var EnvOptions = Env.Options;
         var options = prefs.options;
@@ -7205,7 +7205,7 @@ Firebug.Panel =
             } else {
                 return (curPos + index + 1) % allLocs.length;
             }
-      ***REMOVED***
+        };
 
         for (var next = 0; next < allLocs.length - 1; next++)
         {
@@ -7738,7 +7738,7 @@ FBL.PanelBar =
                 {
                     self.selectPanel(name);
                     return false;
-              ***REMOVED***
+                };
 
                 Firebug.chrome.addController([self.panelMap[name].tabNode, "mousedown", onTabClick]);
 
@@ -9127,7 +9127,7 @@ FBL.Context.prototype =
             var value = div.offsetHeight;
             el.removeChild(div);
             return value;
-      ***REMOVED***
+        };
 
         /*
         var calibrationBase = 200;
@@ -9503,7 +9503,7 @@ var createChromeWindow = function(options)
             chrome.window = window;
             chrome.document = document;
             onChromeLoad(chrome);
-      ***REMOVED***
+        };
 
     //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -9650,7 +9650,7 @@ var createChromeWindow = function(options)
                 }
                 else
                     setTimeout(waitForWindow, waitDelay);
-          ***REMOVED***
+            };
 
         waitForWindow();
     }
@@ -10095,7 +10095,7 @@ append(ChromeBase,
                         Menu.disable(option);
                 }
             }
-      ***REMOVED***
+        };
 
         Menu.register(firebugOptionsMenu);
 
@@ -10129,7 +10129,7 @@ append(ChromeBase,
             }
 
             return false;
-      ***REMOVED***
+        };
 
         var iconButton = new IconButton({
             type: "toggle",
@@ -10313,7 +10313,7 @@ append(ChromeBase,
                 // Prevent auto-scroll when middle-clicking a rep object
                 FBL.cancelEvent(event);
             }
-      ***REMOVED***
+        };
 
         Firebug.getElementPanel = function(element)
         {
@@ -10329,7 +10329,7 @@ append(ChromeBase,
             }
 
             return panel;
-      ***REMOVED***
+        };
 
 
 
@@ -10359,7 +10359,7 @@ append(ChromeBase,
                     }
                 }
             }
-      ***REMOVED***
+        };
 
         addEvent(Firebug.chrome.document, "keydown", onKeyCodeListen);
 
@@ -10380,7 +10380,7 @@ append(ChromeBase,
             });
 
             return keyCode;
-      ***REMOVED***
+        };
 
         /**
          * @name keyIgnore
@@ -10390,7 +10390,7 @@ append(ChromeBase,
         {
             onKeyCodeListenersMap[keyCode] = null;
             delete onKeyCodeListenersMap[keyCode];
-      ***REMOVED***
+        };
 
         // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -10420,12 +10420,12 @@ append(ChromeBase,
             addEvent(Firebug.chrome.document, "keydown", fn);
 
             return [fn, capture];
-      ***REMOVED***
+        };
 
         Firebug.chrome.keyIgnore = function(listener)
         {
             removeEvent(Firebug.chrome.document, "keydown", listener[0]);
-      ***REMOVED***
+        };
         /**/
 
 
@@ -11309,7 +11309,7 @@ var ChromePopupBase = extend(ChromeBase,
             } catch (E) {
                 window.close();
             }
-      ***REMOVED***
+        };
 
         waitMainWindow();
     },
@@ -11630,7 +11630,7 @@ var createCache = function()
     var cacheFunction = function(element)
     {
         return cacheAPI.set(element);
-  ***REMOVED***
+    };
 
     var cacheAPI =
     {
@@ -11732,7 +11732,7 @@ var createCache = function()
                 cacheAPI.unset(element);
             }
         }
-  ***REMOVED***
+    };
 
     var getValidatedKey = function(element)
     {
@@ -11756,7 +11756,7 @@ var createCache = function()
         }
 
         return id;
-  ***REMOVED***
+    };
 
     FBL.append(cacheFunction, cacheAPI);
 
@@ -11830,7 +11830,7 @@ Firebug.Lite.Proxy =
 
             script.parentNode.removeChild(script);
             delete Firebug.Lite.Proxy._callbacks[uid];
-      ***REMOVED***
+        };
 
         script.src = jsonpURL;
 
@@ -11972,7 +11972,7 @@ Firebug.Lite.Browser = function(window)
     this.currentURI =
     {
         spec: window.location.href
-  ***REMOVED***
+    };
 };
 
 Firebug.Lite.Browser.prototype =
@@ -12049,7 +12049,7 @@ Firebug.Lite.Browser.prototype =
                          f(this.getUTCHours())     + ':' +
                          f(this.getUTCMinutes())   + ':' +
                          f(this.getUTCSeconds())   + 'Z';
-              ***REMOVED***
+                };
 
             You can provide an optional replacer method. It will be passed the
             key and value of each member, with this bound to the containing
@@ -12175,13 +12175,13 @@ var JSON = window.JSON || {};
                  f(this.getUTCHours())     + ':' +
                  f(this.getUTCMinutes())   + ':' +
                  f(this.getUTCSeconds())   + 'Z' : null;
-      ***REMOVED***
+        };
 
         String.prototype.toJSON =
         Number.prototype.toJSON =
         Boolean.prototype.toJSON = function (key) {
             return this.valueOf();
-      ***REMOVED***
+        };
     }
 
     var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
@@ -12387,7 +12387,7 @@ var JSON = window.JSON || {};
 // Return the result of stringifying the value.
 
             return str('', {'': value});
-      ***REMOVED***
+        };
     }
 
 
@@ -12471,7 +12471,7 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 // If the text is not JSON parseable, then a SyntaxError is thrown.
 
             throw new SyntaxError('JSON.parse');
-      ***REMOVED***
+        };
     }
 
 // ************************************************************************************************
@@ -13352,7 +13352,7 @@ try {
         }
 
         return ret;
-  ***REMOVED***
+    };
 }
 
 var sortOrder;
@@ -13371,7 +13371,7 @@ if ( document.documentElement.compareDocumentPosition ) {
             hasDuplicate = true;
         }
         return ret;
-  ***REMOVED***
+    };
 } else if ( "sourceIndex" in document.documentElement ) {
     sortOrder = function( a, b ) {
         if ( !a.sourceIndex || !b.sourceIndex ) {
@@ -13386,7 +13386,7 @@ if ( document.documentElement.compareDocumentPosition ) {
             hasDuplicate = true;
         }
         return ret;
-  ***REMOVED***
+    };
 } else if ( document.createRange ) {
     sortOrder = function( a, b ) {
         if ( !a.ownerDocument || !b.ownerDocument ) {
@@ -13406,7 +13406,7 @@ if ( document.documentElement.compareDocumentPosition ) {
             hasDuplicate = true;
         }
         return ret;
-  ***REMOVED***
+    };
 }
 
 // Check to see if the browser returns elements by name when
@@ -13429,12 +13429,12 @@ if ( document.documentElement.compareDocumentPosition ) {
                 var m = context.getElementById(match[1]);
                 return m ? m.id === match[1] || typeof m.getAttributeNode !== "undefined" && m.getAttributeNode("id").nodeValue === match[1] ? [m] : undefined : [];
             }
-      ***REMOVED***
+        };
 
         Expr.filter.ID = function(elem, match){
             var node = typeof elem.getAttributeNode !== "undefined" && elem.getAttributeNode("id");
             return elem.nodeType === 1 && node && node.nodeValue === match;
-      ***REMOVED***
+        };
     }
 
     root.removeChild( form );
@@ -13468,7 +13468,7 @@ if ( document.documentElement.compareDocumentPosition ) {
             }
 
             return results;
-      ***REMOVED***
+        };
     }
 
     // Check to see if an attribute returns normalized href attributes
@@ -13477,7 +13477,7 @@ if ( document.documentElement.compareDocumentPosition ) {
             div.firstChild.getAttribute("href") !== "#" ) {
         Expr.attrHandle.href = function(elem){
             return elem.getAttribute("href", 2);
-      ***REMOVED***
+        };
     }
 
     div = null; // release memory in IE
@@ -13505,7 +13505,7 @@ if ( document.querySelectorAll ) (function(){
         }
 
         return oldSizzle(query, context, extra, seed);
-  ***REMOVED***
+    };
 
     for ( var prop in oldSizzle ) {
         Sizzle[ prop ] = oldSizzle[ prop ];
@@ -13533,7 +13533,7 @@ if ( document.getElementsByClassName && document.documentElement.getElementsByCl
         if ( typeof context.getElementsByClassName !== "undefined" && !isXML ) {
             return context.getElementsByClassName(match[1]);
         }
-  ***REMOVED***
+    };
 
     div = null; // release memory in IE
 })();
@@ -13786,7 +13786,7 @@ Firebug.Inspector =
 
                     if (Firebug.HTML)
                         Firebug.HTML.selectTreeNode(""+ElementCache.key(targ));
-              ***REMOVED***
+                };
 
                 if (inspectorTimer)
                 {
@@ -14405,7 +14405,7 @@ FBL.DomplateTag.prototype =
                         return "&quot;";
                 }
                 return "?";
-          ***REMOVED***
+            };
             return String(value).replace(/[<>&"']/g, replaceChars);
         }
 
@@ -15080,7 +15080,7 @@ function ArrayIterator(array)
             throw StopIteration;
 
         return array[index];
-  ***REMOVED***
+    };
 }
 
 /** @class */
@@ -15668,7 +15668,7 @@ this.Obj = domplate(Firebug.Rep,
             "number": this.propNumberTag,
             "string": this.propStringTag,
             "object": this.propObjectTag
-      ***REMOVED***
+        };
 
         try
         {
@@ -15798,7 +15798,7 @@ this.Obj = domplate(Firebug.Rep,
                     name: "",
                     equal:"",
                     delim:""
-              ***REMOVED***
+                };
             }
             else if (props.length > 0)
             {
@@ -17882,7 +17882,7 @@ Firebug.InlineEditor.prototype = domplate(Firebug.BaseEditor,
         {
             x: target.offsetLeft,
             y: target.offsetTop
-      ***REMOVED***
+        };
 
         // Restore the original innerHTML value of the empty element
         if (isEmptyElement)
@@ -18336,7 +18336,7 @@ Firebug.AutoCompleter = function(getExprOffset, getRange, evaluator, selectMode,
             this.reset();
             return false;
         }
-  ***REMOVED***
+    };
 
     this.reset = function()
     {
@@ -18346,7 +18346,7 @@ Firebug.AutoCompleter = function(getExprOffset, getRange, evaluator, selectMode,
         lastExpr = null;
         lastOffset = 0;
         exprOffset = 0;
-  ***REMOVED***
+    };
 
     this.complete = function(context, textBox, cycle, reverse)
     {
@@ -18569,9 +18569,9 @@ Firebug.AutoCompleter = function(getExprOffset, getRange, evaluator, selectMode,
                 setSelectionRange(textBox, offset, offsetEnd);
             else
                 setSelectionRange(textBox, offsetEnd, offsetEnd);
-      ***REMOVED***
+        };
         /**/
-  ***REMOVED***
+    };
 };
 
 // ************************************************************************************************
@@ -18735,7 +18735,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
         open: 1,
         send: 1,
         setRequestHeader: 1
-  ***REMOVED***
+    };
 
     var updateSelfProperties = function()
     {
@@ -18770,7 +18770,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
                 self.responseXML = xhrRequest.responseXML;
             }
         }
-  ***REMOVED***
+    };
 
     var updateXHRPropertiesIgnore = {
         channel: 1,
@@ -18782,7 +18782,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
         status: 1,
         statusText: 1,
         upload: 1
-  ***REMOVED***
+    };
 
     var updateXHRProperties = function()
     {
@@ -18805,7 +18805,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
                 //console.log(propName, E.message);
             }
         }
-  ***REMOVED***
+    };
 
     var logXHR = function()
     {
@@ -18816,7 +18816,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
             setClass(row, "loading");
             spy.logRow = row;
         }
-  ***REMOVED***
+    };
 
     var finishXHR = function()
     {
@@ -18897,7 +18897,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
         self.responseXML = xhrRequest.responseXML;
         /**/
         updateSelfProperties();
-  ***REMOVED***
+    };
 
     var handleStateChange = function()
     {
@@ -18915,7 +18915,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
         //Firebug.Console.log(spy.url + ": " + xhrRequest.readyState);
 
         self.onreadystatechange();
-  ***REMOVED***
+    };
 
     // update the XHR representation data
     var handleRequestStatus = function(success, status, time)
@@ -18934,7 +18934,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
             var item = FBL.$$(".spyTime", row)[0];
             item.innerHTML = time + "ms";
         }
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     // XMLHttpRequestWrapper public properties and handlers
@@ -18976,7 +18976,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
 
         xhrRequest.onreadystatechange = handleStateChange;
 
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -19017,7 +19017,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
                 }
             }
         }
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -19025,7 +19025,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
     {
         spy.requestHeaders.push({name: [header], value: [value]});
         return xhrRequest.setRequestHeader(header, value);
-  ***REMOVED***
+    };
 
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -19035,21 +19035,21 @@ var XMLHttpRequestWrapper = function(activeXObject)
         xhrRequest.abort();
         updateSelfProperties();
         handleRequestStatus(false, "Aborted");
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     this.getResponseHeader = function(header)
     {
         return xhrRequest.getResponseHeader(header);
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     this.getAllResponseHeaders = function()
     {
         return xhrRequest.getAllResponseHeaders();
-  ***REMOVED***
+    };
 
     /**/
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -19090,7 +19090,7 @@ var XMLHttpRequestWrapper = function(activeXObject)
                             function(a,b,c,d,e)
                             {
                                 return xhr[name](a,b,c,d,e);
-                          ***REMOVED***
+                            };
 
                     })(propName, xhrRequest);
                 }
@@ -19148,7 +19148,7 @@ if (isIE6)
             else
                 throw error.message;
         }
-  ***REMOVED***
+    };
 }
 
 // ************************************************************************************************
@@ -19160,7 +19160,7 @@ if (!isIE6)
     window.XMLHttpRequest = function()
     {
         return new XMLHttpRequestWrapper();
-  ***REMOVED***
+    };
 }
 
 //************************************************************************************************
@@ -19746,7 +19746,7 @@ Firebug.NetMonitor.NetInfoBody = domplate(Firebug.Rep, new Firebug.Listener(),
                     var panel = context.getPanel("net", true);
                     panel.openResponseInTab(file);
                 }
-          ***REMOVED***
+            };
             Firebug.NetMonitor.ResponseSizeLimit.append(object, responseTextBox);
         }
 
@@ -20050,7 +20050,7 @@ Firebug.NetMonitor.NetInfoPostData = domplate(Firebug.Rep, /*new Firebug.Listene
         ///if (Firebug.JSONViewerModel.isJSON(contentType))
         var jsonData = {
             responseText: data
-      ***REMOVED***
+        };
 
         if (Firebug.JSONViewerModel.isJSON(contentType, data))
             ///this.insertJSON(parentNode, file, context);
@@ -22107,7 +22107,7 @@ Firebug.ConsolePanel.prototype = extend(Firebug.Panel,
         var limitInfo = {
             totalCount: 0,
             limitPrefsTitle: $STRF("LimitPrefsTitle", [Firebug.prefDomain+".console.logLimit"])
-      ***REMOVED***
+        };
 
         //TODO: xxxpedro console net limit!?
         return;
@@ -22860,7 +22860,7 @@ Firebug.Console.injector =
             var c = consoleHandler;
             var f = consoleHandler[name];
             return function(){return f.apply(c,arguments);};
-      ***REMOVED***
+        };
 
         var installer = function(c)
         {
@@ -22870,7 +22870,7 @@ Firebug.Console.injector =
                 c[name] = new Handler(name);
                 c.firebuglite = Firebug.version;
             }
-      ***REMOVED***
+        };
 
         var sandbox;
 
@@ -23061,12 +23061,12 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
         // When raised on our injected element, callback to Firebug and append to console
         this.boundHandler = bind(this.handleEvent, this);
         this.element.addEventListener('firebugAppendConsole', this.boundHandler, true); // capturing
-  ***REMOVED***
+    };
 
     this.detach = function()
     {
         this.element.removeEventListener('firebugAppendConsole', this.boundHandler, true);
-  ***REMOVED***
+    };
 
     this.handler_name = ++total_handlers;
     this.handleEvent = function(event)
@@ -23081,7 +23081,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             var methodName = event.target.getAttribute("methodName");
             Firebug.Console.log($STRF("console.MethodNotSupported", [methodName]));
         }
-  ***REMOVED***
+    };
 
     this.firebuglite = Firebug.version;
 
@@ -23089,27 +23089,27 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
     {
         var consoleElement = win.document.getElementById('_firebugConsole');
         consoleElement.setAttribute("FirebugVersion", Firebug.version);
-  ***REMOVED***
+    };
 
     this.log = function()
     {
         logFormatted(arguments, "log");
-  ***REMOVED***
+    };
 
     this.debug = function()
     {
         logFormatted(arguments, "debug", true);
-  ***REMOVED***
+    };
 
     this.info = function()
     {
         logFormatted(arguments, "info", true);
-  ***REMOVED***
+    };
 
     this.warn = function()
     {
         logFormatted(arguments, "warn", true);
-  ***REMOVED***
+    };
 
     this.error = function()
     {
@@ -23123,12 +23123,12 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             //Firebug.Errors.increaseCount(context);
             logFormatted(arguments, "error", true);  // user already added info
         //}
-  ***REMOVED***
+    };
 
     this.exception = function()
     {
         logAssert("error", arguments);
-  ***REMOVED***
+    };
 
     this.assert = function(x)
     {
@@ -23139,12 +23139,12 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
                 rest.push(arguments[i]);
             logAssert("assert", rest);
         }
-  ***REMOVED***
+    };
 
     this.dir = function(o)
     {
         Firebug.Console.log(o, context, "dir", Firebug.DOMPanel.DirTable);
-  ***REMOVED***
+    };
 
     this.dirxml = function(o)
     {
@@ -23156,7 +23156,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             o = o.documentElement;
 
         Firebug.Console.log(o, context, "dirxml", Firebug.HTMLPanel.SoloElement);
-  ***REMOVED***
+    };
 
     this.group = function()
     {
@@ -23164,12 +23164,12 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
         //var sourceLink = getStackLink();
         var sourceLink = null;
         Firebug.Console.openGroup(arguments, null, "group", null, false, sourceLink);
-  ***REMOVED***
+    };
 
     this.groupEnd = function()
     {
         Firebug.Console.closeGroup(context);
-  ***REMOVED***
+    };
 
     this.groupCollapsed = function()
     {
@@ -23177,21 +23177,21 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
         // noThrottle true is probably ok, openGroups will likely be short strings.
         var row = Firebug.Console.openGroup(arguments, null, "group", null, true, sourceLink);
         removeClass(row, "opened");
-  ***REMOVED***
+    };
 
     this.profile = function(title)
     {
         logFormatted(["console.profile() not supported."], "warn", true);
 
         //Firebug.Profiler.startProfiling(context, title);
-  ***REMOVED***
+    };
 
     this.profileEnd = function()
     {
         logFormatted(["console.profile() not supported."], "warn", true);
 
         //Firebug.Profiler.stopProfiling(context);
-  ***REMOVED***
+    };
 
     this.count = function(key)
     {
@@ -23223,7 +23223,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
 
             frameCounter.logRow.firstChild.firstChild.nodeValue = label;
         }
-  ***REMOVED***
+    };
 
     this.trace = function()
     {
@@ -23240,7 +23240,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
 
             var name = f.toString().match(/function\s*([_$\w\d]*)/)[1];
             return name || "anonymous";
-      ***REMOVED***
+        };
 
         var wasVisited = function(fn)
         {
@@ -23253,7 +23253,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             }
 
             return false;
-      ***REMOVED***
+        };
 
         traceRecursion++;
 
@@ -23423,7 +23423,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
         Firebug.Console.log({frames: frames}, context, "stackTrace", FirebugReps.StackTrace);
 
         traceRecursion--;
-  ***REMOVED***
+    };
 
     this.trace_ok = function()
     {
@@ -23436,7 +23436,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
 
             var name = f.toString().match(/function\s*([_$\w\d]*)/)[1];
             return name || "anonymous";
-      ***REMOVED***
+        };
 
         var wasVisited = function(fn)
         {
@@ -23447,7 +23447,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             }
 
             return false;
-      ***REMOVED***
+        };
 
         var frames = [];
 
@@ -23466,12 +23466,12 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
         }
 
         Firebug.Console.log({frames: frames}, context, "stackTrace", FirebugReps.StackTrace);
-  ***REMOVED***
+    };
 
     this.clear = function()
     {
         Firebug.Console.clear(context);
-  ***REMOVED***
+    };
 
     this.time = function(name, reset)
     {
@@ -23489,7 +23489,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             return;
 
         this.timeCounters[key] = time;
-  ***REMOVED***
+    };
 
     this.timeEnd = function(name)
     {
@@ -23511,7 +23511,7 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             delete this.timeCounters[key];
         }
         return diff;
-  ***REMOVED***
+    };
 
     // These functions are over-ridden by commandLine
     this.evaluated = function(result, context)
@@ -23520,11 +23520,11 @@ var FirebugConsoleHandler = function FirebugConsoleHandler(context, win)
             FBTrace.sysout("consoleInjector.FirebugConsoleHandler evalutated default called", result);
 
         Firebug.Console.log(result, context);
-  ***REMOVED***
+    };
     this.evaluateError = function(result, context)
     {
         Firebug.Console.log(result, context, "errorMessage");
-  ***REMOVED***
+    };
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -24674,7 +24674,7 @@ var selectElement= function selectElement(e)
 
             if (selectedSidePanel)
                 selectedSidePanel.select(target, true);
-      ***REMOVED***
+        };
 
         if (selectedSidePanelTimer)
         {
@@ -25129,7 +25129,7 @@ Firebug.InfoTip = extend(Firebug.Module,
             caption.innerHTML = $STRF(w + " x " + h);
 
 
-          ***REMOVED***
+            };
 
             if (isIE)
                 setTimeout(updateInfoTip, 0);
@@ -25430,7 +25430,7 @@ CssParser = (function(){
             lastChild: function() {
                 return this.children[this.children.length - 1];
             }
-      ***REMOVED***
+        };
     }
 
     /**
@@ -25586,7 +25586,7 @@ CssParser = (function(){
 
             stack.last = function() {
                 return this[this.length - 1];
-          ***REMOVED***
+            };
 
             function hasStr(pos, substr) {
                 return text.substr(pos, substr.length) == substr;
@@ -25683,7 +25683,7 @@ CssParser = (function(){
                 return null;
             }
         }
-  ***REMOVED***
+    };
 })();
 
 
@@ -25911,7 +25911,7 @@ var processAllStyleSheets = function(doc, styleSheetIterator)
                 styleSheetIterator(doc, importedStyleSheet);
             }
         }
-  ***REMOVED***
+    };
 
     if (FBTrace.DBG_CSS)
     {
@@ -26026,7 +26026,7 @@ var processStyleSheet = function(doc, styleSheet)
             lineNo: lineNo,
             selector: selector,
             cssText: rule.style ? rule.style.cssText : rule.cssText ? rule.cssText : ""
-      ***REMOVED***
+        };
 
         // TODO: what happens with elements added after this? Need to create a test case.
         // Maybe we should place this at getElementCSSRules() but it will make the function
@@ -26260,7 +26260,7 @@ var extractSourceData = function(href)
     {
         source: null,
         startLine: 0
-  ***REMOVED***
+    };
 
     if (href)
     {
@@ -27000,7 +27000,7 @@ Firebug.CSSStyleSheetPanel.prototype = extend(Firebug.SourceBoxPanel,
                 //var name = m[1], value = m[2], important = !!m[3];
                 if (m[2])
                     this.addProperty(m[1], m[2], !!m[3], false, inheritMode, props);
-          ***REMOVED***
+            };
         }
 
         return props;
@@ -28375,7 +28375,7 @@ CSSEditor.prototype = domplate(Firebug.InlineEditor.prototype,
             name: "",
             value: "",
             important: ""
-      ***REMOVED***
+        };
 
         if (insertWhere == "before")
             return CSSPropTag.tag.insertBefore({prop: emptyProp, rule: rule}, target);
@@ -28487,7 +28487,7 @@ CSSRuleEditor.prototype = domplate(Firebug.InlineEditor.prototype,
                  id: "",
                  props: [],
                  isSelectorEditable: true
-       ***REMOVED***
+         };
 
          if (insertWhere == "before")
              return CSSStyleRuleTag.tag.insertBefore({rule: emptyRule}, target);
@@ -28764,7 +28764,7 @@ function getTopmostRuleLine(panelNode)
                 return {
                     line: domUtils.getRuleLine(rule),
                     offset: panelNode.scrollTop-child.offsetTop
-              ***REMOVED***
+                };
         }
     }
     return 0;
@@ -28874,7 +28874,7 @@ ScriptPanel.prototype = extend(Firebug.Panel,
 
             option.appendChild(Firebug.chrome.document.createTextNode(fileName));
             selectNode.appendChild(option);
-      ***REMOVED***
+        };
 
         this.toolButtonsNode.appendChild(selectNode);
     },
@@ -28975,7 +28975,7 @@ ScriptPanel.prototype = extend(Firebug.Panel,
                 html[hl++] = '</div></div>';
 
                 updatePanel(html);
-          ***REMOVED***
+            };
 
             var updatePanel = function(html)
             {
@@ -28985,12 +28985,12 @@ ScriptPanel.prototype = extend(Firebug.Panel,
                 setTimeout(function(){
                     self.synchronizeUI();
                 },0);
-          ***REMOVED***
+            };
 
             var onFailure = function()
             {
                 FirebugReps.Warning.tag.replace({object: "AccessRestricted"}, self.panelNode);
-          ***REMOVED***
+            };
 
             var self = this;
 
@@ -31138,7 +31138,7 @@ append(Firebug,
                 {
                     chrome.selectPanel(panelName);
                     return false;
-              ***REMOVED***
+                };
 
                 chrome.addController([chrome.panelMap[panelName].tabNode, "mousedown", onTabClick]);
             }

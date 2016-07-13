@@ -306,7 +306,7 @@
         \
         var func = function(greeting, punctuation) {\
           return (greeting || "hi") + " " + this.name + (punctuation || ".");\
-      ***REMOVED***\
+        };\
         \
         var _boundNormal = _.bind(func, thisArg),\
             _boundMultiple = _boundNormal,\
@@ -401,7 +401,7 @@
           "thirty-eight": 38,\
           "thirty-nine": 39,\
           "forty": 40\
-      ***REMOVED***\
+        };\
         \
         var words = belt.keys(wordToNumber).slice(0, limit);\
       }\
@@ -414,19 +414,19 @@
           "boolean": true,\
           "number": 1,\
           "string": "a"\
-      ***REMOVED***\
+        };\
         \
         var objectOfObjects = {\
           "boolean": new Boolean(true),\
           "number": new Number(1),\
           "string": new String("a")\
-      ***REMOVED***\
+        };\
         \
         var objectOfObjects2 = {\
           "boolean": new Boolean(true),\
           "number": new Number(1),\
           "string": new String("A")\
-      ***REMOVED***\
+        };\
         \
         var object2 = {},\
             object3 = {},\
@@ -469,7 +469,7 @@
       if (typeof partial != "undefined") {\
         var func = function(greeting, punctuation) {\
           return greeting + " fred" + (punctuation || ".");\
-      ***REMOVED***\
+        };\
         \
         var _partial = _.partial(func, "hi"),\
             lodashPartial = lodash.partial(func, "hi");\
@@ -483,7 +483,7 @@
           "header5": "Header5",\
           "header6": "Header6",\
           "list": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]\
-      ***REMOVED***\
+        };\
         \
         var tpl =\
           "<div>" +\
@@ -526,11 +526,11 @@
       if (typeof wrap != "undefined") {\
         var add = function(a, b) {\
           return a + b;\
-      ***REMOVED***\
+        };\
         \
         var average = function(func, a, b) {\
           return (func(a, b) / 2).toFixed(2);\
-      ***REMOVED***\
+        };\
         \
         var _wrapped = _.wrap(add, average);\
             lodashWrapped = lodash.wrap(add, average);\

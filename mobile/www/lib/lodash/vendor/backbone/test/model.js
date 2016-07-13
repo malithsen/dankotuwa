@@ -253,7 +253,7 @@
 
     a.validate = function(attrs) {
       assert.equal(attrs.foo, void 0, 'validate:true passed while unsetting');
-  ***REMOVED***
+    };
     a.unset('foo', {validate: true});
     assert.equal(a.get('foo'), void 0, 'Foo should have changed');
     delete a.validate;
@@ -439,7 +439,7 @@
         return {
           one: 3,
           two: 4
-      ***REMOVED***
+        };
       }
     });
     model = new Defaulted({two: undefined});
@@ -521,10 +521,10 @@
     var lastError, model = new Backbone.Model();
     model.validate = function(attrs) {
       if (attrs.admin) return "Can't change admin status.";
-  ***REMOVED***
+    };
     model.sync = function(method, m, options) {
       options.success.call(this, {admin: true});
-  ***REMOVED***
+    };
     model.on('invalid', function(m, error) {
       lastError = error;
     });
@@ -549,7 +549,7 @@
     });
     model.sync = function(method, m, options) {
       options.error();
-  ***REMOVED***
+    };
     model.save({data: 2, id: 1});
     model.fetch();
     model.destroy();
@@ -564,10 +564,10 @@
       success: function() {
         assert.equal(this, obj);
       }
-  ***REMOVED***
+    };
     model.sync = function(method, m, opts) {
       opts.success.call(opts.context);
-  ***REMOVED***
+    };
     model.save({data: 2, id: 1}, options);
     model.fetch(options);
     model.destroy(options);
@@ -582,10 +582,10 @@
       error: function() {
         assert.equal(this, obj);
       }
-  ***REMOVED***
+    };
     model.sync = function(method, m, opts) {
       opts.error.call(opts.context);
-  ***REMOVED***
+    };
     model.save({data: 2, id: 1}, options);
     model.fetch(options);
     model.destroy(options);
@@ -597,10 +597,10 @@
     var model = new Backbone.Model();
     model.parse = function() {
       assert.ok(false);
-  ***REMOVED***
+    };
     model.sync = function(method, m, options) {
       options.success({i: ++i});
-  ***REMOVED***
+    };
     model.fetch({parse: false});
     assert.equal(model.get('i'), i);
     model.save(null, {parse: false});
@@ -634,7 +634,7 @@
     var model = new Backbone.Model();
     model.sync = function(method, m, options) {
       options.success();
-  ***REMOVED***
+    };
     model.save('title', 'Twelfth Night');
     assert.equal(model.get('title'), 'Twelfth Night');
   });
@@ -645,7 +645,7 @@
     model.sync = function(method, m, options) {
       options.success('', options);
       options.success(null, options);
-  ***REMOVED***
+    };
     model.save({testing: 'empty'}, {
       success: function(m) {
         assert.deepEqual(m.attributes, {testing: 'empty'});
@@ -676,7 +676,7 @@
 
     var onSuccess = function(m, response, options) {
       assert.ok(options.specialSync, 'Options were passed correctly to callback');
-  ***REMOVED***
+    };
 
     model.save(null, {success: onSuccess});
     this.ajaxSettings.success();
@@ -703,7 +703,7 @@
 
     var onSuccess = function(m, response, options) {
       assert.ok(options.specialSync, 'Options were passed correctly to callback');
-  ***REMOVED***
+    };
 
     model.fetch({success: onSuccess});
     this.ajaxSettings.success();
@@ -733,7 +733,7 @@
 
     var onSuccess = function(m, response, options) {
       assert.ok(options.specialSync, 'Options were passed correctly to callback');
-  ***REMOVED***
+    };
 
     model.destroy({success: onSuccess});
     this.ajaxSettings.success();
@@ -752,7 +752,7 @@
     var model = new Backbone.Model();
     model.validate = function(attrs) {
       if (attrs.admin !== this.get('admin')) return "Can't change admin status.";
-  ***REMOVED***
+    };
     model.on('invalid', function(m, error) {
       lastError = error;
     });
@@ -777,7 +777,7 @@
         error = true;
         return 'No thanks.';
       }
-  ***REMOVED***
+    };
     model.set({name: 'Two'});
     assert.equal(model.get('name'), 'Two');
     assert.equal(error, undefined);
@@ -797,7 +797,7 @@
     var model = new Backbone.Model();
     model.validate = function(attrs) {
       if (attrs.admin) return "Can't change admin status.";
-  ***REMOVED***
+    };
     model.on('invalid', function(m, error) {
       boundError = true;
     });
@@ -887,7 +887,7 @@
       assert.equal(model.get('a'), 'a');
       assert.equal(model.get('b'), 'b');
       assert.equal(model.get('c'), 'c');
-  ***REMOVED***
+    };
 
     model.on('change:a', assertion);
     model.on('change:b', assertion);
@@ -1028,7 +1028,7 @@
     var model = new Backbone.Model({x: 1, y: 2});
     model.sync = function(method, m, options) {
       options.success();
-  ***REMOVED***
+    };
     model.on('change:x', function() { assert.ok(true); });
     model.save({x: 3}, {wait: true});
     assert.equal(model.get('x'), 3);
@@ -1210,10 +1210,10 @@
       success: function( m, resp, options ) {
         assert.ok(options);
       }
-  ***REMOVED***
+    };
     model.sync = function(method, m, options) {
       options.success();
-  ***REMOVED***
+    };
     model.save({id: 1}, opts);
     model.fetch(opts);
     model.destroy(opts);
@@ -1356,7 +1356,7 @@
     var model = new Backbone.Model({valid: true});
     model.validate = function(attrs) {
       if (!attrs.valid) return 'invalid';
-  ***REMOVED***
+    };
     assert.equal(model.isValid(), true);
     assert.equal(model.set({valid: false}, {validate: true}), false);
     assert.equal(model.isValid(), true);

@@ -21,7 +21,7 @@
       }
 
     });
-***REMOVED***
+  };
 
   function updateCounter(){
     var maxLength     = +$(this).attr('length'),

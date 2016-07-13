@@ -249,7 +249,7 @@
     var stooge = {
       name: 'Moe',
       template: _.template("I'm <%= this.name %>")
-  ***REMOVED***
+    };
     assert.equal(stooge.template(), "I'm Moe");
 
     template = _.template('\n ' +
@@ -263,7 +263,7 @@
     _.templateSettings = {
       evaluate: /\{\{([\s\S]+?)\}\}/g,
       interpolate: /\{\{=([\s\S]+?)\}\}/g
-  ***REMOVED***
+    };
 
     var custom = _.template('<ul>{{ for (var key in people) { }}<li>{{= people[key] }}</li>{{ } }}</ul>');
     result = custom({people: {moe: 'Moe', larry: 'Larry', curly: 'Curly'}});
@@ -278,7 +278,7 @@
     _.templateSettings = {
       evaluate: /<\?([\s\S]+?)\?>/g,
       interpolate: /<\?=([\s\S]+?)\?>/g
-  ***REMOVED***
+    };
 
     var customWithSpecialChars = _.template('<ul><? for (var key in people) { ?><li><?= people[key] ?></li><? } ?></ul>');
     result = customWithSpecialChars({people: {moe: 'Moe', larry: 'Larry', curly: 'Curly'}});
@@ -292,7 +292,7 @@
 
     _.templateSettings = {
       interpolate: /\{\{(.+?)\}\}/g
-  ***REMOVED***
+    };
 
     var mustache = _.template('Hello {{planet}}!');
     assert.equal(mustache({planet: 'World'}), 'Hello World!', 'can mimic mustache.js');

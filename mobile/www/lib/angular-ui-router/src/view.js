@@ -30,7 +30,7 @@ function $ViewProvider() {
       load: function load(name, options) {
         var result, defaults = {
           template: null, controller: null, view: null, locals: null, notify: true, async: true, params: {}
-      ***REMOVED***
+        };
         options = extend(defaults, options);
 
         if (options.view) {
@@ -64,7 +64,7 @@ function $ViewProvider() {
         }
         return result;
       }
-  ***REMOVED***
+    };
   }
 }
 

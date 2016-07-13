@@ -23,7 +23,7 @@ angular.module('dankotuwa')
           _errorFn = function (err) {
             errorFn(err);
             q.reject(err);
-        ***REMOVED***
+          };
 
         options.successCallBack = _successFn;
         options.errorCallback = _errorFn;
@@ -34,7 +34,7 @@ angular.module('dankotuwa')
       }
     }
     return q.promise;
-***REMOVED***
+  };
 
   return $cordovaLaunchNavigator;
 }]);

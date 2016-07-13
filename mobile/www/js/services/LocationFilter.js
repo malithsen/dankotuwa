@@ -8,11 +8,11 @@ angular.module('dankotuwa')
 
   o.init = function(sheds) {
     allLocations = angular.copy(sheds);
-***REMOVED***
+  };
 
   o.getLocationByID = function(id) {
     return _.find(allLocations, {'id': id});
-***REMOVED***
+  };
 
   return o;
 });

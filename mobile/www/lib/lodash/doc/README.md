@@ -9390,7 +9390,7 @@ compiled({ 'user': 'mustache' });
 fs.writeFileSync(path.join(process.cwd(), 'jst.js'), '\
   var JST = {\
     "main": ' + _.template(mainText).source + '\
-***REMOVED***\
+  };\
 ');
 ```
 * * *
@@ -10009,7 +10009,7 @@ _.map(users, _.iteratee('user'));
 _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {
   return !_.isRegExp(func) ? iteratee(func) : function(string) {
     return func.test(string);
-***REMOVED***
+  };
 });
 
 _.filter(['abc', 'def'], /ef/);

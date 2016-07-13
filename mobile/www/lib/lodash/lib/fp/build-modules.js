@@ -58,7 +58,7 @@ function getTemplate(moduleName) {
   var data = {
     'name': _.result(mapping.aliasToReal, moduleName, moduleName),
     'mapping': mapping
-***REMOVED***
+  };
 
   if (isAlias(moduleName)) {
     return template.alias(data);

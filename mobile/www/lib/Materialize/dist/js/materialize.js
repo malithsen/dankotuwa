@@ -252,7 +252,7 @@ m.isFunction(t)&&t(null,!0)}),f.queue(a,m.isString(v)?v:"",[])),"stop"===y?(i(a)
         return this.each(function() {
             hammerify(this, options);
         });
-  ***REMOVED***
+    };
 
     // extend the emit method to also trigger jQuery events
     Hammer.Manager.prototype.emit = (function(originalEmit) {
@@ -262,7 +262,7 @@ m.isFunction(t)&&t(null,!0)}),f.queue(a,m.isString(v)?v:"",[])),"stop"===y?(i(a)
                 type: type,
                 gesture: data
             });
-      ***REMOVED***
+        };
     })(Hammer.Manager.prototype.emit);
 }));
 ;// Required for Meteor package, the use of window prevents export by Meteor
@@ -285,7 +285,7 @@ Materialize.guid = (function() {
   return function() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
            s4() + '-' + s4() + s4() + s4();
-***REMOVED***
+  };
 })();
 
 Materialize.elementOrParentIsFixed = function(element) {
@@ -314,7 +314,7 @@ if ($) {
   $.fn.collapsible = function(options) {
     var defaults = {
         accordion: undefined
-  ***REMOVED***
+    };
 
     options = $.extend(defaults, options);
 
@@ -441,7 +441,7 @@ if ($) {
       }
 
     });
-***REMOVED***
+  };
 
   $(document).ready(function(){
     $('.collapsible').collapsible();
@@ -453,7 +453,7 @@ if ($) {
   $.fn.scrollTo = function(elem) {
     $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top);
     return this;
-***REMOVED***
+  };
 
   $.fn.dropdown = function (option) {
     var defaults = {
@@ -464,7 +464,7 @@ if ($) {
       gutter: 0, // Spacing from edge
       belowOrigin: false,
       alignment: 'left'
-  ***REMOVED***
+    };
 
     this.each(function(){
     var origin = $(this);
@@ -677,7 +677,7 @@ if ($) {
 
 
    });
-***REMOVED*** // End dropdown plugin
+  }; // End dropdown plugin
 
   $(document).ready(function(){
     $('.dropdown-button').dropdown();
@@ -689,7 +689,7 @@ if ($) {
     _generateID = function() {
       _lastID++;
       return 'materialize-lean-overlay-' + _lastID;
-  ***REMOVED***
+    };
 
   $.fn.extend({
     openModal: function(options) {
@@ -1199,7 +1199,7 @@ $(document).ready(function(){
 
       });
 
-  ***REMOVED***
+    };
 }( jQuery ));;(function ($) {
 
   var methods = {
@@ -1318,7 +1318,7 @@ $(document).ready(function(){
     select_tab : function( id ) {
       this.find('a[href="#' + id + '"]').trigger('click');
     }
-***REMOVED***
+  };
 
   $.fn.tabs = function(methodOrOptions) {
     if ( methods[methodOrOptions] ) {
@@ -1329,7 +1329,7 @@ $(document).ready(function(){
     } else {
       $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.tooltip' );
     }
-***REMOVED***
+  };
 
   $(document).ready(function(){
     $('ul.tabs').tabs();
@@ -1343,7 +1343,7 @@ $(document).ready(function(){
       // Defaults
       var defaults = {
         delay: 350
-    ***REMOVED***
+      };
 
       // Remove tooltip from the activator
       if (options === "remove") {
@@ -1513,7 +1513,7 @@ $(document).ready(function(){
         }
         });
     });
-***REMOVED***
+  };
 
   var repositionWithinScreen = function(x, y, width, height) {
     var newX = x
@@ -1532,7 +1532,7 @@ $(document).ready(function(){
     }
 
     return {x: newX, y: newY};
-***REMOVED***
+  };
 
   $(document).ready(function(){
      $('.tooltipped').tooltip();
@@ -1576,7 +1576,7 @@ $(document).ready(function(){
         return {
             top: box.top + win.pageYOffset - docElem.clientTop,
             left: box.left + win.pageXOffset - docElem.clientLeft
-      ***REMOVED***
+        };
     }
 
     function convertStyle(obj) {
@@ -1632,7 +1632,7 @@ $(document).ready(function(){
             var rippleStyle = {
                 'top': relativeY+'px',
                 'left': relativeX+'px'
-          ***REMOVED***
+            };
 
             ripple.className = ripple.className + ' waves-notransition';
             ripple.setAttribute('style', convertStyle(rippleStyle));
@@ -1703,7 +1703,7 @@ $(document).ready(function(){
                     '-ms-transform': scale,
                     '-o-transform': scale,
                     'transform': scale,
-              ***REMOVED***
+                };
 
                 ripple.setAttribute('style', convertStyle(style));
 
@@ -1751,7 +1751,7 @@ $(document).ready(function(){
                 }
             }
         }
-  ***REMOVED***
+    };
 
 
     /**
@@ -1783,7 +1783,7 @@ $(document).ready(function(){
         touchup: function(e) {
             TouchHandler.allowEvent(e);
         }
-  ***REMOVED***
+    };
 
 
     /**
@@ -1846,7 +1846,7 @@ $(document).ready(function(){
         }
 
         document.body.addEventListener('mousedown', showEffect, false);
-  ***REMOVED***
+    };
 
     /**
      * Attach Waves to an input element (or any element which doesn't
@@ -1867,7 +1867,7 @@ $(document).ready(function(){
         }
 
         element.addEventListener('mousedown', showEffect, false);
-  ***REMOVED***
+    };
 
     window.Waves = Waves;
 
@@ -2020,7 +2020,7 @@ $(document).ready(function(){
         menuWidth: 240,
         edge: 'left',
         closeOnClick: false
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       $(this).each(function(){
@@ -2342,7 +2342,7 @@ $(document).ready(function(){
     hide : function() {
       $('#sidenav-overlay').trigger('click');
     }
-***REMOVED***
+  };
 
 
     $.fn.sideNav = function(methodOrOptions) {
@@ -2354,7 +2354,7 @@ $(document).ready(function(){
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.sideNav' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));
 ;/**
  * Extend jquery with a scrollspy plugin.
@@ -2654,7 +2654,7 @@ $(document).ready(function(){
           $(this).siblings('label, i').removeClass('active');
         }
       });
-  ***REMOVED***
+    };
 
     // Text based inputs
     var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
@@ -2732,7 +2732,7 @@ $(document).ready(function(){
           }
         }
       }
-  ***REMOVED***
+    };
 
     // Radio and Checkbox focus class
     var radio_checkbox = 'input[type=radio], input[type=checkbox]';
@@ -2983,7 +2983,7 @@ $(document).ready(function(){
         } else {
           options.append($('<li class="' + disabledClass + optgroupClass + '"><span>' + option.html() + '</span></li>'));
         }
-    ***REMOVED***
+      };
 
       /* Create dropdown structure. */
       if (selectChildren.length) {
@@ -3118,7 +3118,7 @@ $(document).ready(function(){
           option.addClass('selected');
           options.scrollTo(option);
         }
-    ***REMOVED***
+      };
 
       // Allow user to search by typing
       // this array is cleared after 1 second
@@ -3194,7 +3194,7 @@ $(document).ready(function(){
 
             // Automaticaly clean filter query so user can search again by starting letters
             setTimeout(function(){ filterQuery = []; }, 1000);
-        ***REMOVED***
+          };
 
       $newSelect.on('keydown', onKeyDown);
     });
@@ -3233,7 +3233,7 @@ $(document).ready(function(){
 
       select.siblings('input.select-dropdown').val(value);
     }
-***REMOVED***
+  };
 
 }( jQuery ));
 ;(function ($) {
@@ -3246,7 +3246,7 @@ $(document).ready(function(){
         height: 400,
         transition: 500,
         interval: 6000
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       return this.each(function() {
@@ -3543,7 +3543,7 @@ $(document).ready(function(){
     prev : function() {
       $(this).trigger('sliderPrev');
     }
-***REMOVED***
+  };
 
 
     $.fn.slider = function(methodOrOptions) {
@@ -3555,7 +3555,7 @@ $(document).ready(function(){
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.tooltip' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));
 ;(function ($) {
   $(document).ready(function() {
@@ -3600,7 +3600,7 @@ $(document).ready(function(){
       top: 0,
       bottom: Infinity,
       offset: 0
-  ***REMOVED***
+    };
     options = $.extend(defaults, options);
 
     $index = 0;
@@ -3648,7 +3648,7 @@ $(document).ready(function(){
 
     });
 
-***REMOVED***
+  };
 }( jQuery ));;(function ($) {
   $(document).ready(function() {
 
@@ -3715,7 +3715,7 @@ $(document).ready(function(){
         time += 40;
       });
     }
-***REMOVED***
+  };
 
   var closeFABMenu = function (btn) {
     $this = btn;
@@ -3736,7 +3736,7 @@ $(document).ready(function(){
       { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
       { duration: 80 }
     );
-***REMOVED***
+  };
 
 
 }( jQuery ));
@@ -3770,7 +3770,7 @@ $(document).ready(function(){
               }
           }
       });
-***REMOVED***
+  };
 
   // Horizontal staggered list
   Materialize.showStaggeredList = function(selector) {
@@ -3785,7 +3785,7 @@ $(document).ready(function(){
         { duration: 800, delay: time, easing: [60, 10] });
       time += 120;
     });
-***REMOVED***
+  };
 
 
   $(document).ready(function() {
@@ -3939,7 +3939,7 @@ $(document).ready(function(){
           }
       }
     }, 100);
-***REMOVED***
+  };
 
 })(jQuery);
 ;/*!
@@ -6518,7 +6518,7 @@ Picker.extend( 'pickadate', DatePicker )
       }
 
     });
-***REMOVED***
+  };
 
   function updateCounter(){
     var maxLength     = +$(this).attr('length'),
@@ -6578,7 +6578,7 @@ Picker.extend( 'pickadate', DatePicker )
         shift: 0, // spacing for center image
         padding: 0, // Padding between non center items
         full_width: false // Change to full width styles
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       return this.each(function() {
@@ -6903,7 +6903,7 @@ Picker.extend( 'pickadate', DatePicker )
     prev : function(n) {
       $(this).trigger('carouselPrev', [n]);
     },
-***REMOVED***
+  };
 
 
     $.fn.carousel = function(methodOrOptions) {
@@ -6915,5 +6915,5 @@ Picker.extend( 'pickadate', DatePicker )
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.carousel' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));

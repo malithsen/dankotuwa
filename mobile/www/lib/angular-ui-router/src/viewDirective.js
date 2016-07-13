@@ -123,7 +123,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       } catch (e) {
         return null;
       }
-  ***REMOVED***
+    };
   }
 
   var service = getService(),
@@ -137,8 +137,8 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       return {
         enter: function (element, target, cb) { target.after(element); cb(); },
         leave: function (element, cb) { element.remove(); cb(); }
-    ***REMOVED***
-  ***REMOVED***
+      };
+    };
 
     if ($animate) {
       return {
@@ -150,7 +150,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
           var promise = $animate.leave(element, cb);
           if (promise && promise.then) promise.then(cb);
         }
-    ***REMOVED***
+      };
     }
 
     if ($animator) {
@@ -159,7 +159,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       return {
         enter: function(element, target, cb) {animate.enter(element, null, target); cb(); },
         leave: function(element, cb) { animate.leave(element); cb(); }
-    ***REMOVED***
+      };
     }
 
     return statics();
@@ -244,9 +244,9 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
           currentScope.$emit('$viewContentLoaded');
           currentScope.$eval(onloadExp);
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 
   return directive;
 }
@@ -283,9 +283,9 @@ function $ViewDirectiveFill (  $compile,   $controller,   $state,   $interpolate
         }
 
         link(scope);
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }
 
 /**

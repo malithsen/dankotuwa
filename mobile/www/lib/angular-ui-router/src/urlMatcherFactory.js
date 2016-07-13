@@ -122,7 +122,7 @@ function UrlMatcher(pattern, config, parentMatcher) {
     type        = $$UMFP.type(regexp || "string") || inherit($$UMFP.type("string"), { pattern: new RegExp(regexp) });
     return {
       id: id, regexp: regexp, segment: segment, type: type, cfg: cfg
-  ***REMOVED***
+    };
   }
 
   var p, param, segment;
@@ -197,7 +197,7 @@ UrlMatcher.prototype.concat = function (pattern, config) {
     caseInsensitive: $$UMFP.caseInsensitive(),
     strict: $$UMFP.strictMode(),
     squash: $$UMFP.defaultSquashPolicy()
-***REMOVED***
+  };
   return new UrlMatcher(this.sourcePath + pattern + this.sourceSearch, extend(defaultConfig, config), this);
 };
 
@@ -499,7 +499,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
     function bindTo(type, callbackName) {
       return function() {
         return type[callbackName].apply(type, arguments);
-    ***REMOVED***
+      };
     }
 
     // Wrap non-array value as array
@@ -522,7 +522,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
         if (allTruthyMode === true)
           return filter(result, falsey).length === 0;
         return arrayUnwrap(result);
-    ***REMOVED***
+      };
     }
 
     // Wraps type (.equals) functions to operate on each value of an array
@@ -534,7 +534,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
           if (!callback(left[i], right[i])) return false;
         }
         return true;
-    ***REMOVED***
+      };
     }
 
     this.encode = arrayHandler(bindTo(type, 'encode'));
@@ -619,13 +619,13 @@ function $UrlMatcherFactory() {
       equals: angular.equals,
       pattern: /.*/
     }
-***REMOVED***
+  };
 
   function getDefaultConfig() {
     return {
       strict: isStrictMode,
       caseInsensitive: isCaseInsensitive
-  ***REMOVED***
+    };
   }
 
   function isInjectable(value) {
@@ -639,7 +639,7 @@ function $UrlMatcherFactory() {
     if (!isInjectable(config.value)) return config.value;
     if (!injector) throw new Error("Injectable functions cannot be called at configuration time");
     return injector.invoke(config.value);
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -656,7 +656,7 @@ function $UrlMatcherFactory() {
     if (isDefined(value))
       isCaseInsensitive = value;
     return isCaseInsensitive;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -673,7 +673,7 @@ function $UrlMatcherFactory() {
     if (isDefined(value))
       isStrictMode = value;
     return isStrictMode;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -696,7 +696,7 @@ function $UrlMatcherFactory() {
       throw new Error("Invalid squash policy: " + value + ". Valid policies: false, true, arbitrary-string");
     defaultSquashPolicy = value;
     return value;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -712,7 +712,7 @@ function $UrlMatcherFactory() {
    */
   this.compile = function (pattern, config) {
     return new UrlMatcher(pattern, extend(getDefaultConfig(), config));
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -736,7 +736,7 @@ function $UrlMatcherFactory() {
       }
     });
     return result;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -806,7 +806,7 @@ function $UrlMatcherFactory() {
    *   var services = {
    *     user: Users,
    *     post: Posts
-   * ***REMOVED***
+   *   };
    *
    *   return {
    *     encode: function(object) {
@@ -827,7 +827,7 @@ function $UrlMatcherFactory() {
    *       // their unique IDs
    *       return a.id === b.id;
    *     }
-   * ***REMOVED***
+   *   };
    * });
    *
    * // In a config() block, you can then attach URLs with
@@ -855,7 +855,7 @@ function $UrlMatcherFactory() {
       if (!enqueue) flushTypeQueue();
     }
     return this;
-***REMOVED***
+  };
 
   // `flushTypeQueue()` waits until `$urlMatcherFactory` is injected before invoking the queued `definitionFn`s
   function flushTypeQueue() {
@@ -977,7 +977,7 @@ function $UrlMatcherFactory() {
       config: config,
       toString: toString
     });
-***REMOVED***
+  };
 
   function ParamSet(params) {
     extend(this, params || {});
@@ -1026,7 +1026,7 @@ function $UrlMatcherFactory() {
       return result;
     },
     $$parent: undefined
-***REMOVED***
+  };
 
   this.ParamSet = ParamSet;
 }

@@ -18,7 +18,7 @@
         return this.each(function() {
             hammerify(this, options);
         });
-  ***REMOVED***
+    };
 
     // extend the emit method to also trigger jQuery events
     Hammer.Manager.prototype.emit = (function(originalEmit) {
@@ -28,6 +28,6 @@
                 type: type,
                 gesture: data
             });
-      ***REMOVED***
+        };
     })(Hammer.Manager.prototype.emit);
 }));

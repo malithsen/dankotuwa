@@ -12,7 +12,7 @@
           $(this).siblings('label, i').removeClass('active');
         }
       });
-  ***REMOVED***
+    };
 
     // Text based inputs
     var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
@@ -90,7 +90,7 @@
           }
         }
       }
-  ***REMOVED***
+    };
 
     // Radio and Checkbox focus class
     var radio_checkbox = 'input[type=radio], input[type=checkbox]';
@@ -341,7 +341,7 @@
         } else {
           options.append($('<li class="' + disabledClass + optgroupClass + '"><span>' + option.html() + '</span></li>'));
         }
-    ***REMOVED***
+      };
 
       /* Create dropdown structure. */
       if (selectChildren.length) {
@@ -476,7 +476,7 @@
           option.addClass('selected');
           options.scrollTo(option);
         }
-    ***REMOVED***
+      };
 
       // Allow user to search by typing
       // this array is cleared after 1 second
@@ -552,7 +552,7 @@
 
             // Automaticaly clean filter query so user can search again by starting letters
             setTimeout(function(){ filterQuery = []; }, 1000);
-        ***REMOVED***
+          };
 
       $newSelect.on('keydown', onKeyDown);
     });
@@ -591,6 +591,6 @@
 
       select.siblings('input.select-dropdown').val(value);
     }
-***REMOVED***
+  };
 
 }( jQuery ));

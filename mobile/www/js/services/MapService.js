@@ -20,7 +20,7 @@ angular.module('dankotuwa')
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
-  ***REMOVED***
+    };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -56,16 +56,16 @@ angular.module('dankotuwa')
       return {
         id: shed.id,
         marker: marker
-    ***REMOVED***
+      };
     });
 
     return map;
-***REMOVED***
+  };
 
   o.zoomToCurrentPos = function() {
     map.setZoom(15);
     map.panTo(currentPos);
-***REMOVED***
+  };
 
   return o;
 });

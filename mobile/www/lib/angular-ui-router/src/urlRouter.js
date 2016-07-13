@@ -66,7 +66,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     if (!isFunction(rule)) throw new Error("'rule' must be a function");
     rules.push(rule);
     return this;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -107,7 +107,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     else if (!isFunction(rule)) throw new Error("'rule' must be a function");
     otherwise = rule;
     return this;
-***REMOVED***
+  };
 
 
   function handleIfMatch($injector, handler, match) {
@@ -185,7 +185,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
           prefix: regExpPrefix(what)
         });
       }
-  ***REMOVED***
+    };
 
     var check = { matcher: $urlMatcherFactory.isMatcher(what), regex: what instanceof RegExp };
 
@@ -194,7 +194,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     }
 
     throw new Error("invalid 'what' in when()");
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -247,7 +247,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
   this.deferIntercept = function (defer) {
     if (defer === undefined) defer = true;
     interceptDeferred = defer;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -406,7 +406,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
 
         return [$location.protocol(), '://', $location.host(), port, slash, url].join('');
       }
-  ***REMOVED***
+    };
   }
 }
 

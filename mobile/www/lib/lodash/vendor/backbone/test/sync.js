@@ -9,7 +9,7 @@
     title: 'The Tempest',
     author: 'Bill Shakespeare',
     length: 123
-***REMOVED***
+  };
 
   QUnit.module('Backbone.sync', {
 
@@ -160,7 +160,7 @@
     assert.expect(1);
     Backbone.ajax = function(settings){
       assert.strictEqual(settings.url, '/test');
-  ***REMOVED***
+    };
     var model = new Backbone.Model();
     model.url = '/test';
     Backbone.sync('create', model);
@@ -214,7 +214,7 @@
         assert.strictEqual(header, 'X-HTTP-Method-Override');
         assert.strictEqual(value, 'DELETE');
       }
-  ***REMOVED***
+    };
     model.sync('delete', model, {
       beforeSend: function(_xhr) {
         assert.ok(_xhr === xhr);

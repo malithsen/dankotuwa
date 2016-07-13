@@ -18,7 +18,7 @@ Materialize.guid = (function() {
   return function() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
            s4() + '-' + s4() + s4() + s4();
-***REMOVED***
+  };
 })();
 
 Materialize.elementOrParentIsFixed = function(element) {

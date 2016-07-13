@@ -8,7 +8,7 @@ angular.module('dankotuwa')
       var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
       return v.toString(16);
     });
-***REMOVED***
+  };
 
   var o = {};
 
@@ -18,7 +18,7 @@ angular.module('dankotuwa')
       return str.split(',').map(function(item) {
         return item.trim();
       });
-  ***REMOVED***
+    };
 
     return $http.get('sheds.json').then(function(res) {
       return res.data.sheds.map(function(shed) {
@@ -33,10 +33,10 @@ angular.module('dankotuwa')
           tags: strToArr(shed.tags),
           distance: null,
           approxTime: null
-      ***REMOVED***
+        };
       });
     });
-***REMOVED***
+  };
 
   return o;
 });

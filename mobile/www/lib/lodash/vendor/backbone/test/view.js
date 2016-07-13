@@ -115,7 +115,7 @@
       click: function() {
         this.counter++;
       }
-  ***REMOVED***
+    };
 
     myView.delegateEvents(events);
     myView.$el.trigger('click');
@@ -479,7 +479,7 @@
     });
     myView.events = {
       click: function() { assert.ok(true); }
-  ***REMOVED***
+    };
     var oldEl = myView.el;
     var $oldEl = myView.$el;
 

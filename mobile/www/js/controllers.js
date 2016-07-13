@@ -22,12 +22,12 @@ angular.module('dankotuwa')
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
-***REMOVED***
+  };
 
   // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
-***REMOVED***
+  };
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
@@ -38,6 +38,6 @@ angular.module('dankotuwa')
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
-***REMOVED***
+  };
 })
 

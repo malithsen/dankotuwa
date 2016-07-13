@@ -57,13 +57,13 @@
     '"': '&quot;',
     "'": '&#39;',
     '`': '&#96;'
-***REMOVED***
+  };
 
   /** Used to determine if values are of the language type `Object`. */
   var objectTypes = {
     'function': true,
     'object': true
-***REMOVED***
+  };
 
   /** Detect free variable `exports`. */
   var freeExports = (objectTypes[typeof exports] && exports && !exports.nodeType)
@@ -804,7 +804,7 @@
   if (enumerate && !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf')) {
     baseKeysIn = function(object) {
       return iteratorToArray(enumerate(object));
-  ***REMOVED***
+    };
   }
 
   /**
@@ -862,7 +862,7 @@
         }
       }
       return true;
-  ***REMOVED***
+    };
   }
 
   /**
@@ -894,7 +894,7 @@
   function baseProperty(key) {
     return function(object) {
       return object == null ? undefined : object[key];
-  ***REMOVED***
+    };
   }
 
   /**
@@ -1095,7 +1095,7 @@
         }
       }
       return collection;
-  ***REMOVED***
+    };
   }
 
   /**
@@ -1119,7 +1119,7 @@
         }
       }
       return object;
-  ***REMOVED***
+    };
   }
 
   /**
@@ -1142,7 +1142,7 @@
       // Mimic the constructor's `return` behavior.
       // See https://es5.github.io/#x13.2.2 for more details.
       return isObject(result) ? result : thisBinding;
-  ***REMOVED***
+    };
   }
 
   /**
@@ -2172,7 +2172,7 @@
         func = undefined;
       }
       return result;
-  ***REMOVED***
+    };
   }
 
   /**
@@ -2285,7 +2285,7 @@
     }
     return function() {
       return !predicate.apply(this, arguments);
-  ***REMOVED***
+    };
   }
 
   /**
@@ -2356,7 +2356,7 @@
       }
       otherArgs[start] = array;
       return func.apply(this, otherArgs);
-  ***REMOVED***
+    };
   }
 
   /*------------------------------------------------------------------------*/
@@ -3553,7 +3553,7 @@
    * _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {
    *   return !_.isRegExp(func) ? iteratee(func) : function(string) {
    *     return func.test(string);
-   * ***REMOVED***
+   *   };
    * });
    *
    * _.filter(['abc', 'def'], /ef/);
@@ -3654,7 +3654,7 @@
             return result;
           }
           return func.apply(object, arrayPush([this.value()], arguments));
-      ***REMOVED***
+        };
       }
     });
 
@@ -3887,7 +3887,7 @@
       return this[chainName](function(value) {
         return func.apply(isArray(value) ? value : [], args);
       });
-  ***REMOVED***
+    };
   });
 
   // Add chain sequence methods to the `lodash` wrapper.

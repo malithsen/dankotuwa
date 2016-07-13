@@ -38,7 +38,7 @@
     if (!root.fp) {
       return function(name, func, options) {
         return baseConvert(_, name, func, options);
-    ***REMOVED***
+      };
     }
     return function(name, func, options) {
       if (typeof name == 'function') {
@@ -49,7 +49,7 @@
       return name === undefined
         ? baseConvert(func, options)
         : baseConvert(_.runInContext(), options)[name];
-  ***REMOVED***
+    };
   }());
 
   var allFalseOptions = {
@@ -58,7 +58,7 @@
     'fixed': false,
     'immutable': false,
     'rearg': false
-***REMOVED***
+  };
 
   var fp = root.fp
     ? (fp = _.noConflict(), _ = root._, fp)
@@ -560,12 +560,12 @@
       var iteratee = function(value) {
         mapCount++;
         return value * value;
-    ***REMOVED***
+      };
 
       var predicate = function(value) {
         filterCount++;
         return value % 2 == 0;
-    ***REMOVED***
+      };
 
       var map1 = convert('map', _.map),
           filter1 = convert('filter', _.filter),
@@ -1134,12 +1134,12 @@
       var iteratee = function(value) {
         mapCount++;
         return value * value;
-    ***REMOVED***
+      };
 
       var predicate = function(value) {
         filterCount++;
         return value % 2 == 0;
-    ***REMOVED***
+      };
 
       var filter = fp.filter(predicate),
           map = fp.map(iteratee),

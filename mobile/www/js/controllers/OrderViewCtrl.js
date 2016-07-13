@@ -9,7 +9,7 @@ angular.module('dankotuwa')
       this.product = '';
       this.category = '';
       this.quantity = 0;
-***REMOVED***
+  };
 
   function validate(cb) {
     var item;
@@ -25,12 +25,12 @@ angular.module('dankotuwa')
         cb(true);
       }
     }
-***REMOVED***
+  };
 
   $scope.addItem = function() {
     console.log('addItem', $scope.items);
     $scope.items.push(new Item());
-***REMOVED***
+  };
 
   $scope.submit = function() {
 

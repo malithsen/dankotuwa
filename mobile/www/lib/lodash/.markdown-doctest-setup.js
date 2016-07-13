@@ -5,7 +5,7 @@ function mockQuery() {
     'on': function(eventName, callback) {
       callback();
     }
-***REMOVED***
+  };
 }
 
 mockQuery.each = _.each;

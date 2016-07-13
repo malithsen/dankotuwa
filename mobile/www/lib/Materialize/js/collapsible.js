@@ -2,7 +2,7 @@
   $.fn.collapsible = function(options) {
     var defaults = {
         accordion: undefined
-  ***REMOVED***
+    };
 
     options = $.extend(defaults, options);
 
@@ -129,7 +129,7 @@
       }
 
     });
-***REMOVED***
+  };
 
   $(document).ready(function(){
     $('.collapsible').collapsible();

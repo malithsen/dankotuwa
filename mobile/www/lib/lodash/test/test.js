@@ -247,11 +247,11 @@
         fs.write([cwd, 'coverage', 'coverage.json'].join(sep), JSON.stringify(coverage));
       }
       phantom.exit(details.failed ? 1 : 0);
-  ***REMOVED***
+    };
 
     page.onConsoleMessage = function(message) {
       console.log(message);
-  ***REMOVED***
+    };
 
     page.onInitialized = function() {
       page.evaluate(function() {
@@ -262,7 +262,7 @@
           });
         });
       });
-  ***REMOVED***
+    };
 
     page.open(filePath, function(status) {
       if (status != 'success') {
@@ -329,7 +329,7 @@
     var result = {
       'Hash': new MapCache().__data__.hash.constructor,
       'MapCache': MapCache
-  ***REMOVED***
+    };
     _.isMatchWith({ 'a': 1 }, { 'a': 1 }, function() {
       var stack = lodashStable.last(arguments);
       result.ListCache = stack.__data__.constructor;
@@ -495,7 +495,7 @@
           object.prototype = undefined;
         }
         return result || {};
-    ***REMOVED***
+      };
     }()));
 
     setProperty(Object, 'getOwnPropertySymbols', undefined);
@@ -528,7 +528,7 @@
           }
           setProperty(root, 'Map', Map);
           return {};
-      ***REMOVED***
+        };
       }()));
 
       setProperty(root.Map, 'toString', createToString('Map'));
@@ -616,7 +616,7 @@
       "    'undefined': undefined,",
       "    'weakMap': root.WeakMap ? new root.WeakMap : undefined,",
       "    'weakSet': root.WeakSet ? new root.WeakSet : undefined",
-      '***REMOVED***',
+      '  };',
       '',
       "  ['" + arrayViews.join("', '") + "'].forEach(function(type) {",
       '    var Ctor = root[type]',
@@ -769,7 +769,7 @@
           }
           assert.strictEqual(actual, _.VERSION);
           done();
-      ***REMOVED***
+        };
 
         attempt();
       }
@@ -1029,7 +1029,7 @@
       'map caches': new mapCaches.MapCache(pairs),
       'stack caches': new mapCaches.Stack(pairs),
       'large stacks': largeStack
-  ***REMOVED***
+    };
 
     lodashStable.forOwn(caches, function(cache, key) {
       QUnit.test('should implement a `Map` interface for ' + key, function(assert) {
@@ -1323,7 +1323,7 @@
         'configurable': true,
         'enumerable': true,
         'set': function() { throw new Error; }
-    ***REMOVED***
+      };
 
       var source = {
         'a': 1,
@@ -1332,7 +1332,7 @@
         'd': undefined,
         'constructor': Object,
         'toString': lodashStable.constant('source')
-    ***REMOVED***
+      };
 
       defineProperty(object, 'a', lodashStable.assign({}, descriptor, {
         'get': alwaysOne
@@ -2000,7 +2000,7 @@
       'b': function() { return this._b; },
       'c': function() { return this._c; },
       'd': function() { return this._d; }
-  ***REMOVED***
+    };
 
     QUnit.test('should accept individual method names', function(assert) {
       assert.expect(1);
@@ -2077,14 +2077,14 @@
         'greet': function(greeting) {
           return this.user + ' says: ' + greeting;
         }
-    ***REMOVED***
+      };
 
       var bound = _.bindKey(object, 'greet', 'hi');
       assert.strictEqual(bound(), 'fred says: hi');
 
       object.greet = function(greeting) {
         return this.user + ' says: ' + greeting + '!';
-    ***REMOVED***
+      };
 
       assert.strictEqual(bound(), 'fred says: hi!');
     });
@@ -2096,7 +2096,7 @@
         'fn': function() {
           return slice.call(arguments);
         }
-    ***REMOVED***
+      };
 
       var ph = _.bindKey.placeholder,
           bound = _.bindKey(object, 'fn', ph, 'b', ph);
@@ -2115,7 +2115,7 @@
           'fn': function() {
             return slice.call(arguments);
           }
-      ***REMOVED***
+        };
 
         var _ph = _.placeholder = {},
             ph = _.bindKey.placeholder,
@@ -2648,7 +2648,7 @@
       'strings': 'a',
       'string objects': Object('a'),
       'undefined values': undefined
-  ***REMOVED***
+    };
 
     objects.arrays.length = 3;
 
@@ -2656,7 +2656,7 @@
       'DOM elements': body,
       'functions': Foo,
       'generators': generator
-  ***REMOVED***
+    };
 
     lodashStable.each(errors, function(error) {
       uncloneable[error.name + 's'] = error;
@@ -2678,7 +2678,7 @@
       var object = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': {}
-    ***REMOVED***
+      };
 
       object.foo.b.c.d = object;
       object.bar.b = object.foo.b;
@@ -2849,7 +2849,7 @@
           'toLocaleString': objectProto.toLocaleString,
           'toString': objectProto.toString,
           'valueOf': objectProto.valueOf
-      ***REMOVED***
+        };
 
         var actual = func(object);
 
@@ -3069,7 +3069,7 @@
 
           var customizer = function(value) {
             return lodashStable.isPlainObject(value) ? undefined : value;
-        ***REMOVED***
+          };
 
           var actual = func(value, customizer);
 
@@ -3345,11 +3345,11 @@
       function Foo() {
         this.a = function(value) {
           return value > 1;
-      ***REMOVED***
+        };
       }
       Foo.prototype.b = function(value) {
         return value > 8;
-    ***REMOVED***
+      };
 
       var conforms = _.conforms(new Foo),
           actual = lodashStable.filter(objects, conforms);
@@ -3468,7 +3468,7 @@
 
       var source = {
         'a': function(value) { return value > 1; }
-    ***REMOVED***
+      };
 
       var object = { 'a': 2 },
           conforms = _.conforms(source);
@@ -3844,7 +3844,7 @@
       var fn = function(a, b, c) {
         var value = this || {};
         return [value[a], value[b], value[c]];
-    ***REMOVED***
+      };
 
       var object = { 'a': 1, 'b': 2, 'c': 3 },
           expected = [1, 2, 3];
@@ -4003,7 +4003,7 @@
       var fn = function(a, b, c) {
         var value = this || {};
         return [value[a], value[b], value[c]];
-    ***REMOVED***
+      };
 
       var object = { 'a': 1, 'b': 2, 'c': 3 },
           expected = [1, 2, 3];
@@ -4471,7 +4471,7 @@
         'toLocaleString': objectProto.toLocaleString,
         'toString': objectProto.toString,
         'valueOf': objectProto.valueOf
-    ***REMOVED***
+      };
 
       var source = {
         'constructor': 1,
@@ -4481,7 +4481,7 @@
         'toLocaleString': 5,
         'toString': 6,
         'valueOf': 7
-    ***REMOVED***
+      };
 
       assert.deepEqual(_.defaults({}, source), source);
       assert.deepEqual(_.defaults({}, object, source), object);
@@ -4562,12 +4562,12 @@
       var object = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': { 'a': 2 }
-    ***REMOVED***
+      };
 
       var source = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': {}
-    ***REMOVED***
+      };
 
       object.foo.b.c.d = object;
       source.foo.b.c.d = source;
@@ -6697,7 +6697,7 @@
             var result = false;
             func(object, function() { result = true; }, 0);
             return result;
-        ***REMOVED***
+          };
 
           var values = [-1, '1', 1.1, Object(1), MAX_SAFE_INTEGER + 1],
               expected = lodashStable.map(values, alwaysTrue);
@@ -9235,7 +9235,7 @@
           'i': noop,
           'j': 'a'
         }
-    ***REMOVED***
+      };
 
       var object2 = {
         'a': [1, Object(2), 3],
@@ -9249,7 +9249,7 @@
           'i': noop,
           'j': 'a'
         }
-    ***REMOVED***
+      };
 
       assert.strictEqual(_.isEqual(object1, object2), true);
     });
@@ -9367,12 +9367,12 @@
       var object1 = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': { 'a': 2 }
-    ***REMOVED***
+      };
 
       var object2 = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': { 'a': 2 }
-    ***REMOVED***
+      };
 
       object1.foo.b.c.d = object1;
       object1.bar.b = object1.foo.b;
@@ -9388,12 +9388,12 @@
 
       var object1 = {
         'a': [1, 2]
-    ***REMOVED***
+      };
 
       var object2 = {
         'a': [1, 2],
         'b': [1, 2]
-    ***REMOVED***
+      };
 
       object1.b = object1.a;
 
@@ -9875,7 +9875,7 @@
 
       var customizer = function(value) {
         return _.isString(value) || undefined;
-    ***REMOVED***
+      };
 
       assert.strictEqual(_.isEqualWith('a', 'b', customizer), true);
       assert.strictEqual(_.isEqualWith(['a'], ['b'], customizer), true);
@@ -9887,7 +9887,7 @@
 
       var customizer = function(value) {
         return _.isString(value) ? false : undefined;
-    ***REMOVED***
+      };
 
       assert.strictEqual(_.isEqualWith('a', 'a', customizer), false);
       assert.strictEqual(_.isEqualWith(['a'], ['a'], customizer), false);
@@ -10731,7 +10731,7 @@
 
       var customizer = function(value) {
         return _.isString(value) || undefined;
-    ***REMOVED***
+      };
 
       assert.strictEqual(_.isMatchWith(['a'], ['b'], customizer), true);
       assert.strictEqual(_.isMatchWith({ '0': 'a' }, { '0': 'b' }, customizer), true);
@@ -10742,7 +10742,7 @@
 
       var customizer = function(value) {
         return _.isString(value) ? false : undefined;
-    ***REMOVED***
+      };
 
       assert.strictEqual(_.isMatchWith(['a'], ['a'], customizer), false);
       assert.strictEqual(_.isMatchWith({ '0': 'a' }, { '0': 'a' }, customizer), false);
@@ -12060,7 +12060,7 @@
         var result = [this.a];
         push.apply(result, arguments);
         return result;
-    ***REMOVED***
+      };
 
       var expected = [1, 2, 3],
           object = { 'a': 1 , 'iteratee': _.iteratee(_.partial(fn, 2)) };
@@ -12112,8 +12112,8 @@
     var getSum = function() {
       return function(result, object) {
         return result + object.a;
-    ***REMOVED***
-  ***REMOVED***
+      };
+    };
 
     var objects = [
       { 'a': 0, 'b': 0 },
@@ -12583,8 +12583,8 @@
         _.iteratee = function() {
           return function(result, object) {
             result.sum += object.a;
-        ***REMOVED***
-      ***REMOVED***
+          };
+        };
 
         assert.deepEqual(_.transform(objects, undefined, { 'sum': 0 }), { 'sum': 2 });
         _.iteratee = iteratee;
@@ -14568,7 +14568,7 @@
           this.__data__.push({ 'key': key, 'value': value });
           return this;
         }
-    ***REMOVED***
+      };
 
       _.memoize.Cache = Cache;
 
@@ -14614,7 +14614,7 @@
           result.__data__ = this.__data__.concat({ 'key': key, 'value': value });
           return result;
         }
-    ***REMOVED***
+      };
 
       _.memoize.Cache = Cache;
 
@@ -14651,28 +14651,28 @@
           { 'name': 'barney' },
           { 'name': 'fred' }
         ]
-    ***REMOVED***
+      };
 
       var ages = {
         'characters': [
           { 'age': 36 },
           { 'age': 40 }
         ]
-    ***REMOVED***
+      };
 
       var heights = {
         'characters': [
           { 'height': '5\'4"' },
           { 'height': '5\'5"' }
         ]
-    ***REMOVED***
+      };
 
       var expected = {
         'characters': [
           { 'name': 'barney', 'age': 36, 'height': '5\'4"' },
           { 'name': 'fred', 'age': 40, 'height': '5\'5"' }
         ]
-    ***REMOVED***
+      };
 
       assert.deepEqual(_.merge(names, ages, heights), expected);
     });
@@ -14683,12 +14683,12 @@
       var object = {
         'foo': { 'a': 1 },
         'bar': { 'a': 2 }
-    ***REMOVED***
+      };
 
       var source = {
         'foo': { 'b': { 'c': { 'd': {} } } },
         'bar': {}
-    ***REMOVED***
+      };
 
       source.foo.b.c.d = source;
       source.bar.b = source.foo.b;
@@ -15216,7 +15216,7 @@
         'fn': function() {
           return slice.call(arguments);
         }
-    ***REMOVED***
+      };
 
       lodashStable.each(['fn', ['fn']], function(path) {
         var method = _.method(path, 1, 2, 3);
@@ -15369,7 +15369,7 @@
         'fn': function() {
           return slice.call(arguments);
         }
-    ***REMOVED***
+      };
 
       var methodOf = _.methodOf(object, 1, 2, 3);
 
@@ -15532,7 +15532,7 @@
 
     Wrapper.prototype.value = function() {
       return getUnwrappedValue(this);
-  ***REMOVED***
+    };
 
     var array = ['a'],
         source = { 'a': function(array) { return array[0]; }, 'b': 'B' };
@@ -16265,8 +16265,8 @@
             key = lodashStable.isSymbol(key) ? key : lodashStable.toString(key);
             return object[key] === value;
           });
-      ***REMOVED***
-    ***REMOVED***
+        };
+      };
     }
     QUnit.test('`_.' + methodName + '` should create an object with omitted string keyed properties', function(assert) {
       assert.expect(2);
@@ -17180,7 +17180,7 @@
         var result = [this.a];
         push.apply(result, arguments);
         return result;
-    ***REMOVED***
+      };
 
       var expected = [1, 2, 3, 4],
           object = { 'a': 1, 'fn': fn };
@@ -17273,7 +17273,7 @@
 
       var fn = function() {
         return this.a;
-    ***REMOVED***
+      };
 
       var a = _.bind(fn, { 'a': 1 }),
           b = _.bind(a,  { 'a': 2 }),
@@ -17290,7 +17290,7 @@
           var result = [this];
           push.apply(result, arguments);
           return result;
-      ***REMOVED***
+        };
 
         var object = {},
             bound1 = index ? _.bind(fn, object, 1) : _.bind(fn, object),
@@ -17493,8 +17493,8 @@
             key = lodashStable.isSymbol(key) ? key : lodashStable.toString(key);
             return object[key] === value;
           });
-      ***REMOVED***
-    ***REMOVED***
+        };
+      };
     }
     QUnit.test('`_.' + methodName + '` should create an object of picked string keyed properties', function(assert) {
       assert.expect(2);
@@ -19270,7 +19270,7 @@
           'toString': function() {
             throw new Error('spy was revealed');
           }
-      ***REMOVED***
+        };
 
         var array = largeArray.concat(spy),
             expected = array.slice();
@@ -21874,7 +21874,7 @@
         'escape': /\{\{-([\s\S]+?)\}\}/g,
         'evaluate': /\{\{([\s\S]+?)\}\}/g,
         'interpolate': /\{\{=([\s\S]+?)\}\}/g
-    ***REMOVED***
+      };
 
       lodashStable.forOwn({
         'escape': '{{- a }}',
@@ -22314,7 +22314,7 @@
           return ++dateCount == 5
             ? Infinity
             : +new Date;
-      ***REMOVED***
+        };
 
         var lodash = _.runInContext(lodashStable.assign({}, root, {
           'Date': lodashStable.assign(function() {
@@ -22594,7 +22594,7 @@
           return ++dateCount === 4
             ? +new Date(2012, 3, 23, 23, 27, 18)
             : +new Date;
-      ***REMOVED***
+        };
 
         var lodash = _.runInContext(lodashStable.assign({}, root, {
           'Date': lodashStable.assign(function() {
@@ -23537,11 +23537,11 @@
 
       var iteratee = function(result, value, key) {
         result[key] = square(value);
-    ***REMOVED***
+      };
 
       var mapper = function(accumulator, index) {
         return index ? _.transform(object, iteratee, accumulator) : _.transform(object, iteratee);
-    ***REMOVED***
+      };
 
       var results = lodashStable.map(accumulators, mapper);
 
@@ -25221,7 +25221,7 @@
         [['barney', 'fred'], [36, 40], [false, true]],
         [['barney', 36, false], ['fred', 40, true]]
       ]
-  ***REMOVED***
+    };
 
     lodashStable.forOwn(object, function(pair, key) {
       QUnit.test('`_.' + methodName + '` should work with ' + key, function(assert) {

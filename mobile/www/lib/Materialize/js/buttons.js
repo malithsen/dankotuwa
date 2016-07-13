@@ -64,7 +64,7 @@
         time += 40;
       });
     }
-***REMOVED***
+  };
 
   var closeFABMenu = function (btn) {
     $this = btn;
@@ -85,7 +85,7 @@
       { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
       { duration: 80 }
     );
-***REMOVED***
+  };
 
 
 }( jQuery ));

@@ -198,7 +198,7 @@ function prepareAnimationOptions(options) {
       options.$$domOperationFired = true;
       domOperation();
       domOperation = noop;
-  ***REMOVED***
+    };
     options.$$prepared = true;
   }
   return options;
@@ -284,7 +284,7 @@ function resolveElementClasses(existing, toAdd, toRemove) {
   var classes = {
     addClass: '',
     removeClass: ''
-***REMOVED***
+  };
 
   forEach(flags, function(val, klass) {
     var prop, allow;
@@ -411,7 +411,7 @@ var $$rAFSchedulerFactory = ['$$rAF', function($$rAF) {
       fn();
       nextTick();
     });
-***REMOVED***
+  };
 
   return scheduler;
 
@@ -527,7 +527,7 @@ var $$AnimateChildrenDirective = ['$interpolate', function($interpolate) {
         element.data(NG_ANIMATE_CHILDREN_DATA, value);
       }
     }
-***REMOVED***
+  };
 }];
 
 var ANIMATE_TIMER_KEY = '$$animateCss';
@@ -857,7 +857,7 @@ function createLocalCacheLookup() {
         cache[key].total++;
       }
     }
-***REMOVED***
+  };
 }
 
 // we do not reassign an already present style value since
@@ -1071,7 +1071,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           animationDelay: staggerVal,
           transitionDuration: 0,
           animationDuration: 0
-      ***REMOVED***
+        };
       } else {
         cacheKey = gcsHashFn(node, fullClassName);
         stagger = computeCachedCssStaggerStyles(node, preparationClasses, cacheKey, DETECT_STAGGER_CSS_PROPERTIES);
@@ -1218,7 +1218,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
             cancel: cancelFn,
             resume: null, //this will be set during the start() phase
             pause: null
-        ***REMOVED***
+          };
 
           runner = new $$AnimateRunner(runnerHost);
 
@@ -1230,7 +1230,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           // later be overridden once the animation is triggered
           return runner;
         }
-    ***REMOVED***
+      };
 
       function endFn() {
         close();
@@ -1325,7 +1325,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
             return runner;
           },
           end: endFn
-      ***REMOVED***
+        };
       }
 
       function onAnimationProgress(event) {
@@ -1379,7 +1379,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
             animationPaused = false;
             close();
           }
-      ***REMOVED***
+        };
 
         // checking the stagger duration prevents an accidentally cascade of the CSS delay style
         // being inherited from the parent. If the transition duration is zero then we can safely
@@ -1399,11 +1399,11 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
         // this will decorate the existing promise runner with pause/resume methods
         runnerHost.resume = function() {
           playPause(true);
-      ***REMOVED***
+        };
 
         runnerHost.pause = function() {
           playPause(false);
-      ***REMOVED***
+        };
 
         function triggerAnimationStart() {
           // just incase a stagger animation kicks in when the animation
@@ -1497,7 +1497,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
             animationsData[0] = {
               timer: timer,
               expectedEndTime: endTime
-          ***REMOVED***
+            };
             animationsData.push(close);
             element.data(ANIMATE_TIMER_KEY, animationsData);
           }
@@ -1528,7 +1528,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           }
         }
       }
-  ***REMOVED***
+    };
   }];
 }];
 
@@ -1570,7 +1570,7 @@ var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationPro
                                          animationDetails.classes,
                                          animationDetails.anchors)
           : prepareRegularAnimation(animationDetails);
-  ***REMOVED***
+    };
 
     function filterCssClasses(classes) {
       //remove all the `ng-` stuff
@@ -1648,7 +1648,7 @@ var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationPro
             }
           }
         }
-    ***REMOVED***
+      };
 
       function calculateAnchorStyles(anchor) {
         var styles = {};
@@ -1762,7 +1762,7 @@ var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationPro
             });
           }
         }
-    ***REMOVED***
+      };
     }
 
     function prepareRegularAnimation(animationDetails) {
@@ -1939,7 +1939,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
             }
           }
         }
-    ***REMOVED***
+      };
 
       function executeAnimationFn(fn, element, event, options, onDone) {
         var args;
@@ -2002,7 +2002,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
                 (endProgressCb || noop)(rejected);
                 runner.complete(!rejected);
               }
-          ***REMOVED***
+            };
 
             runner = new $$AnimateRunner({
               end: function() {
@@ -2062,10 +2062,10 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
             forEach(runners, function(runner) {
               reject ? runner.cancel() : runner.end();
             });
-        ***REMOVED***
-      ***REMOVED***
+          };
+        };
       }
-  ***REMOVED***
+    };
 
     function lookupAnimations(classes) {
       classes = isArray(classes) ? classes : classes.split(' ');
@@ -2119,18 +2119,18 @@ var $$AnimateJsDriverProvider = ['$$animationProvider', function($$animationProv
                   // at this point we cannot cancel animations for groups just yet. 1.5+
                   runner.end();
                 });
-            ***REMOVED***
+              };
             }
 
             function done(status) {
               runner.complete(status);
             }
           }
-      ***REMOVED***
+        };
       } else {
         return prepareAnimation(animationDetails);
       }
-  ***REMOVED***
+    };
 
     function prepareAnimation(animationDetails) {
       // TODO(matsko): make sure to check for grouped animations and delegate down to normal animations
@@ -2154,7 +2154,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
     skip: [],
     cancel: [],
     join: []
-***REMOVED***
+  };
 
   function makeTruthyCssClassMap(classString) {
     if (!classString) {
@@ -2267,7 +2267,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
             fn();
           });
         }
-    ***REMOVED***
+      };
     }
 
     // Wait until all directive and route-related templates are downloaded and
@@ -2308,7 +2308,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
               ? function() { return true; }
               : function(className) {
                 return classNameFilter.test(className);
-            ***REMOVED***
+              };
 
     var applyAnimationClasses = applyAnimationClassesFactory($$jqLite);
 
@@ -2321,7 +2321,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
       // jshint bitwise: false
       return this === arg || !!(this.compareDocumentPosition(arg) & 16);
       // jshint bitwise: true
-  ***REMOVED***
+    };
 
     function findCallbacks(parent, element, event) {
       var targetNode = getDomNode(element);
@@ -2420,7 +2420,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
 
         return bool;
       }
-  ***REMOVED***
+    };
 
     return $animate;
 
@@ -2519,7 +2519,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
         close: close,
         options: options,
         runner: runner
-    ***REMOVED***
+      };
 
       if (hasExistingAnimation) {
         var skipAnimationFlag = isAllowed('skip', element, newAnimation, existingAnimation);
@@ -3092,7 +3092,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
               refLookup[key][direction] = {
                 animationID: index,
                 element: jqLite(anchor)
-            ***REMOVED***
+              };
             });
           } else {
             preparedAnimations.push(animation);
@@ -3135,7 +3135,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
               from: fromAnimation,
               to: toAnimation,
               anchors: [] // TODO(matsko): change to reference nodes
-          ***REMOVED***
+            };
 
             // the anchor animations require that the from and to elements both have at least
             // one shared CSS class which effectively marries the two elements together to use
@@ -3237,7 +3237,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
         element.removeClass(NG_ANIMATE_CLASSNAME);
         runner.complete(!rejected);
       }
-  ***REMOVED***
+    };
   }];
 }];
 
@@ -3284,7 +3284,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  *         var colors = ['red','blue','green','yellow','orange'];
  *         $scope.colorClass = function(number) {
  *           return colors[number % colors.length];
- *       ***REMOVED***
+ *         };
  *       }]);
  *   </file>
  *  <file name="animations.css">
@@ -3353,7 +3353,7 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
         }
       });
     }
-***REMOVED***
+  };
 }];
 
 /* global angularAnimateModule: true,

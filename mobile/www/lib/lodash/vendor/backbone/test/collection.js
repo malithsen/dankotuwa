@@ -23,7 +23,7 @@
     assert.deepEqual(col.pluck('label'), ['a', 'b', 'c', 'd']);
     col.comparator = function(m1, m2) {
       return m1.id > m2.id ? -1 : 1;
-  ***REMOVED***
+    };
     col.sort();
     assert.equal(counter, 1);
     assert.deepEqual(col.pluck('label'), ['a', 'b', 'c', 'd']);
@@ -298,7 +298,7 @@
         if (model.model) return model.model;
         return model;
       });
-  ***REMOVED***
+    };
     collection.add({id: 1});
     collection.add({model: {id: 1, name: 'Alf'}}, {parse: true, merge: true});
     assert.equal(collection.first().get('name'), 'Alf');
@@ -309,7 +309,7 @@
     var collection = new Backbone.Collection;
     collection.comparator = function(m1, m2) {
       return m1.get('name') < m2.get('name') ? -1 : 1;
-  ***REMOVED***
+    };
     var tom = new Backbone.Model({name: 'Tom'});
     var rob = new Backbone.Model({name: 'Rob'});
     var tim = new Backbone.Model({name: 'Tim'});
@@ -326,15 +326,15 @@
     var collection = new Backbone.Collection;
     collection.negative = function(num) {
       return -num;
-  ***REMOVED***
+    };
     collection.comparator = function(model) {
       return this.negative(model.id);
-  ***REMOVED***
+    };
     collection.add([{id: 1}, {id: 2}, {id: 3}]);
     assert.deepEqual(collection.pluck('id'), [3, 2, 1]);
     collection.comparator = function(m1, m2) {
       return this.negative(m2.id) - this.negative(m1.id);
-  ***REMOVED***
+    };
     collection.sort();
     assert.deepEqual(collection.pluck('id'), [1, 2, 3]);
   });
@@ -435,7 +435,7 @@
     var modelData = {
       id: 5,
       title: 'Othello'
-  ***REMOVED***
+    };
     var passed = false;
     var m1 = new Backbone.Model(modelData);
     var m2 = new Backbone.Model(modelData);
@@ -546,10 +546,10 @@
       error: function() {
         assert.equal(this, obj);
       }
-  ***REMOVED***
+    };
     collection.sync = function(method, model, opts) {
       opts.error.call(opts.context);
-  ***REMOVED***
+    };
     collection.fetch(options);
   });
 
@@ -560,7 +560,7 @@
     collection.parse = function(models) {
       counter++;
       return models;
-  ***REMOVED***
+    };
     collection.url = '/test';
     collection.fetch();
     this.syncArgs.options.success([]);
@@ -614,7 +614,7 @@
 
     var success = function(model, response, options) {
       assert.ok(options.specialSync, 'Options were passed correctly to callback');
-  ***REMOVED***
+    };
 
     collection.create({}, {success: success});
     this.ajaxSettings.success();
@@ -966,10 +966,10 @@
       success: function(coll, resp, options) {
         assert.ok(options.opts);
       }
-  ***REMOVED***
+    };
     collection.sync = m.sync = function( method, coll, options ){
       options.success({});
-  ***REMOVED***
+    };
     collection.fetch(opts);
     collection.create(m, opts);
   });
@@ -1005,14 +1005,14 @@
     collection.url = '/test';
     Backbone.ajax = function(settings) {
       settings.success.call(settings.context);
-  ***REMOVED***
+    };
     var obj = {};
     var options = {
       context: obj,
       success: function() {
         assert.equal(this, obj);
       }
-  ***REMOVED***
+    };
 
     collection.fetch(options);
     collection.create({id: 1}, options);
@@ -1109,7 +1109,7 @@
     assert.expect(2);
     var model = {
       namespace: [{id: 1}, {id: 2}]
-  ***REMOVED***
+    };
     var Collection = Backbone.Collection.extend({
       model: Backbone.Model.extend({
         parse: function(m) {
@@ -1131,7 +1131,7 @@
     assert.expect(2);
     var model = {
       namespace: [{id: 1}, {id: 2}]
-  ***REMOVED***
+    };
     var Collection = Backbone.Collection.extend({
       model: Backbone.Model.extend({
         parse: function(m) {
@@ -1387,7 +1387,7 @@
     Backbone.ajax = function(params) {
       _.defer(params.success, []);
       return {someHeader: 'headerValue'};
-  ***REMOVED***
+    };
     collection.fetch({
       success: function() { done(); }
     });
@@ -1408,7 +1408,7 @@
 
     var onSuccess = function(coll, resp, options) {
       assert.ok(options.specialSync, 'Options were passed correctly to callback');
-  ***REMOVED***
+    };
 
     collection.fetch({success: onSuccess});
     this.ajaxSettings.success();
@@ -1541,7 +1541,7 @@
           {id: 4, subName: 'Four'}
         ]
       }]
-  ***REMOVED***
+    };
 
     var newData = {
       name: 'NewJobName',
@@ -1561,7 +1561,7 @@
           {id: 4, subName: 'NewFour'}
         ]
       }]
-  ***REMOVED***
+    };
 
     var job = new Job(data, {parse: true});
     assert.equal(job.get('name'), 'JobName');
@@ -1636,7 +1636,7 @@
     var model = new Backbone.Model({id: 1});
     model.sync = function(){
       assert.equal(this.collection, collection);
-  ***REMOVED***
+    };
     collection.create(model, {wait: true});
   });
 

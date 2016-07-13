@@ -9,5 +9,5 @@ angular.module('dankotuwa')
     scope: {
         aItem: '=newItem'
     }
-***REMOVED***
+  };
 });

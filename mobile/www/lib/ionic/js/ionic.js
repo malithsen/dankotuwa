@@ -77,11 +77,11 @@ window.ionic.version = '1.3.1';
           if (index !== -1) {
             instances.splice(index, 1);
           }
-      ***REMOVED***
-    ***REMOVED***
+        };
+      };
       DelegateService.prototype.$getByHandle = function(handle) {
         return new DelegateInstance(this._instances, handle);
-    ***REMOVED***
+      };
 
       return new DelegateService();
 
@@ -115,11 +115,11 @@ window.ionic.version = '1.3.1';
             );
           }
           return returnValue;
-      ***REMOVED***
+        };
       }
 
     }];
-***REMOVED***
+  };
 
 })(window.ionic);
 
@@ -151,7 +151,7 @@ window.ionic.version = '1.3.1';
            window.mozRequestAnimationFrame ||
            function(callback) {
              window.setTimeout(callback, 16);
-         ***REMOVED***
+           };
   })();
 
   var cancelAnimationFrame = window.cancelAnimationFrame ||
@@ -209,7 +209,7 @@ window.ionic.version = '1.3.1';
             isQueued = false;
           });
         }
-    ***REMOVED***
+      };
     },
 
     contains: function(parentNode, otherNode) {
@@ -234,7 +234,7 @@ window.ionic.version = '1.3.1';
       return {
         left: el.offsetLeft,
         top: el.offsetTop
-    ***REMOVED***
+      };
     },
 
     getOffsetTop: function(el) {
@@ -295,7 +295,7 @@ window.ionic.version = '1.3.1';
               bottom: rect.top + sy + rect.height,
               width: rect.width,
               height: rect.height
-          ***REMOVED***
+            };
           }
         }
       }
@@ -442,7 +442,7 @@ window.ionic.version = '1.3.1';
       }
     }
 
-***REMOVED***
+  };
 
   //Shortcuts
   ionic.requestAnimationFrame = ionic.DomUtil.requestAnimationFrame;
@@ -475,7 +475,7 @@ window.ionic.version = '1.3.1';
         bubbles: false,
         cancelable: false,
         detail: undefined
-    ***REMOVED***
+      };
       try {
         evt = document.createEvent("CustomEvent");
         evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
@@ -488,7 +488,7 @@ window.ionic.version = '1.3.1';
         evt.initEvent(event, params.bubbles, params.cancelable);
       }
       return evt;
-  ***REMOVED***
+    };
     customEvent.prototype = window.Event.prototype;
     return customEvent;
   })();
@@ -604,7 +604,7 @@ window.ionic.version = '1.3.1';
     },
 
     handlePopState: function() {}
-***REMOVED***
+  };
 
 
   // Map some convenient top-level functions for event handling
@@ -635,7 +635,7 @@ window.ionic.version = '1.3.1';
    */
   ionic.Gesture = function(element, options) {
     return new ionic.Gestures.Instance(element, options || {});
-***REMOVED***
+  };
 
   ionic.Gestures = {};
 
@@ -646,7 +646,7 @@ window.ionic.version = '1.3.1';
     // but cancels the contextmenu, tap highlighting etc
     // set to false to disable this
     stop_browser_behavior: 'disable-user-behavior'
-***REMOVED***
+  };
 
   // detect touchevents
   ionic.Gestures.HAS_POINTEREVENTS = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
@@ -759,7 +759,7 @@ window.ionic.version = '1.3.1';
 
     // return instance
     return this;
-***REMOVED***
+  };
 
 
   ionic.Gestures.Instance.prototype = {
@@ -826,7 +826,7 @@ window.ionic.version = '1.3.1';
       this.enabled = state;
       return this;
     }
-***REMOVED***
+  };
 
   /**
    * this holds the last move event,
@@ -1068,9 +1068,9 @@ window.ionic.version = '1.3.1';
         stopDetect: function() {
           return ionic.Gestures.detection.stopDetect();
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 
   ionic.Gestures.PointerEvent = {
     /**
@@ -1146,7 +1146,7 @@ window.ionic.version = '1.3.1';
     reset: function() {
       this.pointers = {};
     }
-***REMOVED***
+  };
 
 
   ionic.Gestures.utils = {
@@ -1203,7 +1203,7 @@ window.ionic.version = '1.3.1';
       return {
         pageX: ((Math.min.apply(Math, valuesX) + Math.max.apply(Math, valuesX)) / 2),
           pageY: ((Math.min.apply(Math, valuesY) + Math.max.apply(Math, valuesY)) / 2)
-    ***REMOVED***
+      };
     },
 
 
@@ -1218,7 +1218,7 @@ window.ionic.version = '1.3.1';
       return {
         x: Math.abs(delta_x / delta_time) || 0,
         y: Math.abs(delta_y / delta_time) || 0
-    ***REMOVED***
+      };
     },
 
 
@@ -1323,10 +1323,10 @@ window.ionic.version = '1.3.1';
         element.classList.add(css_class);
         element.onselectstart = function() {
           return false;
-      ***REMOVED***
+        };
       }
     }
-***REMOVED***
+  };
 
 
   ionic.Gestures.detection = {
@@ -1362,7 +1362,7 @@ window.ionic.version = '1.3.1';
         startEvent: ionic.Gestures.utils.extend({}, eventData), // start eventData for distances, timing etc
         lastEvent: false, // last eventData
         name: '' // current gesture we're in/detected, can be 'tap', 'hold' etc
-    ***REMOVED***
+      };
 
       this.detect(eventData);
     },
@@ -1510,7 +1510,7 @@ window.ionic.version = '1.3.1';
 
       return this.gestures;
     }
-***REMOVED***
+  };
 
 
   ionic.Gestures.gestures = ionic.Gestures.gestures || {};
@@ -1666,7 +1666,7 @@ window.ionic.version = '1.3.1';
           break;
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -1712,7 +1712,7 @@ window.ionic.version = '1.3.1';
         }
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -1746,7 +1746,7 @@ window.ionic.version = '1.3.1';
             }
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -1883,7 +1883,7 @@ window.ionic.version = '1.3.1';
           break;
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -1973,7 +1973,7 @@ window.ionic.version = '1.3.1';
           break;
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -2009,7 +2009,7 @@ window.ionic.version = '1.3.1';
         inst.trigger(this.name, ev);
       }
     }
-***REMOVED***
+  };
 
 
   /**
@@ -2025,7 +2025,7 @@ window.ionic.version = '1.3.1';
         inst.trigger(this.name, ev);
       }
     }
-***REMOVED***
+  };
 })(window.ionic);
 
 (function(window, document, ionic) {
@@ -2343,7 +2343,7 @@ window.ionic.version = '1.3.1';
         'android': /Android (\d+).(\d+)?/,
         'ios': /OS (\d+)_(\d+)?/,
         'windowsphone': /Windows Phone (\d+).(\d+)?/
-    ***REMOVED***
+      };
       if (versionMatch[pName]) {
         v = self.ua.match(versionMatch[pName]);
         if (v && v.length > 2) {
@@ -2439,7 +2439,7 @@ window.ionic.version = '1.3.1';
       });
     }
 
-***REMOVED***
+  };
 
   var platformName = null, // just the name, like iOS or Android
   platformVersion = null, // a float of the major and minor, like 7.1
@@ -2582,7 +2582,7 @@ window.ionic.version = '1.3.1';
             }
 
             self.className = classes.join(" ");
-        ***REMOVED***
+          };
         }
 
         return {
@@ -2605,7 +2605,7 @@ window.ionic.version = '1.3.1';
           item: function(i) {
             return self.className.split(/\s+/)[i] || null;
           }
-      ***REMOVED***
+        };
 
       }
     });
@@ -2762,7 +2762,7 @@ ionic.tap = {
       tapEnabledTouchEvents = false;
       tapPointerMoved = false;
       tapPointerStart = null;
-  ***REMOVED***
+    };
   },
 
   ignoreScrollStart: function(e) {
@@ -3298,7 +3298,7 @@ ionic.DomUtil.ready(function() {
       setTimeout(clear, 200);
     }
 
-***REMOVED***
+  };
 
   function clear() {
     // clear out any elements that are queued to be set to active
@@ -3364,7 +3364,7 @@ ionic.DomUtil.ready(function() {
       var args = Array.prototype.slice.call(arguments, 2);
       return function() {
         return func.apply(context, args.concat(Array.prototype.slice.call(arguments)));
-    ***REMOVED***
+      };
     },
 
     /**
@@ -3388,14 +3388,14 @@ ionic.DomUtil.ready(function() {
             timeout = null;
             if (!immediate) result = func.apply(context, args);
           }
-      ***REMOVED***
+        };
         var callNow = immediate && !timeout;
         if (!timeout) {
           timeout = setTimeout(later, wait);
         }
         if (callNow) result = func.apply(context, args);
         return result;
-    ***REMOVED***
+      };
     },
 
     /**
@@ -3411,7 +3411,7 @@ ionic.DomUtil.ready(function() {
         previous = options.leading === false ? 0 : Date.now();
         timeout = null;
         result = func.apply(context, args);
-    ***REMOVED***
+      };
       return function() {
         var now = Date.now();
         if (!previous && options.leading === false) previous = now;
@@ -3427,7 +3427,7 @@ ionic.DomUtil.ready(function() {
           timeout = setTimeout(later, remaining);
         }
         return result;
-    ***REMOVED***
+      };
     },
      // Borrowed from Backbone.js's extend
      // Helper function to correctly set up the prototype chain, for subclasses.
@@ -3540,7 +3540,7 @@ ionic.DomUtil.ready(function() {
       }
       return false;
     }
-***REMOVED***
+  };
 
   // Bind a few of the most useful functions to the ionic scope
   ionic.inherit = ionic.Utils.inherit;
@@ -4150,7 +4150,7 @@ function keyboardShow() {
   var details = {
     keyboardHeight: keyboardGetHeight(),
     viewportHeight: keyboardCurrentViewportHeight
-***REMOVED***
+  };
 
   if (keyboardActiveElement) {
     details.target = keyboardActiveElement;
@@ -4480,7 +4480,7 @@ ionic.Platform.ready(function() {
 'use strict';
   ionic.views.View = function() {
     this.initialize.apply(this, arguments);
-***REMOVED***
+  };
 
   ionic.views.View.inherit = ionic.inherit;
 
@@ -4520,7 +4520,7 @@ var zyngaCore = { effect: {} };
 (function(global) {
   var time = Date.now || function() {
     return +new Date();
-***REMOVED***
+  };
   var desiredFrames = 60;
   var millisecondsPerSecond = 1000;
   var running = {};
@@ -4547,7 +4547,7 @@ var zyngaCore = { effect: {} };
       if (isNative) {
         return function(callback, root) {
           requestFrame(callback, root);
-      ***REMOVED***
+        };
       }
 
       var TARGET_FPS = 60;
@@ -4594,7 +4594,7 @@ var zyngaCore = { effect: {} };
         }
 
         return callbackHandle;
-    ***REMOVED***
+      };
 
     })(),
 
@@ -4710,7 +4710,7 @@ var zyngaCore = { effect: {} };
           lastFrame = now;
           zyngaCore.effect.Animate.requestAnimationFrame(step, root);
         }
-    ***REMOVED***
+      };
 
       // Mark as running
       running[id] = true;
@@ -4721,7 +4721,7 @@ var zyngaCore = { effect: {} };
       // Return unique animation ID
       return id;
     }
-***REMOVED***
+  };
 })(window);
 
 /*
@@ -4749,7 +4749,7 @@ var zyngaCore = { effect: {} };
   **/
   var easeOutCubic = function(pos) {
     return (Math.pow((pos - 1), 3) + 1);
-***REMOVED***
+  };
 
   /**
    * @param pos {Number} position between 0 (start of effect) and 1 (end of effect)
@@ -4760,7 +4760,7 @@ var zyngaCore = { effect: {} };
     }
 
     return 0.5 * (Math.pow((pos - 2), 3) + 2);
-***REMOVED***
+  };
 
 
 /**
@@ -4875,7 +4875,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       getContentHeight: function() {
         return Math.max(self.__content.scrollHeight, self.__content.offsetHeight + (self.__content.offsetTop * 2));
       }
-  ***REMOVED***
+    };
 
     for (var key in options) {
       self.options[key] = options[key];
@@ -4894,14 +4894,14 @@ ionic.views.Scroll = ionic.views.View.inherit({
         self.scrollTimer = setTimeout(self.setScrollStop, 80);
       }
 
-  ***REMOVED***
+    };
 
     self.freeze = function(shouldFreeze) {
       if (arguments.length) {
         self.options.freeze = shouldFreeze;
       }
       return self.options.freeze;
-  ***REMOVED***
+    };
 
     // We can just use the standard freeze pop in our mouth
     self.freezeShut = self.freeze;
@@ -4910,12 +4910,12 @@ ionic.views.Scroll = ionic.views.View.inherit({
       ionic.scroll.isScrolling = Math.abs(ionic.scroll.lastTop - self.__scrollTop) > 1;
       clearTimeout(self.scrollTimer);
       self.scrollTimer = setTimeout(self.setScrollStop, 80);
-  ***REMOVED***
+    };
 
     self.setScrollStop = function() {
       ionic.scroll.isScrolling = false;
       ionic.scroll.lastTop = self.__scrollTop;
-  ***REMOVED***
+    };
 
     self.triggerScrollEvent = ionic.throttle(function() {
       self.onScroll();
@@ -4932,7 +4932,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         scrollLeft: self.__scrollLeft,
         target: self.__container
       });
-  ***REMOVED***
+    };
 
     self.__scrollLeft = self.options.startX;
     self.__scrollTop = self.options.startY;
@@ -5241,7 +5241,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       // Only the first scrollView parent of the element that broadcasted this event
       // (the active element that needs to be shown) should receive this event
       e.stopPropagation();
-  ***REMOVED***
+    };
 
     self.resetScrollView = function() {
       //return scrollview to original height once keyboard has hidden
@@ -5251,7 +5251,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         container.style.overflow = "";
       }
       self.resize();
-  ***REMOVED***
+    };
 
     //Broadcasted when keyboard is shown on some platforms.
     //See js/utils/keyboard.js
@@ -5292,7 +5292,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       self.__hasStarted = true;
       self.doTouchStart(getEventTouches(e), e.timeStamp);
       e.preventDefault();
-  ***REMOVED***
+    };
 
     self.touchMove = function(e) {
       if (self.options.freeze || !self.__isDown ||
@@ -5333,13 +5333,13 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
       self.doTouchMove(getEventTouches(e), e.timeStamp, e.scale);
       self.__isDown = true;
-  ***REMOVED***
+    };
 
     self.touchMoveBubble = function(e) {
       if(self.__isDown && self.options.preventDefault) {
         e.preventDefault();
       }
-  ***REMOVED***
+    };
 
     self.touchEnd = function(e) {
       if (!self.__isDown) return;
@@ -5353,7 +5353,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       if ( !self.__isDragging && !self.__isDecelerating && !self.__isAnimating ) {
         ionic.tap.removeClonedInputs(container, self);
       }
-  ***REMOVED***
+    };
 
     self.mouseWheel = ionic.animationFrameThrottle(function(e) {
       var scrollParent = ionic.DomUtil.getParentOrSelfWithClass(e.target, 'ionic-scroll');
@@ -5414,7 +5414,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
           e.preventDefault();
         }
         mousedown = true;
-    ***REMOVED***
+      };
 
       self.mouseMove = function(e) {
         if (self.options.freeze || !mousedown || (!mousedown && e.defaultPrevented)) {
@@ -5424,13 +5424,13 @@ ionic.views.Scroll = ionic.views.View.inherit({
         self.doTouchMove(getEventTouches(e), e.timeStamp);
 
         mousedown = true;
-    ***REMOVED***
+      };
 
       self.mouseMoveBubble = function(e) {
         if (mousedown && self.options.preventDefault) {
           e.preventDefault();
         }
-    ***REMOVED***
+      };
 
       self.mouseUp = function(e) {
         if (!mousedown) {
@@ -5440,7 +5440,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         self.doTouchEnd(e, e.timeStamp);
 
         mousedown = false;
-    ***REMOVED***
+      };
 
       container.addEventListener("mousedown", self.mouseDown, false);
       if(self.options.preventDefault) container.addEventListener("mousemove", self.mouseMoveBubble, false);
@@ -5526,7 +5526,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       indicatorX = {
         el: self.__createScrollbar('h'),
         sizeRatio: 1
-    ***REMOVED***
+      };
       indicatorX.indicator = indicatorX.el.children[0];
 
       if (self.options.scrollbarX) {
@@ -5539,7 +5539,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       indicatorY = {
         el: self.__createScrollbar('v'),
         sizeRatio: 1
-    ***REMOVED***
+      };
       indicatorY.indicator = indicatorY.el.children[0];
 
       if (self.options.scrollbarY) {
@@ -5791,7 +5791,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         if (!wasResize) {
           self.triggerScrollEvent();
         }
-    ***REMOVED***
+      };
 
     } else if (helperElem.style[transformProperty] !== undef) {
 
@@ -5801,7 +5801,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         if (!wasResize) {
           self.triggerScrollEvent();
         }
-    ***REMOVED***
+      };
 
     } else {
 
@@ -5813,7 +5813,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         if (!wasResize) {
           self.triggerScrollEvent();
         }
-    ***REMOVED***
+      };
 
     }
   },
@@ -5976,7 +5976,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       left: this.__scrollLeft,
       top: this.__scrollTop,
       zoom: this.__zoomLevel
-  ***REMOVED***
+    };
   },
 
 
@@ -5989,7 +5989,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
     return {
       left: this.__maxScrollLeft,
       top: this.__maxScrollTop
-  ***REMOVED***
+    };
   },
 
 
@@ -6653,11 +6653,11 @@ ionic.views.Scroll = ionic.views.View.inherit({
           }
 
         }
-    ***REMOVED***
+      };
 
       var verify = function(id) {
         return self.__isAnimating === id;
-    ***REMOVED***
+      };
 
       var completed = function(renderedFramesPerSecond, animationId, wasFinished) {
         if (animationId === self.__isAnimating) {
@@ -6670,7 +6670,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         if (self.options.zooming) {
           self.__computeScrollMax();
         }
-    ***REMOVED***
+      };
 
       // When continuing based on previous animation we choose an ease-out animation instead of ease-in-out
       self.__isAnimating = zyngaCore.effect.Animate.start(step, verify, completed, self.options.animationDuration, wasAnimating ? easeOutCubic : easeInOutCubic);
@@ -6724,7 +6724,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
     var sizer = function() {
       self.resize(true);
-  ***REMOVED***
+    };
 
     sizer();
     self.__sizerTimeout = setTimeout(sizer, 500);
@@ -6769,7 +6769,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
     // Wrap class method
     var step = function(percent, now, render) {
       self.__stepThroughDeceleration(render);
-  ***REMOVED***
+    };
 
     // How much velocity is required to keep the deceleration running
     self.__minVelocityToKeepDecelerating = self.options.snapping ? 4 : 0.1;
@@ -6793,7 +6793,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         }
       }
       return shouldContinue;
-  ***REMOVED***
+    };
 
     var completed = function() {
       self.__isDecelerating = false;
@@ -6805,7 +6805,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       if (self.options.paging) {
         self.scrollTo(self.__scrollLeft, self.__scrollTop, self.options.snapping);
       }
-  ***REMOVED***
+    };
 
     // Start animation and switch on flag
     self.__isDecelerating = zyngaCore.effect.Animate.start(step, verify, completed);
@@ -6981,7 +6981,7 @@ ionic.scroll = {
   var NOOP = function() {};
   var deprecated = function(name) {
     void 0;
-***REMOVED***
+  };
   ionic.views.ScrollNative = ionic.views.View.inherit({
 
     initialize: function(options) {
@@ -7021,7 +7021,7 @@ ionic.scroll = {
           return Math.max(self.__content.scrollHeight, self.__content.offsetHeight + (self.__content.offsetTop * 2));
         }
 
-    ***REMOVED***
+      };
 
       for (var key in options) {
         self.options[key] = options[key];
@@ -7039,15 +7039,15 @@ ionic.scroll = {
         self.scrollTimer = setTimeout(function() {
           ionic.scroll.isScrolling = false;
         }, 80);
-    ***REMOVED***
+      };
 
       self.freeze = function(shouldFreeze) {
         self.__frozen = shouldFreeze;
-    ***REMOVED***
+      };
       // A more powerful freeze pop that dominates all other freeze pops
       self.freezeShut = function(shouldFreezeShut) {
         self.__frozenShut = shouldFreezeShut;
-    ***REMOVED***
+      };
 
       self.__initEventHandlers();
     },
@@ -7098,7 +7098,7 @@ ionic.scroll = {
         left: self.__scrollLeft,
         top: self.__scrollTop,
         zoom: 1
-    ***REMOVED***
+      };
     },
 
     /**
@@ -7158,7 +7158,7 @@ ionic.scroll = {
       return {
         left: this.__maxScrollLeft,
         top: this.__maxScrollTop
-    ***REMOVED***
+      };
     },
 
     /**
@@ -7281,7 +7281,7 @@ ionic.scroll = {
 
       var sizer = function() {
         self.resize(true);
-    ***REMOVED***
+      };
 
       sizer();
       self.__sizerTimeout = setTimeout(sizer, 500);
@@ -7467,7 +7467,7 @@ ionic.scroll = {
         // Only the first scrollView parent of the element that broadcasted this event
         // (the active element that needs to be shown) should receive this event
         e.stopPropagation();
-    ***REMOVED***
+      };
 
       self.resetScrollView = function() {
         //return scrollview to original height once keyboard has hidden
@@ -7495,7 +7495,7 @@ ionic.scroll = {
 
         }
         self.resize();
-    ***REMOVED***
+      };
 
       self.handleTouchMove = function(e) {
         if (self.__frozenShut) {
@@ -7510,7 +7510,7 @@ ionic.scroll = {
           return false;
         }
         return true;
-    ***REMOVED***
+      };
 
       container.addEventListener('scroll', self.onScroll);
 
@@ -7577,14 +7577,14 @@ ionic.scroll = {
     isSameItem: function() {
       return false;
     }
-***REMOVED***
+  };
 
   var SlideDrag = function(opts) {
     this.dragThresholdX = opts.dragThresholdX || 10;
     this.el = opts.el;
     this.item = opts.item;
     this.canSwipe = opts.canSwipe;
-***REMOVED***
+  };
 
   SlideDrag.prototype = new DragOp();
 
@@ -7628,8 +7628,8 @@ ionic.scroll = {
       buttonsWidth: buttonsWidth,
       content: content,
       startOffsetX: offsetX
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   /**
    * Check if this is the same item that was previously dragged.
@@ -7639,7 +7639,7 @@ ionic.scroll = {
       return this._currentDrag.content == op._lastDrag.content;
     }
     return false;
-***REMOVED***
+  };
 
   SlideDrag.prototype.clean = function(isInstant) {
     var lastDrag = this._lastDrag;
@@ -7662,7 +7662,7 @@ ionic.scroll = {
     function makeInvisible() {
       lastDrag.buttons && lastDrag.buttons.classList.add('invisible');
     }
-***REMOVED***
+  };
 
   SlideDrag.prototype.drag = ionic.animationFrameThrottle(function(e) {
     var buttonsWidth;
@@ -7753,7 +7753,7 @@ ionic.scroll = {
       // We are done, notify caller
       doneCallback && doneCallback();
     });
-***REMOVED***
+  };
 
   var ReorderDrag = function(opts) {
     var self = this;
@@ -7773,7 +7773,7 @@ ionic.scroll = {
         obj = obj.offsetParent;
       } while (obj);
     }
-***REMOVED***
+  };
 
   ReorderDrag.prototype = new DragOp();
 
@@ -7783,11 +7783,11 @@ ionic.scroll = {
       (this._currentDrag.elementHeight / 2) -
       this.listElTrueTop;
     this.el.style[ionic.CSS.TRANSFORM] = 'translate3d(0, ' + y + 'px, 0)';
-***REMOVED***
+  };
 
   ReorderDrag.prototype.deregister = function() {
     this.listEl = this.el = this.scrollEl = this.scrollView = null;
-***REMOVED***
+  };
 
   ReorderDrag.prototype.start = function(e) {
 
@@ -7806,10 +7806,10 @@ ionic.scroll = {
       placeholder: placeholder,
       scrollHeight: scroll,
       list: placeholder.parentNode
-  ***REMOVED***
+    };
 
     this._moveElement(e);
-***REMOVED***
+  };
 
   ReorderDrag.prototype.drag = ionic.animationFrameThrottle(function(e) {
     // We really aren't dragging
@@ -7892,7 +7892,7 @@ ionic.scroll = {
       }
     }
     return self._currentDrag.startIndex;
-***REMOVED***
+  };
 
   ReorderDrag.prototype.end = function(e, doneCallback) {
     if (!this._currentDrag) {
@@ -7915,10 +7915,10 @@ ionic.scroll = {
     this._currentDrag = {
       placeholder: null,
       content: null
-  ***REMOVED***
+    };
     this._currentDrag = null;
     doneCallback && doneCallback();
-***REMOVED***
+  };
 
 
 
@@ -8329,7 +8329,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         for ( var i in props ) if (temp.style[ props[i] ] !== undefined) return true;
         return false;
       })(document.createElement('swipe'))
-  ***REMOVED***
+    };
 
 
     var container = options.el;
@@ -8603,7 +8603,7 @@ ionic.views.Slider = ionic.views.View.inherit({
           // store time to determine touch duration
           time: +new Date()
 
-      ***REMOVED***
+        };
 
         // used for testing first move event
         isScrolling = undefined;
@@ -8641,7 +8641,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         delta = {
           x: touches.pageX - start.x,
           y: touches.pageY - start.y
-      ***REMOVED***
+        };
 
         // determine if scrolling test has run - one time test
         if ( typeof isScrolling == 'undefined') {
@@ -8795,57 +8795,57 @@ ionic.views.Slider = ionic.views.View.inherit({
 
       }
 
-  ***REMOVED***
+    };
 
     // Public API
     this.update = function() {
       setTimeout(setup);
-  ***REMOVED***
+    };
     this.setup = function() {
       setup();
-  ***REMOVED***
+    };
 
     this.loop = function(value) {
       if (arguments.length) options.continuous = !!value;
       return options.continuous;
-  ***REMOVED***
+    };
 
     this.enableSlide = function(shouldEnable) {
       if (arguments.length) {
         this.slideIsDisabled = !shouldEnable;
       }
       return !this.slideIsDisabled;
-  ***REMOVED***
+    };
 
     this.slide = this.select = function(to, speed) {
       // cancel slideshow
       stop();
 
       slide(to, speed);
-  ***REMOVED***
+    };
 
     this.prev = this.previous = function() {
       // cancel slideshow
       stop();
 
       prev();
-  ***REMOVED***
+    };
 
     this.next = function() {
       // cancel slideshow
       stop();
 
       next();
-  ***REMOVED***
+    };
 
     this.stop = function() {
       // cancel slideshow
       stop();
-  ***REMOVED***
+    };
 
     this.start = function() {
       begin();
-  ***REMOVED***
+    };
 
     this.autoPlay = function(newDelay) {
       if (!delay || delay < 0) {
@@ -8854,17 +8854,17 @@ ionic.views.Slider = ionic.views.View.inherit({
         delay = newDelay;
         begin();
       }
-  ***REMOVED***
+    };
 
     this.currentIndex = this.selected = function() {
       // return current index position
       return index;
-  ***REMOVED***
+    };
 
     this.slidesCount = this.count = function() {
       // return total number of slides
       return length;
-  ***REMOVED***
+    };
 
     this.kill = function() {
       // cancel slideshow
@@ -8896,7 +8896,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         window.onresize = null;
 
       }
-  ***REMOVED***
+    };
 
     this.load = function() {
       // trigger setup
@@ -8929,7 +8929,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         window.onresize = function () { setup(); }; // to play nice with old IE
 
       }
-  ***REMOVED***
+    };
 
   }
 });
@@ -9140,7 +9140,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             onLazyImageReady: function (swiper, slide, image)
             */
 
-      ***REMOVED***
+        };
         var initialVirtualTranslate = params && params.virtualTranslate;
 
         params = params || {};
@@ -9220,7 +9220,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
             }
             return breakpoint || 'max';
-      ***REMOVED***
+        };
         s.setBreakpoint = function () {
             //Set breakpoint for window width and update parameters
             var breakpoint = s.getActiveBreakpoint();
@@ -9231,7 +9231,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
                 s.currentBreakpoint = breakpoint;
             }
-      ***REMOVED***
+        };
         // Set breakpoint on load
         if (s.params.breakpoints) {
             s.setBreakpoint();
@@ -9362,22 +9362,22 @@ ionic.views.Slider = ionic.views.View.inherit({
           ===========================*/
         s.lockSwipeToNext = function () {
             s.params.allowSwipeToNext = false;
-      ***REMOVED***
+        };
         s.lockSwipeToPrev = function () {
             s.params.allowSwipeToPrev = false;
-      ***REMOVED***
+        };
         s.lockSwipes = function () {
             s.params.allowSwipeToNext = s.params.allowSwipeToPrev = false;
-      ***REMOVED***
+        };
         s.unlockSwipeToNext = function () {
             s.params.allowSwipeToNext = true;
-      ***REMOVED***
+        };
         s.unlockSwipeToPrev = function () {
             s.params.allowSwipeToPrev = true;
-      ***REMOVED***
+        };
         s.unlockSwipes = function () {
             s.params.allowSwipeToNext = s.params.allowSwipeToPrev = true;
-      ***REMOVED***
+        };
 
         /*=========================
           Round helper
@@ -9423,7 +9423,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             } else {//image already loaded...
                 onReady();
             }
-      ***REMOVED***
+        };
         s.preloadImages = function () {
             s.imagesToLoad = s.container.find('img');
             function _onReady() {
@@ -9437,7 +9437,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             for (var i = 0; i < s.imagesToLoad.length; i++) {
                 s.loadImage(s.imagesToLoad[i], (s.imagesToLoad[i].currentSrc || s.imagesToLoad[i].getAttribute('src')), (s.imagesToLoad[i].srcset || s.imagesToLoad[i].getAttribute('srcset')), true, _onReady);
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Autoplay
@@ -9473,14 +9473,14 @@ ionic.views.Slider = ionic.views.View.inherit({
             s.autoplaying = true;
             s.emit('onAutoplayStart', s);
             autoplay();
-      ***REMOVED***
+        };
         s.stopAutoplay = function (internal) {
             if (!s.autoplayTimeoutId) return;
             if (s.autoplayTimeoutId) clearTimeout(s.autoplayTimeoutId);
             s.autoplaying = false;
             s.autoplayTimeoutId = undefined;
             s.emit('onAutoplayStop', s);
-      ***REMOVED***
+        };
         s.pauseAutoplay = function (speed) {
             if (s.autoplayPaused) return;
             if (s.autoplayTimeoutId) clearTimeout(s.autoplayTimeoutId);
@@ -9501,16 +9501,16 @@ ionic.views.Slider = ionic.views.View.inherit({
                     }
                 });
             }
-      ***REMOVED***
+        };
         /*=========================
           Min/Max Translate
           ===========================*/
         s.minTranslate = function () {
             return (-s.snapGrid[0]);
-      ***REMOVED***
+        };
         s.maxTranslate = function () {
             return (-s.snapGrid[s.snapGrid.length - 1]);
-      ***REMOVED***
+        };
         /*=========================
           Slider/slides sizes
           ===========================*/
@@ -9518,7 +9518,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             // Update Height
             var newHeight = s.slides.eq(s.activeIndex)[0].offsetHeight;
             if (newHeight) s.wrapper.css('height', s.slides.eq(s.activeIndex)[0].offsetHeight + 'px');
-      ***REMOVED***
+        };
         s.updateContainerSize = function () {
             var width, height;
             if (typeof s.params.width !== 'undefined') {
@@ -9545,7 +9545,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             s.width = width;
             s.height = height;
             s.size = isH() ? s.width : s.height;
-      ***REMOVED***
+        };
 
         s.updateSlidesSize = function () {
             s.slides = s.wrapper.children('.' + s.params.slideClass);
@@ -9712,12 +9712,12 @@ ionic.views.Slider = ionic.views.View.inherit({
             if (s.params.watchSlidesProgress) {
                 s.updateSlidesOffset();
             }
-      ***REMOVED***
+        };
         s.updateSlidesOffset = function () {
             for (var i = 0; i < s.slides.length; i++) {
                 s.slides[i].swiperSlideOffset = isH() ? s.slides[i].offsetLeft : s.slides[i].offsetTop;
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Slider/slides progress
@@ -9750,7 +9750,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
                 slide.progress = s.rtl ? -slideProgress : slideProgress;
             }
-      ***REMOVED***
+        };
         s.updateProgress = function (translate) {
             if (typeof translate === 'undefined') {
                 translate = s.translate || 0;
@@ -9772,7 +9772,7 @@ ionic.views.Slider = ionic.views.View.inherit({
 
             if (s.params.watchSlidesProgress) s.updateSlidesProgress(translate);
             s.emit('onProgress', s, s.progress);
-      ***REMOVED***
+        };
         s.updateActiveIndex = function () {
             var translate = s.rtl ? s.translate : -s.translate;
             var newActiveIndex, i, snapIndex;
@@ -9808,7 +9808,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             s.previousIndex = s.activeIndex;
             s.activeIndex = newActiveIndex;
             s.updateClasses();
-      ***REMOVED***
+        };
 
         /*=========================
           Classes
@@ -9873,7 +9873,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     }
                 }
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Pagination
@@ -9897,7 +9897,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s.a11y.initPagination();
                 }
             }
-      ***REMOVED***
+        };
         /*=========================
           Common update method
           ===========================*/
@@ -9942,7 +9942,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             else if (s.params.autoHeight) {
                 s.updateAutoHeight();
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Resize Handler
@@ -9989,7 +9989,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             // Return locks after resize
             s.params.allowSwipeToPrev = allowSwipeToPrev;
             s.params.allowSwipeToNext = allowSwipeToNext;
-      ***REMOVED***
+        };
 
         /*=========================
           Events
@@ -10003,7 +10003,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             start : s.support.touch || !s.params.simulateTouch  ? 'touchstart' : desktopEvents[0],
             move : s.support.touch || !s.params.simulateTouch ? 'touchmove' : desktopEvents[1],
             end : s.support.touch || !s.params.simulateTouch ? 'touchend' : desktopEvents[2]
-      ***REMOVED***
+        };
 
 
         // WP8 Touch Events Fix
@@ -10056,13 +10056,13 @@ ionic.views.Slider = ionic.views.View.inherit({
 
             // Prevent Links Clicks
             if (s.params.preventClicks || s.params.preventClicksPropagation) touchEventsTarget[action]('click', s.preventClicks, true);
-      ***REMOVED***
+        };
         s.attachEvents = function (detach) {
             s.initEvents();
-      ***REMOVED***
+        };
         s.detachEvents = function () {
             s.initEvents(true);
-      ***REMOVED***
+        };
 
         /*=========================
           Handle Clicks
@@ -10077,24 +10077,24 @@ ionic.views.Slider = ionic.views.View.inherit({
                     e.stopImmediatePropagation();
                 }
             }
-      ***REMOVED***
+        };
         // Clicks
         s.onClickNext = function (e) {
             e.preventDefault();
             if (s.isEnd && !s.params.loop) return;
             s.slideNext();
-      ***REMOVED***
+        };
         s.onClickPrev = function (e) {
             e.preventDefault();
             if (s.isBeginning && !s.params.loop) return;
             s.slidePrev();
-      ***REMOVED***
+        };
         s.onClickIndex = function (e) {
             e.preventDefault();
             var index = $(this).index() * s.params.slidesPerGroup;
             if (s.params.loop) index = index + s.loopedSlides;
             s.slideTo(index);
-      ***REMOVED***
+        };
 
         /*=========================
           Handle Touches
@@ -10173,7 +10173,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s.slideTo(slideToIndex);
                 }
             }
-      ***REMOVED***
+        };
 
         var isTouched,
             isMoved,
@@ -10201,7 +10201,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             currentX: 0,
             currentY: 0,
             diff: 0
-      ***REMOVED***
+        };
 
         // Touch handlers
         var isTouchEvent, startMoving;
@@ -10248,7 +10248,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
             }
             s.emit('onTouchStart', s, e);
-      ***REMOVED***
+        };
 
         s.onTouchMove = function (e) {
             if (e.originalEvent) e = e.originalEvent;
@@ -10404,7 +10404,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             s.updateProgress(currentTranslate);
             // Update translate
             s.setWrapperTranslate(currentTranslate);
-      ***REMOVED***
+        };
         s.onTouchEnd = function (e) {
             if (e.originalEvent) e = e.originalEvent;
             if (allowTouchCallbacks) {
@@ -10657,13 +10657,13 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s.slideTo(stopIndex);
                 }
             }
-      ***REMOVED***
+        };
         /*=========================
           Transitions
           ===========================*/
         s._slideTo = function (slideIndex, speed) {
             return s.slideTo(slideIndex, speed, true, true);
-      ***REMOVED***
+        };
         s.slideTo = function (slideIndex, speed, runCallbacks, internal) {
             if (typeof runCallbacks === 'undefined') runCallbacks = true;
             if (typeof slideIndex === 'undefined') slideIndex = 0;
@@ -10737,7 +10737,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             }
 
             return true;
-      ***REMOVED***
+        };
 
         s.onTransitionStart = function (runCallbacks) {
             if (typeof runCallbacks === 'undefined') runCallbacks = true;
@@ -10763,7 +10763,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
 
             }
-      ***REMOVED***
+        };
         s.onTransitionEnd = function (runCallbacks) {
             s.animating = false;
             s.setWrapperTransition(0);
@@ -10790,7 +10790,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 s.hashnav.setHash();
             }
 
-      ***REMOVED***
+        };
         s.slideNext = function (runCallbacks, speed, internal) {
             if (s.params.loop) {
                 if (s.animating) return false;
@@ -10799,10 +10799,10 @@ ionic.views.Slider = ionic.views.View.inherit({
                 return s.slideTo(s.activeIndex + s.params.slidesPerGroup, speed, runCallbacks, internal);
             }
             else return s.slideTo(s.activeIndex + s.params.slidesPerGroup, speed, runCallbacks, internal);
-      ***REMOVED***
+        };
         s._slideNext = function (speed) {
             return s.slideNext(true, speed, true);
-      ***REMOVED***
+        };
         s.slidePrev = function (runCallbacks, speed, internal) {
             if (s.params.loop) {
                 if (s.animating) return false;
@@ -10811,13 +10811,13 @@ ionic.views.Slider = ionic.views.View.inherit({
                 return s.slideTo(s.activeIndex - 1, speed, runCallbacks, internal);
             }
             else return s.slideTo(s.activeIndex - 1, speed, runCallbacks, internal);
-      ***REMOVED***
+        };
         s._slidePrev = function (speed) {
             return s.slidePrev(true, speed, true);
-      ***REMOVED***
+        };
         s.slideReset = function (runCallbacks, speed, internal) {
             return s.slideTo(s.activeIndex, speed, runCallbacks);
-      ***REMOVED***
+        };
 
         /*=========================
           Translate/transition helpers
@@ -10837,7 +10837,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 s.controller.setTransition(duration, byController);
             }
             s.emit('onSetTransition', s, duration);
-      ***REMOVED***
+        };
         s.setWrapperTranslate = function (translate, updateActiveIndex, byController) {
             var x = 0, y = 0, z = 0;
             if (isH()) {
@@ -10886,7 +10886,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 s.controller.setTranslate(s.translate, byController);
             }
             s.emit('onSetTranslate', s, s.translate);
-      ***REMOVED***
+        };
 
         s.getTranslate = function (el, axis) {
             var matrix, curTransform, curStyle, transformMatrix;
@@ -10941,13 +10941,13 @@ ionic.views.Slider = ionic.views.View.inherit({
             }
             if (s.rtl && curTransform) curTransform = -curTransform;
             return curTransform || 0;
-      ***REMOVED***
+        };
         s.getWrapperTranslate = function (axis) {
             if (typeof axis === 'undefined') {
                 axis = isH() ? 'x' : 'y';
             }
             return s.getTranslate(s.wrapper[0], axis);
-      ***REMOVED***
+        };
 
         /*=========================
           Observer
@@ -10985,13 +10985,13 @@ ionic.views.Slider = ionic.views.View.inherit({
 
             // Observe wrapper
             initObserver(s.wrapper[0], {attributes: false});
-      ***REMOVED***
+        };
         s.disconnectObservers = function () {
             for (var i = 0; i < s.observers.length; i++) {
                 s.observers[i].disconnect();
             }
             s.observers = [];
-      ***REMOVED***
+        };
 
         s.updateLoop = function(){
           var currentSlide = s.slides.eq(s.activeIndex);
@@ -11074,11 +11074,11 @@ ionic.views.Slider = ionic.views.View.inherit({
               newNode = $compile(newNode)(scope);
               angular.element(s.wrapper).prepend(newNode);
             }
-      ***REMOVED***
+        };
         s.destroyLoop = function () {
             s.wrapper.children('.' + s.params.slideClass + '.' + s.params.slideDuplicateClass).remove();
             s.slides.removeAttr('data-swiper-slide-index');
-      ***REMOVED***
+        };
         s.fixLoop = function () {
             var newIndex;
             //Fix For Negative Oversliding
@@ -11093,7 +11093,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 newIndex = newIndex + s.loopedSlides;
                 s.slideTo(newIndex, 0, false, true);
             }
-      ***REMOVED***
+        };
         /*=========================
           Append/Prepend/Remove Slides
           ===========================*/
@@ -11115,7 +11115,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             if (!(s.params.observer && s.support.observer)) {
                 s.update(true);
             }
-      ***REMOVED***
+        };
         s.prependSlide = function (slides) {
             if (s.params.loop) {
                 s.destroyLoop();
@@ -11137,7 +11137,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 s.update(true);
             }
             s.slideTo(newActiveIndex, 0, false);
-      ***REMOVED***
+        };
         s.removeSlide = function (slidesIndexes) {
             if (s.params.loop) {
                 s.destroyLoop();
@@ -11174,14 +11174,14 @@ ionic.views.Slider = ionic.views.View.inherit({
                 s.slideTo(newActiveIndex, 0, false);
             }
 
-      ***REMOVED***
+        };
         s.removeAllSlides = function () {
             var slidesIndexes = [];
             for (var i = 0; i < s.slides.length; i++) {
                 slidesIndexes.push(i);
             }
             s.removeSlide(slidesIndexes);
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -11396,7 +11396,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s.slides.transition(duration).find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left').transition(duration);
                 }
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Images Lazy Loading
@@ -11507,7 +11507,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s.lazy.load();
                 }
             }
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -11687,7 +11687,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if (!s.params.scrollbar) return;
                 s.scrollbar.drag.transition(duration);
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Controller
@@ -11713,7 +11713,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     // We have our indexes i1 & i3, so we can calculate already:
                     // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
                     return ((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1]) + this.y[i1];
-              ***REMOVED***
+                };
 
                 var binarySearch = (function() {
                     var maxIndex, minIndex, guess;
@@ -11727,7 +11727,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                                 maxIndex = guess;
                             }
                         return maxIndex;
-                  ***REMOVED***
+                    };
                 })();
             },
             //xxx: for now i will just save one spline function to to
@@ -11804,7 +11804,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     setControlledTransition(controlled);
                 }
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Hash Navigation
@@ -11829,7 +11829,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if (!s.hashnav.initialized || !s.params.hashnav) return;
                 document.location.hash = s.slides.eq(s.activeIndex).attr('data-hash') || '';
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Keyboard Control
@@ -11859,7 +11859,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 var windowScroll = {
                     left: window.pageXOffset,
                     top: window.pageYOffset
-              ***REMOVED***
+                };
                 var windowWidth = window.innerWidth;
                 var windowHeight = window.innerHeight;
                 var swiperOffset = s.container.offset();
@@ -11902,11 +11902,11 @@ ionic.views.Slider = ionic.views.View.inherit({
         s.disableKeyboardControl = function () {
             s.params.keyboardControl = false;
             $(document).off('keydown', handleKeyboard);
-      ***REMOVED***
+        };
         s.enableKeyboardControl = function () {
             s.params.keyboardControl = true;
             $(document).on('keydown', handleKeyboard);
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -11915,7 +11915,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         s.mousewheel = {
             event: false,
             lastScrollTime: (new window.Date()).getTime()
-      ***REMOVED***
+        };
         if (s.params.mousewheelControl) {
             try {
                 new window.WheelEvent('wheel');
@@ -12026,13 +12026,13 @@ ionic.views.Slider = ionic.views.View.inherit({
             if (!s.mousewheel.event) return false;
             s.container.off(s.mousewheel.event, handleMousewheel);
             return true;
-      ***REMOVED***
+        };
 
         s.enableMousewheelControl = function () {
             if (!s.mousewheel.event) return false;
             s.container.on(s.mousewheel.event, handleMousewheel);
             return true;
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -12099,7 +12099,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     el.transition(parallaxDuration);
                 });
             }
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -12117,7 +12117,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     s._plugins[i][eventName](arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
                 }
             }
-      ***REMOVED***
+        };
 
         /*=========================
           Events/Callbacks/Plugins Emitter
@@ -12135,7 +12135,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         }
         s.emitterEventListeners = {
 
-      ***REMOVED***
+        };
         s.emit = function (eventName) {
             // Trigger callbacks
             if (s.params[eventName]) {
@@ -12150,13 +12150,13 @@ ionic.views.Slider = ionic.views.View.inherit({
             }
             // Trigger plugins
             if (s.callPlugins) s.callPlugins(eventName, arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
-      ***REMOVED***
+        };
         s.on = function (eventName, handler) {
             eventName = normalizeEventName(eventName);
             if (!s.emitterEventListeners[eventName]) s.emitterEventListeners[eventName] = [];
             s.emitterEventListeners[eventName].push(handler);
             return s;
-      ***REMOVED***
+        };
         s.off = function (eventName, handler) {
             var i;
             eventName = normalizeEventName(eventName);
@@ -12170,16 +12170,16 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if(s.emitterEventListeners[eventName][i] === handler) s.emitterEventListeners[eventName].splice(i, 1);
             }
             return s;
-      ***REMOVED***
+        };
         s.once = function (eventName, handler) {
             eventName = normalizeEventName(eventName);
             var _handler = function () {
                 handler(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
                 s.off(eventName, _handler);
-          ***REMOVED***
+            };
             s.on(eventName, _handler);
             return s;
-      ***REMOVED***
+        };
 
         // Accessibility tools
         s.a11y = {
@@ -12270,7 +12270,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             destroy: function () {
                 if (s.a11y.liveRegion && s.a11y.liveRegion.length > 0) s.a11y.liveRegion.remove();
             }
-      ***REMOVED***
+        };
 
 
         /*=========================
@@ -12325,7 +12325,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             }
             if (s.params.a11y && s.a11y) s.a11y.init();
             s.emit('onInit', s);
-      ***REMOVED***
+        };
 
         // Cleanup dynamic styles
         s.cleanupStyles = function () {
@@ -12366,7 +12366,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if (s.scrollbar.track && s.scrollbar.track.length) s.scrollbar.track.removeAttr('style');
                 if (s.scrollbar.drag && s.scrollbar.drag.length) s.scrollbar.drag.removeAttr('style');
             }
-      ***REMOVED***
+        };
 
         // Destroy
         s.destroy = function (deleteInstance, cleanupStyles) {
@@ -12403,7 +12403,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             s.emit('onDestroy');
             // Delete instance
             if (deleteInstance !== false) s = null;
-      ***REMOVED***
+        };
 
         s.init();
 
@@ -12411,7 +12411,7 @@ ionic.views.Slider = ionic.views.View.inherit({
 
         // Return swiper instance
         return s;
-  ***REMOVED***
+    };
 
 
     /*==================================================
@@ -12445,7 +12445,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             return {
                 ios: ipad || iphone || ipod,
                 android: android
-          ***REMOVED***
+            };
         })(),
         /*==================================================
         Feature Detection
@@ -12476,7 +12476,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         Plugins
         ====================================================*/
         plugins: {}
-  ***REMOVED***
+    };
 
 
     /*===========================
@@ -12492,7 +12492,7 @@ ionic.views.Slider = ionic.views.View.inherit({
             _this.length = arr.length;
             // Return collection with methods
             return this;
-      ***REMOVED***
+        };
         var $ = function (selector, context) {
             var arr = [], i = 0;
             if (selector && !context) {
@@ -12543,7 +12543,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
             }
             return new Dom7(arr);
-      ***REMOVED***
+        };
         Dom7.prototype = {
             // Classes and attriutes
             addClass: function (className) {
@@ -12815,7 +12815,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     return {
                         top: box.top  + scrollTop  - clientTop,
                         left: box.left + scrollLeft - clientLeft
-                  ***REMOVED***
+                    };
                 }
                 else {
                     return null;
@@ -13117,7 +13117,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 }
                 return dom;
             }
-      ***REMOVED***
+        };
         $.fn = Dom7.prototype;
         $.unique = function (arr) {
             var unique = [];
@@ -13125,7 +13125,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if (unique.indexOf(arr[i]) === -1) unique.push(arr[i]);
             }
             return unique;
-      ***REMOVED***
+        };
 
         return $;
     })();
@@ -13160,7 +13160,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                 if (!firstInstance) firstInstance = s;
             });
             return firstInstance;
-      ***REMOVED***
+        };
     }
 
     if (domLib) {
@@ -13182,7 +13182,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     }
                 }
                 return this;
-          ***REMOVED***
+            };
         }
         if (!('transform' in domLib.fn)) {
             domLib.fn.transform = function (transform) {
@@ -13191,7 +13191,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
                 }
                 return this;
-          ***REMOVED***
+            };
         }
         if (!('transition' in domLib.fn)) {
             domLib.fn.transition = function (duration) {
@@ -13203,7 +13203,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                     elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
                 }
                 return this;
-          ***REMOVED***
+            };
         }
     }
 
@@ -13228,16 +13228,16 @@ ionic.views.Slider = ionic.views.View.inherit({
 
       this.dragStartHandler = function(e) {
         self.dragStart(e);
-    ***REMOVED***
+      };
       this.dragHandler = function(e) {
         self.drag(e);
-    ***REMOVED***
+      };
       this.holdHandler = function(e) {
         self.hold(e);
-    ***REMOVED***
+      };
       this.releaseHandler = function(e) {
         self.release(e);
-    ***REMOVED***
+      };
 
       this.dragStartGesture = ionic.onGesture('dragstart', this.dragStartHandler, this.el);
       this.dragGesture = ionic.onGesture('drag', this.dragHandler, this.el);
@@ -13267,7 +13267,7 @@ ionic.views.Slider = ionic.views.View.inherit({
         right: this.el.offsetLeft + this.el.offsetWidth,
         triggerX: this.el.offsetWidth / 2,
         initialState: this.checkbox.checked
-    ***REMOVED***
+      };
 
       // Stop any parent dragging
       e.gesture.srcEvent.preventDefault();

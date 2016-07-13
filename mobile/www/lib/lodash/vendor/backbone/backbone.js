@@ -55,7 +55,7 @@
   Backbone.noConflict = function() {
     root.Backbone = previousBackbone;
     return this;
-***REMOVED***
+  };
 
   // Turn on `emulateHTTP` to support legacy HTTP servers. Setting this option
   // will fake `"PATCH"`, `"PUT"` and `"DELETE"` requests via the `_method` parameter and
@@ -79,28 +79,28 @@
     switch (length) {
       case 1: return function() {
         return _[method](this[attribute]);
-    ***REMOVED***
+      };
       case 2: return function(value) {
         return _[method](this[attribute], value);
-    ***REMOVED***
+      };
       case 3: return function(iteratee, context) {
         return _[method](this[attribute], cb(iteratee, this), context);
-    ***REMOVED***
+      };
       case 4: return function(iteratee, defaultVal, context) {
         return _[method](this[attribute], cb(iteratee, this), defaultVal, context);
-    ***REMOVED***
+      };
       default: return function() {
         var args = slice.call(arguments);
         args.unshift(this[attribute]);
         return _[method].apply(_, args);
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
   var addUnderscoreMethods = function(Class, methods, attribute) {
     _.each(methods, function(length, method) {
       if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
     });
-***REMOVED***
+  };
 
   // Support `collection.sortBy('attr')` and `collection.findWhere({id: 1})`.
   var cb = function(iteratee, instance) {
@@ -108,13 +108,13 @@
     if (_.isObject(iteratee) && !instance._isModel(iteratee)) return modelMatcher(iteratee);
     if (_.isString(iteratee)) return function(model) { return model.get(iteratee); };
     return iteratee;
-***REMOVED***
+  };
   var modelMatcher = function(attrs) {
     var matcher = _.matches(attrs);
     return function(model) {
       return matcher(model.attributes);
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   // Backbone.Events
   // ---------------
@@ -155,13 +155,13 @@
       events = iteratee(events, name, callback, opts);
     }
     return events;
-***REMOVED***
+  };
 
   // Bind an event to a `callback` function. Passing `"all"` will bind
   // the callback to all events fired.
   Events.on = function(name, callback, context) {
     return internalOn(this, name, callback, context);
-***REMOVED***
+  };
 
   // Guard the `listening` argument from the public API.
   var internalOn = function(obj, name, callback, context, listening) {
@@ -177,7 +177,7 @@
     }
 
     return obj;
-***REMOVED***
+  };
 
   // Inversion-of-control versions of `on`. Tell *this* object to listen to
   // an event in another object... keeping track of what it's listening to
@@ -198,7 +198,7 @@
     // Bind callbacks on obj, and keep track of them on listening.
     internalOn(obj, name, callback, this, listening);
     return this;
-***REMOVED***
+  };
 
   // The reducing API that adds a callback to the `events` object.
   var onApi = function(events, name, callback, options) {
@@ -210,7 +210,7 @@
       handlers.push({callback: callback, context: context, ctx: context || ctx, listening: listening});
     }
     return events;
-***REMOVED***
+  };
 
   // Remove one or many callbacks. If `context` is null, removes all
   // callbacks with that function. If `callback` is null, removes all
@@ -223,7 +223,7 @@
       listeners: this._listeners
     });
     return this;
-***REMOVED***
+  };
 
   // Tell this object to stop listening to either specific events ... or
   // to every object it's currently listening to.
@@ -244,7 +244,7 @@
     }
 
     return this;
-***REMOVED***
+  };
 
   // The reducing API that removes a callback from the `events` object.
   var offApi = function(events, name, callback, options) {
@@ -299,7 +299,7 @@
       }
     }
     return events;
-***REMOVED***
+  };
 
   // Bind an event to only be triggered a single time. After the first time
   // the callback is invoked, its listener will be removed. If multiple events
@@ -310,14 +310,14 @@
     var events = eventsApi(onceMap, {}, name, callback, _.bind(this.off, this));
     if (typeof name === 'string' && context == null) callback = void 0;
     return this.on(events, callback, context);
-***REMOVED***
+  };
 
   // Inversion-of-control versions of `once`.
   Events.listenToOnce = function(obj, name, callback) {
     // Map the event into a `{event: once}` object.
     var events = eventsApi(onceMap, {}, name, callback, _.bind(this.stopListening, this, obj));
     return this.listenTo(obj, events);
-***REMOVED***
+  };
 
   // Reduces the event callbacks into a map of `{event: onceWrapper}`.
   // `offer` unbinds the `onceWrapper` after it has been called.
@@ -330,7 +330,7 @@
       once._callback = callback;
     }
     return map;
-***REMOVED***
+  };
 
   // Trigger one or many events, firing all bound callbacks. Callbacks are
   // passed the same arguments as `trigger` is, apart from the event name
@@ -345,7 +345,7 @@
 
     eventsApi(triggerApi, this._events, name, void 0, args);
     return this;
-***REMOVED***
+  };
 
   // Handles triggering the appropriate event callbacks.
   var triggerApi = function(objEvents, name, callback, args) {
@@ -357,7 +357,7 @@
       if (allEvents) triggerEvents(allEvents, [name].concat(args));
     }
     return objEvents;
-***REMOVED***
+  };
 
   // A difficult-to-believe, but optimized internal dispatch function for
   // triggering events. Tries to keep the usual cases speedy (most internal
@@ -371,7 +371,7 @@
       case 3: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2, a3); return;
       default: while (++i < l) (ev = events[i]).callback.apply(ev.ctx, args); return;
     }
-***REMOVED***
+  };
 
   // Aliases for backwards compatibility.
   Events.bind   = Events.on;
@@ -403,7 +403,7 @@
     this.set(attrs, options);
     this.changed = {};
     this.initialize.apply(this, arguments);
-***REMOVED***
+  };
 
   // Attach all inheritable methods to the Model prototype.
   _.extend(Model.prototype, Events, {
@@ -594,7 +594,7 @@
         if (!model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
-    ***REMOVED***
+      };
       wrapError(this, options);
       return this.sync('read', this, options);
     },
@@ -637,7 +637,7 @@
         if (serverAttrs && !model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
-    ***REMOVED***
+      };
       wrapError(this, options);
 
       // Set temporary attributes if `{wait: true}` to properly find new ids.
@@ -665,13 +665,13 @@
       var destroy = function() {
         model.stopListening();
         model.trigger('destroy', model, model.collection, options);
-    ***REMOVED***
+      };
 
       options.success = function(resp) {
         if (wait) destroy();
         if (success) success.call(options.context, model, resp, options);
         if (!model.isNew()) model.trigger('sync', model, resp, options);
-    ***REMOVED***
+      };
 
       var xhr = false;
       if (this.isNew()) {
@@ -759,7 +759,7 @@
     this._reset();
     this.initialize.apply(this, arguments);
     if (models) this.reset(models, _.extend({silent: true}, options));
-***REMOVED***
+  };
 
   // Default options for `Collection#set`.
   var setOptions = {add: true, remove: true, merge: true};
@@ -774,7 +774,7 @@
     for (i = 0; i < tail.length; i++) tail[i] = array[i + at];
     for (i = 0; i < length; i++) array[i + at] = insert[i];
     for (i = 0; i < tail.length; i++) array[i + length + at] = tail[i];
-***REMOVED***
+  };
 
   // Define the Collection's inheritable methods.
   _.extend(Collection.prototype, Events, {
@@ -928,7 +928,7 @@
             added: toAdd,
             removed: toRemove,
             merged: toMerge
-        ***REMOVED***
+          };
           this.trigger('update', this, options);
         }
       }
@@ -1050,7 +1050,7 @@
         collection[method](resp, options);
         if (success) success.call(options.context, collection, resp, options);
         collection.trigger('sync', collection, resp, options);
-    ***REMOVED***
+      };
       wrapError(this, options);
       return this.sync('read', this, options);
     },
@@ -1069,7 +1069,7 @@
       options.success = function(m, resp, callbackOpts) {
         if (wait) collection.add(m, callbackOpts);
         if (success) success.call(callbackOpts.context, m, resp, callbackOpts);
-    ***REMOVED***
+      };
       model.save(null, options);
       return model;
     },
@@ -1222,7 +1222,7 @@
     _.extend(this, _.pick(options, viewOptions));
     this._ensureElement();
     this.initialize.apply(this, arguments);
-***REMOVED***
+  };
 
   // Cached regex to split keys for `delegate`.
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
@@ -1423,7 +1423,7 @@
       options.beforeSend = function(xhr) {
         xhr.setRequestHeader('X-HTTP-Method-Override', type);
         if (beforeSend) return beforeSend.apply(this, arguments);
-    ***REMOVED***
+      };
     }
 
     // Don't process data on a non-GET request.
@@ -1437,13 +1437,13 @@
       options.textStatus = textStatus;
       options.errorThrown = errorThrown;
       if (error) error.call(options.context, xhr, textStatus, errorThrown);
-  ***REMOVED***
+    };
 
     // Make the request, allowing the user to override any Ajax options.
     var xhr = options.xhr = Backbone.ajax(_.extend(params, options));
     model.trigger('request', model, xhr, options);
     return xhr;
-***REMOVED***
+  };
 
   // Map from CRUD to HTTP for our default `Backbone.sync` implementation.
   var methodMap = {
@@ -1452,13 +1452,13 @@
     'patch': 'PATCH',
     'delete': 'DELETE',
     'read': 'GET'
-***REMOVED***
+  };
 
   // Set the default implementation of `Backbone.ajax` to proxy through to `$`.
   // Override this if you'd like to use a different library.
   Backbone.ajax = function() {
     return Backbone.$.ajax.apply(Backbone.$, arguments);
-***REMOVED***
+  };
 
   // Backbone.Router
   // ---------------
@@ -1470,7 +1470,7 @@
     if (options.routes) this.routes = options.routes;
     this._bindRoutes();
     this.initialize.apply(this, arguments);
-***REMOVED***
+  };
 
   // Cached regular expressions for matching named param parts and splatted
   // parts of route strings.
@@ -1578,7 +1578,7 @@
       this.location = window.location;
       this.history = window.history;
     }
-***REMOVED***
+  };
 
   // Cached regex for stripping a leading hash/slash and trailing space.
   var routeStripper = /^[#\/]|\s+$/g;
@@ -1713,7 +1713,7 @@
       // Add a cross-platform `addEventListener` shim for older browsers.
       var addEventListener = window.addEventListener || function(eventName, listener) {
         return attachEvent('on' + eventName, listener);
-    ***REMOVED***
+      };
 
       // Depending on whether we're using pushState or hashes, and whether
       // 'onhashchange' is supported, determine how we check the URL state.
@@ -1734,7 +1734,7 @@
       // Add a cross-platform `removeEventListener` shim for older browsers.
       var removeEventListener = window.removeEventListener || function(eventName, listener) {
         return detachEvent('on' + eventName, listener);
-    ***REMOVED***
+      };
 
       // Remove window listeners.
       if (this._usePushState) {
@@ -1897,7 +1897,7 @@
     child.__super__ = parent.prototype;
 
     return child;
-***REMOVED***
+  };
 
   // Set up inheritance for the model, collection, router, view and history.
   Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
@@ -1905,7 +1905,7 @@
   // Throw an error when a URL is needed, and none is supplied.
   var urlError = function() {
     throw new Error('A "url" property or function must be specified');
-***REMOVED***
+  };
 
   // Wrap an optional error callback with a fallback error event.
   var wrapError = function(model, options) {
@@ -1913,8 +1913,8 @@
     options.error = function(resp) {
       if (error) error.call(options.context, model, resp, options);
       model.trigger('error', model, resp, options);
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   return Backbone;
 });

@@ -29,7 +29,7 @@
       __defineSetter__: {},
       __lookupSetter__: false,
       __lookupGetter__: []
-  ***REMOVED***
+    };
     var troubleKeys = ['constructor', 'valueOf', 'hasOwnProperty', 'toString', 'toLocaleString', 'propertyIsEnumerable',
                   'isPrototypeOf', '__defineGetter__', '__defineSetter__', '__lookupSetter__', '__lookupGetter__'].sort();
     assert.deepEqual(_.keys(trouble).sort(), troubleKeys, 'matches non-enumerable properties');
@@ -57,7 +57,7 @@
       toLocaleString: void 0,
       propertyIsEnumerable: /a/,
       isPrototypeOf: this
-  ***REMOVED***
+    };
     var troubleKeys = ['constructor', 'valueOf', 'hasOwnProperty', 'toString', 'toLocaleString', 'propertyIsEnumerable',
                   'isPrototypeOf'].sort();
     assert.deepEqual(_.allKeys(trouble).sort(), troubleKeys, 'matches non-enumerable properties');
@@ -192,7 +192,7 @@
       assert.strictEqual(key, {1: 'a', 2: 'b', 3: 'c'}[value]);
       assert.strictEqual(object, data);
       return value !== this.value;
-  ***REMOVED***
+    };
     result = _.pick(data, callback, {value: 2});
     assert.deepEqual(result, {a: 1, c: 3}, 'can accept a predicate and context');
 
@@ -231,7 +231,7 @@
       assert.strictEqual(key, {1: 'a', 2: 'b', 3: 'c'}[value]);
       assert.strictEqual(object, data);
       return value !== this.value;
-  ***REMOVED***
+    };
     result = _.omit(data, callback, {value: 2});
     assert.deepEqual(result, {b: 2}, 'can accept a predicate');
 
@@ -459,7 +459,7 @@
         minutes: new Number(16),
         seconds: 54
       }
-  ***REMOVED***
+    };
 
     // `B` contains equivalent nested objects and arrays.
     b = {
@@ -474,7 +474,7 @@
         minutes: new Number(16),
         seconds: 54
       }
-  ***REMOVED***
+    };
     assert.ok(_.isEqual(a, b), 'Objects with nested equivalent members are recursively compared');
 
     // Instances.
@@ -1010,7 +1010,7 @@
       a: {a: 0, b: 0},
       b: {a: 1, b: 1},
       c: {a: 2, b: 2}
-  ***REMOVED***
+    };
 
     assert.equal(_.findKey(objects, function(obj) {
       return obj.a === 0;
@@ -1052,7 +1052,7 @@
       a: {a: 0, b: 0},
       b: {a: 1, b: 1},
       c: {a: 2, b: 2}
-  ***REMOVED***
+    };
 
     assert.deepEqual(_.mapObject(obj, function(val) {
       return val * 2;

@@ -71,7 +71,7 @@
     }
     MyWidget.prototype.get = function() {
       return this.name;
-  ***REMOVED***
+    };
     var MyWidgetWithCoolOpts = _.partial(MyWidget, _, {a: 1});
     var widget = new MyWidgetWithCoolOpts('foo');
     assert.ok(widget instanceof MyWidget, 'Can partially bind a constructor');
@@ -95,7 +95,7 @@
       name: 'moe',
       getName: function() { return 'name: ' + this.name; },
       sayHi: function() { return 'hi: ' + this.name; }
-  ***REMOVED***
+    };
     curly.getName = moe.getName;
     _.bindAll(moe, 'getName', 'sayHi');
     curly.sayHi = moe.sayHi;
@@ -108,7 +108,7 @@
       getName: function() { return 'name: ' + this.name; },
       sayHi: function() { return 'hi: ' + this.name; },
       sayLast: function() { return this.sayHi(_.last(arguments)); }
-  ***REMOVED***
+    };
 
     assert.raises(function() { _.bindAll(moe); }, Error, 'throws an error for bindAll with no functions named');
     assert.raises(function() { _.bindAll(moe, 'sayBye'); }, TypeError, 'throws an error for bindAll if the given key is undefined');
@@ -129,14 +129,14 @@
   QUnit.test('memoize', function(assert) {
     var fib = function(n) {
       return n < 2 ? n : fib(n - 1) + fib(n - 2);
-  ***REMOVED***
+    };
     assert.equal(fib(10), 55, 'a memoized version of fibonacci produces identical results');
     fib = _.memoize(fib); // Redefine `fib` for memoization
     assert.equal(fib(10), 55, 'a memoized version of fibonacci produces identical results');
 
     var o = function(str) {
       return str;
-  ***REMOVED***
+    };
     var fastO = _.memoize(o);
     assert.equal(o('toString'), 'toString', 'checks hasOwnProperty');
     assert.equal(fastO('toString'), 'toString', 'checks hasOwnProperty');
@@ -391,7 +391,7 @@
     assert.equal(counter, 1);
     _.now = function() {
       return new Date(2013, 0, 1, 1, 1, 1);
-  ***REMOVED***
+    };
 
     _.delay(function() {
       throttledIncr();
@@ -416,7 +416,7 @@
       if (args) {
         throttledAppend.call(args[0], args[1]);
       }
-  ***REMOVED***
+    };
     throttledAppend = _.throttle(append, 32);
     throttledAppend.call('a1', 'a2');
     assert.equal(value, 'a1a2');
@@ -544,7 +544,7 @@
 
     _.now = function() {
       return new Date(2013, 0, 1, 1, 1, 1);
-  ***REMOVED***
+    };
 
     _.delay(function() {
       debouncedIncr();
@@ -568,7 +568,7 @@
       if (args) {
         debouncedAppend.call(args[0], args[1]);
       }
-  ***REMOVED***
+    };
     debouncedAppend = _.debounce(append, 32);
     debouncedAppend.call('a1', 'a2');
     assert.equal(value, '');
@@ -653,7 +653,7 @@
       });
       while (timesCalled--) after();
       return afterCalled;
-  ***REMOVED***
+    };
 
     assert.equal(testAfter(5, 5), 1, 'after(N) should fire after being called N times');
     assert.equal(testAfter(5, 4), 0, 'after(N) should not fire unless called N times');
@@ -667,7 +667,7 @@
       var before = _.before(beforeAmount, function() { beforeCalled++; });
       while (timesCalled--) before();
       return beforeCalled;
-  ***REMOVED***
+    };
 
     assert.equal(testBefore(5, 5), 4, 'before(N) should not fire after being called N times');
     assert.equal(testBefore(5, 4), 4, 'before(N) should fire before being called N times');

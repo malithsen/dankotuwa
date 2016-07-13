@@ -5,7 +5,7 @@
   $.fn.scrollTo = function(elem) {
     $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top);
     return this;
-***REMOVED***
+  };
 
   $.fn.dropdown = function (option) {
     var defaults = {
@@ -16,7 +16,7 @@
       gutter: 0, // Spacing from edge
       belowOrigin: false,
       alignment: 'left'
-  ***REMOVED***
+    };
 
     this.each(function(){
     var origin = $(this);
@@ -229,7 +229,7 @@
 
 
    });
-***REMOVED*** // End dropdown plugin
+  }; // End dropdown plugin
 
   $(document).ready(function(){
     $('.dropdown-button').dropdown();

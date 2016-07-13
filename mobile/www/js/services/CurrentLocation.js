@@ -7,7 +7,7 @@ angular.module('dankotuwa')
   o.get = function() {
     var options = {timeout: 10000, enableHighAccuracy: true};
     return $cordovaGeolocation.getCurrentPosition(options);
-***REMOVED***
+  };
 
   return o;
 });

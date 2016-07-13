@@ -106,7 +106,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
     },
 
     $delegates: {}
-***REMOVED***
+  };
 
   function isRelative(stateName) {
     return stateName.indexOf(".") === 0 || stateName.indexOf("^") === 0;
@@ -780,7 +780,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       current: root.self,
       $current: root,
       transition: null
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -814,7 +814,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      */
     $state.reload = function reload() {
       return $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -836,7 +836,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
-     * ***REMOVED***
+     *   };
      * });
      * </pre>
      * <img src='../ngdoc_assets/StateGoExamples.png'/>
@@ -884,7 +884,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      */
     $state.go = function go(to, params, options) {
       return $state.transitionTo(to, params, extend({ inherit: true, relative: $state.$current }, options));
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -902,7 +902,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
-     * ***REMOVED***
+     *   };
      * });
      * </pre>
      *
@@ -1131,7 +1131,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       });
 
       return transition;
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -1174,7 +1174,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (!isDefined(state)) { return undefined; }
       if ($state.$current !== state) { return false; }
       return params ? equalForKeys(state.params.$$values(params), $stateParams) : true;
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -1240,7 +1240,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (!isDefined(state)) { return undefined; }
       if (!isDefined($state.$current.includes[state.name])) { return false; }
       return params ? equalForKeys(state.params.$$values(params), $stateParams, objectKeys(params)) : true;
-  ***REMOVED***
+    };
 
 
     /**
@@ -1291,7 +1291,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       return $urlRouter.href(nav.url, filterByKeys(state.params.$$keys(), params || {}), {
         absolute: options.absolute
       });
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -1310,7 +1310,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (arguments.length === 0) return map(objectKeys(states), function(name) { return states[name].self; });
       var state = findState(stateOrName, context || $state.$current);
       return (state && state.self) ? state.self : null;
-  ***REMOVED***
+    };
 
     function resolveState(state, params, paramsAreFiltered, inherited, dst, options) {
       // Make a restricted $stateParams with only the parameters that apply to this state if

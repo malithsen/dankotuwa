@@ -36,7 +36,7 @@
         return {
             top: box.top + win.pageYOffset - docElem.clientTop,
             left: box.left + win.pageXOffset - docElem.clientLeft
-      ***REMOVED***
+        };
     }
 
     function convertStyle(obj) {
@@ -92,7 +92,7 @@
             var rippleStyle = {
                 'top': relativeY+'px',
                 'left': relativeX+'px'
-          ***REMOVED***
+            };
 
             ripple.className = ripple.className + ' waves-notransition';
             ripple.setAttribute('style', convertStyle(rippleStyle));
@@ -163,7 +163,7 @@
                     '-ms-transform': scale,
                     '-o-transform': scale,
                     'transform': scale,
-              ***REMOVED***
+                };
 
                 ripple.setAttribute('style', convertStyle(style));
 
@@ -211,7 +211,7 @@
                 }
             }
         }
-  ***REMOVED***
+    };
 
 
     /**
@@ -243,7 +243,7 @@
         touchup: function(e) {
             TouchHandler.allowEvent(e);
         }
-  ***REMOVED***
+    };
 
 
     /**
@@ -306,7 +306,7 @@
         }
 
         document.body.addEventListener('mousedown', showEffect, false);
-  ***REMOVED***
+    };
 
     /**
      * Attach Waves to an input element (or any element which doesn't
@@ -327,7 +327,7 @@
         }
 
         element.addEventListener('mousedown', showEffect, false);
-  ***REMOVED***
+    };
 
     window.Waves = Waves;
 

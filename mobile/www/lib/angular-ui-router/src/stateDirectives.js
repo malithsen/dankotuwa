@@ -114,7 +114,7 @@ function $StateRefDirective($state, $timeout) {
           return false;
         }
         attrs.$set(attr, newHref);
-    ***REMOVED***
+      };
 
       if (ref.paramExpr) {
         scope.$watch(ref.paramExpr, function(newVal, oldVal) {
@@ -140,11 +140,11 @@ function $StateRefDirective($state, $timeout) {
           e.preventDefault = function() {
             if (ignorePreventDefaultCount-- <= 0)
               $timeout.cancel(transition);
-        ***REMOVED***
+          };
         }
       });
     }
-***REMOVED***
+  };
 }
 
 /**
@@ -238,7 +238,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
         state = $state.get(newState, stateContext($element));
         params = newParams;
         update();
-    ***REMOVED***
+      };
 
       $scope.$on('$stateChangeSuccess', update);
 
@@ -259,7 +259,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
         }
       }
     }]
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.state')

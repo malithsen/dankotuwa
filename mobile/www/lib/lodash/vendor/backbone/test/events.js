@@ -43,7 +43,7 @@
 
     var increment = function() {
       this.counter += 1;
-  ***REMOVED***
+    };
 
     obj.on({
       a: increment,
@@ -74,7 +74,7 @@
 
     var increment = function() {
       this.counter += 1;
-  ***REMOVED***
+    };
 
     obj.on({
       'a b c': increment
@@ -394,7 +394,7 @@
     var callback = function() {
       obj.counter += 1;
       obj.off('event', callback);
-  ***REMOVED***
+    };
     obj.on('event', callback);
     obj.trigger('event');
     obj.trigger('event');
@@ -433,10 +433,10 @@
     assert.expect(1);
     var TestClass = function() {
       return this;
-  ***REMOVED***
+    };
     TestClass.prototype.assertTrue = function() {
       assert.ok(true, '`this` was bound to the callback');
-  ***REMOVED***
+    };
 
     var obj = _.extend({}, Backbone.Events);
     obj.on('event', function() { this.assertTrue(); }, new TestClass);
@@ -578,7 +578,7 @@
 
     var increment = function() {
       this.counter += 1;
-  ***REMOVED***
+    };
 
     obj.once({
       a: increment,

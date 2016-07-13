@@ -9,7 +9,7 @@ describe('ScrollFire Plugin', function() {
     }];
     Materialize.callbackFunc = function() {
       return 'I have been called';
-  ***REMOVED***
+    };
 
     loadFixtures('scrollFire/scrollFireFixture.html');
     spyOn(Materialize, 'callbackFunc').and.callThrough();

@@ -36,7 +36,7 @@ db.init();
 app.get('/api/users', function(req, res) {
   var cb = function(data) {
     res.json(data);
-***REMOVED***
+  };
 
   db.getUsers(cb);
 

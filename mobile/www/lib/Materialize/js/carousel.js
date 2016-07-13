@@ -9,7 +9,7 @@
         shift: 0, // spacing for center image
         padding: 0, // Padding between non center items
         full_width: false // Change to full width styles
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       return this.each(function() {
@@ -334,7 +334,7 @@
     prev : function(n) {
       $(this).trigger('carouselPrev', [n]);
     },
-***REMOVED***
+  };
 
 
     $.fn.carousel = function(methodOrOptions) {
@@ -346,5 +346,5 @@
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.carousel' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));

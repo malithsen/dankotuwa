@@ -485,8 +485,8 @@ function $Resolve(  $q,    $injector) {
       }
       
       return result;
-  ***REMOVED***
-***REMOVED***
+    };
+  };
   
   /**
    * @ngdoc function
@@ -551,7 +551,7 @@ function $Resolve(  $q,    $injector) {
    */
   this.resolve = function (invocables, locals, parent, self) {
     return this.study(invocables)(locals, parent, self);
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.util').service('$resolve', $Resolve);
@@ -603,7 +603,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
       isDefined(config.templateProvider) ? this.fromProvider(config.templateProvider, params, locals) :
       null
     );
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -622,7 +622,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    */
   this.fromString = function (template, params) {
     return isFunction(template) ? template(params) : template;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -644,7 +644,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
     else return $http
         .get(url, { cache: $templateCache, headers: { Accept: 'text/html' }})
         .then(function(response) { return response.data; });
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -663,7 +663,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    */
   this.fromProvider = function (provider, params, locals) {
     return $injector.invoke(provider, null, locals || { params: params });
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.util').service('$templateFactory', $TemplateFactory);
@@ -792,7 +792,7 @@ function UrlMatcher(pattern, config, parentMatcher) {
     type        = $$UMFP.type(regexp || "string") || inherit($$UMFP.type("string"), { pattern: new RegExp(regexp) });
     return {
       id: id, regexp: regexp, segment: segment, type: type, cfg: cfg
-  ***REMOVED***
+    };
   }
 
   var p, param, segment;
@@ -867,7 +867,7 @@ UrlMatcher.prototype.concat = function (pattern, config) {
     caseInsensitive: $$UMFP.caseInsensitive(),
     strict: $$UMFP.strictMode(),
     squash: $$UMFP.defaultSquashPolicy()
-***REMOVED***
+  };
   return new UrlMatcher(this.sourcePath + pattern + this.sourceSearch, extend(defaultConfig, config), this);
 };
 
@@ -1169,7 +1169,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
     function bindTo(type, callbackName) {
       return function() {
         return type[callbackName].apply(type, arguments);
-    ***REMOVED***
+      };
     }
 
     // Wrap non-array value as array
@@ -1192,7 +1192,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
         if (allTruthyMode === true)
           return filter(result, falsey).length === 0;
         return arrayUnwrap(result);
-    ***REMOVED***
+      };
     }
 
     // Wraps type (.equals) functions to operate on each value of an array
@@ -1204,7 +1204,7 @@ Type.prototype.$asArray = function(mode, isSearch) {
           if (!callback(left[i], right[i])) return false;
         }
         return true;
-    ***REMOVED***
+      };
     }
 
     this.encode = arrayHandler(bindTo(type, 'encode'));
@@ -1289,13 +1289,13 @@ function $UrlMatcherFactory() {
       equals: angular.equals,
       pattern: /.*/
     }
-***REMOVED***
+  };
 
   function getDefaultConfig() {
     return {
       strict: isStrictMode,
       caseInsensitive: isCaseInsensitive
-  ***REMOVED***
+    };
   }
 
   function isInjectable(value) {
@@ -1309,7 +1309,7 @@ function $UrlMatcherFactory() {
     if (!isInjectable(config.value)) return config.value;
     if (!injector) throw new Error("Injectable functions cannot be called at configuration time");
     return injector.invoke(config.value);
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1326,7 +1326,7 @@ function $UrlMatcherFactory() {
     if (isDefined(value))
       isCaseInsensitive = value;
     return isCaseInsensitive;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1343,7 +1343,7 @@ function $UrlMatcherFactory() {
     if (isDefined(value))
       isStrictMode = value;
     return isStrictMode;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1366,7 +1366,7 @@ function $UrlMatcherFactory() {
       throw new Error("Invalid squash policy: " + value + ". Valid policies: false, true, arbitrary-string");
     defaultSquashPolicy = value;
     return value;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1382,7 +1382,7 @@ function $UrlMatcherFactory() {
    */
   this.compile = function (pattern, config) {
     return new UrlMatcher(pattern, extend(getDefaultConfig(), config));
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1406,7 +1406,7 @@ function $UrlMatcherFactory() {
       }
     });
     return result;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1476,7 +1476,7 @@ function $UrlMatcherFactory() {
    *   var services = {
    *     user: Users,
    *     post: Posts
-   * ***REMOVED***
+   *   };
    *
    *   return {
    *     encode: function(object) {
@@ -1497,7 +1497,7 @@ function $UrlMatcherFactory() {
    *       // their unique IDs
    *       return a.id === b.id;
    *     }
-   * ***REMOVED***
+   *   };
    * });
    *
    * // In a config() block, you can then attach URLs with
@@ -1525,7 +1525,7 @@ function $UrlMatcherFactory() {
       if (!enqueue) flushTypeQueue();
     }
     return this;
-***REMOVED***
+  };
 
   // `flushTypeQueue()` waits until `$urlMatcherFactory` is injected before invoking the queued `definitionFn`s
   function flushTypeQueue() {
@@ -1647,7 +1647,7 @@ function $UrlMatcherFactory() {
       config: config,
       toString: toString
     });
-***REMOVED***
+  };
 
   function ParamSet(params) {
     extend(this, params || {});
@@ -1696,7 +1696,7 @@ function $UrlMatcherFactory() {
       return result;
     },
     $$parent: undefined
-***REMOVED***
+  };
 
   this.ParamSet = ParamSet;
 }
@@ -1773,7 +1773,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     if (!isFunction(rule)) throw new Error("'rule' must be a function");
     rules.push(rule);
     return this;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -1814,7 +1814,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     else if (!isFunction(rule)) throw new Error("'rule' must be a function");
     otherwise = rule;
     return this;
-***REMOVED***
+  };
 
 
   function handleIfMatch($injector, handler, match) {
@@ -1892,7 +1892,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
           prefix: regExpPrefix(what)
         });
       }
-  ***REMOVED***
+    };
 
     var check = { matcher: $urlMatcherFactory.isMatcher(what), regex: what instanceof RegExp };
 
@@ -1901,7 +1901,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
     }
 
     throw new Error("invalid 'what' in when()");
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -1954,7 +1954,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
   this.deferIntercept = function (defer) {
     if (defer === undefined) defer = true;
     interceptDeferred = defer;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -2113,7 +2113,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
 
         return [$location.protocol(), '://', $location.host(), port, slash, url].join('');
       }
-  ***REMOVED***
+    };
   }
 }
 
@@ -2227,7 +2227,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
     },
 
     $delegates: {}
-***REMOVED***
+  };
 
   function isRelative(stateName) {
     return stateName.indexOf(".") === 0 || stateName.indexOf("^") === 0;
@@ -2901,7 +2901,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       current: root.self,
       $current: root,
       transition: null
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -2935,7 +2935,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      */
     $state.reload = function reload() {
       return $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -2957,7 +2957,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
-     * ***REMOVED***
+     *   };
      * });
      * </pre>
      * <img src='../ngdoc_assets/StateGoExamples.png'/>
@@ -3005,7 +3005,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      */
     $state.go = function go(to, params, options) {
       return $state.transitionTo(to, params, extend({ inherit: true, relative: $state.$current }, options));
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -3023,7 +3023,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
-     * ***REMOVED***
+     *   };
      * });
      * </pre>
      *
@@ -3252,7 +3252,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       });
 
       return transition;
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -3295,7 +3295,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (!isDefined(state)) { return undefined; }
       if ($state.$current !== state) { return false; }
       return params ? equalForKeys(state.params.$$values(params), $stateParams) : true;
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -3361,7 +3361,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (!isDefined(state)) { return undefined; }
       if (!isDefined($state.$current.includes[state.name])) { return false; }
       return params ? equalForKeys(state.params.$$values(params), $stateParams, objectKeys(params)) : true;
-  ***REMOVED***
+    };
 
 
     /**
@@ -3412,7 +3412,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       return $urlRouter.href(nav.url, filterByKeys(state.params.$$keys(), params || {}), {
         absolute: options.absolute
       });
-  ***REMOVED***
+    };
 
     /**
      * @ngdoc function
@@ -3431,7 +3431,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       if (arguments.length === 0) return map(objectKeys(states), function(name) { return states[name].self; });
       var state = findState(stateOrName, context || $state.$current);
       return (state && state.self) ? state.self : null;
-  ***REMOVED***
+    };
 
     function resolveState(state, params, paramsAreFiltered, inherited, dst, options) {
       // Make a restricted $stateParams with only the parameters that apply to this state if
@@ -3525,7 +3525,7 @@ function $ViewProvider() {
       load: function load(name, options) {
         var result, defaults = {
           template: null, controller: null, view: null, locals: null, notify: true, async: true, params: {}
-      ***REMOVED***
+        };
         options = extend(defaults, options);
 
         if (options.view) {
@@ -3559,7 +3559,7 @@ function $ViewProvider() {
         }
         return result;
       }
-  ***REMOVED***
+    };
   }
 }
 
@@ -3587,7 +3587,7 @@ function $ViewScrollProvider() {
    */
   this.useAnchorScroll = function () {
     useAnchorScroll = true;
-***REMOVED***
+  };
 
   /**
    * @ngdoc object
@@ -3612,7 +3612,7 @@ function $ViewScrollProvider() {
       $timeout(function () {
         $element[0].scrollIntoView();
       }, 0, false);
-  ***REMOVED***
+    };
   }];
 }
 
@@ -3743,7 +3743,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       } catch (e) {
         return null;
       }
-  ***REMOVED***
+    };
   }
 
   var service = getService(),
@@ -3757,8 +3757,8 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       return {
         enter: function (element, target, cb) { target.after(element); cb(); },
         leave: function (element, cb) { element.remove(); cb(); }
-    ***REMOVED***
-  ***REMOVED***
+      };
+    };
 
     if ($animate) {
       return {
@@ -3770,7 +3770,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
           var promise = $animate.leave(element, cb);
           if (promise && promise.then) promise.then(cb);
         }
-    ***REMOVED***
+      };
     }
 
     if ($animator) {
@@ -3779,7 +3779,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       return {
         enter: function(element, target, cb) {animate.enter(element, null, target); cb(); },
         leave: function(element, cb) { animate.leave(element); cb(); }
-    ***REMOVED***
+      };
     }
 
     return statics();
@@ -3864,9 +3864,9 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
           currentScope.$emit('$viewContentLoaded');
           currentScope.$eval(onloadExp);
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 
   return directive;
 }
@@ -3903,9 +3903,9 @@ function $ViewDirectiveFill (  $compile,   $controller,   $state,   $interpolate
         }
 
         link(scope);
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }
 
 /**
@@ -4037,7 +4037,7 @@ function $StateRefDirective($state, $timeout) {
           return false;
         }
         attrs.$set(attr, newHref);
-    ***REMOVED***
+      };
 
       if (ref.paramExpr) {
         scope.$watch(ref.paramExpr, function(newVal, oldVal) {
@@ -4063,11 +4063,11 @@ function $StateRefDirective($state, $timeout) {
           e.preventDefault = function() {
             if (ignorePreventDefaultCount-- <= 0)
               $timeout.cancel(transition);
-        ***REMOVED***
+          };
         }
       });
     }
-***REMOVED***
+  };
 }
 
 /**
@@ -4161,7 +4161,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
         state = $state.get(newState, stateContext($element));
         params = newParams;
         update();
-    ***REMOVED***
+      };
 
       $scope.$on('$stateChangeSuccess', update);
 
@@ -4182,7 +4182,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
         }
       }
     }]
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.state')
@@ -4203,7 +4203,7 @@ $IsStateFilter.$inject = ['$state'];
 function $IsStateFilter($state) {
   var isFilter = function (state) {
     return $state.is(state);
-***REMOVED***
+  };
   isFilter.$stateful = true;
   return isFilter;
 }
@@ -4221,7 +4221,7 @@ $IncludedByStateFilter.$inject = ['$state'];
 function $IncludedByStateFilter($state) {
   var includesFilter = function (state) {
     return $state.includes(state);
-***REMOVED***
+  };
   includesFilter.$stateful = true;
   return  includesFilter;
 }

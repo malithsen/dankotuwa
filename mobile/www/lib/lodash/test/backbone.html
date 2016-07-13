@@ -14,7 +14,7 @@
             QUnit.config.done.length = 0;
           }
           global_test_results = { 'message': message };
-      ***REMOVED***
+        };
       }
     </script>
     <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
@@ -31,11 +31,11 @@
         var aliasToReal = {
           'indexBy': 'keyBy',
           'invoke': 'invokeMap'
-      ***REMOVED***
+        };
 
         var keyMap = {
           'rest': 'tail'
-      ***REMOVED***
+        };
 
         var lodash = _.noConflict();
 
@@ -70,7 +70,7 @@
             _[alias] = _[realName];
             _.prototype[alias] = _.prototype[realName];
           });
-      ***REMOVED***
+        };
       }());
 
       // Load prerequisite scripts.
@@ -130,7 +130,7 @@
                 'loader': 'curl/loader/legacy'
               }
             }]
-        ***REMOVED***
+          };
 
           if (ui.isModularize) {
             result.packages.push({

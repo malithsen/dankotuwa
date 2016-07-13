@@ -44,7 +44,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
       isDefined(config.templateProvider) ? this.fromProvider(config.templateProvider, params, locals) :
       null
     );
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -63,7 +63,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    */
   this.fromString = function (template, params) {
     return isFunction(template) ? template(params) : template;
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -85,7 +85,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
     else return $http
         .get(url, { cache: $templateCache, headers: { Accept: 'text/html' }})
         .then(function(response) { return response.data; });
-***REMOVED***
+  };
 
   /**
    * @ngdoc function
@@ -104,7 +104,7 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    */
   this.fromProvider = function (provider, params, locals) {
     return $injector.invoke(provider, null, locals || { params: params });
-***REMOVED***
+  };
 }
 
 angular.module('ui.router.util').service('$templateFactory', $TemplateFactory);

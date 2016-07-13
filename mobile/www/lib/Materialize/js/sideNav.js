@@ -6,7 +6,7 @@
         menuWidth: 240,
         edge: 'left',
         closeOnClick: false
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       $(this).each(function(){
@@ -328,7 +328,7 @@
     hide : function() {
       $('#sidenav-overlay').trigger('click');
     }
-***REMOVED***
+  };
 
 
     $.fn.sideNav = function(methodOrOptions) {
@@ -340,5 +340,5 @@
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.sideNav' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));

@@ -306,7 +306,7 @@
     '\xc6': 'Ae', '\xe6': 'ae',
     '\xde': 'Th', '\xfe': 'th',
     '\xdf': 'ss'
-***REMOVED***
+  };
 
   /** Used to map characters to HTML entities. */
   var htmlEscapes = {
@@ -316,7 +316,7 @@
     '"': '&quot;',
     "'": '&#39;',
     '`': '&#96;'
-***REMOVED***
+  };
 
   /** Used to map HTML entities to characters. */
   var htmlUnescapes = {
@@ -326,13 +326,13 @@
     '&quot;': '"',
     '&#39;': "'",
     '&#96;': '`'
-***REMOVED***
+  };
 
   /** Used to determine if values are of the language type `Object`. */
   var objectTypes = {
     'function': true,
     'object': true
-***REMOVED***
+  };
 
   /** Used to escape characters for inclusion in compiled string literals. */
   var stringEscapes = {
@@ -342,7 +342,7 @@
     '\r': 'r',
     '\u2028': 'u2028',
     '\u2029': 'u2029'
-***REMOVED***
+  };
 
   /** Built-in method references without a dependency on `root`. */
   var freeParseFloat = parseFloat,
@@ -901,7 +901,7 @@
   function baseUnary(func) {
     return function(value) {
       return func(value);
-  ***REMOVED***
+    };
   }
 
   /**
@@ -1554,7 +1554,7 @@
          */
         '_': lodash
       }
-  ***REMOVED***
+    };
 
     // Ensure wrappers are instances of `baseLodash`.
     lodash.prototype = baseLodash.prototype;
@@ -1929,7 +1929,7 @@
         'hash': new Hash,
         'map': new (Map || ListCache),
         'string': new Hash
-    ***REMOVED***
+      };
     }
 
     /**
@@ -2380,7 +2380,7 @@
           }
         }
         return true;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3065,7 +3065,7 @@
     if (enumerate && !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf')) {
       baseKeysIn = function(object) {
         return iteratorToArray(enumerate(object));
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3113,7 +3113,7 @@
       }
       return function(object) {
         return object === source || baseIsMatch(object, source, matchData);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3133,7 +3133,7 @@
         return (objValue === undefined && objValue === srcValue)
           ? hasIn(object, path)
           : baseIsEqual(srcValue, objValue, undefined, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3342,7 +3342,7 @@
     function baseProperty(key) {
       return function(object) {
         return object == null ? undefined : object[key];
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3355,7 +3355,7 @@
     function basePropertyDeep(path) {
       return function(object) {
         return baseGet(object, path);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -3542,7 +3542,7 @@
     var baseSetData = !metaMap ? identity : function(func, data) {
       metaMap.set(func, data);
       return func;
-  ***REMOVED***
+    };
 
     /**
      * The base implementation of `_.slice` without an iteratee call guard.
@@ -4305,7 +4305,7 @@
             accumulator = initializer ? initializer() : {};
 
         return func(collection, setter, getIteratee(iteratee), accumulator);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4367,7 +4367,7 @@
           }
         }
         return collection;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4391,7 +4391,7 @@
           }
         }
         return object;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4440,7 +4440,7 @@
           : string.slice(1);
 
         return chr[methodName]() + trailing;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4453,7 +4453,7 @@
     function createCompounder(callback) {
       return function(string) {
         return arrayReduce(words(deburr(string).replace(reApos, '')), callback, '');
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4486,7 +4486,7 @@
         // Mimic the constructor's `return` behavior.
         // See https://es5.github.io/#x13.2.2 for more details.
         return isObject(result) ? result : thisBinding;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4587,7 +4587,7 @@
             result = funcs[index].call(this, result);
           }
           return result;
-      ***REMOVED***
+        };
       });
     }
 
@@ -4676,7 +4676,7 @@
     function createInverter(setter, toIteratee) {
       return function(object, iteratee) {
         return baseInverter(object, setter, toIteratee(iteratee), {});
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4709,7 +4709,7 @@
           result = operator(value, other);
         }
         return result;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4815,7 +4815,7 @@
         }
         step = step === undefined ? (start < end ? 1 : -1) : (toNumber(step) || 0);
         return baseRange(start, end, step, fromRight);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4832,7 +4832,7 @@
           other = toNumber(other);
         }
         return operator(value, other);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4901,7 +4901,7 @@
           return +(pair[0] + 'e' + (+pair[1] - precision));
         }
         return func(number);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -4913,7 +4913,7 @@
      */
     var createSet = !(Set && (1 / setToArray(new Set([,-0]))[1]) == INFINITY) ? noop : function(values) {
       return new Set(values);
-  ***REMOVED***
+    };
 
     /**
      * Creates a `_.toPairs` or `_.toPairsIn` function.
@@ -4932,7 +4932,7 @@
           return setToPairs(object);
         }
         return baseToPairs(object, keysFunc(object));
-    ***REMOVED***
+      };
     }
 
     /**
@@ -5282,7 +5282,7 @@
      */
     var getData = !metaMap ? noop : function(func) {
       return metaMap.get(func);
-  ***REMOVED***
+    };
 
     /**
      * Gets the name of `func`.
@@ -5421,7 +5421,7 @@
     if (!getOwnPropertySymbols) {
       getSymbols = function() {
         return [];
-    ***REMOVED***
+      };
     }
 
     /**
@@ -5439,7 +5439,7 @@
         object = getPrototype(object);
       }
       return result;
-  ***REMOVED***
+    };
 
     /**
      * Gets the `toStringTag` of `value`.
@@ -5474,7 +5474,7 @@
           }
         }
         return result;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -5795,7 +5795,7 @@
         }
         return object[key] === srcValue &&
           (srcValue !== undefined || (key in Object(object)));
-    ***REMOVED***
+      };
     }
 
     /**
@@ -5954,7 +5954,7 @@
           count = 0;
         }
         return baseSetData(key, value);
-    ***REMOVED***
+      };
     }());
 
     /**
@@ -9250,7 +9250,7 @@
         if (--n < 1) {
           return func.apply(this, arguments);
         }
-    ***REMOVED***
+      };
     }
 
     /**
@@ -9307,7 +9307,7 @@
           func = undefined;
         }
         return result;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -9801,7 +9801,7 @@
         var result = func.apply(this, args);
         memoized.cache = cache.set(key, result);
         return result;
-    ***REMOVED***
+      };
       memoized.cache = new (memoize.Cache || MapCache);
       return memoized;
     }
@@ -9835,7 +9835,7 @@
       }
       return function() {
         return !predicate.apply(this, arguments);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -10061,7 +10061,7 @@
         }
         otherArgs[start] = array;
         return apply(func, this, otherArgs);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -10642,7 +10642,7 @@
      */
     var isBuffer = !Buffer ? constant(false) : function(value) {
       return value instanceof Buffer;
-  ***REMOVED***
+    };
 
     /**
      * Checks if `value` is classified as a `Date` object.
@@ -14017,7 +14017,7 @@
      * fs.writeFileSync(path.join(process.cwd(), 'jst.js'), '\
      *   var JST = {\
      *     "main": ' + _.template(mainText).source + '\
-     * ***REMOVED***\
+     *   };\
      * ');
      */
     function template(string, options, guard) {
@@ -14635,7 +14635,7 @@
     function constant(value) {
       return function() {
         return value;
-    ***REMOVED***
+      };
     }
 
     /**
@@ -14741,7 +14741,7 @@
      * _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {
      *   return !_.isRegExp(func) ? iteratee(func) : function(string) {
      *     return func.test(string);
-     * ***REMOVED***
+     *   };
      * });
      *
      * _.filter(['abc', 'def'], /ef/);
@@ -14834,7 +14834,7 @@
     var method = rest(function(path, args) {
       return function(object) {
         return baseInvoke(object, path, args);
-    ***REMOVED***
+      };
     });
 
     /**
@@ -14863,7 +14863,7 @@
     var methodOf = rest(function(object, args) {
       return function(path) {
         return baseInvoke(object, path, args);
-    ***REMOVED***
+      };
     });
 
     /**
@@ -14931,7 +14931,7 @@
               return result;
             }
             return func.apply(object, arrayPush([this.value()], arguments));
-        ***REMOVED***
+          };
         }
       });
 
@@ -15126,7 +15126,7 @@
     function propertyOf(object) {
       return function(path) {
         return object == null ? undefined : baseGet(object, path);
-    ***REMOVED***
+      };
     }
 
     /**
@@ -16011,11 +16011,11 @@
           });
         }
         return result;
-    ***REMOVED***
+      };
 
       LazyWrapper.prototype[methodName + 'Right'] = function(n) {
         return this.reverse()[methodName](n).reverse();
-    ***REMOVED***
+      };
     });
 
     // Add `LazyWrapper` methods that accept an `iteratee` value.
@@ -16031,7 +16031,7 @@
         });
         result.__filtered__ = result.__filtered__ || isFilter;
         return result;
-    ***REMOVED***
+      };
     });
 
     // Add `LazyWrapper` methods for `_.head` and `_.last`.
@@ -16040,7 +16040,7 @@
 
       LazyWrapper.prototype[methodName] = function() {
         return this[takeName](1).value()[0];
-    ***REMOVED***
+      };
     });
 
     // Add `LazyWrapper` methods for `_.initial` and `_.tail`.
@@ -16049,20 +16049,20 @@
 
       LazyWrapper.prototype[methodName] = function() {
         return this.__filtered__ ? new LazyWrapper(this) : this[dropName](1);
-    ***REMOVED***
+      };
     });
 
     LazyWrapper.prototype.compact = function() {
       return this.filter(identity);
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.find = function(predicate) {
       return this.filter(predicate).head();
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.findLast = function(predicate) {
       return this.reverse().find(predicate);
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.invokeMap = rest(function(path, args) {
       if (typeof path == 'function') {
@@ -16078,7 +16078,7 @@
       return this.filter(function(value) {
         return !predicate(value);
       });
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.slice = function(start, end) {
       start = toInteger(start);
@@ -16097,15 +16097,15 @@
         result = end < 0 ? result.dropRight(-end) : result.take(end - start);
       }
       return result;
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.takeRightWhile = function(predicate) {
       return this.reverse().takeWhile(predicate).reverse();
-  ***REMOVED***
+    };
 
     LazyWrapper.prototype.toArray = function() {
       return this.take(MAX_ARRAY_LENGTH);
-  ***REMOVED***
+    };
 
     // Add `LazyWrapper` methods to `lodash.prototype`.
     baseForOwn(LazyWrapper.prototype, function(func, methodName) {
@@ -16127,7 +16127,7 @@
         var interceptor = function(value) {
           var result = lodashFunc.apply(lodash, arrayPush([value], args));
           return (isTaker && chainAll) ? result[0] : result;
-      ***REMOVED***
+        };
 
         if (useLazy && checkIteratee && typeof iteratee == 'function' && iteratee.length != 1) {
           // Avoid lazy use if the iteratee has a "length" value other than `1`.
@@ -16149,7 +16149,7 @@
         }
         result = this.thru(interceptor);
         return isUnwrapped ? (isTaker ? result.value()[0] : result.value()) : result;
-    ***REMOVED***
+      };
     });
 
     // Add `Array` methods to `lodash.prototype`.
@@ -16167,7 +16167,7 @@
         return this[chainName](function(value) {
           return func.apply(isArray(value) ? value : [], args);
         });
-    ***REMOVED***
+      };
     });
 
     // Map minified method names to their real names.

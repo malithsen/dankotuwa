@@ -4,7 +4,7 @@
     _generateID = function() {
       _lastID++;
       return 'materialize-lean-overlay-' + _lastID;
-  ***REMOVED***
+    };
 
   $.fn.extend({
     openModal: function(options) {

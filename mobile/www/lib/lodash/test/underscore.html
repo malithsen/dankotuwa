@@ -15,7 +15,7 @@
             QUnit.config.done.length = 0;
           }
           global_test_results = { 'message': message };
-      ***REMOVED***
+        };
       }
     </script>
     <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
@@ -331,7 +331,7 @@
             'works as a wrapper'
           ]
         }
-    ***REMOVED***
+      };
 
       var mixinPrereqs = (function() {
         var aliasToReal = {
@@ -360,12 +360,12 @@
           'select': 'filter',
           'unique': 'uniq',
           'where': 'filter'
-      ***REMOVED***
+        };
 
         var keyMap = {
           'rest': 'tail',
           'restArgs': 'rest'
-      ***REMOVED***
+        };
 
         var lodash = _.noConflict();
 
@@ -382,7 +382,7 @@
             _[alias] = _[realName];
             _.prototype[alias] = _.prototype[realName];
           });
-      ***REMOVED***
+        };
       }());
 
       // Only excuse in Sauce Labs.
@@ -422,7 +422,7 @@
         require = (function(func) {
           return function() {
             return arguments[0] === '..' ? window._ : func.apply(null, arguments);
-        ***REMOVED***
+          };
         }(require));
 
         var reBasename = /[\w.-]+$/,
@@ -448,7 +448,7 @@
                 'loader': 'curl/loader/legacy'
               }
             }]
-        ***REMOVED***
+          };
 
           if (ui.isModularize) {
             result.packages.push({

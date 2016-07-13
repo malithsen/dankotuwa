@@ -5,8 +5,8 @@ angular.module('dankotuwa')
   var linkFn = function(scope, element) {
     scope.goToDetailView = function() {
       $state.go('app.detailview', {location: scope.location});
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   return {
     restrict: 'E',
@@ -15,6 +15,6 @@ angular.module('dankotuwa')
     },
     templateUrl: 'templates/card.html',
     link: linkFn
-***REMOVED***
+  };
 
 });

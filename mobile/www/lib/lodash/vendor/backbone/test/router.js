@@ -8,11 +8,11 @@
   var onRoute = function(routerParam, route, args) {
     lastRoute = route;
     lastArgs = args;
-***REMOVED***
+  };
 
   var Location = function(href) {
     this.replace(href);
-***REMOVED***
+  };
 
   _.extend(Location.prototype, {
 
@@ -66,7 +66,7 @@
     routingFunction: function(value) {
       this.value = value;
     }
-***REMOVED***
+  };
   ExternalObject.routingFunction = _.bind(ExternalObject.routingFunction, ExternalObject);
 
   var Router = Backbone.Router.extend({
@@ -269,7 +269,7 @@
     Backbone.history.checkUrl();
     location.replace = function(href) {
       assert.strictEqual(href, new Location('http://example.com#end_here').href);
-  ***REMOVED***
+    };
     Backbone.history.navigate('end_here', {replace: true});
   });
 
@@ -444,7 +444,7 @@
     Backbone.history.start({hashChange: false, root: '/root/'});
     location.assign = function(pathname) {
       assert.strictEqual(pathname, '/root/fragment');
-  ***REMOVED***
+    };
     Backbone.history.navigate('/fragment');
   });
 
@@ -604,7 +604,7 @@
     location.replace('http://example.com/root/x/y?a=b');
     location.replace = function(url) {
       assert.strictEqual(url, '/root#x/y?a=b');
-  ***REMOVED***
+    };
     Backbone.history = _.extend(new Backbone.History, {
       location: location,
       history: {
@@ -687,7 +687,7 @@
         return {
           home: 'root',
           index: 'index.html'
-      ***REMOVED***
+        };
       }
     });
 
@@ -938,7 +938,7 @@
     location.replace('http://example.com?a=b');
     location.replace = function(url) {
       assert.strictEqual(url, '/#?a=b');
-  ***REMOVED***
+    };
     Backbone.history = _.extend(new Backbone.History, {
       location: location,
       history: null
@@ -980,7 +980,7 @@
     location.replace('http://example.com/root?foo=bar');
     location.replace = function(url) {
       assert.strictEqual(url, '/root#?foo=bar');
-  ***REMOVED***
+    };
     Backbone.history = _.extend(new Backbone.History, {
       location: location,
       history: {

@@ -16,7 +16,7 @@ angular.module('dankotuwa')
         });
       });
     });
-***REMOVED***
+  };
 
   var getDistance = function(start, dest, cb) {
     distanceMatrix.getDistanceMatrix({
@@ -30,6 +30,6 @@ angular.module('dankotuwa')
       cb(distance, time);
     });
 
-***REMOVED***
+  };
   return o;
 });

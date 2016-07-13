@@ -68,7 +68,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  *      hideSheet();
  *    }, 2000);
  *
- ****REMOVED***
+ *  };
  * });
  * ```
  *
@@ -87,7 +87,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
 
   return {
     show: actionSheet
-***REMOVED***
+  };
 
   /**
    * @ngdoc method
@@ -172,7 +172,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
         scope.cancel.$scope = sheetEl = null;
         (done || noop)(opts.buttons);
       });
-  ***REMOVED***
+    };
 
     scope.showSheet = function(done) {
       if (scope.removed) return;
@@ -188,7 +188,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
         if (scope.removed) return;
         sheetEl.addClass('action-sheet-up');
       }, 20, false);
-  ***REMOVED***
+    };
 
     // registerBackButtonAction returns a callback to deregister the action
     scope.$deregisterBackButton = $ionicPlatform.registerBackButtonAction(
@@ -202,7 +202,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
     scope.cancel = function() {
       // after the animation is out, call the cancel callback
       scope.removeSheet(opts.cancel);
-  ***REMOVED***
+    };
 
     scope.buttonClicked = function(index) {
       // Check if the button click event returned true, which means
@@ -210,7 +210,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
       if (opts.buttonClicked(index, opts.buttons[index]) === true) {
         scope.removeSheet();
       }
-  ***REMOVED***
+    };
 
     scope.destructiveButtonClicked = function() {
       // Check if the destructive button click event returned true, which means
@@ -218,7 +218,7 @@ function($rootScope, $compile, $animate, $timeout, $ionicTemplateLoader, $ionicP
       if (opts.destructiveButtonClicked() === true) {
         scope.removeSheet();
       }
-  ***REMOVED***
+    };
 
     scope.showSheet();
 
@@ -319,7 +319,7 @@ jqLite.prototype.removeClass = function(cssClasses) {
  *     $timeout(function() {
  *       $ionicBackdrop.release();
  *     }, 1000);
- * ***REMOVED***
+ *   };
  *
  *   // Execute action on backdrop disappearing
  *   $scope.$on('backdrop.hidden', function() {
@@ -363,7 +363,7 @@ function($document, $timeout, $$rAF, $rootScope) {
 
     // exposed for testing
     _element: el
-***REMOVED***
+  };
 
   function retain() {
     backdropHolds++;
@@ -444,11 +444,11 @@ IonicModule
           parentGet = $parse(attrs[attrName]);
           scope[scopeName] = function(locals) {
             return parentGet(scope, locals);
-        ***REMOVED***
+          };
           break;
       }
     });
-***REMOVED***
+  };
 }]);
 
 /**
@@ -529,7 +529,7 @@ IonicModule
     get: function() {
       return $document[0].body;
     }
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -577,7 +577,7 @@ function($document, $ionicBody, $timeout) {
       $timeout.cancel(fallbackTimer);
       removeClickBlock();
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -615,7 +615,7 @@ IonicModule
     off: function(gesture, eventType, cb) {
       return window.ionic.offGesture(gesture, eventType, cb);
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -670,7 +670,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
     backView: null,
     forwardView: null,
     currentView: null
-***REMOVED***
+  };
 
   var View = function() {};
   View.prototype.initialize = function(data) {
@@ -679,7 +679,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
       return this;
     }
     return null;
-***REMOVED***
+  };
   View.prototype.go = function() {
 
     if (this.stateName) {
@@ -698,13 +698,13 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
     }
 
     return null;
-***REMOVED***
+  };
   View.prototype.destroy = function() {
     if (this.scope) {
       this.scope.$destroy && this.scope.$destroy();
       this.scope = null;
     }
-***REMOVED***
+  };
 
 
   function getViewById(viewId) {
@@ -734,7 +734,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
         parentHistoryId: getParentHistoryObj(histObj.scope.$parent).historyId,
         stack: [],
         cursor: -1
-    ***REMOVED***
+      };
     }
     return getHistoryById(histObj.historyId);
   }
@@ -919,7 +919,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
             action: 'abstractView',
             direction: DIRECTION_NONE,
             ele: ele
-        ***REMOVED***
+          };
         }
 
         // set a new unique viewId
@@ -1046,7 +1046,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
         enableBack: this.enabledBack(viewHistory.currentView),
         isHistoryRoot: (viewHistory.currentView.index === 0),
         ele: ele
-    ***REMOVED***
+      };
     },
 
     registerHistory: function(scope) {
@@ -1177,7 +1177,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
             viewId: hist.stack[0].viewId,
             action: ACTION_MOVE_BACK,
             direction: DIRECTION_BACK
-        ***REMOVED***
+          };
           hist.stack[0].go();
         }
       }
@@ -1412,7 +1412,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
       return currentHistoryId ? currentHistoryId == 'root' : true;
     }
 
-***REMOVED***
+  };
 
   function isAbstractTag(ele) {
     return ele && ele.length && /ion-side-menus|ion-tabs/i.test(ele[0].tagName);
@@ -1482,7 +1482,7 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
 
   $rootScope.$ionicGoBack = function(backCount) {
     $ionicHistory.goBack(backCount);
-***REMOVED***
+  };
 
   // Set the document title when a new view is shown
   $rootScope.$on('$ionicView.afterEnter', function(ev, data) {
@@ -1797,7 +1797,7 @@ IonicModule
       maxPrefetch: PLATFORM
     },
     platform: {}
-***REMOVED***
+  };
   createConfig(configProperties, provider, '');
 
 
@@ -1914,7 +1914,7 @@ IonicModule
   provider.transitions = {
     views: {},
     navBar: {}
-***REMOVED***
+  };
 
 
   // iOS Transitions
@@ -1949,10 +1949,10 @@ IonicModule
         }
       },
       shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
-  ***REMOVED***
+    };
 
     return d;
-***REMOVED***
+  };
 
   provider.transitions.navBar.ios = function(enteringHeaderBar, leavingHeaderBar, direction, shouldAnimate) {
 
@@ -1999,10 +1999,10 @@ IonicModule
       },
       direction: direction,
       shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
-  ***REMOVED***
+    };
 
     return d;
-***REMOVED***
+  };
 
 
   // Android Transitions
@@ -2036,10 +2036,10 @@ IonicModule
         }
       },
       shouldAnimate: shouldAnimate
-  ***REMOVED***
+    };
 
     return d;
-***REMOVED***
+  };
 
   provider.transitions.navBar.android = function(enteringHeaderBar, leavingHeaderBar, direction, shouldAnimate) {
 
@@ -2061,8 +2061,8 @@ IonicModule
         setStyles(leavingHeaderBar && leavingHeaderBar.controller(), 1 - step);
       },
       shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
 
   // No Transition
@@ -2074,8 +2074,8 @@ IonicModule
         provider.transitions.views.android(enteringEle, leavingEle, false, false).run(step);
       },
       shouldAnimate: false
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   provider.transitions.navBar.none = function(enteringHeaderBar, leavingHeaderBar) {
     return {
@@ -2084,8 +2084,8 @@ IonicModule
         provider.transitions.navBar.android(enteringHeaderBar, leavingHeaderBar, false, false).run(step);
       },
       shouldAnimate: false
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
 
   // private: used to set platform configs
@@ -2143,7 +2143,7 @@ IonicModule
             return stringObj(configProperties.platform, 'default' + platformPath + '.' + namespace);
           }
           return configObj[namespace];
-      ***REMOVED***
+        };
       }
 
     });
@@ -2173,7 +2173,7 @@ IonicModule
    */
   provider.$get = function() {
     return provider;
-***REMOVED***
+  };
 })
 // Fix for URLs in Cordova apps on Windows Phone
 // http://blogs.msdn.com/b/msdn_answers/archive/2015/02/10/
@@ -2208,12 +2208,12 @@ var LOADING_TPL =
  *     }).then(function(){
  *        console.log("The loading indicator is now displayed");
  *     });
- * ***REMOVED***
+ *   };
  *   $scope.hide = function(){
  *     $ionicLoading.hide().then(function(){
  *        console.log("The loading indicator is now hidden");
  *     });
- * ***REMOVED***
+ *   };
  * });
  * ```
  */
@@ -2236,7 +2236,7 @@ var LOADING_TPL =
  *     $ionicLoading.show().then(function(){
  *        console.log("The loading indicator is now displayed");
  *     });
- * ***REMOVED***
+ *   };
  * });
  * ```
  */
@@ -2295,7 +2295,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
      * @private for testing
      */
     _getLoader: getLoader
-***REMOVED***
+  };
 
   function getLoader() {
     if (!loaderInstance) {
@@ -2356,7 +2356,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
           });
 
           self.isShown = true;
-      ***REMOVED***
+        };
         self.hide = function() {
 
           deregisterBackAction();
@@ -2376,7 +2376,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
           self.isShown = false;
           var loading = self.element.children();
           loading.html("");
-      ***REMOVED***
+        };
 
         return self;
       });
@@ -2461,10 +2461,10 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  *   });
  *   $scope.openModal = function() {
  *     $scope.modal.show();
- * ***REMOVED***
+ *   };
  *   $scope.closeModal = function() {
  *     $scope.modal.hide();
- * ***REMOVED***
+ *   };
  *   // Cleanup the modal when we're done with it!
  *   $scope.$on('$destroy', function() {
  *     $scope.modal.remove();
@@ -2576,7 +2576,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
 
         self._onWindowResize = function() {
           if (self._isShown) self.positionView(target, modalEl);
-      ***REMOVED***
+        };
         ionic.on('resize', self._onWindowResize, window);
       }
 
@@ -2736,7 +2736,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
     }
 
     return modal;
-***REMOVED***
+  };
 
   var modalStack = [];
   var stack = {
@@ -2753,7 +2753,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
       var index = modalStack.indexOf(modal);
       return (index > -1 && index === modalStack.length - 1);
     }
-***REMOVED***
+  };
 
   return {
     /**
@@ -2793,7 +2793,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
     },
 
     stack: stack
-***REMOVED***
+  };
 }]);
 
 
@@ -2977,13 +2977,13 @@ IonicModule
             id: (actionId ? actionId : ionic.Utils.nextUid()),
             priority: (priority ? priority : 0),
             fn: fn
-        ***REMOVED***
+          };
           self.$backButtonActions[action.id] = action;
 
           // return a function to de-register this back button action
           return function() {
             delete self.$backButtonActions[action.id];
-        ***REMOVED***
+          };
         },
 
         /**
@@ -3027,7 +3027,7 @@ IonicModule
             ionic.Platform.ready(function() {
               document.removeEventListener(type, cb);
             });
-        ***REMOVED***
+          };
         },
 
         /**
@@ -3054,11 +3054,11 @@ IonicModule
 
           return q.promise;
         }
-    ***REMOVED***
+      };
 
       return self;
     }]
-***REMOVED***
+  };
 
 });
 
@@ -3118,10 +3118,10 @@ IonicModule
  *
  *   $scope.openPopover = function($event) {
  *     $scope.popover.show($event);
- * ***REMOVED***
+ *   };
  *   $scope.closePopover = function() {
  *     $scope.popover.hide();
- * ***REMOVED***
+ *   };
  *   //Cleanup the popover when we're done with it!
  *   $scope.$on('$destroy', function() {
  *     $scope.popover.remove();
@@ -3150,7 +3150,7 @@ function($ionicModal, $ionicPosition, $document, $window) {
     hideDelay: 1,
     animation: 'none',
     positionView: positionView
-***REMOVED***
+  };
 
   function positionView(target, popoverEle) {
     var targetEle = jqLite(target.target || target);
@@ -3164,7 +3164,7 @@ function($ionicModal, $ionicPosition, $document, $window) {
 
     var popoverCSS = {
       left: buttonOffset.left + buttonOffset.width / 2 - popoverWidth / 2
-  ***REMOVED***
+    };
     var arrowEle = jqLite(popoverEle[0].querySelector('.popover-arrow'));
 
     if (popoverCSS.left < POPOVER_BODY_PADDING) {
@@ -3281,7 +3281,7 @@ function($ionicModal, $ionicPosition, $document, $window) {
     fromTemplateUrl: function(url, options) {
       return $ionicModal.fromTemplateUrl(url, ionic.Utils.extend({}, POPOVER_OPTIONS, options));
     }
-***REMOVED***
+  };
 
 }]);
 
@@ -3362,7 +3362,7 @@ var POPUP_TPL =
  *   $timeout(function() {
  *      myPopup.close(); //close the popup after 3 seconds for some reason
  *   }, 3000);
- ****REMOVED***
+ *  };
  *
  *  // A confirm dialog
  *  $scope.showConfirm = function() {
@@ -3378,7 +3378,7 @@ var POPUP_TPL =
  *        console.log('You are not sure');
  *      }
  *    });
- ****REMOVED***
+ *  };
  *
  *  // An alert dialog
  *  $scope.showAlert = function() {
@@ -3390,7 +3390,7 @@ var POPUP_TPL =
  *    alertPopup.then(function(res) {
  *      console.log('Thank you for not eating my delicious ice cream cone');
  *    });
- ****REMOVED***
+ *  };
  *});
  *```
  */
@@ -3411,7 +3411,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
   //TODO allow this to be configured
   var config = {
     stackPushDelay: 75
-***REMOVED***
+  };
   var popupStack = [];
 
   var $ionicPopup = {
@@ -3565,7 +3565,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
      */
     _createPopup: createPopup,
     _popupStack: popupStack
-***REMOVED***
+  };
 
   return $ionicPopup;
 
@@ -3626,7 +3626,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
         self.element.addClass('popup-showing active');
         focusInput(self.element);
       });
-  ***REMOVED***
+    };
 
     self.hide = function(callback) {
       callback = callback || noop;
@@ -3637,7 +3637,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
       self.element.removeClass('active');
       self.element.addClass('popup-hidden');
       $timeout(callback, 250, false);
-  ***REMOVED***
+    };
 
     self.remove = function() {
       if (self.removed) return;
@@ -3648,7 +3648,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
       });
 
       self.removed = true;
-  ***REMOVED***
+    };
 
     return self;
   }
@@ -3679,7 +3679,7 @@ function($ionicTemplateLoader, $ionicBackdrop, $q, $timeout, $rootScope, $ionicB
     // Expose a 'close' method on the returned promise
     popup.responseDeferred.promise.close = function popupClose(result) {
       if (!popup.removed) popup.responseDeferred.resolve(result);
-  ***REMOVED***
+    };
     //DEPRECATED: notify the promise with an object with a close method
     popup.responseDeferred.notify({ close: popup.responseDeferred.close });
 
@@ -3833,7 +3833,7 @@ IonicModule
       offsetParent = offsetParent.offsetParent;
     }
     return offsetParent || docDomEl;
-***REMOVED***
+  };
 
   return {
     /**
@@ -3860,7 +3860,7 @@ IonicModule
         height: boundingClientRect.height || element.prop('offsetHeight'),
         top: elBCR.top - offsetParentBCR.top,
         left: elBCR.left - offsetParentBCR.left
-    ***REMOVED***
+      };
     },
 
     /**
@@ -3878,10 +3878,10 @@ IonicModule
         height: boundingClientRect.height || element.prop('offsetHeight'),
         top: boundingClientRect.top + ($window.pageYOffset || $document[0].documentElement.scrollTop),
         left: boundingClientRect.left + ($window.pageXOffset || $document[0].documentElement.scrollLeft)
-    ***REMOVED***
+      };
     }
 
-***REMOVED***
+  };
 }]);
 
 
@@ -3911,7 +3911,7 @@ IonicModule
  * function MainCtrl($scope, $ionicScrollDelegate) {
  *   $scope.scrollTop = function() {
  *     $ionicScrollDelegate.scrollTop();
- * ***REMOVED***
+ *   };
  * }
  * ```
  *
@@ -3936,10 +3936,10 @@ IonicModule
  * function MainCtrl($scope, $ionicScrollDelegate) {
  *   $scope.scrollMainToTop = function() {
  *     $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
- * ***REMOVED***
+ *   };
  *   $scope.scrollSmallToTop = function() {
  *     $ionicScrollDelegate.$getByHandle('small').scrollTop();
- * ***REMOVED***
+ *   };
  * }
  * ```
  */
@@ -4083,7 +4083,7 @@ IonicModule
  * function MainCtrl($scope, $ionicSideMenuDelegate) {
  *   $scope.toggleLeftSideMenu = function() {
  *     $ionicSideMenuDelegate.toggleLeft();
- * ***REMOVED***
+ *   };
  * }
  * ```
  */
@@ -4471,7 +4471,7 @@ function($stateProvider, $ionicConfigProvider) {
       }
     }
     return stateProviderState.call($stateProvider, stateName, definition);
-***REMOVED***
+  };
 }])
 
 // process the templateUrls collected by the $stateProvider, adding them to the cache
@@ -4494,7 +4494,7 @@ function($compile, $controller, $http, $q, $rootScope, $templateCache) {
   return {
     load: fetchTemplate,
     compile: loadAndCompile
-***REMOVED***
+  };
 
   function fetchTemplate(url) {
     return $http.get(url, {cache: $templateCache})
@@ -4542,7 +4542,7 @@ function($compile, $controller, $http, $q, $rootScope, $templateCache) {
       return {
         element: element,
         scope: scope
-    ***REMOVED***
+      };
     });
   }
 
@@ -4568,13 +4568,13 @@ IonicModule
     getCurrentStateName: 'currentStateName',
     nextViewOptions: 'nextViewOptions',
     clearHistory: 'clearHistory'
-***REMOVED***
+  };
 
   forEach(methodsMap, function(newMethod, oldMethod) {
     methodsMap[oldMethod] = function() {
       warn('.' + oldMethod, '.' + newMethod);
       return $ionicHistory[newMethod].apply(this, arguments);
-  ***REMOVED***
+    };
   });
 
   return methodsMap;
@@ -4798,7 +4798,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
                 viewTransition.run(0);
                 viewTransition = null;
               }
-          ***REMOVED***
+            };
 
           } else if (renderEnd) {
             // just the end of a manual transition
@@ -4983,7 +4983,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
         enteringEle: function() { return enteringEle; },
         leavingEle: function() { return leavingEle; }
 
-    ***REMOVED***
+      };
 
       return switcher;
     },
@@ -5049,7 +5049,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
     navViewAttr: navViewAttr,
     destroyViewEle: destroyViewEle
 
-***REMOVED***
+  };
 
   return ionicViewSwitcher;
 
@@ -5094,7 +5094,7 @@ function($timeout, $document, $q, $ionicClickBlock, $ionicConfig, $ionicNavBarDe
       stateId: view.stateId,
       stateName: view.stateName,
       stateParams: view.stateParams
-  ***REMOVED***
+    };
   }
 
   function navViewAttr(ele, value) {
@@ -5245,7 +5245,7 @@ angular.module('ngIOS9UIWebViewPatch', ['ng']).config(['$provide', function($pro
         }
 
         return pendingLocationUrl || originalUrlFn.apply(browser, arguments);
-    ***REMOVED***
+      };
 
       window.addEventListener('popstate', clearPendingLocationUrl, false);
       window.addEventListener('hashchange', clearPendingLocationUrl, false);
@@ -5270,7 +5270,7 @@ IonicModule.config(['$provide', function($provide) {
      $compile.$$addScopeInfo = function $$addScopeInfo($element, scope, isolated, noTemplate) {
        var dataName = isolated ? (noTemplate ? '$isolateScopeNoTemplate' : '$isolateScope') : '$scope';
        $element.data(dataName, scope);
-   ***REMOVED***
+     };
      return $compile;
   }]);
 }]);
@@ -5297,7 +5297,7 @@ function($provide) {
         }, 0, false);
       }
       return $location.__hash(value);
-  ***REMOVED***
+    };
 
     return $location;
   }
@@ -5337,7 +5337,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
 
   self.beforeEnter = function(viewData) {
     $scope.$broadcast('$ionicView.beforeEnter', viewData);
-***REMOVED***
+  };
 
 
   self.title = function(newTitleText) {
@@ -5347,7 +5347,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       titleTextWidth = 0;
     }
     return titleText;
-***REMOVED***
+  };
 
 
   self.enableBack = function(shouldEnable, disableReset) {
@@ -5358,7 +5358,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       if (!disableReset) self.updateBackButton();
     }
     return isBackEnabled;
-***REMOVED***
+  };
 
 
   self.showBack = function(shouldShow, disableReset) {
@@ -5369,7 +5369,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       if (!disableReset) self.updateBackButton();
     }
     return isBackShown;
-***REMOVED***
+  };
 
 
   self.showNavBack = function(shouldShow) {
@@ -5377,7 +5377,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
     // setting for all of it's child headers. For internal use.
     isNavBackShown = shouldShow;
     self.updateBackButton();
-***REMOVED***
+  };
 
 
   self.updateBackButton = function() {
@@ -5407,7 +5407,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
         }
       }
     }
-***REMOVED***
+  };
 
 
   self.titleTextWidth = function() {
@@ -5426,7 +5426,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
     var bounds = ionic.DomUtil.getTextBounds(element);
     titleTextWidth = Math.min(bounds && bounds.width || 30);
     return titleTextWidth;
-***REMOVED***
+  };
 
 
   self.titleWidth = function() {
@@ -5436,17 +5436,17 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       titleWidth = offsetWidth + (titleLeft - titleRight - 5);
     }
     return titleWidth;
-***REMOVED***
+  };
 
 
   self.titleTextX = function() {
     return ($element[0].offsetWidth / 2) - (self.titleWidth() / 2);
-***REMOVED***
+  };
 
 
   self.titleLeftRight = function() {
     return titleLeft - titleRight;
-***REMOVED***
+  };
 
 
   self.backButtonTextLeft = function() {
@@ -5457,7 +5457,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       ele = ele.parentElement;
     }
     return offsetLeft;
-***REMOVED***
+  };
 
 
   self.resetBackButton = function(viewData) {
@@ -5478,7 +5478,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
         defaultTitleEle.classList.remove(HIDE);
       }
     }
-***REMOVED***
+  };
 
 
   self.align = function(textAlign) {
@@ -5499,7 +5499,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
     }
 
     return self.updatePositions(titleEle, widths.titleLeft, widths.titleRight, widths.buttonsLeft, widths.buttonsRight, widths.css, widths.showPrevTitle);
-***REMOVED***
+  };
 
 
   self.calcWidths = function(textAlign, isPreviousTitle) {
@@ -5619,8 +5619,8 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
       titleRight: updateTitleRight,
       showPrevTitle: isPreviousTitle,
       css: updateCss
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
 
   self.updatePositions = function(titleEle, updateTitleLeft, updateTitleRight, buttonsLeft, buttonsRight, updateCss, showPreviousTitle) {
@@ -5666,12 +5666,12 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
     });
 
     return deferred.promise;
-***REMOVED***
+  };
 
 
   self.setCss = function(elementClassname, css) {
     ionic.DomUtil.cachedStyles(getEle(elementClassname), css);
-***REMOVED***
+  };
 
 
   var eleCache = {};
@@ -5701,11 +5701,11 @@ function($scope, $attrs, $element, $timeout) {
 
   $scope.icon = function() {
     return isDefined($attrs.icon) ? $attrs.icon : 'ion-load-d';
-***REMOVED***
+  };
 
   $scope.spinner = function() {
     return isDefined($attrs.spinner) ? $attrs.spinner : '';
-***REMOVED***
+  };
 
   $scope.$on('scroll.infiniteScrollComplete', function() {
     finishInfiniteScroll();
@@ -5781,14 +5781,14 @@ function($scope, $attrs, $element, $timeout) {
       top: self.scrollView.options.scrollingY ?
         calculateMaxValue(maxValues.top) :
         -1
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   self.getNativeMaxScroll = function() {
     var maxValues = {
       left: self.scrollEl.scrollWidth,
       top: self.scrollEl.scrollHeight
-  ***REMOVED***
+    };
     var computedStyle = window.getComputedStyle(self.scrollEl) || {};
     return {
       left: maxValues.left &&
@@ -5801,8 +5801,8 @@ function($scope, $attrs, $element, $timeout) {
         computedStyle.overflowY === 'auto' ||
         self.scrollEl.style['overflow-y'] === 'scroll' ) ?
         calculateMaxValue(maxValues.top) : -1
-  ***REMOVED***
-***REMOVED***
+    };
+  };
 
   // determine pixel refresh distance based on % or value
   function calculateMaxValue(maximum) {
@@ -5849,7 +5849,7 @@ function($scope, $attrs, $element, $timeout) {
  * function MyCtrl($scope, $ionicListDelegate) {
  *   $scope.showDeleteButtons = function() {
  *     $ionicListDelegate.showDelete(true);
- * ***REMOVED***
+ *   };
  * }
  * ```
  */
@@ -5917,25 +5917,25 @@ function($scope, $attrs, $ionicListDelegate, $ionicHistory) {
       isReorderShown = !!show;
     }
     return isReorderShown;
-***REMOVED***
+  };
 
   self.showDelete = function(show) {
     if (arguments.length) {
       isDeleteShown = !!show;
     }
     return isDeleteShown;
-***REMOVED***
+  };
 
   self.canSwipeItems = function(can) {
     if (arguments.length) {
       isSwipeable = !!can;
     }
     return isSwipeable;
-***REMOVED***
+  };
 
   self.closeOptionButtons = function() {
     self.listView && self.listView.clearDragEffects();
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -5980,7 +5980,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
     self.createHeaderBar(true);
 
     $scope.$emit('ionNavBar.init', delegateHandle);
-***REMOVED***
+  };
 
 
   self.createHeaderBar = function(isActive) {
@@ -6090,7 +6090,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
         containerEle.remove();
         containerEle = headerBarEle = titleEle = leftButtonsEle = rightButtonsEle = null;
       }
-  ***REMOVED***
+    };
 
     function positionItem(ele, itemType) {
       if (!ele) return;
@@ -6135,7 +6135,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
     headerBars.push(headerBarInstance);
 
     return headerBarInstance;
-***REMOVED***
+  };
 
 
   self.navElement = function(type, html) {
@@ -6143,7 +6143,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       navElementHtml[type] = html;
     }
     return navElementHtml[type];
-***REMOVED***
+  };
 
 
   self.update = function(viewData) {
@@ -6181,7 +6181,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
 
     self.isInitialized = true;
     navSwipeAttr('');
-***REMOVED***
+  };
 
 
   self.transition = function(enteringHeaderBar, leavingHeaderBar, viewData) {
@@ -6238,7 +6238,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
         navBarTransition.run(1);
         queuedTransitionEnd = transitionEnd;
       }
-  ***REMOVED***
+    };
 
     $timeout(enteringHeaderBarCtrl.align, 16);
 
@@ -6254,10 +6254,10 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
         if (latestTransitionId == transitionId || !navBarTransition.shouldAnimate) {
           transitionEnd();
         }
-    ***REMOVED***
+      };
 
       queuedTransitionStart = null;
-  ***REMOVED***
+    };
 
     function transitionEnd() {
       for (var x = 0; x < headerBars.length; x++) {
@@ -6272,18 +6272,18 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
     }
 
     queuedTransitionStart();
-***REMOVED***
+  };
 
 
   self.triggerTransitionStart = function(triggerTransitionId) {
     latestTransitionId = triggerTransitionId;
     queuedTransitionStart && queuedTransitionStart();
-***REMOVED***
+  };
 
 
   self.triggerTransitionEnd = function() {
     queuedTransitionEnd && queuedTransitionEnd();
-***REMOVED***
+  };
 
 
   self.showBar = function(shouldShow) {
@@ -6292,7 +6292,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       $scope.$parent.$hasHeader = !!shouldShow;
     }
     return !!$scope.$parent.$hasHeader;
-***REMOVED***
+  };
 
 
   self.visibleBar = function(shouldShow) {
@@ -6303,7 +6303,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       $element.addClass(CSS_HIDE);
     }
     isVisible = shouldShow;
-***REMOVED***
+  };
 
 
   self.enable = function(val) {
@@ -6314,7 +6314,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
     for (var x = 0; x < $ionicNavBarDelegate._instances.length; x++) {
       if ($ionicNavBarDelegate._instances[x] !== self) $ionicNavBarDelegate._instances[x].visibleBar(false);
     }
-***REMOVED***
+  };
 
 
   /**
@@ -6333,7 +6333,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       $scope.$isBackButtonShown = !!shouldShow;
     }
     return $scope.$isBackButtonShown;
-***REMOVED***
+  };
 
 
   /**
@@ -6349,7 +6349,7 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       }
       return headerBar.controller().showBack();
     }
-***REMOVED***
+  };
 
 
   self.title = function(newTitleText, headerBar) {
@@ -6361,44 +6361,44 @@ function($scope, $element, $attrs, $compile, $timeout, $ionicNavBarDelegate, $io
       $ionicHistory.currentTitle(newTitleText);
     }
     return $scope.$title;
-***REMOVED***
+  };
 
 
   self.align = function(val, headerBar) {
     headerBar = headerBar || getOnScreenHeaderBar();
     headerBar && headerBar.controller().align(val);
-***REMOVED***
+  };
 
 
   self.hasTabsTop = function(isTabsTop) {
     $element[isTabsTop ? 'addClass' : 'removeClass']('nav-bar-tabs-top');
-***REMOVED***
+  };
 
   self.hasBarSubheader = function(isBarSubheader) {
     $element[isBarSubheader ? 'addClass' : 'removeClass']('nav-bar-has-subheader');
-***REMOVED***
+  };
 
   // DEPRECATED, as of v1.0.0-beta14 -------
   self.changeTitle = function(val) {
     deprecatedWarning('changeTitle(val)', 'title(val)');
     self.title(val);
-***REMOVED***
+  };
   self.setTitle = function(val) {
     deprecatedWarning('setTitle(val)', 'title(val)');
     self.title(val);
-***REMOVED***
+  };
   self.getTitle = function() {
     deprecatedWarning('getTitle()', 'title()');
     return self.title();
-***REMOVED***
+  };
   self.back = function() {
     deprecatedWarning('back()', '$ionicHistory.goBack()');
     $ionicHistory.goBack();
-***REMOVED***
+  };
   self.getPreviousTitle = function() {
     deprecatedWarning('getPreviousTitle()', '$ionicHistory.backTitle()');
     $ionicHistory.goBack();
-***REMOVED***
+  };
   function deprecatedWarning(oldMethod, newMethod) {
     var warn = console.warn || console.log;
     warn && warn.call(console, 'navBarController.' + oldMethod + ' is deprecated, please use ' + newMethod + ' instead');
@@ -6520,7 +6520,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
     });
 
     return viewData;
-***REMOVED***
+  };
 
 
   self.register = function(viewLocals) {
@@ -6537,7 +6537,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
 
     var renderStart = (disableRenderStartViewId !== registerData.viewId);
     self.render(registerData, viewLocals, enteringView, leavingView, renderStart, true);
-***REMOVED***
+  };
 
 
   self.update = function(registerData) {
@@ -6569,7 +6569,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
         }
       }
     }
-***REMOVED***
+  };
 
 
   self.render = function(registerData, viewLocals, enteringView, leavingView, renderStart, renderEnd) {
@@ -6590,7 +6590,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       disableRenderStartViewId = disableAnimation = null;
     });
 
-***REMOVED***
+  };
 
 
   self.beforeEnter = function(transitionData) {
@@ -6601,7 +6601,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       associatedNavBarCtrl && associatedNavBarCtrl.update(transitionData);
       navSwipeAttr('');
     }
-***REMOVED***
+  };
 
 
   self.activeEleId = function(eleId) {
@@ -6609,7 +6609,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       activeEleId = eleId;
     }
     return activeEleId;
-***REMOVED***
+  };
 
 
   self.transitionEnd = function() {
@@ -6645,7 +6645,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
     if (self.isSwipeFreeze) {
       $ionicScrollDelegate.freezeAllScrolls(false);
     }
-***REMOVED***
+  };
 
 
   function onTabsLeave(ev, data) {
@@ -6671,7 +6671,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
         $ionicViewSwitcher.destroyViewEle(viewElements.eq(x));
       }
     }
-***REMOVED***
+  };
 
 
   self.clearCache = function(stateIds) {
@@ -6701,12 +6701,12 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       }
 
     }
-***REMOVED***
+  };
 
 
   self.getViewElements = function() {
     return $element.children();
-***REMOVED***
+  };
 
 
   self.appendViewElement = function(viewEle, viewLocals) {
@@ -6729,13 +6729,13 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
     linkFn(viewScope);
 
     return viewScope;
-***REMOVED***
+  };
 
 
   self.title = function(val) {
     var associatedNavBarCtrl = getAssociatedNavBarCtrl();
     associatedNavBarCtrl && associatedNavBarCtrl.title(val);
-***REMOVED***
+  };
 
 
   /**
@@ -6748,7 +6748,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
   self.enableBackButton = function(shouldEnable) {
     var associatedNavBarCtrl = getAssociatedNavBarCtrl();
     associatedNavBarCtrl && associatedNavBarCtrl.enableBackButton(shouldEnable);
-***REMOVED***
+  };
 
 
   /**
@@ -6767,7 +6767,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       return associatedNavBarCtrl.showActiveBackButton();
     }
     return true;
-***REMOVED***
+  };
 
 
   self.showBar = function(val) {
@@ -6779,7 +6779,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       return associatedNavBarCtrl.showBar();
     }
     return true;
-***REMOVED***
+  };
 
 
   self.isPrimary = function(val) {
@@ -6787,7 +6787,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       isPrimary = val;
     }
     return isPrimary;
-***REMOVED***
+  };
 
 
   self.direction = function(val) {
@@ -6795,7 +6795,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       direction = val;
     }
     return direction;
-***REMOVED***
+  };
 
 
   self.initSwipeBack = function() {
@@ -6824,14 +6824,14 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
 
       var registerData = {
         direction: 'back'
-    ***REMOVED***
+      };
 
       dragPoints = [];
 
       cancelData = {
         showBar: self.showBar(),
         showBackButton: self.showBackButton()
-    ***REMOVED***
+      };
 
       var switcher = $ionicViewSwitcher.create(self, registerData, backView, currentView, true, false);
       switcher.loadViewElements(registerData);
@@ -6930,7 +6930,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
       ionic.offGesture(deregRelease, 'release', onRelease);
       self.element = viewTransition = associatedNavBarCtrl = null;
     });
-***REMOVED***
+  };
 
 
   function navSwipeAttr(val) {
@@ -7266,7 +7266,7 @@ IonicModule
 
       // cleanup when done
       $scope.$on('$destroy', destroy);
-  ***REMOVED***
+    };
 
     function destroy() {
       if ( scrollChild ) {
@@ -7294,8 +7294,8 @@ IonicModule
         show: show,
         hide: hide,
         tail: tail
-    ***REMOVED***
-  ***REMOVED***
+      };
+    };
 
     function activate() {
       $element[0].classList.add('active');
@@ -7375,7 +7375,7 @@ function($scope,
   self._scrollViewOptions = scrollViewOptions; //for testing
   self.isNative = function() {
     return !!scrollViewOptions.nativeScrolling;
-***REMOVED***
+  };
 
   var element = self.element = scrollViewOptions.el;
   var $element = self.$element = jqLite(element);
@@ -7423,7 +7423,7 @@ function($scope,
       scrollTop: detail.scrollTop || 0,
       scrollLeft: detail.scrollLeft || 0
     });
-***REMOVED***
+  };
 
   $element.on('scroll', scrollFunc);
 
@@ -7450,17 +7450,17 @@ function($scope,
 
   self.getScrollView = function() {
     return scrollView;
-***REMOVED***
+  };
 
   self.getScrollPosition = function() {
     return scrollView.getValues();
-***REMOVED***
+  };
 
   self.resize = function() {
     return $timeout(resize, 0, false).then(function() {
       $element && $element.triggerHandler('scroll-resize');
     });
-***REMOVED***
+  };
 
   self.scrollTop = function(shouldAnimate) {
     self.resize().then(function() {
@@ -7469,7 +7469,7 @@ function($scope,
       }
       scrollView.scrollTo(0, 0, !!shouldAnimate);
     });
-***REMOVED***
+  };
 
   self.scrollBottom = function(shouldAnimate) {
     self.resize().then(function() {
@@ -7479,7 +7479,7 @@ function($scope,
       var max = scrollView.getScrollMax();
       scrollView.scrollTo(max.left, max.top, !!shouldAnimate);
     });
-***REMOVED***
+  };
 
   self.scrollTo = function(left, top, shouldAnimate) {
     self.resize().then(function() {
@@ -7488,7 +7488,7 @@ function($scope,
       }
       scrollView.scrollTo(left, top, !!shouldAnimate);
     });
-***REMOVED***
+  };
 
   self.zoomTo = function(zoom, shouldAnimate, originLeft, originTop) {
     self.resize().then(function() {
@@ -7497,7 +7497,7 @@ function($scope,
       }
       scrollView.zoomTo(zoom, !!shouldAnimate, originLeft, originTop);
     });
-***REMOVED***
+  };
 
   self.zoomBy = function(zoom, shouldAnimate, originLeft, originTop) {
     self.resize().then(function() {
@@ -7506,7 +7506,7 @@ function($scope,
       }
       scrollView.zoomBy(zoom, !!shouldAnimate, originLeft, originTop);
     });
-***REMOVED***
+  };
 
   self.scrollBy = function(left, top, shouldAnimate) {
     self.resize().then(function() {
@@ -7515,7 +7515,7 @@ function($scope,
       }
       scrollView.scrollBy(left, top, !!shouldAnimate);
     });
-***REMOVED***
+  };
 
   self.anchorScroll = function(shouldAnimate) {
     self.resize().then(function() {
@@ -7537,7 +7537,7 @@ function($scope,
       } while (curElm.attributes != self.element.attributes && curElm.offsetParent);
       scrollView.scrollTo(scrollLeft, scrollTop, !!shouldAnimate);
     });
-***REMOVED***
+  };
 
   self.freezeScroll = scrollView.freeze;
   self.freezeScrollShut = scrollView.freezeShut;
@@ -7546,7 +7546,7 @@ function($scope,
     for (var i = 0; i < $ionicScrollDelegate._instances.length; i++) {
       $ionicScrollDelegate._instances[i].freezeScroll(shouldFreeze);
     }
-***REMOVED***
+  };
 
 
   /**
@@ -7559,7 +7559,7 @@ function($scope,
       refresherHeight,
       refresherMethods
     );
-***REMOVED***
+  };
 
 }]);
 
@@ -7588,7 +7588,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     self.setContent(options.content);
     self.dragThresholdX = options.dragThresholdX || 10;
     $ionicHistory.registerHistory(self.$scope);
-***REMOVED***
+  };
 
   /**
    * Set the content view controller if not passed in the constructor options.
@@ -7601,21 +7601,21 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
 
       self.content.onDrag = function(e) {
         self._handleDrag(e);
-    ***REMOVED***
+      };
 
       self.content.endDrag = function(e) {
         self._endDrag(e);
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 
   self.isOpenLeft = function() {
     return self.getOpenAmount() > 0;
-***REMOVED***
+  };
 
   self.isOpenRight = function() {
     return self.getOpenAmount() < 0;
-***REMOVED***
+  };
 
   /**
    * Toggle the left menu to open 100%
@@ -7634,7 +7634,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       self.openPercentage(100);
       $rootScope.$emit('$ionicSideMenuOpen', 'left');
     }
-***REMOVED***
+  };
 
   /**
    * Toggle the right menu to open 100%
@@ -7653,7 +7653,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       self.openPercentage(-100);
       $rootScope.$emit('$ionicSideMenuOpen', 'right');
     }
-***REMOVED***
+  };
 
   self.toggle = function(side) {
     if (side == 'right') {
@@ -7661,7 +7661,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     } else {
       self.toggleLeft();
     }
-***REMOVED***
+  };
 
   /**
    * Close all menus.
@@ -7670,14 +7670,14 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     self.openPercentage(0);
     $rootScope.$emit('$ionicSideMenuClose', 'left');
     $rootScope.$emit('$ionicSideMenuClose', 'right');
-***REMOVED***
+  };
 
   /**
    * @return {float} The amount the side menu is open, either positive or negative for left (positive), or right (negative)
    */
   self.getOpenAmount = function() {
     return self.content && self.content.getTranslateX() || 0;
-***REMOVED***
+  };
 
   /**
    * @return {float} The ratio of open amount over menu width. For example, a
@@ -7690,11 +7690,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       return amount / self.left.width;
     }
     return amount / self.right.width;
-***REMOVED***
+  };
 
   self.isOpen = function() {
     return self.getOpenAmount() !== 0;
-***REMOVED***
+  };
 
   /**
    * @return {float} The percentage of open amount over menu width. For example, a
@@ -7703,7 +7703,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
    */
   self.getOpenPercentage = function() {
     return self.getOpenRatio() * 100;
-***REMOVED***
+  };
 
   /**
    * Open the menu with a given percentage amount.
@@ -7723,7 +7723,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     $ionicBody.enableClass((percentage !== 0), 'menu-open');
 
     self.content.setCanScroll(percentage == 0);
-***REMOVED***
+  };
 
   /*
   function freezeAllScrolls(shouldFreeze) {
@@ -7788,7 +7788,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       // Push the z-index of the left menu down
       self.left && self.left.pushDown && self.left.pushDown();
     }
-***REMOVED***
+  };
 
   /**
    * Given an event object, find the final resting position of this side
@@ -7850,18 +7850,18 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     else {
       self.openPercentage(0);
     }
-***REMOVED***
+  };
 
   self.enableMenuWithBackViews = function(val) {
     if (arguments.length) {
       enableMenuWithBackViews = !!val;
     }
     return enableMenuWithBackViews;
-***REMOVED***
+  };
 
   self.isAsideExposed = function() {
     return !!isAsideExposed;
-***REMOVED***
+  };
 
   self.exposeAside = function(shouldExposeAside) {
     if (!(self.left && self.left.isEnabled) && !(self.right && self.right.isEnabled)) return;
@@ -7878,11 +7878,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       self.content.setMarginRight(isAsideExposed ? self.right.width : 0);
     }
     self.$scope.$emit('$ionicExposeAside', isAsideExposed);
-***REMOVED***
+  };
 
   self.activeAsideResizing = function(isResizing) {
     $ionicBody.enableClass(isResizing, 'aside-resizing');
-***REMOVED***
+  };
 
   // End a drag with the given event
   self._endDrag = function(e) {
@@ -7894,7 +7894,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     startX = null;
     lastX = null;
     offsetX = null;
-***REMOVED***
+  };
 
   // Handle a drag event
   self._handleDrag = function(e) {
@@ -7925,14 +7925,14 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       self.openAmount(offsetX + (lastX - startX));
       //self.content.setCanScroll(false);
     }
-***REMOVED***
+  };
 
   self.canDragContent = function(canDrag) {
     if (arguments.length) {
       $scope.dragContent = !!canDrag;
     }
     return $scope.dragContent;
-***REMOVED***
+  };
 
   self.edgeThreshold = 25;
   self.edgeThresholdEnabled = false;
@@ -7946,7 +7946,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       }
     }
     return self.edgeThresholdEnabled;
-***REMOVED***
+  };
 
   self.isDraggableTarget = function(e) {
     //Only restrict edge when sidemenu is closed and restriction is enabled
@@ -7972,7 +7972,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       !e.target.tagName.match(/input|textarea|select|object|embed/i) &&
       !e.target.isContentEditable &&
       !(e.target.dataset ? e.target.dataset.preventScroll : e.target.getAttribute('data-prevent-scroll') == 'true');
-***REMOVED***
+  };
 
   $scope.sideMenuContentTranslateX = 0;
 
@@ -8040,7 +8040,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     sw: 'stroke-width',
     t: 'transform',
     v: 'values'
-***REMOVED***
+  };
 
   var SPIN_ANIMATION = {
     v: '0,32,32;360,32,32',
@@ -8048,7 +8048,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
     type: 'rotate',
     rc: INDEFINITE,
     dur: DURATION
-***REMOVED***
+  };
 
   function createSvgElement(tagName, data, parent, spinnerName) {
     var ele = document.createElement(SHORTCUTS[tagName] || tagName);
@@ -8103,15 +8103,15 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                 dur: DURATION,
                 v: animationValues('0;.1;.15;.25;.35;.45;.55;.65;.7;.85;1', i),
                 rc: INDEFINITE
-            ***REMOVED***
+              };
             },
             t: 1
           }]
-      ***REMOVED***
+        };
       },
       t: 12
     }]
-***REMOVED***
+  };
 
   var spinners = {
 
@@ -8146,11 +8146,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('1;2;3;4;5;6;7;8', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }]
-        ***REMOVED***
+          };
         },
         t: 8
       }]
@@ -8173,11 +8173,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('.3;.3;.3;.4;.7;.85;.9;1', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }]
-        ***REMOVED***
+          };
         },
         t: 8
       }]
@@ -8211,7 +8211,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('.5;.6;.8;1;.8;.6;.5', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }, {
@@ -8221,11 +8221,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('4;5;6;5;4;3;3', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }]
-        ***REMOVED***
+          };
         },
         t: 3
       }]
@@ -8246,7 +8246,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('16;18;28;18;16', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }, {
@@ -8256,7 +8256,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('48;44;36;46;48', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }, {
@@ -8266,11 +8266,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: DURATION,
                   v: animationValues('1;.8;.5;.4;1', i),
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }]
-        ***REMOVED***
+          };
         },
         t: 4
       }]
@@ -8296,7 +8296,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   keySplines: '0.1,0.2,0.3,1',
                   calcMode: 'spline',
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }, {
@@ -8307,11 +8307,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
                   dur: '2s',
                   v: '.2;1;.2;0',
                   rc: INDEFINITE
-              ***REMOVED***
+                };
               },
               t: 1
             }]
-        ***REMOVED***
+          };
         },
         t: 2
       }]
@@ -8346,7 +8346,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       }]
     }
 
-***REMOVED***
+  };
 
   var animations = {
 
@@ -8401,11 +8401,11 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
         startTime = Date.now();
         run();
         return self;
-    ***REMOVED***
+      };
 
     }
 
-***REMOVED***
+  };
 
   function easeInOutCubic(t, c) {
     t /= c / 2;
@@ -8441,15 +8441,15 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
       this.start();
 
       return spinnerName;
-  ***REMOVED***
+    };
 
     this.start = function() {
       animations[spinnerName] && (anim = animations[spinnerName]($element[0])());
-  ***REMOVED***
+    };
 
     this.stop = function() {
       animations[spinnerName] && (anim.stop = true);
-  ***REMOVED***
+    };
 
   }]);
 
@@ -8470,17 +8470,17 @@ function($scope, $ionicHistory, $attrs, $location, $state) {
     return $attrs.href && $location.path().indexOf(
       $attrs.href.replace(/^#/, '').replace(/\/$/, '')
     ) === 0;
-***REMOVED***
+  };
   this.srefMatchesState = function() {
     return $attrs.uiSref && $state.includes($attrs.uiSref.split('(')[0]);
-***REMOVED***
+  };
   this.navNameMatchesState = function() {
     return this.navViewName && $ionicHistory.isCurrentStateNavView(this.navViewName);
-***REMOVED***
+  };
 
   this.tabMatchesState = function() {
     return this.hrefMatchesState() || this.srefMatchesState() || this.navNameMatchesState();
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -8498,18 +8498,18 @@ function($scope, $element, $ionicHistory) {
 
   self.selectedIndex = function() {
     return self.tabs.indexOf(selectedTab);
-***REMOVED***
+  };
   self.selectedTab = function() {
     return selectedTab;
-***REMOVED***
+  };
   self.previousSelectedTab = function() {
     return previousSelectedTab;
-***REMOVED***
+  };
 
   self.add = function(tab) {
     $ionicHistory.registerHistory(tab);
     self.tabs.push(tab);
-***REMOVED***
+  };
 
   self.remove = function(tab) {
     var tabIndex = self.tabs.indexOf(tab);
@@ -8529,7 +8529,7 @@ function($scope, $element, $ionicHistory) {
       }
     }
     self.tabs.splice(tabIndex, 1);
-***REMOVED***
+  };
 
   self.deselect = function(tab) {
     if (tab.$tabSelected) {
@@ -8539,7 +8539,7 @@ function($scope, $element, $ionicHistory) {
       (tab.onDeselect || noop)();
       tab.$broadcast && tab.$broadcast('$ionicHistory.deselect');
     }
-***REMOVED***
+  };
 
   self.select = function(tab, shouldEmitEvent) {
     var tabIndex;
@@ -8591,7 +8591,7 @@ function($scope, $element, $ionicHistory) {
 
       $scope.$broadcast("tabSelected", { selectedTab: tab, selectedTabIndex: tabIndex});
     }
-***REMOVED***
+  };
 
   self.hasActiveScope = function() {
     for (var x = 0; x < self.tabs.length; x++) {
@@ -8600,7 +8600,7 @@ function($scope, $element, $ionicHistory) {
       }
     }
     return false;
-***REMOVED***
+  };
 
   self.showBar = function(show) {
     if (arguments.length) {
@@ -8612,7 +8612,7 @@ function($scope, $element, $ionicHistory) {
       isVisible = !!show;
     }
     return isVisible;
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -8651,7 +8651,7 @@ function($scope, $element, $attrs, $compile, $rootScope) {
     $scope.$on('$ionicView.beforeEnter', self.beforeEnter);
     $scope.$on('$ionicView.afterEnter', afterEnter);
     $scope.$on('$ionicView.beforeLeave', deregisterFns);
-***REMOVED***
+  };
 
   self.beforeEnter = function(ev, transData) {
     // this event was emitted, starting at intial ion-view, then bubbles up
@@ -8679,7 +8679,7 @@ function($scope, $element, $attrs, $compile, $rootScope) {
       // make sure any existing observers are cleaned up
       deregisterFns();
     }
-***REMOVED***
+  };
 
 
   function afterEnter() {
@@ -8737,7 +8737,7 @@ function($scope, $element, $attrs, $compile, $rootScope) {
 
   self.navElement = function(type, html) {
     navElementHtml[type] = html;
-***REMOVED***
+  };
 
 }]);
 
@@ -8758,14 +8758,14 @@ IonicModule
           $scope.cancel();
           $scope.$apply();
         }
-    ***REMOVED***
+      };
 
       var backdropClick = function(e) {
         if (e.target == $element[0]) {
           $scope.cancel();
           $scope.$apply();
         }
-    ***REMOVED***
+      };
       $scope.$on('$destroy', function() {
         $element.remove();
         $document.unbind('keyup', keyUp);
@@ -8788,7 +8788,7 @@ IonicModule
                   '</div>' +
                 '</div>' +
               '</div>'
-***REMOVED***
+  };
 }]);
 
 
@@ -8845,7 +8845,7 @@ IonicModule
       var checkboxWrapper = element[0].querySelector('.checkbox');
       checkboxWrapper.classList.add('checkbox-' + $ionicConfig.form.checkbox());
     }
-***REMOVED***
+  };
 }]);
 
 
@@ -8947,7 +8947,7 @@ function CollectionRepeatDirective($ionicCollectionManager, $parse, $window, $$r
     $$tlb: true,
     require: '^^$ionicScroll',
     link: postLink
-***REMOVED***
+  };
 
   function postLink(scope, element, attr, scrollCtrl, transclude) {
     var scrollView = scrollCtrl.scrollView;
@@ -9215,7 +9215,7 @@ function CollectionRepeatDirective($ionicCollectionManager, $parse, $window, $$r
               return Math.floor(parseFloat(result) / 100 * scrollView.__clientWidth);
             }
             return parseInt(result);
-        ***REMOVED***
+          };
       }
     }
 
@@ -9268,14 +9268,14 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       getterLocals[keyExpression] = value;
       getterLocals.$index = index;
       return heightFn(scope, getterLocals);
-  ***REMOVED***
+    };
 
     var widthFn = widthData.getValue || function() { return widthData.value; };
     var widthGetter = function(index, value) {
       getterLocals[keyExpression] = value;
       getterLocals.$index = index;
       return widthFn(scope, getterLocals);
-  ***REMOVED***
+    };
 
     var isVertical = !!scrollView.options.scrollingY;
 
@@ -9339,7 +9339,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         render();
       }
       scrollView.__$callback(transformLeft, transformTop, zoom, wasResize);
-  ***REMOVED***
+    };
 
     var isLayoutReady = false;
     var isDataReady = false;
@@ -9410,13 +9410,13 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         }
         forceRerender(true);
       }
-  ***REMOVED***
+    };
 
     this.setData = function(newData) {
       data = newData;
       (view.onRefreshData || angular.noop)();
       isDataReady = true;
-  ***REMOVED***
+    };
 
     this.destroy = function() {
       render.destroyed = true;
@@ -9434,7 +9434,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       scrollView.resize();
 
       (view.onDestroy || angular.noop)();
-  ***REMOVED***
+    };
 
     function forceRerender() {
       return render(true);
@@ -9588,7 +9588,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       this.getScrollValue = function() {
         return Math.max(0, Math.min(scrollView.__scrollTop - repeaterBeforeSize,
           scrollView.__maxScrollTop - repeaterBeforeSize - repeaterAfterSize));
-    ***REMOVED***
+      };
 
       this.refreshDirection = function() {
         this.scrollPrimarySize = scrollView.__clientHeight;
@@ -9599,7 +9599,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         this.estimatedItemsAcross = isGridView &&
           Math.floor(scrollView.__clientWidth / estimatedWidth) ||
           1;
-    ***REMOVED***
+      };
     }
     function HorizontalViewType() {
       this.getItemPrimarySize = widthGetter;
@@ -9608,7 +9608,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       this.getScrollValue = function() {
         return Math.max(0, Math.min(scrollView.__scrollLeft - repeaterBeforeSize,
           scrollView.__maxScrollLeft - repeaterBeforeSize - repeaterAfterSize));
-    ***REMOVED***
+      };
 
       this.refreshDirection = function() {
         this.scrollPrimarySize = scrollView.__clientWidth;
@@ -9619,39 +9619,39 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         this.estimatedItemsAcross = isGridView &&
           Math.floor(scrollView.__clientHeight / estimatedHeight) ||
           1;
-    ***REMOVED***
+      };
     }
 
     function GridViewType() {
       this.getEstimatedSecondaryPos = function(index) {
         return (index % this.estimatedItemsAcross) * this.estimatedSecondarySize;
-    ***REMOVED***
+      };
       this.getEstimatedPrimaryPos = function(index) {
         return Math.floor(index / this.estimatedItemsAcross) * this.estimatedPrimarySize;
-    ***REMOVED***
+      };
       this.getEstimatedIndex = function(scrollValue) {
         return Math.floor(scrollValue / this.estimatedPrimarySize) *
           this.estimatedItemsAcross;
-    ***REMOVED***
+      };
     }
 
     function ListViewType() {
       this.getEstimatedSecondaryPos = function() {
         return 0;
-    ***REMOVED***
+      };
       this.getEstimatedPrimaryPos = function(index) {
         return index * this.estimatedPrimarySize;
-    ***REMOVED***
+      };
       this.getEstimatedIndex = function(scrollValue) {
         return Math.floor((scrollValue) / this.estimatedPrimarySize);
-    ***REMOVED***
+      };
     }
 
     function StaticViewType() {
       this.getContentSize = function() {
         return this.getEstimatedPrimaryPos(data.length - 1) + this.estimatedPrimarySize +
           repeaterBeforeSize + repeaterAfterSize;
-    ***REMOVED***
+      };
       // static view always returns the same object for getDimensions, to avoid memory allocation
       // while scrolling. This could be dangerous if this was a public function, but it's not.
       // Only we use it.
@@ -9662,7 +9662,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         dim.primarySize = this.estimatedPrimarySize;
         dim.secondarySize = this.estimatedSecondarySize;
         return dim;
-    ***REMOVED***
+      };
       this.updateRenderRange = function(scrollValue, scrollValueEnd) {
         renderStartIndex = Math.max(0, this.getEstimatedIndex(scrollValue));
 
@@ -9674,7 +9674,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
           this.getEstimatedPrimaryPos(renderStartIndex));
         renderAfterBoundary = this.getEstimatedPrimaryPos(renderEndIndex) +
           this.estimatedPrimarySize;
-    ***REMOVED***
+      };
     }
 
     function DynamicViewType() {
@@ -9734,10 +9734,10 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         return ((dim.primaryPos + dim.primarySize) || 0) +
           this.getEstimatedPrimaryPos(data.length - dimensionsIndex - 1) +
           repeaterBeforeSize + repeaterAfterSize;
-    ***REMOVED***
+      };
       this.onDestroy = function() {
         dimensions.length = 0;
-    ***REMOVED***
+      };
 
       this.onRefreshData = function() {
         var i;
@@ -9748,10 +9748,10 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
           dimensions.push({});
         }
         dimensionsIndex = -1;
-    ***REMOVED***
+      };
       this.onRefreshLayout = function() {
         dimensionsIndex = -1;
-    ***REMOVED***
+      };
       this.getDimensions = function(index) {
         index = Math.min(index, data.length - 1);
 
@@ -9771,7 +9771,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
 
         }
         return dimensions[index];
-    ***REMOVED***
+      };
 
       var oldRenderStartIndex = -1;
       var oldScrollValue = -1;
@@ -9832,11 +9832,11 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
 
         oldScrollValue = scrollValue;
         oldRenderStartIndex = renderStartIndex;
-    ***REMOVED***
+      };
     }
 
 
-***REMOVED***
+  };
 
 }
 
@@ -9975,7 +9975,7 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
               startX: $scope.$eval($scope.startX) || 0,
               startY: $scope.$eval($scope.startY) || 0,
               nativeScrolling: true
-          ***REMOVED***
+            };
 
           } else {
             // Use JS scrolling
@@ -9992,7 +9992,7 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
               scrollingY: $scope.direction.indexOf('y') >= 0,
               scrollEventInterval: parseInt($scope.scrollEventInterval, 10) || 10,
               scrollingComplete: onScrollComplete
-          ***REMOVED***
+            };
           }
 
           // init scroll controller with appropriate options
@@ -10023,7 +10023,7 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
 
       }
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -10102,7 +10102,7 @@ IonicModule.directive('exposeAsideWhen', ['$window', function($window) {
 
       $scope.$evalAsync(checkAsideExpose);
     }
-***REMOVED***
+  };
 }]);
 
 var GESTURE_DIRECTIVES = 'onHold onTap onDoubleTap onTouch onRelease onDragStart onDrag onDragEnd onDragUp onDragRight onDragDown onDragLeft onSwipe onSwipeUp onSwipeRight onSwipeDown onSwipeLeft'.split(' ');
@@ -10398,14 +10398,14 @@ function gestureDirective(directiveName) {
             $event: ev
           });
         });
-    ***REMOVED***
+      };
 
       var gesture = $ionicGesture.on(eventType, listener, element);
 
       scope.$on('$destroy', function() {
         $ionicGesture.off(gesture, eventType, listener);
       });
-  ***REMOVED***
+    };
   }];
 }
 
@@ -10524,7 +10524,7 @@ function tapScrollToTopDirective() { //eslint-disable-line no-unused-vars
           }
         }
       }
-  ***REMOVED***
+    };
   }];
 }
 
@@ -10584,7 +10584,7 @@ function headerFooterBarDirective(isHeader) {
           }
         }
       }
-  ***REMOVED***
+    };
   }];
 }
 
@@ -10636,7 +10636,7 @@ function headerFooterBarDirective(isHeader) {
  *       useItems(items);
  *       $scope.$broadcast('scroll.infiniteScrollComplete');
  *     });
- * ***REMOVED***
+ *   };
  *
  *   $scope.$on('$stateChangeSuccess', function() {
  *     $scope.loadMore();
@@ -10695,7 +10695,7 @@ IonicModule
         $timeout(function() { infiniteScrollCtrl.checkBounds(); });
       }
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -10735,14 +10735,14 @@ IonicModule
       this.setInputAriaLabeledBy = function(id) {
         var inputs = $element[0].querySelectorAll('input,textarea');
         inputs.length && inputs[0].setAttribute('aria-labelledby', id);
-    ***REMOVED***
+      };
 
       this.focus = function() {
         var inputs = $element[0].querySelectorAll('input,textarea');
         inputs.length && inputs[0].focus();
-    ***REMOVED***
+      };
     }]
-***REMOVED***
+  };
 }]);
 
 /**
@@ -10795,9 +10795,9 @@ IonicModule
             ionInputCtrl.focus();
           });
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -10824,9 +10824,9 @@ IonicModule
           ionInputCtrl.setInputAriaLabeledBy(id);
         }
 
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -10893,10 +10893,10 @@ IonicModule
       return function link($scope, $element, $attrs) {
         $scope.$href = function() {
           return $attrs.href || $attrs.ngHref;
-      ***REMOVED***
+        };
         $scope.$target = function() {
           return $attrs.target;
-      ***REMOVED***
+        };
 
         var content = $element[0].querySelector('.item-content');
         if (content) {
@@ -10911,10 +10911,10 @@ IonicModule
             }
           });
         }
-    ***REMOVED***
+      };
 
     }
-***REMOVED***
+  };
 }]);
 
 var ITEM_TPL_DELETE_BUTTON =
@@ -10983,9 +10983,9 @@ IonicModule
             container.addClass('visible active');
           }
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 });
 
 
@@ -11006,7 +11006,7 @@ IonicModule
         } else {
           inputLabel.classList.remove('has-input');
         }
-    ***REMOVED***
+      };
 
       input.addEventListener('input', onInput);
 
@@ -11015,14 +11015,14 @@ IonicModule
         ngModelCtrl.$render = function() {
           input.value = ngModelCtrl.$viewValue || '';
           onInput();
-      ***REMOVED***
+        };
       }
 
       scope.$on('$destroy', function() {
         input.removeEventListener('input', onInput);
       });
     }
-***REMOVED***
+  };
 });
 
 var ITEM_TPL_OPTION_BUTTONS =
@@ -11076,9 +11076,9 @@ IonicModule.directive('ionOptionButton', [function() {
 
         //Don't bubble click up to main .item
         $element.on('click', stopPropagation);
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 var ITEM_TPL_REORDER_BUTTON =
@@ -11122,7 +11122,7 @@ var ITEM_TPL_REORDER_BUTTON =
 *     //Move the item in the array
 *     $scope.items.splice(fromIndex, 1);
 *     $scope.items.splice(toIndex, 0, item);
-* ***REMOVED***
+*   };
 * }
 * ```
 *
@@ -11148,14 +11148,14 @@ IonicModule
             $fromIndex: oldIndex,
             $toIndex: newIndex
           });
-      ***REMOVED***
+        };
 
         // prevent clicks from bubbling up to the item
         if (!$attr.ngClick && !$attr.onClick && !$attr.onclick) {
           $element[0].onclick = function(e) {
             e.stopPropagation();
             return false;
-        ***REMOVED***
+          };
         }
 
         var container = jqLite(ITEM_TPL_REORDER_BUTTON);
@@ -11165,9 +11165,9 @@ IonicModule
         if (listCtrl && listCtrl.showReorder()) {
           container.addClass('visible active');
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -11245,7 +11245,7 @@ IonicModule
       ionic.off('native.showkeyboard', onShow, window);
       ionic.off('native.hidekeyboard', onHide, window);
     });
-***REMOVED***
+  };
 });
 
 function keyboardAttachGetClientHeight(element) {
@@ -11442,9 +11442,9 @@ function($timeout) {
           }
         }
 
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -11509,7 +11509,7 @@ IonicModule
         }
       });
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -11570,7 +11570,7 @@ IonicModule
         sideMenuCtrl && sideMenuCtrl.toggle($attr.menuToggle);
       });
     }
-***REMOVED***
+  };
 });
 
 /*
@@ -11588,7 +11588,7 @@ IonicModule
                 '<div class="modal-backdrop-bg"></div>' +
                 '<div class="modal-wrapper" ng-transclude></div>' +
               '</div>'
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -11598,7 +11598,7 @@ IonicModule
     compile: function(element) {
       element.addClass('modal');
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -11653,7 +11653,7 @@ IonicModule
  * function MyCtrl($scope, $ionicHistory) {
  *   $scope.myGoBack = function() {
  *     $ionicHistory.goBack();
- * ***REMOVED***
+ *   };
  * }
  * ```
  */
@@ -11731,9 +11731,9 @@ IonicModule
           navBarCtrl.navElement('backButton', buttonEle.outerHTML);
           buttonEle = null;
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 
@@ -11791,7 +11791,7 @@ IonicModule
     link: function($scope, $element, $attr, ctrl) {
       ctrl.init();
     }
-***REMOVED***
+  };
 });
 
 
@@ -11883,9 +11883,9 @@ IonicModule
 
           spanEle = null;
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -11914,7 +11914,7 @@ IonicModule
         $ionicViewSwitcher.nextDirection($attr.navDirection);
       });
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -11985,9 +11985,9 @@ IonicModule
 
           spanEle = null;
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -12016,7 +12016,7 @@ IonicModule
         $ionicViewSwitcher.nextTransition($attr.navTransition);
       });
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -12220,9 +12220,9 @@ function($state, $ionicConfig) {
           navViewCtrl.register(viewLocals);
         }
 
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -12253,13 +12253,13 @@ IonicModule
     // Hack for iOS Safari's benefit. It goes searching for onclick handlers and is liable to click
     // something else nearby.
     element.onclick = noop;
-***REMOVED***
+  };
 }])
 
 .directive('ngClick', ['$ionicNgClick', function($ionicNgClick) {
   return function(scope, element, attr) {
     $ionicNgClick(scope, element, attr.ngClick);
-***REMOVED***
+  };
 }])
 
 .directive('ionStopEvent', function() {
@@ -12268,7 +12268,7 @@ IonicModule
     link: function(scope, element, attr) {
       element.bind(attr.ionStopEvent, eventStopPropagation);
     }
-***REMOVED***
+  };
 });
 function eventStopPropagation(e) {
   e.stopPropagation();
@@ -12290,7 +12290,7 @@ IonicModule
     link: function(scope, element) {
       element.addClass('pane');
     }
-***REMOVED***
+  };
 });
 
 /*
@@ -12307,7 +12307,7 @@ IonicModule
     template: '<div class="popover-backdrop">' +
                 '<div class="popover-wrapper" ng-transclude></div>' +
               '</div>'
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -12318,7 +12318,7 @@ IonicModule
       element.append(jqLite('<div class="popover-arrow">'));
       element.addClass('popover');
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -12390,10 +12390,10 @@ IonicModule
       return function(scope, element, attr) {
         scope.getValue = function() {
           return scope.ngValue || attr.value;
-      ***REMOVED***
-    ***REMOVED***
+        };
+      };
     }
-***REMOVED***
+  };
 });
 
 
@@ -12438,7 +12438,7 @@ IonicModule
  *        // Stop the ion-refresher from spinning
  *        $scope.$broadcast('scroll.refreshComplete');
  *      });
- * ***REMOVED***
+ *   };
  * });
  * ```
  *
@@ -12505,7 +12505,7 @@ IonicModule
       }
 
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -12618,7 +12618,7 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
           minZoom: $scope.$eval($scope.minZoom) || 0.5,
           preventDefault: true,
           nativeScrolling: nativeScrolling
-      ***REMOVED***
+        };
 
         if (isPaging) {
           scrollViewOptions.speedMultiplier = 0.8;
@@ -12631,7 +12631,7 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
         });
       }
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -12689,9 +12689,9 @@ IonicModule
         $scope.$watch($attr.isEnabled, function(val) {
           sideMenu.setIsEnabled(!!val);
         });
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 });
 
 
@@ -12907,7 +12907,7 @@ function($timeout, $ionicGesture, $window) {
             $element[0].classList.remove('menu-animated');
           },
           offsetX: 0
-      ***REMOVED***
+        };
 
         sideMenuCtrl.setContent(content);
 
@@ -12936,7 +12936,7 @@ function($timeout, $ionicGesture, $window) {
         });
       }
     }
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -13003,7 +13003,7 @@ IonicModule
  * function ContentController($scope, $ionicSideMenuDelegate) {
  *   $scope.toggleLeft = function() {
  *     $ionicSideMenuDelegate.toggleLeft();
- * ***REMOVED***
+ *   };
  * }
  * ```
  *
@@ -13046,7 +13046,7 @@ IonicModule
 
       }
     }
-***REMOVED***
+  };
 }]);
 
 
@@ -13193,11 +13193,11 @@ function($animate, $timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $i
 
       this.slidesCount = function() {
         return slider.slidesCount();
-    ***REMOVED***
+      };
 
       this.onPagerClick = function(index) {
         $scope.pagerClick({index: index});
-    ***REMOVED***
+      };
 
       $timeout(function() {
         slider.load();
@@ -13235,7 +13235,7 @@ function($animate, $timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $i
         return pager;
       }
     }
-***REMOVED***
+  };
 }])
 .directive('ionSlide', function() {
   return {
@@ -13244,7 +13244,7 @@ function($animate, $timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $i
     compile: function(element) {
       element.addClass('slider-slide');
     }
-***REMOVED***
+  };
 })
 
 .directive('ionPager', function() {
@@ -13264,21 +13264,21 @@ function($animate, $timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $i
             children[i].classList.remove('active');
           }
         }
-    ***REMOVED***
+      };
 
       $scope.pagerClick = function(index) {
         slideBox.onPagerClick(index);
-    ***REMOVED***
+      };
 
       $scope.numSlides = function() {
         return new Array(slideBox.slidesCount());
-    ***REMOVED***
+      };
 
       $scope.$watch('currentSlide', function(v) {
         selectPage(v);
       });
     }
-***REMOVED***
+  };
 
 });
 
@@ -13422,7 +13422,7 @@ function($animate, $timeout, $compile) {
             _this.__slider.slideTo(slidesLength - 1);
           }
         });
-    ***REMOVED***
+      };
 
       this.rapidUpdate = ionic.debounce(function() {
         _this.update();
@@ -13430,7 +13430,7 @@ function($animate, $timeout, $compile) {
 
       this.getSlider = function() {
         return _this.__slider;
-    ***REMOVED***
+      };
 
       var options = $scope.options || {};
 
@@ -13469,7 +13469,7 @@ function($animate, $timeout, $compile) {
       // Disable ngAnimate for slidebox and its children
       //$animate.enabled(false, $element);
     }
-***REMOVED***
+  };
 }])
 .directive('ionSlidePage', [function() {
   return {
@@ -13485,7 +13485,7 @@ function($animate, $timeout, $compile) {
         ionSlidesCtrl.rapidUpdate();
       });
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -13683,7 +13683,7 @@ IonicModule
         ctrl.stop();
       });
     }
-***REMOVED***
+  };
 });
 
 /**
@@ -13886,9 +13886,9 @@ function($compile, $ionicConfig, $ionicBind, $ionicViewSwitcher) {
           }
         });
 
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 IonicModule
@@ -13925,7 +13925,7 @@ IonicModule
       $scope.selectTab = function(e) {
         e.preventDefault();
         tabsCtrl.select(tabCtrl.$scope, true);
-    ***REMOVED***
+      };
       if (!$attrs.ngClick) {
         $element.on('click', function(event) {
           $scope.$apply(function() {
@@ -13937,18 +13937,18 @@ IonicModule
       $scope.isHidden = function() {
         if ($attrs.hidden === 'true' || $attrs.hidden === true) return true;
         return false;
-    ***REMOVED***
+      };
 
       $scope.getIconOn = function() {
         return $scope.iconOn || $scope.icon;
-    ***REMOVED***
+      };
       $scope.getIconOff = function() {
         return $scope.iconOff || $scope.icon;
-    ***REMOVED***
+      };
 
       $scope.isTabActive = function() {
         return tabsCtrl.selectedTab() === tabCtrl.$scope;
-    ***REMOVED***
+      };
 
       $scope.getIcon = function() {
         if ( tabsCtrl.selectedTab() === tabCtrl.$scope ) {
@@ -13959,9 +13959,9 @@ IonicModule
           // inactive
           return $scope.iconOff || $scope.icon;
         }
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -14081,7 +14081,7 @@ function($ionicTabsDelegate, $ionicConfig) {
         }
       }
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -14109,7 +14109,7 @@ IonicModule
     compile: function(element) {
       element.addClass('title');
     }
-***REMOVED***
+  };
 }]);
 
 /**
@@ -14207,10 +14207,10 @@ function($timeout, $ionicConfig) {
         $scope.$on('$destroy', function() {
           $scope.toggle.destroy();
         });
-    ***REMOVED***
+      };
     }
 
-***REMOVED***
+  };
 }]);
 
 /**
@@ -14383,9 +14383,9 @@ IonicModule
       tElement[0].removeAttribute('title');
       return function link($scope, $element, $attrs, viewCtrl) {
         viewCtrl.init();
-    ***REMOVED***
+      };
     }
-***REMOVED***
+  };
 });
 
 })();

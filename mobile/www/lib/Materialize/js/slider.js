@@ -8,7 +8,7 @@
         height: 400,
         transition: 500,
         interval: 6000
-    ***REMOVED***
+      };
       options = $.extend(defaults, options);
 
       return this.each(function() {
@@ -305,7 +305,7 @@
     prev : function() {
       $(this).trigger('sliderPrev');
     }
-***REMOVED***
+  };
 
 
     $.fn.slider = function(methodOrOptions) {
@@ -317,5 +317,5 @@
       } else {
         $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.tooltip' );
       }
-  ***REMOVED*** // Plugin end
+    }; // Plugin end
 }( jQuery ));

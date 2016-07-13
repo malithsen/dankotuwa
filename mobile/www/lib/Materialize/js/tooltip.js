@@ -6,7 +6,7 @@
       // Defaults
       var defaults = {
         delay: 350
-    ***REMOVED***
+      };
 
       // Remove tooltip from the activator
       if (options === "remove") {
@@ -176,7 +176,7 @@
         }
         });
     });
-***REMOVED***
+  };
 
   var repositionWithinScreen = function(x, y, width, height) {
     var newX = x
@@ -195,7 +195,7 @@
     }
 
     return {x: newX, y: newY};
-***REMOVED***
+  };
 
   $(document).ready(function(){
      $('.tooltipped').tooltip();

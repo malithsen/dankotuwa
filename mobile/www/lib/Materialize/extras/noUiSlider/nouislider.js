@@ -30,7 +30,7 @@ e)}function t(b){if(!(this instanceof t))return new t(b);"object"===typeof b&&(b
         module.exports = factory();
         module.exports.css = function () {
             return fs.readFileSync(__dirname + '/nouislider.min.css', 'utf8');
-      ***REMOVED***
+        };
 
     } else {
 

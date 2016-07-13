@@ -116,7 +116,7 @@
     select_tab : function( id ) {
       this.find('a[href="#' + id + '"]').trigger('click');
     }
-***REMOVED***
+  };
 
   $.fn.tabs = function(methodOrOptions) {
     if ( methods[methodOrOptions] ) {
@@ -127,7 +127,7 @@
     } else {
       $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.tooltip' );
     }
-***REMOVED***
+  };
 
   $(document).ready(function(){
     $('ul.tabs').tabs();
