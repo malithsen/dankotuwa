@@ -74,6 +74,16 @@ angular.module('dankotuwa', ['ionic', 'ngCordova'])
     }
   })
 
+  .state('app.welcome', {
+    url: '/welcome',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/welcome.html',
+        controller: 'WelcomeCtrl'
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/mapview');
 });
