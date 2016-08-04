@@ -33,13 +33,76 @@ app.use(function(req, res, next) {
 var db = new DbCon(config.sql.credentials);
 db.init();
 
-app.get('/api/users', function(req, res) {
+app.get('/api/reps', function(req, res) {
   var cb = function(data) {
     res.json(data);
   };
 
   db.getUsers(cb);
 
+});
+
+app.get('/api/orders/rep/:rep', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/orders/after/:time', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/order/:id', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/rep/:repid', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/order/signature/:orderid', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/rep/:repid/:to/:from', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.get('/api/rep/location/:repid', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.post('/api/rep/hours/:repid/', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
+});
+
+app.post('/api/order', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+  //db.getUsers()
 });
 
 app.get('/views/:v', function(req, res) {
