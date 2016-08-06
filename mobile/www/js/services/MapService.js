@@ -5,6 +5,7 @@ angular.module('dankotuwa')
   var map;
   var currentPos;
   var shedMarkers;
+  var currentPositionMarker;
 
   var o = {};
 
@@ -26,7 +27,7 @@ angular.module('dankotuwa')
 
     // Mark current pos
     google.maps.event.addListenerOnce(map, 'idle', function(){
-      var marker = new google.maps.Marker({
+      currentPositionMarker = new google.maps.Marker({
         icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
         map: map,
         animation: google.maps.Animation.DROP,
@@ -62,8 +63,10 @@ angular.module('dankotuwa')
     return map;
   };
 
-  o.zoomToCurrentPos = function() {
-    map.setZoom(15);
+  o.zoomToCurrentPos = function(position) {
+    currentPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    map.setZoom(14);
+    currentPositionMarker.setPosition(currentPos);
     map.panTo(currentPos);
   };
 

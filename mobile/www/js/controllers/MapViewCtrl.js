@@ -23,7 +23,9 @@ angular.module('dankotuwa')
     CurrentLocation.get().then(showMap, currentPosError);
   });
 
-  $scope.zoomToCurrentPos = MapService.zoomToCurrentPos;
+  $scope.zoomToCurrentPos = function() {
+    CurrentLocation.get().then(MapService.zoomToCurrentPos, currentPosError);
+  };
 
   $scope.goToCardList = function() {
     $state.go('app.cardlist');
