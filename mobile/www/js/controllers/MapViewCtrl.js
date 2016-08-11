@@ -16,6 +16,7 @@ angular.module('dankotuwa')
 
   var currentPosError = function(error){
     console.log("Could not get location");
+    LE.log(error);
     showMap(null);
   };
 

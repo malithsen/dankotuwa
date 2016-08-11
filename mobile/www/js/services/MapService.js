@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.factory('MapService', function() {
+.factory('MapService', function($rootScope) {
 
   var map;
   var currentPos;
@@ -10,10 +10,17 @@ angular.module('dankotuwa')
   var o = {};
 
   o.draw = function(position, sheds, shedClickCallback) {
+
+    var log = function() {
+      LE.log.apply(LE, ["Phone: ", $rootScope.model, " OS: ", $rootScope.version, " App v.", $rootScope.appVersion].concat(arguments));
+    };
+
     if (position) {
       currentPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      log(" ---> Rendered map with current position coordinates lat: "+ position.coords.latitude +" and long: "+ position.coords.longitude);
     } else {
       currentPos = new google.maps.LatLng(6.9327031, 79.843654);
+      log(" ---> Unable to get current position!!!");
     }
 
     var mapOptions = {

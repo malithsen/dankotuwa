@@ -23,7 +23,9 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-geolocation",
-    "cordova-plugin-request-location-accuracy"
+    "cordova-plugin-request-location-accuracy",
+    "cordova-plugin-app-version",
+    "cordova-plugin-network-information"
   ],
   "cordovaPlatforms": [
     "android"

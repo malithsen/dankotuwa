@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, $cordovaNetwork, $cordovaDevice, $cordovaAppVersion) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -18,6 +18,35 @@ angular.module('dankotuwa')
   }).then(function(modal) {
     $scope.modal = modal;
   });
+
+  // Get device info
+  document.addEventListener("deviceready", function () {
+    // Returns Object :— cordova, model, platform, UUID, and version information
+    var device = $cordovaDevice.getDevice();
+
+    $rootScope.model = device.model;
+    $rootScope.version = device.version;
+    $scope.isOnline = $cordovaNetwork.isOnline();
+
+    // Get app version
+    $cordovaAppVersion.getVersionNumber().then(function(version) {
+      $rootScope.appVersion = version;
+    });
+
+    // Binding may not always work...
+    $scope.$apply();
+
+    $rootScope.$on('$cordovaNetwork:online', function(event, networkState) {
+      $scope.isOnline = true;
+      $scope.$apply();
+    });
+
+    $rootScope.$on('$cordovaNetwork:offline', function(event, networkState) {
+      LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, " ---> Data connection lost!!!");
+      $scope.isOnline = false;
+      $scope.$apply();
+    });
+  }, false);
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
