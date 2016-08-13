@@ -1,0 +1,53 @@
+BEGIN TRANSACTION;
+CREATE TABLE `sales_representative` (
+  `EmployeeID` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) DEFAULT NULL,
+  `UserName` VARCHAR(30) DEFAULT NULL,
+  `Password` VARCHAR(30) DEFAULT NULL,
+  PRIMARY KEY (`EmployeeID`)
+);
+CREATE TABLE `product` (
+  `ProductID` VARCHAR(30) NOT NULL,
+  `ProductName` VARCHAR(30) DEFAULT NULL,
+  `Price` VARCHAR(30) DEFAULT NULL,
+  PRIMARY KEY (`ProductID`)
+);
+CREATE TABLE `ordering` (
+  `EmployeeID` VARCHAR(30) NOT NULL,
+  `OrderNumber` VARCHAR(30) DEFAULT NULL,
+  `DealerID` VARCHAR(30) DEFAULT NULL,
+  `Location` VARCHAR(30) DEFAULT NULL,
+  PRIMARY KEY (`EmployeeID`,`OrderNumber`,`DealerID`),
+CONSTRAINT `fk_emp` FOREIGN KEY (`EmployeeID`)
+REFERENCES `sales_representative` (`EmployeeID`)
+ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `fk_oID` FOREIGN KEY (`OrderNumber`)
+REFERENCES `order` (`OrderNumber`)
+ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `fk_dealer` FOREIGN KEY (`DealerID`)
+REFERENCES `dealer` (`DealerID`)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE `order_product ` (
+  `OrderNumber` VARCHAR(30) NOT NULL,
+  `ProductID` VARCHAR(30) DEFAULT NULL,
+  PRIMARY KEY (`OrderNumber`,`ProductID`),
+CONSTRAINT `fk_oID2` FOREIGN KEY (`OrderNumber`)
+REFERENCES `order ` (`OrderNumber`)
+ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `fk_product` FOREIGN KEY (`ProductID`)
+REFERENCES ` product` (`ProductID`)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE `order` (
+  `OrderNumber` VARCHAR(30) DEFAULT NULL,
+  `Date&Time` DATETIME DEFAULT NULL,
+PRIMARY KEY (`OrderNumber`)
+);
+CREATE TABLE `dealer` (
+  `DealerID` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) DEFAULT NULL,
+  `Address` VARCHAR(100) DEFAULT NULL,
+  PRIMARY KEY (`DealerID`)
+);
+COMMIT;
