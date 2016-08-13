@@ -31,4 +31,17 @@ angular.module('dankotuwa')
   $scope.goToCardList = function() {
     $state.go('app.cardlist');
   };
+
+  // Hack: Call resize on the map object on entering the 'map-view' from
+  // other screens due to partial rendering of the map.
+  $scope.$on('$ionicView.enter', function() {
+    var map = $scope.map;
+
+    // Resizing is avoided in the initial app load, since the map is yet to be initialized.
+    if (map != undefined) {
+      google.maps.event.trigger(map, "resize");
+      map.setZoom(map.getZoom());
+    }
+  });
+
 });
