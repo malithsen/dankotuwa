@@ -1,6 +1,6 @@
 // Dankotuwa
 
-angular.module('dankotuwa', ['ionic', 'ngCordova'])
+angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,7 +17,31 @@ angular.module('dankotuwa', ['ionic', 'ngCordova'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    //Logging into ionic.io for push notifications
+    Ionic.Auth.login("basic", {"remember":true}, {
+      "email" : "user@dankotuwa.com",
+      "password" : "secret"
+    }).then(function(){
+      console.log("Login success!");
+
+      var push = new Ionic.Push({"debug" : true,
+        "onNotification": function(notification){
+          console.log(notification);
+          console.log(notification.payload);
+        }
+      });
+
+      push.register(function(token) {
+      // Log out your device token (Save this!)
+        console.log(token);
+        console.log("Got Token:",token.token);
+        push.saveToken(token);
+      });
+    }, function(){
+      console.log("Login failure!");
   });
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

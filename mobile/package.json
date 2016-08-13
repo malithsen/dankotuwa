@@ -25,7 +25,14 @@
     "cordova-plugin-geolocation",
     "cordova-plugin-request-location-accuracy",
     "cordova-plugin-app-version",
-    "cordova-plugin-network-information"
+    "cordova-plugin-network-information",
+    {
+      "variables": {
+        "SENDER_ID": "330812714142"
+      },
+      "locator": "phonegap-plugin-push",
+      "id": "phonegap-plugin-push"
+    }
   ],
   "cordovaPlatforms": [
     "android"
