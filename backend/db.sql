@@ -1,4 +1,9 @@
 BEGIN TRANSACTION;
+CREATE TABLE `order` (
+  `OrderNumber` VARCHAR(30) DEFAULT NULL,
+  `Date&Time` DATETIME DEFAULT NULL,
+PRIMARY KEY (`OrderNumber`)
+);
 CREATE TABLE `sales_representative` (
   `EmployeeID` VARCHAR(30) NOT NULL,
   `Name` VARCHAR(30) DEFAULT NULL,
@@ -11,6 +16,12 @@ CREATE TABLE `product` (
   `ProductName` VARCHAR(30) DEFAULT NULL,
   `Price` VARCHAR(30) DEFAULT NULL,
   PRIMARY KEY (`ProductID`)
+);
+CREATE TABLE `dealer` (
+  `DealerID` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) DEFAULT NULL,
+  `Address` VARCHAR(100) DEFAULT NULL,
+  PRIMARY KEY (`DealerID`)
 );
 CREATE TABLE `ordering` (
   `EmployeeID` VARCHAR(30) NOT NULL,
@@ -39,15 +50,6 @@ CONSTRAINT `fk_product` FOREIGN KEY (`ProductID`)
 REFERENCES ` product` (`ProductID`)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE TABLE `order` (
-  `OrderNumber` VARCHAR(30) DEFAULT NULL,
-  `Date&Time` DATETIME DEFAULT NULL,
-PRIMARY KEY (`OrderNumber`)
-);
-CREATE TABLE `dealer` (
-  `DealerID` VARCHAR(30) NOT NULL,
-  `Name` VARCHAR(30) DEFAULT NULL,
-  `Address` VARCHAR(100) DEFAULT NULL,
-  PRIMARY KEY (`DealerID`)
-);
+
+
 COMMIT;
