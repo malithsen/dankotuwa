@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express'),
+    bodyParser = require('body-parser'),
     config = require('./config'),
     DbCon = require('./DbCon');
 
@@ -14,6 +15,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+// create application/json parser
+var jsonParser = bodyParser.json();
 
 // app.set('views', __dirname + '/src/views');
 // app.set('view engine', 'jade');
@@ -118,11 +122,35 @@ app.post('/api/rep/hours/:repid/', function(req, res) {
   //db.getUsers()
 });
 
-app.post('/api/order', function(req, res) {
-  var cb = function(data) {
-    res.json(data);
+app.post('/api/order', jsonParser, function(req, res) {
+  if (!req.body) return res.sendStatus(400);
+  var epoch = req.body.epoch;
+  var dealerID = req.body.dealerID;
+  var repID = req.body.repID;
+  var locationStatus = req.body.atLocation; //0 means order was placed remotely from dealer's location
+  var itemLst = req.body.items;
+  var orderId;
+
+  var successCb = function() {
+    return res.sendStatus(200);
   };
-  //db.getUsers()
+
+  var dealerRepOrderCb = function() {
+    setProducts();
+  };
+
+  var orderInfoCb = function(id) {
+    orderId = id;
+    db.setDealerRepOrder(id, repID, dealerID, locationStatus, dealerRepOrderCb);
+  };
+
+  var setProducts = function() {
+    itemLst.forEach(function(item){
+      db.setOrderProduct(orderId, item.productId, item.categoryId, item.quantity, successCb);
+    });
+  };
+
+  db.setOrderInfo(epoch, orderInfoCb);
 });
 
 app.get('/views/:v', function(req, res) {

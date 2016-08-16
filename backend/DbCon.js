@@ -61,6 +61,31 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
   });
 };
 
+DbCon.prototype.setOrderInfo = function(epoch, cb) {
+  this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch}, function(err,rows){
+    if(err) throw err;
+
+    cb(rows.insertId);
+  });
+};
+
+DbCon.prototype.setOrderProduct = function(orderID, productID, categoryID, quantity, cb) {
+  this.con.query('INSERT INTO order_product SET ?', {OrderNumber: orderID, ProductID: productID, CategoryID: categoryID, Quantity: quantity}, function(err,rows){
+    if(err) throw err;
+
+    cb();
+  });
+};
+
+DbCon.prototype.setDealerRepOrder = function(orderID, repID, dealerID, locationStatus, cb) {
+  this.con.query('INSERT INTO dealer_rep_order SET ?', {OrderNumber: orderID, EmployeeID: repID, DealerID: dealerID, Correct_location: locationStatus}, function(err,rows){
+    if(err) throw err;
+
+    cb();
+  });
+};
+
+
 
 module.exports = DbCon;
 
