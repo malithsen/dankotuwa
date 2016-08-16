@@ -21,26 +21,18 @@ DbCon.prototype.getReps = function(cb) {
 };
 
 DbCon.prototype.getProducts = function(cb) {
-  this.con.query('SELECT ProductName FROM product', function(err,rows){
+  this.con.query('SELECT ProductID, ProductName FROM product', function(err,rows){
     if(err) throw err;
-    var data = [];
-    rows.forEach(function(prod) {
-      data.push(prod.ProductName);
-    });
 
-    cb(data);
+    cb(rows);
   });
 };
 
 DbCon.prototype.getCategories = function(cb) {
-  this.con.query('SELECT CategoryName FROM category', function(err,rows){
+  this.con.query('SELECT CategoryID, CategoryName FROM category', function(err,rows){
     if(err) throw err;
-    var data = [];
-    rows.forEach(function(category) {
-      data.push(category.CategoryName);
-    });
 
-    cb(data);
+    cb(rows);
   });
 };
 
