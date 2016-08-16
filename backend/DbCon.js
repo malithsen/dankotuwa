@@ -20,6 +20,30 @@ DbCon.prototype.getReps = function(cb) {
   });
 };
 
+DbCon.prototype.getProducts = function(cb) {
+  this.con.query('SELECT ProductName FROM product', function(err,rows){
+    if(err) throw err;
+    var data = [];
+    rows.forEach(function(prod) {
+      data.push(prod.ProductName);
+    });
+
+    cb(data);
+  });
+};
+
+DbCon.prototype.getCategories = function(cb) {
+  this.con.query('SELECT CategoryName FROM category', function(err,rows){
+    if(err) throw err;
+    var data = [];
+    rows.forEach(function(category) {
+      data.push(category.CategoryName);
+    });
+
+    cb(data);
+  });
+};
+
 DbCon.prototype.getOrdersByUser = function(repid, cb) {
   this.con.query('SELECT order_info.OrderNumber, Epoch, ProductID, CategoryID FROM order_info, order_product where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber;', function(err,rows){
     if(err) throw err;

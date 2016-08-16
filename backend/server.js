@@ -42,6 +42,24 @@ app.get('/api/reps', function(req, res) {
 
 });
 
+app.get('/api/products', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+
+  db.getProducts(cb);
+
+});
+
+app.get('/api/categories', function(req, res) {
+  var cb = function(data) {
+    res.json(data);
+  };
+
+  db.getCategories(cb);
+
+});
+
 app.get('/api/orders/rep/:rep', function(req, res) {
   var repid = req.params.rep;
 
