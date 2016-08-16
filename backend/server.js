@@ -38,15 +38,17 @@ app.get('/api/reps', function(req, res) {
     res.json(data);
   };
 
-  db.getUsers(cb);
+  db.getReps(cb);
 
 });
 
 app.get('/api/orders/rep/:rep', function(req, res) {
+  var repid = req.params.rep;
+
   var cb = function(data) {
     res.json(data);
   };
-  //db.getUsers()
+  db.getOrdersByUser(repid, cb);
 });
 
 app.get('/api/orders/after/:time', function(req, res) {
