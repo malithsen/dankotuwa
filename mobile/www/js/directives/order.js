@@ -7,6 +7,8 @@ angular.module('dankotuwa')
     replace: true,
     transclude: false,
     scope: {
+        products: "=",
+        categories: "=",
         aItem: '=newItem'
     }
   };

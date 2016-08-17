@@ -2,6 +2,8 @@
 
 angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
 
+.value("BackendUrl", "http://localhost:8080")
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     console.log("Logging");

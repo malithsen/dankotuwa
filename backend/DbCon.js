@@ -61,11 +61,10 @@ DbCon.prototype.setOrderInfo = function(epoch, cb) {
   });
 };
 
-DbCon.prototype.setOrderProduct = function(orderID, productID, categoryID, quantity, cb) {
+DbCon.prototype.setOrderProduct = function(orderID, productID, categoryID, quantity) {
   this.con.query('INSERT INTO order_product SET ?', {OrderNumber: orderID, ProductID: productID, CategoryID: categoryID, Quantity: quantity}, function(err,rows){
     if(err) throw err;
 
-    cb();
   });
 };
 

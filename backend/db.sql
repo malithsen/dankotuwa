@@ -30,7 +30,7 @@ CREATE TABLE `order_product` (
   `ProductID` bigint(30) NOT NULL,
   `CategoryID` bigint(30) NOT NULL,
   `Quantity` bigint(30) NOT NULL,
-  PRIMARY KEY (`OrderNumber`, `ProductID`),
+  PRIMARY KEY (`OrderNumber`, `ProductID`, `CategoryID`),
   CONSTRAINT `fk_product` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ProductID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_category` FOREIGN KEY (`CategoryID`) REFERENCES `category` (`CategoryID`) ON DELETE CASCADE ON UPDATE CASCADE
 );

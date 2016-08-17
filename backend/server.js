@@ -137,6 +137,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
   var dealerRepOrderCb = function() {
     setProducts();
+    successCb();
   };
 
   var orderInfoCb = function(id) {
@@ -146,7 +147,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
   var setProducts = function() {
     itemLst.forEach(function(item){
-      db.setOrderProduct(orderId, item.productId, item.categoryId, item.quantity, successCb);
+      db.setOrderProduct(orderId, item.productId, item.categoryId, item.quantity);
     });
   };
 
