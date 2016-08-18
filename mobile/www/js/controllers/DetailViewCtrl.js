@@ -1,7 +1,15 @@
 angular.module('dankotuwa')
 
 .controller('DetailViewCtrl', function($scope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation) {
+
+
   $scope.location = $stateParams.location;
+  $scope.transactions = [
+      {date:'One',product:'OneProduct',category:'OneCat',quantity:'OneQty'},
+      {date:'Two',product:'TwoProduct',category:'TwoCat',quantity:'TwoQty'},
+      {date:'Three',product:'ThreeProduct',category:'ThreeCat',quantity:'ThreeQty'}
+  ];
+
 
   $scope.goToPlaceOrderView = function() {
     $state.go('app.orderview', {location: $scope.location});
@@ -25,4 +33,11 @@ angular.module('dankotuwa')
       });
     });
   };
+
+/*  $scope.showPastTransactions = function() {
+    $scope.loc = $stateParams.location;
+  };*/
+
+
+
 });
