@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('MapViewCtrl', function($scope, $state, $ionicPopup, CurrentLocation, MapService, DealerInfo, LocationFilter) {
+.controller('MapViewCtrl', function($scope, $state, $ionicPopup, CurrentLocation, MapService, DealerInfo, LocationFilter, store) {
 
   var dealerClickCallback = function(id) {
     var location = LocationFilter.getLocationByID(id);
@@ -36,6 +36,11 @@ angular.module('dankotuwa')
   // other screens due to partial rendering of the map.
   $scope.$on('$ionicView.enter', function() {
     var map = $scope.map;
+
+    // Hack: In the inital launch locationChangeSuccess won't fire. This redirects the user back to login
+    if (store.get("token") === null) {
+      $state.go('login');
+    }
 
     // Resizing is avoided in the initial app load, since the map is yet to be initialized.
     if (map != undefined) {

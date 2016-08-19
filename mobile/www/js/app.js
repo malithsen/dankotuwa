@@ -1,10 +1,10 @@
 // Dankotuwa
 
-angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
+angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt'])
 
 .value("BackendUrl", "http://localhost:8080")
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $location, auth, store, jwtHelper) {
   $ionicPlatform.ready(function() {
     console.log("Logging");
     LE.log("Initializing Dankotuwa ionic platform");
@@ -19,6 +19,41 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // This hooks all auth events to check everything as soon as the app starts
+    auth.hookEvents();
+
+    //This event gets triggered on URL change
+    var refreshingToken = null;
+    $rootScope.$on('$locationChangeSuccess', function () {
+      var token = store.get('token');
+      var refreshToken = store.get('refreshToken');
+      console.log(token);
+      console.log(refreshToken);
+      if (token) {
+        if (!jwtHelper.isTokenExpired(token)) {
+          if (!auth.isAuthenticated) {
+            auth.authenticate(store.get('profile'), token);
+          }
+        } else {
+          if (refreshToken) {
+            if (refreshingToken === null) {
+              refreshingToken = auth.refreshIdToken(refreshToken).then(function (idToken) {
+                store.set('token', idToken);
+                auth.authenticate(store.get('profile'), idToken);
+              }).finally(function () {
+                refreshingToken = null;
+              });
+            }
+            return refreshingToken;
+          } else {
+            $location.path('/login');
+          }
+        }
+      } else {
+        $location.path('/login');
+      }
+    });
 
     //Logging into ionic.io for push notifications
     Ionic.Auth.login("basic", {"remember":true}, {
@@ -46,7 +81,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
   $stateProvider
 
   .state('app', {
@@ -112,6 +147,20 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova'])
     }
   })
 
+  .state('login', { // Notice: this state name matches the loginState property value to set in authProvider.init({...}) below...
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/mapview');
+  $urlRouterProvider.otherwise('app.welcome');
+
+  // Initialized the Auth0 provider
+  authProvider.init({
+    domain: "malithsen.auth0.com",
+    clientID: "TUo0Y0t8YJ4v03cAcaIvoex7oIj5BecZ",
+    loginState: 'login'
+  });
+
 });

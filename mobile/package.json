@@ -27,6 +27,7 @@
     "cordova-plugin-app-version",
     "cordova-plugin-network-information",
     "uk.co.workingedge.phonegap.plugin.launchnavigator",
+    "cordova-plugin-inappbrowser",
     {
       "variables": {
         "SENDER_ID": "330812714142"
