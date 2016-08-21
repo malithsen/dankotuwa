@@ -58,6 +58,7 @@ angular.module('dankotuwa')
       if(res) {
         console.log("Clicked okay");
         APIService.sendOrder($scope.items).then(function(res) {
+          $scope.items = [new Item()];
           console.log("success");
         }, function(err) {
           console.log("WTF went wrong?", err);
