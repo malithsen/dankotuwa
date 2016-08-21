@@ -16,9 +16,12 @@
   },
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt-concurrent": "~0.4.3",
     "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
     "grunt-nodemon": "~0.2.0",
-    "grunt-concurrent": "~0.4.3"
+    "mocha": "^3.0.2",
+    "should": "^11.1.0",
+    "supertest": "^2.0.0"
   }
 }
