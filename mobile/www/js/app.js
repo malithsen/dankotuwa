@@ -2,7 +2,7 @@
 
 angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt'])
 
-.value("BackendUrl", "http://localhost:8080")
+.value("BackendUrl", "http://ec2-54-244-208-146.us-west-2.compute.amazonaws.com:8080")
 
 .run(function($ionicPlatform, $rootScope, $location, auth, store, jwtHelper) {
   $ionicPlatform.ready(function() {
@@ -60,7 +60,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
       "email" : "user@dankotuwa.com",
       "password" : "secret"
     }).then(function(){
-      console.log("Login success!");
+      console.log("Push login success!");
 
       var push = new Ionic.Push({"debug" : true,
         "onNotification": function(notification){
@@ -76,7 +76,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
         push.saveToken(token);
       });
     }, function(){
-      console.log("Login failure!");
+      console.log("Push login failure!");
   });
     });
 })
@@ -154,12 +154,13 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('app.welcome');
+  $urlRouterProvider.otherwise('app/mapview');
 
   // Initialized the Auth0 provider
   authProvider.init({
     domain: "malithsen.auth0.com",
     clientID: "TUo0Y0t8YJ4v03cAcaIvoex7oIj5BecZ",
+    callbackURL: location.href,
     loginState: 'login'
   });
 
