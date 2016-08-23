@@ -20,6 +20,13 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
       StatusBar.styleDefault();
     }
 
+    if (window.cordova && cordova.plugins) {
+      cordova.plugins.printer.check(function (avail, count) {
+        console.log("avail", avail, "count", count);
+          console.log(avail ? 'Found ' + count + ' services' : 'No');
+      });
+    }
+
     // This hooks all auth events to check everything as soon as the app starts
     auth.hookEvents();
 
@@ -62,7 +69,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
     }).then(function(){
       console.log("Push login success!");
 
-      var push = new Ionic.Push({"debug" : true,
+      var push = new Ionic.Push({"debug" : false,
         "onNotification": function(notification){
           console.log(notification);
           console.log(notification.payload);

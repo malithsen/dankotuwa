@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('OrderViewCtrl', function($scope, $state, $stateParams, $ionicPopup, APIService) {
+.controller('OrderViewCtrl', function($scope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService) {
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
@@ -8,8 +8,8 @@ angular.module('dankotuwa')
   $scope.items = [new Item()];
 
   function Item() {
-    this.productId = '';
-    this.categoryId = '';
+    this.product = {};
+    this.category = {};
     this.quantity = 0;
   };
 
@@ -65,6 +65,16 @@ angular.module('dankotuwa')
         });
       }
     });
+  };
+
+  $scope.print = function() {
+    console.log("print");
+    if($cordovaPrinter.isAvailable()) {
+      console.log("printing");
+      $cordovaPrinter.print(InvoiceService.generateInvoice($scope.items));
+    } else {
+      alert("Printing is not available on device");
+    }
   };
 
   APIService.getProducts().then(function(res){
