@@ -8,7 +8,7 @@
           Product
        </div>
 
-       <select required ng-model="aItem.productId" ng-options="item.ProductID as item.ProductName for item in products"></select>
+       <select required ng-model="aItem.product" ng-options="item as item.ProductName for item in products"></select>
     </label>
 
     <label class = "item item-input item-select">
@@ -16,7 +16,7 @@
           Category
        </div>
 
-       <select required ng-model="aItem.categoryId" ng-options="item.CategoryID as item.CategoryName for item in categories"></select>
+       <select required ng-model="aItem.category" ng-options="item as item.CategoryName for item in categories"></select>
     </label>
 
     <label required class="item item-input">
