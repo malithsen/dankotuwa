@@ -11,4 +11,5 @@ before_script:
   - npm install
   - npm install -g grunt-cli
   - grunt&
+  - sleep 10
 script: npm test
