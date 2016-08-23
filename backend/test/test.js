@@ -9,6 +9,10 @@ var server = supertest.agent("http://localhost:8080");
 
 describe("Endpoint: /api/product/",function(){
 
+  var app = require('../app');
+  beforeEach(function(){
+    app.listen(8080);
+  });
 
   it("should return product list",function(done){
 
