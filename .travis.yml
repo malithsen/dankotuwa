@@ -9,5 +9,6 @@ before_script:
   - mysql -u root dankotuwa < backend/db.sql
   - cd backend
   - npm install
-  - grunt
+  - npm install -g grunt-cli
+  - grunt&
 script: npm test
