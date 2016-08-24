@@ -1,7 +1,5 @@
 <ion-view>
   <ion-content class="detail-view">
-
-
     <div>
       <div class="card">
         <div class="card-content">
@@ -14,56 +12,6 @@
           <a ng-click="goToPlaceOrderView()">Place order</a>
           <a href="#">Get directions</a>
         </div>
-
-        <div>
-          <table border="1">
-            <tr>
-              <td colspan="4">
-                <div class="card-action footer">
-                 <h3 align="center"> Past Transactions</h3>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4">
-                <div class="card-action footer">
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="card-action footer" >Date</div>
-              </td>
-              <td>
-                <div class="card-action footer">Product</div>
-              </td>
-              <td>
-                <div class="card-action footer">Category</div>
-              </td>
-              <td>
-                <div class="card-action footer">Quantity</div>
-              </td>
-            </tr>
-
-
-            <tr ng-repeat="trans in transactions" >
-              <td>
-                <div class="card-action footer" >{{trans.date}}</div>
-              </td>
-              <td>
-                <div class="card-action footer">{{trans.product}}</div>
-              </td>
-              <td>
-                <div class="card-action footer">{{trans.category}}</div>
-              </td>
-              <td>
-                <div class="card-action footer">{{trans.quantity}}</div>
-              </td>
-            </tr>
-
-
-          </table>
-          
       </div>
     </div>
   </ion-content>
