@@ -48,6 +48,21 @@ select{
 /* /Google Maps */
 
 /* Lower-right buttons */
+
+.floating-button{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #db4437;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666;
+}
+
+.map-icons {
+  padding: 15px;
+  color: white;
+}
+
 .side-buttons {
   position:absolute;
   bottom: 10px;
@@ -78,14 +93,81 @@ select{
 
 /* /Google Maps */
 
+/* Detail view */
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.card .card-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.card .card-content {
+  padding: 20px;
+  border-radius: 0 0 2px 2px;
+}
+
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+}
+
+.card .card-content .card-title {
+  line-height: 48px;
+}
+
+.card .card-action {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 20px;
+  z-index: 2;
+}
+
+.card .card-action a:not(.btn):not(.btn-floating) {
+  color: #ffab40;
+  margin-right: 20px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}
+
+.card .card-action a:not(.btn):not(.btn-floating):hover {
+  color: #ffd8a6;
+}
+
+/* /Detail view */
+
+
 /* Order view */
 .order-fabs {
   position:absolute;
   right: 10px;
+
+  a {
+    background-color: #ff3f80;
+  }
+
+  .center-btn {
+    float: left;
+    margin-bottom: 10%;
+  }
 }
 
 .order-submit-btn {
   text-align: right;
   padding-top: 10px;
   padding-right: 10px;
+}
+
+.print {
+  margin-left: 10px;
+}
+
+.submit-order-btn {
+  background-color: #3949AB;
 }

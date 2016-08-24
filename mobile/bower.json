@@ -6,7 +6,10 @@
     "ionic-platform-web-client": "~0.7.1"
   },
   "dependencies": {
-    "Materialize": "materialize#^0.97.6",
+    "a0-angular-storage": "~0.0.15",
+    "angular-jwt": "~0.1.1",
+    "auth0-angular": "~4.2.3",
+    "auth0.js": "~7.1.0",
     "le_js": "logentries#~0.0.3",
     "map-icons": "^3.0.0",
     "ngCordova": "^0.1.26-alpha"
