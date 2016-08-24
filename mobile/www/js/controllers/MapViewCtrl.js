@@ -1,16 +1,16 @@
 angular.module('dankotuwa')
 
-.controller('MapViewCtrl', function($scope, $state, $ionicPopup, CurrentLocation, MapService, ShedInfo, LocationFilter) {
+.controller('MapViewCtrl', function($scope, $state, $ionicPopup, CurrentLocation, MapService, DealerInfo, LocationFilter) {
 
-  var shedClickCallback = function(id) {
+  var dealerClickCallback = function(id) {
     var location = LocationFilter.getLocationByID(id);
     $state.go('app.detailview', {location: location});
   };
 
   var showMap = function(position) {
-    ShedInfo.get().then(function(sheds) {
-      LocationFilter.init(sheds);
-      $scope.map = MapService.draw(position, sheds, shedClickCallback);
+    DealerInfo.get().then(function(dealer) {
+      LocationFilter.init(dealer);
+      $scope.map = MapService.draw(position, dealer, dealerClickCallback);
     });
   };
 
