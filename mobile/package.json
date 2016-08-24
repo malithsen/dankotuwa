@@ -26,6 +26,7 @@
     "cordova-plugin-request-location-accuracy",
     "cordova-plugin-app-version",
     "cordova-plugin-network-information",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator",
     {
       "variables": {
         "SENDER_ID": "330812714142"
