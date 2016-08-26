@@ -12,6 +12,7 @@
     "auth0.js": "~7.1.0",
     "le_js": "logentries#~0.0.3",
     "map-icons": "^3.0.0",
-    "ngCordova": "^0.1.26-alpha"
+    "ngCordova": "^0.1.26-alpha",
+    "angular-signature": "^0.1.8"
   }
 }

@@ -1,6 +1,6 @@
 // Dankotuwa
 
-angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt'])
+angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt','signature'])
 
 .value("BackendUrl", "http://ec2-54-244-208-146.us-west-2.compute.amazonaws.com:8080")
 
@@ -105,6 +105,19 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
         templateUrl: 'templates/mapview.html',
         controller: 'MapViewCtrl'
       }
+    }
+  })
+
+  .state('app.Signature', {
+    url: '/Signature',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/Signature.html',
+        controller: 'SignatureCtrl'
+      }
+    },
+    params: {
+      location: null
     }
   })
 
