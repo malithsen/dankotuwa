@@ -1,9 +1,15 @@
 <ion-view view-title="Login">
   <ion-content>
-  <h1>Dankotuwa Sales App</h1>
-   <div class="login">
-      <h5>{{message}}</h5>
-      <button class="button button-positive" ng-click="doGoogleAuthWithPopup()">Login with Google</button>
-   </div>
+    <div class="cont">
+      <div class="demo">
+        <div class="login">
+          <img src="../img/logo.png"  height=50% width=78%; class="login_logo" />
+          <div class="login__form">
+            <div class="login_status">{{message}}</div>
+            <button type="button" class="login__submit" ng-click="login()">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

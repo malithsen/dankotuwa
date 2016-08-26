@@ -19,9 +19,9 @@ angular.module('dankotuwa')
         start: start,
         enableDebug: true
       }).then(function () {
-        alert("Navigator launched");
+        console.log("Navigator launched");
       }, function (err) {
-        alert(err);
+        console.log(err);
       });
     });
   };
