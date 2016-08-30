@@ -4,9 +4,8 @@ angular.module('dankotuwa')
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
-  console.log($scope.location);
-
   $scope.items = [new Item()];
+
 
   function Item() {
     this.product = {};
@@ -17,19 +16,26 @@ angular.module('dankotuwa')
   function validate(cb) {
     var item;
     var itemsProcessed = 0;
+    var counter = {};  //keep keys as product + category and make values the number of times it has occured
+
     for (var i = 0; i < $scope.items.length; i++) {
       item = $scope.items[i];
+      counter[item.product.ProductName + item.category.CategoryName] = (counter[item.product.ProductName + item.category.CategoryName] || 0) + 1;
       itemsProcessed++;
-      if (item['product'] == '') {
-        cb(false);
-      } else if (item['category'] == '') {
-        cb(false);
+
+      if (!item['product'].hasOwnProperty('ProductID')) {
+        cb(false, "Product field cannot be empty");
+      } else if (!item['category'].hasOwnProperty('CategoryID')) {
+        cb(false, "Category field cannot be empty");
+      } else if (counter[item.product.ProductName + item.category.CategoryName] > 1) {
+        cb(false, "Make sure there are no duplicate entries");
       } else if (item['quantity'] === 0) {
-        cb (false);
+        cb (false, "Quantity cannot be empty");
       } else if (itemsProcessed == $scope.items.length) {
-        cb(true);
+        cb(true, null);
       }
     }
+
   };
 
   $scope.addItem = function() {
@@ -39,13 +45,13 @@ angular.module('dankotuwa')
 
   $scope.submit = function() {
 
-    validate(function(res) {
-      if (res === true) {
+    validate(function(status, error) {
+      if (status === true) {
         console.log("submit", $scope.items);
         $scope.showConfirm();
       } else {
         //ionicToast.show(message, position, stick, time)
-        ionicToast.show('Please ensure that the order details are correct!', 'bottom', false, 3000);
+        ionicToast.show(error, 'bottom', true, 2000);
       }
     });
   };
