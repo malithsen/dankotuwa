@@ -4,12 +4,12 @@ angular.module('dankotuwa')
 
   var map;
   var currentPos;
-  var shedMarkers;
+  var dealerMarkers;
   var currentPositionMarker;
 
   var o = {};
 
-  o.draw = function(position, sheds, shedClickCallback) {
+  o.draw = function(position, dealers, dealerClickCallback) {
 
     var log = function() {
       LE.log.apply(LE, ["Phone: ", $rootScope.model, " OS: ", $rootScope.version, " App v.", $rootScope.appVersion].concat(arguments));
@@ -42,10 +42,10 @@ angular.module('dankotuwa')
       });
     });
 
-    // Mark sheds
-    shedMarkers = sheds.map(function(shed) {
+    // Mark dealers
+    dealerMarkers = dealers.map(function(dealer) {
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(shed.lat, shed.lng),
+        position: new google.maps.LatLng(dealer.lat, dealer.lng),
         map: map,
         icon: {
           path: MAP_PIN,
@@ -58,11 +58,11 @@ angular.module('dankotuwa')
       });
 
       marker.addListener('click', function() {
-        shedClickCallback(shed.id);
+        dealerClickCallback(dealer.id);
       });
 
       return {
-        id: shed.id,
+        id: dealer.id,
         marker: marker
       };
     });
