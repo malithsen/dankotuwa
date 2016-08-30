@@ -9819,6 +9819,65 @@ a.button {
 select {
   display: inline; }
 
+/* Login screen */
+.cont {
+  position: relative;
+  height: 100%;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  overflow: auto;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
+.demo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15rem;
+  margin-top: -26.5rem;
+  width: 30rem;
+  height: 53rem;
+  overflow: hidden; }
+
+.login {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%); }
+
+.login__form {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  padding: 1.5rem 2.5rem;
+  text-align: center; }
+
+.login_status {
+  color: white;
+  font-size: x-large; }
+
+.login__submit {
+  position: relative;
+  width: 50%;
+  height: 4rem;
+  margin: 5rem 0 2.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: #342D7E;
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer; }
+
+.login_logo {
+  position: relative;
+  left: 11%; }
+
+/* Welcome screen*/
+.text-center {
+  text-align: center; }
+
+.padding-top-10 {
+  padding-top: 10%; }
+
 /* Google Maps */
 .scroll {
   height: 100%; }
@@ -9829,6 +9888,18 @@ select {
 
 /* /Google Maps */
 /* Lower-right buttons */
+.floating-button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #db4437;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666; }
+
+.map-icons {
+  padding: 15px;
+  color: white; }
+
 .side-buttons {
   position: absolute;
   bottom: 10px;
@@ -9847,12 +9918,63 @@ select {
   text-align: right; }
 
 /* /Google Maps */
+/* Detail view */
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 2px; }
+
+.card .card-title {
+  font-size: 24px;
+  font-weight: 300; }
+
+.card .card-content {
+  padding: 20px;
+  border-radius: 0 0 2px 2px; }
+
+.card .card-content p {
+  margin: 0;
+  color: inherit; }
+
+.card .card-content .card-title {
+  line-height: 48px; }
+
+.card .card-action {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 20px;
+  z-index: 2; }
+
+.card .card-action a:not(.btn):not(.btn-floating) {
+  color: #ffab40;
+  margin-right: 20px;
+  transition: color .3s ease;
+  text-transform: uppercase; }
+
+.card .card-action a:not(.btn):not(.btn-floating):hover {
+  color: #ffd8a6; }
+
+/* /Detail view */
 /* Order view */
 .order-fabs {
   position: absolute;
   right: 10px; }
+  .order-fabs a {
+    background-color: #ff3f80; }
+  .order-fabs .center-btn {
+    float: left;
+    margin-bottom: 10%; }
 
 .order-submit-btn {
   text-align: right;
   padding-top: 10px;
   padding-right: 10px; }
+
+.print {
+  margin-left: 10px; }
+
+.submit-order-btn {
+  background-color: #3949AB; }
