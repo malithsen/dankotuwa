@@ -12,7 +12,7 @@ describe("API endpoints :",function(){
     done();
   });
 
-  it("should return product list",function(done){
+  it("/api/products should return product list",function(done){
 
     server
     .get('/api/products')
@@ -26,7 +26,7 @@ describe("API endpoints :",function(){
     });
   });
 
-  it("should return category list",function(done){
+  it("/api/category should return category list",function(done){
 
     server
     .get('/api/categories')
@@ -39,7 +39,7 @@ describe("API endpoints :",function(){
       done();
     });
   });
-  it("should return reps list",function(done){
+  it("/api/rep should return reps list",function(done){
 
     server
     .get('/api/reps')
@@ -51,6 +51,19 @@ describe("API endpoints :",function(){
       res.body[0].should.have.property('UserName');
       done();
     });
+  });
+  it('/api/order should post order', function(done) {
+    server
+      .post('/api/order')
+      .send({"epoch":1472210342,"repID":3,"dealerID":1,"atLocation":1,"items":[{"product":{"ProductID":2,"ProductName":"Salad plate"},"category":{"CategoryID":2,"CategoryName":"Livy"},"quantity":2}]}) 
+      .expect(200)
+      .end(function(err, res) {
+        console.log(res.text);
+        if (err) done(err);
+        res.text.should.be.equal('OK');
+        //res.body.participant.should.have.property('nuid', '98ASDF988SDF89SDF89989SDF9898');
+        done();
+      });
   });
 
 });
