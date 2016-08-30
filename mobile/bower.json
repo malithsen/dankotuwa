@@ -14,6 +14,10 @@
     "map-icons": "^3.0.0",
     "ngCordova": "^0.1.26-alpha",
     "angular-signature": "^0.1.8",
-    "signature_pad": "^1.5.3"
+    "signature_pad": "^1.5",
+    "ionic-toast": "^0.4.1"
+  },
+  "resolutions": {
+    "signature_pad": "^1.5"
   }
 }

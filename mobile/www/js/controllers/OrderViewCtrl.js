@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('OrderViewCtrl', function($scope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService) {
+.controller('OrderViewCtrl', function($scope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService,ionicToast) {
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
@@ -43,7 +43,8 @@ angular.module('dankotuwa')
         console.log("submit", $scope.items);
         $scope.showConfirm();
       } else {
-        console.log("Did not submit");
+        //ionicToast.show(message, position, stick, time)
+        ionicToast.show('Please ensure that the order details are correct!', 'bottom', true, 2500);
       }
     });
   };
@@ -59,9 +60,9 @@ angular.module('dankotuwa')
         console.log("Clicked okay");
         APIService.sendOrder($scope.items).then(function(res) {
           $scope.items = [new Item()];
-          console.log("success");
+           ionicToast.show('Order posted.', 'bottom', true, 2500);
         }, function(err) {
-          console.log("WTF went wrong?", err);
+           ionicToast.show('Check your internet connection!', 'bottom', true, 2500);
         });
       }
     });
