@@ -45,7 +45,7 @@ angular.module('dankotuwa')
         $scope.showConfirm();
       } else {
         //ionicToast.show(message, position, stick, time)
-        ionicToast.show('Please ensure that the order details are correct!', 'bottom', true, 2500);
+        ionicToast.show('Please ensure that the order details are correct!', 'bottom', false, 3000);
       }
     });
   };
@@ -61,9 +61,9 @@ angular.module('dankotuwa')
         console.log("Clicked okay");
         APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
           $scope.items = [new Item()];
-           ionicToast.show('Order posted.', 'bottom', true, 2500);
+           ionicToast.show('Order posted.', 'bottom', false, 3000);
         }, function(err) {
-           ionicToast.show('Check your internet connection!', 'bottom', true, 2500);
+           ionicToast.show('Check your internet connection!', 'bottom', false, 3000);
         });
       }
     });
