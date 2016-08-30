@@ -108,11 +108,11 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
     }
   })
 
-  .state('app.Signature', {
-    url: '/Signature',
+  .state('app.signature', {
+    url: '/signature',
     views: {
       'menuContent': {
-        templateUrl: 'templates/Signature.html',
+        templateUrl: 'templates/signature.html',
         controller: 'SignatureCtrl'
       }
     },
