@@ -39,6 +39,31 @@ describe("API endpoints :",function(){
       done();
     });
   });
+  it("should return category list",function(done){
 
+    server
+    .get('/api/categories')
+    .expect("Content-type",/json/)
+    .expect(200)
+    .end(function(err,res){
+      res.status.should.equal(200);      
+      res.body[0].should.have.property('CategoryID').which.is.a.Number();
+      res.body[0].should.have.property('CategoryName');
+      done();
+    });
+  });
+  it("should return category list",function(done){
+
+    server
+    .get('/api/reps')
+    .expect("Content-type",/json/)
+    .expect(200)
+    .end(function(err,res){
+      res.status.should.equal(200);      
+      res.body[0].should.have.property('EmployeeID').which.is.a.Number();
+      res.body[0].should.have.property('UserName');
+      done();
+    });
+  });
 
 });
