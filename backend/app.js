@@ -147,7 +147,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
   var setProducts = function() {
     itemLst.forEach(function(item){
-      db.setOrderProduct(orderId, item.productId, item.categoryId, item.quantity);
+      db.setOrderProduct(orderId, item.product.ProductID, item.category.categoryID, item.quantity);
     });
   };
 
