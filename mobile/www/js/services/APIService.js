@@ -18,7 +18,7 @@ angular.module('dankotuwa')
     });
   };
 
-  o.sendOrder = function(items) {
+  o.sendOrder = function(items, dealerID) {
     var d = new Date();
     var seconds = Math.round(d.getTime() / 1000);
     var profile = store.get('profile');
@@ -26,7 +26,7 @@ angular.module('dankotuwa')
     var d = {};
     d['epoch'] = seconds;
     d['repID'] = profile.user_metadata.repId;
-    d['dealerID'] = 1;
+    d['dealerID'] = dealerID;
     d['atLocation'] = 1;
     d['items'] = items;
     console.log(d);

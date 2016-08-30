@@ -59,7 +59,7 @@ angular.module('dankotuwa')
     confirmPopup.then(function(res) {
       if(res) {
         console.log("Clicked okay");
-        APIService.sendOrder($scope.items).then(function(res) {
+        APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
           $scope.items = [new Item()];
            ionicToast.show('Order posted.', 'bottom', true, 2500);
         }, function(err) {
