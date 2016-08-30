@@ -5,11 +5,11 @@ angular.module('dankotuwa')
   var profile = store.get('profile');
   var o = {};
 
-  o.generateInvoice = function(items) {
+  o.generateInvoice = function(items, dealerName) {
     console.log (JSON.stringify(items[0]));
     var doc = "<h1>Dankotuwa Porcelain</h1><br>";
     doc += "Sales representative: " + profile.name + "<br>";
-    doc += "Dealer name:" + "Sameera Vithanage" +"<br>";
+    doc += "Dealer name:" + dealerName +"<br>";
     doc += "Date:" + getDateTime();
     doc += "<br><br><br>";
     doc += "<table border='1px'> <tr> <th>Product</th><th>Category</th><th>Quantity</th><tr>";

@@ -4,6 +4,7 @@ angular.module('dankotuwa')
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
+  console.log($scope.location);
 
   $scope.items = [new Item()];
 
@@ -72,7 +73,7 @@ angular.module('dankotuwa')
     console.log("print");
     if($cordovaPrinter.isAvailable()) {
       console.log("printing");
-      $cordovaPrinter.print(InvoiceService.generateInvoice($scope.items));
+      $cordovaPrinter.print(InvoiceService.generateInvoice($scope.items, $scope.location.name));
     } else {
       alert("Printing is not available on device");
     }
