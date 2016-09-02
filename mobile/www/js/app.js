@@ -1,6 +1,6 @@
 // Dankotuwa
 
-angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt','ionic-toast'])
+angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt','ionic-toast', 'jett.ionic.filter.bar'])
 
 .value("BackendUrl", "http://ec2-54-244-208-146.us-west-2.compute.amazonaws.com:8080")
 

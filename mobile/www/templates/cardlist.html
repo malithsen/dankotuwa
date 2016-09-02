@@ -1,5 +1,12 @@
-<ion-view view-title="CardListView">
-  <ion-content>
-    card list
+<ion-view>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="card-list" direction="y" scrollbar-y="false">
+    <div ng-repeat="location in locations">
+      <card location="location" />
+    </div>
+
   </ion-content>
 </ion-view>

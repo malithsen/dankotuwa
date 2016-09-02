@@ -16,7 +16,7 @@ angular.module('dankotuwa')
 
     $rootScope.model = device.model;
     $rootScope.version = device.version;
-    $scope.isOnline = $cordovaNetwork.isOnline();
+    $rootScope.isOnline = $cordovaNetwork.isOnline();
 
     // Get app version
     $cordovaAppVersion.getVersionNumber().then(function(version) {
@@ -27,13 +27,13 @@ angular.module('dankotuwa')
     $scope.$apply();
 
     $rootScope.$on('$cordovaNetwork:online', function(event, networkState) {
-      $scope.isOnline = true;
+      $rootScope.isOnline = true;
       $scope.$apply();
     });
 
     $rootScope.$on('$cordovaNetwork:offline', function(event, networkState) {
       LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, " ---> Data connection lost!!!");
-      $scope.isOnline = false;
+      $rootScope.isOnline = false;
       $scope.$apply();
     });
   }, false);

@@ -6,8 +6,8 @@ angular.module('dankotuwa')
 
   var o = {};
 
-  o.init = function(sheds) {
-    allLocations = angular.copy(sheds);
+  o.init = function(dealers) {
+    allLocations = angular.copy(dealers);
   };
 
   o.getLocationByID = function(id) {
