@@ -36,12 +36,9 @@ angular.module('dankotuwa')
   // other screens due to partial rendering of the map.
   $scope.$on('$ionicView.enter', function() {
     var map = $scope.map;
-    console.log("online status", !$rootScope.isOnline);
 
     if ($rootScope.isOnline === false) {
-      $state.go('app.cardlist');
-    } else {
-      console.log("online");
+      $scope.goToCardList;
     }
 
     // Hack: In the inital launch locationChangeSuccess won't fire. This redirects the user back to login
