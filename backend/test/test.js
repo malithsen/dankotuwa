@@ -19,7 +19,7 @@ describe("API endpoints :",function(){
     .expect("Content-type",/json/)
     .expect(200)
     .end(function(err,res){
-      res.status.should.equal(200);      
+      res.status.should.equal(200);
       res.body[0].should.have.property('ProductID').which.is.a.Number();
       res.body[0].should.have.property('ProductName');
       done();
@@ -33,12 +33,13 @@ describe("API endpoints :",function(){
     .expect("Content-type",/json/)
     .expect(200)
     .end(function(err,res){
-      res.status.should.equal(200);      
+      res.status.should.equal(200);
       res.body[0].should.have.property('CategoryID').which.is.a.Number();
       res.body[0].should.have.property('CategoryName');
       done();
     });
   });
+
   it("/api/rep should return reps list",function(done){
 
     server
@@ -46,16 +47,33 @@ describe("API endpoints :",function(){
     .expect("Content-type",/json/)
     .expect(200)
     .end(function(err,res){
-      res.status.should.equal(200);      
+      res.status.should.equal(200);
       res.body[0].should.have.property('EmployeeID').which.is.a.Number();
       res.body[0].should.have.property('UserName');
       done();
     });
   });
+
+  it("/api/orders/rep/:id should return orders by rep id",function(done){
+
+    server
+    .get('/api/orders/rep/1')
+    .expect("Content-type",/json/)
+    .expect(200)
+    .end(function(err,res){
+      res.status.should.equal(200);
+      res.body.should.have.property('1').which.is.a.Object();
+      res.body['1'].should.have.property('epoch').which.is.a.Number();
+      res.body['1'].should.have.property('items').which.is.a.Array();
+      // res.body[0].should.have.property('UserName');
+      done();
+    });
+  });
+
   it('/api/order should post order', function(done) {
     server
       .post('/api/order')
-      .send({"epoch":1472210342,"repID":3,"dealerID":1,"atLocation":1,"items":[{"product":{"ProductID":2,"ProductName":"Salad plate"},"category":{"CategoryID":2,"CategoryName":"Livy"},"quantity":2}]}) 
+      .send({"epoch":1472210342,"repID":3,"dealerID":1,"atLocation":1,"items":[{"product":{"ProductID":2,"ProductName":"Salad plate"},"category":{"CategoryID":2,"CategoryName":"Livy"},"quantity":2}]})
       .expect(200)
       .end(function(err, res) {
         console.log(res.text);
