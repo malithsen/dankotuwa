@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('OrderViewCtrl', function($scope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService,ionicToast) {
+.controller('OrderViewCtrl', function($scope, $rootScope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService,ionicToast) {
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
@@ -39,14 +39,17 @@ angular.module('dankotuwa')
   };
 
   $scope.addItem = function() {
+    LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "addItem",$scope.items);
     console.log('addItem', $scope.items);
     $scope.items.push(new Item());
   };
 
   $scope.submit = function() {
 
+
     validate(function(status, error) {
       if (status === true) {
+        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted");
         console.log("submit", $scope.items);
         $scope.showConfirm();
       } else {
@@ -69,6 +72,7 @@ angular.module('dankotuwa')
           $scope.items = [new Item()];
            ionicToast.show('Order posted.', 'bottom', false, 3000);
         }, function(err) {
+           LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Error:",err);
            ionicToast.show('Check your internet connection!', 'bottom', false, 3000);
         });
       }
@@ -78,6 +82,7 @@ angular.module('dankotuwa')
   $scope.print = function() {
     console.log("print");
     if($cordovaPrinter.isAvailable()) {
+      LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "---> Printed the invoice...");
       console.log("printing");
       $cordovaPrinter.print(InvoiceService.generateInvoice($scope.items, $scope.location.name));
     } else {
@@ -97,5 +102,6 @@ angular.module('dankotuwa')
 
 
   console.log("order view ctrl", $scope.location);
+  LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted location:", $scope.location);
 
 });

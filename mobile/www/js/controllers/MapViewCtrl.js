@@ -1,6 +1,8 @@
 angular.module('dankotuwa')
 
+
 .controller('MapViewCtrl', function($rootScope, $scope, $state, $ionicPopup, CurrentLocation, MapService, DealerInfo, LocationFilter, store) {
+
 
   var dealerClickCallback = function(id) {
     var location = LocationFilter.getLocationByID(id);

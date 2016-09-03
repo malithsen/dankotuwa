@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('LoginCtrl', function($scope, $state, auth, store){
+.controller('LoginCtrl', function($scope, $rootScope, $state, auth, store){
 
   function onLoginSuccess(profile, token, accessToken, state, refreshToken) {
     console.log("Success");
@@ -9,11 +9,13 @@ angular.module('dankotuwa')
     store.set('accessToken', accessToken);
     store.set('refreshToken', refreshToken);
     console.log(profile);
+    LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, " ---> Login Succeeded!!!");
     $state.go("app.welcome");
   };
 
   function onLoginFailed(e) {
     $scope.message = 'Access Denied!';
+    LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, " ---> Login Failed");
     console.log("error", JSON.stringify(e));
   };
 

@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('SignatureCtrl', function($scope) {
+.controller('SignatureCtrl', function($scope, $rootScope) {
   var canvas = document.getElementById('signatureCanvas');
   var signaturePad = new SignaturePad(canvas);
 
@@ -11,6 +11,7 @@ angular.module('dankotuwa')
   $scope.saveCanvas = function() {
     var sigImg = signaturePad.toDataURL();
     $scope.signature = sigImg;
+     LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, " ---> Took the Signature.");
     console.log(sigImg);
   };
 });

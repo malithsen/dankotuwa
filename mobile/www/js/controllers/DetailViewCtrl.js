@@ -21,6 +21,7 @@ angular.module('dankotuwa')
       }).then(function () {
         console.log("Navigator launched");
       }, function (err) {
+        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Error:",err);
         console.log(err);
       });
     });
