@@ -130,6 +130,8 @@ app.post('/api/order', jsonParser, function(req, res) {
   var locationStatus = req.body.atLocation; //0 means order was placed remotely from dealer's location
   var itemLst = req.body.items;
   var orderId;
+  var sign = req.body.signature;
+
 
   var successCb = function() {
     return res.sendStatus(200);
@@ -142,7 +144,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
   var orderInfoCb = function(id) {
     orderId = id;
-    db.setDealerRepOrder(id, repID, dealerID, locationStatus, dealerRepOrderCb);
+    db.setDealerRepOrder(id, repID, dealerID, locationStatus, dealerRepOrderCb, sign);
   };
 
   var setProducts = function() {

@@ -5,6 +5,7 @@ angular.module('dankotuwa')
   $scope.products = [];
   $scope.categories = [];
   $scope.items = [new Item()];
+  $scope.signature= $rootScope.signatureBlob;
 
 
   function Item() {
@@ -67,7 +68,7 @@ angular.module('dankotuwa')
     confirmPopup.then(function(res) {
       if(res) {
         console.log("Clicked okay");
-        APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
+        APIService.sendOrder($scope.items, $scope.location.id, $scope.signature).then(function(res) {
           $scope.items = [new Item()];
            ionicToast.show('Order posted.', 'bottom', false, 3000);
         }, function(err) {
