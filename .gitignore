@@ -10,3 +10,4 @@ mobile/
 mobile/.io-config.json
 
 backend/node_modules/
+backend/coverage/
