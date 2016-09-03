@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('OrderViewCtrl', function($scope, $rootScope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService,ionicToast) {
+.controller('OrderViewCtrl', function($scope, $rootScope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService, ionicToast, store) {
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
@@ -39,7 +39,6 @@ angular.module('dankotuwa')
   };
 
   $scope.addItem = function() {
-    LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "addItem",$scope.items);
     console.log('addItem', $scope.items);
     $scope.items.push(new Item());
   };
@@ -49,7 +48,7 @@ angular.module('dankotuwa')
 
     validate(function(status, error) {
       if (status === true) {
-        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted");
+        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted by :", store.get('profile').given_name, "No of items submitted :", items.length );
         console.log("submit", $scope.items);
         $scope.showConfirm();
       } else {
@@ -102,6 +101,5 @@ angular.module('dankotuwa')
 
 
   console.log("order view ctrl", $scope.location);
-  LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted location:", $scope.location);
 
 });

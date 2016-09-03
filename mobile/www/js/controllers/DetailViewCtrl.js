@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('DetailViewCtrl', function($scope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation) {
+.controller('DetailViewCtrl', function($scope, $rootScope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation) {
   $scope.location = $stateParams.location;
 
   $scope.goToPlaceOrderView = function() {
