@@ -9,4 +9,8 @@ before_script:
   - mysql -u root dankotuwa < backend/db.sql
   - cd backend
   - npm install
-script: npm test
+  - npm install -g codecov
+  - npm install -g istanbul
+script:
+  - npm test
+  - codecov
