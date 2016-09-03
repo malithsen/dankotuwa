@@ -181,6 +181,7 @@ DROP TABLE IF EXISTS `order_info`;
 CREATE TABLE `order_info` (
   `OrderNumber` bigint(30) NOT NULL AUTO_INCREMENT,
   `Epoch` bigint(10) DEFAULT NULL,
+  `sign` string(500),
   PRIMARY KEY (`OrderNumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
