@@ -53,8 +53,8 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
   });
 };
 
-DbCon.prototype.setOrderInfo = function(epoch, cb) {
-  this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch}, function(err,rows){
+DbCon.prototype.setOrderInfo = function(epoch, signature, cb) {
+  this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch, sign: signature }, function(err,rows){
     if(err) throw err;
 
     cb(rows.insertId);

@@ -144,7 +144,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
   var orderInfoCb = function(id) {
     orderId = id;
-    db.setDealerRepOrder(id, repID, dealerID, locationStatus, dealerRepOrderCb, sign);
+    db.setDealerRepOrder(id, repID, dealerID, locationStatus, dealerRepOrderCb);
   };
 
   var setProducts = function() {
@@ -153,7 +153,7 @@ app.post('/api/order', jsonParser, function(req, res) {
     });
   };
 
-  db.setOrderInfo(epoch, orderInfoCb);
+  db.setOrderInfo(epoch, sign, orderInfoCb);
 });
 
 app.get('/views/:v', function(req, res) {
