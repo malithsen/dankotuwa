@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.factory('InvoiceService', function(store, APIService) {
+.factory('InvoiceService', function(store, APIService, SignatureService) {
 
   var profile = store.get('profile');
   var o = {};
@@ -14,6 +14,8 @@ angular.module('dankotuwa')
     doc += "<br><br><br>";
     doc += "<table border='1px'> <tr> <th>Product</th><th>Category</th><th>Quantity</th><tr>";
     doc += invoiceItems(items);
+    doc += "<br><br><br>";
+    doc += "<img src='data:image/png;base64," + SignatureService.getSignature() + "'>"
     return doc;
   };
 
@@ -24,6 +26,7 @@ angular.module('dankotuwa')
       table += "<td>" + item.category.CategoryName + "</td>";
       table += "<td>" + item.quantity + "</td> </tr>";
     });
+    table += '</table>';
     return table;
   };
 

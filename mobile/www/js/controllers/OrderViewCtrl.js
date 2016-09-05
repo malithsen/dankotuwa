@@ -1,12 +1,11 @@
 angular.module('dankotuwa')
 
-.controller('OrderViewCtrl', function($scope, $rootScope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService, ionicToast, store) {
+.controller('OrderViewCtrl', function($scope,$rootScope, $state, $stateParams, $ionicPopup, $cordovaPrinter, APIService, InvoiceService, SignatureService, ionicToast, store) {
+
   $scope.location = $stateParams.location;
   $scope.products = [];
   $scope.categories = [];
   $scope.items = [new Item()];
-  $scope.signature= $rootScope.signatureBlob;
-
 
   function Item() {
     this.product = {};
@@ -68,7 +67,7 @@ angular.module('dankotuwa')
     confirmPopup.then(function(res) {
       if(res) {
         console.log("Clicked okay");
-        APIService.sendOrder($scope.items, $scope.location.id, $scope.signature).then(function(res) {
+        APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
           $scope.items = [new Item()];
            ionicToast.show('Order posted.', 'bottom', false, 3000);
         }, function(err) {

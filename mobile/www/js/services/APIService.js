@@ -1,6 +1,7 @@
 angular.module('dankotuwa')
 
-.factory('APIService', function(BackendUrl, $http, store) {
+.factory('APIService', function(BackendUrl, $http, store, SignatureService
+  ) {
 
   var o = {};
 
@@ -18,10 +19,11 @@ angular.module('dankotuwa')
     });
   };
 
-  o.sendOrder = function(items, dealerID, sign) {
+  o.sendOrder = function(items, dealerID) {
     var d = new Date();
     var seconds = Math.round(d.getTime() / 1000);
     var profile = store.get('profile');
+    var sign = SignatureService.getSignature();
 
     var d = {};
     d['epoch'] = seconds;
