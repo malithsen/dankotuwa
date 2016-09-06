@@ -167,7 +167,7 @@ CREATE TABLE `dealer_rep_order` (
 
 LOCK TABLES `dealer_rep_order` WRITE;
 /*!40000 ALTER TABLE `dealer_rep_order` DISABLE KEYS */;
--- INSERT INTO `dealer_rep_order` VALUES (1,1,1,1),(1,3,1,1),(2,2,2,0),(2,29,1,1),(3,30,1,1);
+INSERT INTO `dealer_rep_order` VALUES (1,1,1,1),(1,3,1,1),(2,2,2,0),(2,29,1,1),(3,30,1,1);
 /*!40000 ALTER TABLE `dealer_rep_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +192,7 @@ CREATE TABLE `order_info` (
 
 LOCK TABLES `order_info` WRITE;
 /*!40000 ALTER TABLE `order_info` DISABLE KEYS */;
--- INSERT INTO `order_info` VALUES (1,1471341682),(2,1471341100),(3,1471341699),(29,1471451040),(30,1471939714);
+INSERT INTO `order_info` VALUES (1,1471341682, "sdfdf232"),(2,1471341100, "sdfdf232"),(3,1471341699, "sdfdf232"),(29,1471451040, "sdfdf232"),(30,1471939714, "sdfdf232");
 /*!40000 ALTER TABLE `order_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +222,7 @@ CREATE TABLE `order_product` (
 
 LOCK TABLES `order_product` WRITE;
 /*!40000 ALTER TABLE `order_product` DISABLE KEYS */;
--- INSERT INTO `order_product` VALUES (1,1,3,2),(1,2,2,2),(2,1,1,3),(2,2,1,3),(2,3,3,3),(3,2,1,1),(3,3,3,1),(29,2,2,4),(29,2,3,3),(30,1,1,2),(30,2,2,1);
+INSERT INTO `order_product` VALUES (1,1,3,2),(1,2,2,2),(2,1,1,3),(2,2,1,3),(2,3,3,3),(3,2,1,1),(3,3,3,1),(29,2,2,4),(29,2,3,3),(30,1,1,2),(30,2,2,1);
 /*!40000 ALTER TABLE `order_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
