@@ -3,7 +3,6 @@ angular.module('dankotuwa')
 
 .controller('MapViewCtrl', function($rootScope, $scope, $state, $ionicPopup, CurrentLocation, MapService, DealerInfo, LocationFilter, store) {
 
-
   var dealerClickCallback = function(id) {
     var location = LocationFilter.getLocationByID(id);
     $state.go('app.detailview', {location: location});
@@ -40,7 +39,7 @@ angular.module('dankotuwa')
     var map = $scope.map;
 
     if ($rootScope.isOnline === false) {
-      $scope.goToCardList;
+      $scope.goToCardList();
     }
 
     // Hack: In the inital launch locationChangeSuccess won't fire. This redirects the user back to login
