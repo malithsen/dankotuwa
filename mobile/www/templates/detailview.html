@@ -4,9 +4,16 @@
       <div class="card">
         <div class="card-content dealer-info">
 
-            <div class="contact-info">
-              <span class="card-title dealer-name">{{location.name}}</span>
-              <p class="dealer-address">{{location.address}}</p>
+          <div class="contact-info">
+            <span class="card-title dealer-name">{{location.name}}</span>
+            <p class="dealer-address">{{location.address}}</p>
+          </div>
+          <hr size="1px">
+            <div class="phone" ng-show="location.phone">
+              <a ng-href="tel: +94 {{ location.phone }}">
+                <div class="phone-icon"><img class="phone-img" src="img/phone.png" width="16"></div>
+              </a>
+                {{location.phone}}
             </div>
         </div>
         <div class="card-action footer">

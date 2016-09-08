@@ -156,8 +156,7 @@ select{
 }
 
 .contact-info {
-  position: relative;
-  top: 70px;
+  margin-top: 70px;
 
   .dealer-name {
     color: #fff;
@@ -170,6 +169,25 @@ select{
   }
 }
 
+.phone {
+  color: #fff;
+  font-size: 100%;
+  margin-top: 10px;
+}
+
+.phone-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.phone-img {
+  position: relative;
+  top: 24%;
+  left: 21%;
+}
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
