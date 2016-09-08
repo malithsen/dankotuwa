@@ -1,12 +1,13 @@
-<ion-view>
+<ion-view view-title="Dealer details">
   <ion-content class="detail-view">
     <div>
       <div class="card">
-        <div class="card-content">
+        <div class="card-content dealer-info">
 
-          <span class="card-title">{{location.name}}</span>
-          <p>{{location.address}}</p>
-
+            <div class="contact-info">
+              <span class="card-title dealer-name">{{location.name}}</span>
+              <p class="dealer-address">{{location.address}}</p>
+            </div>
         </div>
         <div class="card-action footer">
           <a ng-click="goToPlaceOrderView()">Place order</a>

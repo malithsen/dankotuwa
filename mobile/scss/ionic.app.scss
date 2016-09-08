@@ -144,6 +144,32 @@ select{
   border-radius: 2px;
 }
 
+.dealer-info {
+  color: white;
+  text-align: left;
+  min-height: 191px;
+  background-image: url("../img/blur.png");
+  background-size: 100%;
+  background-position: 0;
+  background-repeat: no-repeat;
+  padding: 15px 15px 15px 25px;
+}
+
+.contact-info {
+  position: relative;
+  top: 70px;
+
+  .dealer-name {
+    color: #fff;
+    font-family: "robotomedium";
+    font-size: 19px;
+  }
+
+  .shed-address {
+    color: #f8f8f8;
+  }
+}
+
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
