@@ -35,7 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Blue rose'),(2,'Livy'),(3,'Lasting rose');
+INSERT INTO `category` VALUES (1,'Blue rose'),(2,'Livy'),(3,'Lasting rose'),(4,'Blue rose'),(5, 'New Romantic'),(6, 'Liyatham'),(7, 'Blue Winter'),(8, 'W.Ivo'),(9, 'Allure'),(10, 'Gold Mix'),(11, 'Gold Spiral'),(12, 'Pltinum mix'),(13, 'Silver mix'),(14, 'C-avi Gold'),(15, 'C -avi Plati'),(16, 'Green Flower'),(17, 'Bambo Leaf'),(18, 'Ethic Flower'),(19, 'Piros'),(20, 'Style Flower'),(21, 'Charm'),(22, 'Apple Grapes'),(23, 'Gold mix'),(24, 'silver mix'),(25, 'Platinum mix'),(26, 'G. Spiral');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,7 +247,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Dinner plate','10'),(2,'Salad plate','15'),(3,'Cereak bowl','15');
+INSERT INTO `product` VALUES (1,'Dinner plate','10'),(2,'Salad plate','15'),(3,'Cereak bowl','15'),(4, 'Dinner Plate' , '10'),(5, 'Salad Plate', '10'),(6, 'Cereral Bowl', '10'),(7, 'Fruit Saucer', '10'),(8, 'Large S.Bowl/Baker', '10'),(9, 'Chop Plate', '10'),(10,'14 Platter', '10'),(11,'16 Platter', '10'),(12,'Finger Bowl', '10'),(13,'Water Jug', '10'),(14,'Cassserole', '10'),(15,'B B Plate', '10'),(16,'Sugar Bowl', '10'),(17,'Creamer', '10'),(18,'Mug Cup -699', '10'),(19,'Mug Saucer-697', '10'),(20,'Tea Cup', '10'),(21,'Tea Saucer', '10'),(22,'Coffee Cup', '10'),(23,'Coffee Saucer', '10'),(24,'Tea Pot', '10'),(25,'Coffee Pot', '10'),(26,'Tea Mug', '10'),(27,'7 pcs Fruit Set', '10'),(28,'8 pcs Cake Set', '10'),(29,'8 pcs Soup Set', '10'),(30,'15 Pcs Tea Set', '10'),(31,'17 Pcs Coffee Set' , '10'),(32,'17 Pcs Tea Set', '10'),(33,'21 Pcs Dinner Set', '10'),(34,'24 Pcs Tea Set', '10'),(35,'27 Pcs Dinner Set', '10'),(36,'35 Pcs Dinner Set', '10'),(37,'93 Pcs Dinner Set', '10'),(38,'12 Pcs Dinner Set', '10'),(39, '12 Pcs Tea Set', '10');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
