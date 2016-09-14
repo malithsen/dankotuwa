@@ -48,7 +48,7 @@ angular.module('dankotuwa')
 
     validate(function(status, error) {
       if (status === true) {
-        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted by :", store.get('profile').given_name, "No of items submitted :", items.length );
+        LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted by :", store.get('profile').given_name, "No of items submitted :", $scope.items.length );
         console.log("submit", $scope.items);
         $scope.showConfirm();
       } else {
