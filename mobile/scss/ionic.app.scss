@@ -258,6 +258,15 @@ select{
   background-color: #3949AB;
 }
 
+.order-icons {
+  vertical-align: sub;
+}
+
+.delete-icon {
+  vertical-align: sub;
+  float: right;
+  color: #565656;
+}
 /* Signature pad */
 #signatureCanvas {
     width: 100%;

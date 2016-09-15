@@ -9,7 +9,8 @@ angular.module('dankotuwa')
     scope: {
         products: "=",
         categories: "=",
-        aItem: '=newItem'
+        aItem: '=newItem',
+        onRemove:"&"
     }
   };
 });
