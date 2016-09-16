@@ -19,7 +19,6 @@ angular.module('dankotuwa')
       update: function (filteredItems, filterText) {
         $scope.locations = filteredItems;
       },
-      filterProperties: 'name'
     });
   };
 
