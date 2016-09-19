@@ -14,5 +14,10 @@ angular.module('dankotuwa')
     o.sigImg = string.split(",")[1];
   };
 
+  o.remove = function() {
+    console.log("remove");
+    o.sigImg = '';
+  };
+
   return o;
 });

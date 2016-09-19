@@ -69,7 +69,8 @@ angular.module('dankotuwa')
         console.log("Clicked okay");
         APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
           $scope.items = [new Item()];
-           ionicToast.show('Order posted.', 'bottom', false, 3000);
+          SignatureService.remove();
+          ionicToast.show('Order posted.', 'bottom', false, 3000);
         }, function(err) {
            LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Error:",err);
            ionicToast.show('Check your internet connection!', 'bottom', false, 3000);
@@ -98,7 +99,6 @@ angular.module('dankotuwa')
     $scope.categories = res.data;
     console.log(res.data);
   });
-
 
   console.log("order view ctrl", $scope.location);
 

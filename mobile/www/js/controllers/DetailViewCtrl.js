@@ -1,6 +1,6 @@
 angular.module('dankotuwa')
 
-.controller('DetailViewCtrl', function($scope, $rootScope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation) {
+.controller('DetailViewCtrl', function($scope, $rootScope, $state, $stateParams, $cordovaLaunchNavigator, CurrentLocation, SignatureService) {
   $scope.location = $stateParams.location;
 
   $scope.goToPlaceOrderView = function() {
@@ -26,4 +26,8 @@ angular.module('dankotuwa')
       });
     });
   };
+
+  $scope.$on('$ionicView.enter', function(){
+    SignatureService.remove();
+  });
 });
