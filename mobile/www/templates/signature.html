@@ -2,8 +2,8 @@
   <ion-content class='has-header padding' scroll='false'>
     <canvas id='signatureCanvas' style='border: 1px solid black;'></canvas>
     <div class='button-bar'>
-        <a class='button button-energized' ng-click='clearCanvas()'>Clear</a>
-        <a class='button button-balanced' ng-click='saveCanvas()'>Save</a>
+        <a class='button raised' ng-click='clearCanvas()'>Clear</a>
+        <a class='button button-positive raised' ng-click='saveCanvas()'>Save</a>
     </div>
     <br>
     <img width="20%" ng-src='{{signature}}' ng-if="signature"/>
