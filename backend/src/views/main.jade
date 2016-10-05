@@ -1,0 +1,26 @@
+<body>
+  <nav class="teal">
+    <div class="nav-wrapper"><a href="play" class="brand-logo">PlayMyWay<span class="song-title">{{currSong._name}}</span></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ui-sref="admin">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+</body>
+<div class="container">
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div ng-repeat="song in songs">
+        <div class="vote-count">
+          <div class="purple-text text-lighten-1">{{song.votes || 0}}</div>
+        </div>
+        <div class="song-card">
+          <div class="card-panel blue">
+            <div class="white-text">{{song.name}}</div>
+          </div>
+        </div>
+        <div class="vote-btn"><a ng-click="pushVoted(song)" class="btn-floating btn-large waves-effect waves-light purple lighten-1"><i class="material-icons">present_to_all</i></a></div>
+      </div>
+    </div>
+  </div>
+</div>

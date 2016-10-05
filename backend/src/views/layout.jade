@@ -1,0 +1,15 @@
+doctype html
+html(ng-app='dankotuwaApp')
+  head
+    meta(name='fragment', content='!')
+    title
+    base(href='/')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js')
+    link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='/stylesheets/styles.css', rel='stylesheet')
+    section(ui-view='')
+    script(src='/js/main.js')
+    script(src='/js/controllers/rootCtrl.js')

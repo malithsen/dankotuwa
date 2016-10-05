@@ -19,20 +19,11 @@ app.use(function(req, res, next) {
 // create application/json parser
 var jsonParser = bodyParser.json();
 
-// app.set('views', __dirname + '/src/views');
-// app.set('view engine', 'jade');
-// app.locals.pretty = true;
+app.set('views', __dirname + '/src/views');
+app.set('view engine', 'jade');
+app.locals.pretty = true;
 
-// app.configure( function() {
-//   app.use(lessMiddleware({
-//     dest:     __dirname + '/public/stylesheets',
-//     src:      __dirname + '/src/less',
-//     prefix:   '/stylesheets',
-//     compress: true
-//   }));
-
-//   app.use(express.static(__dirname + '/public'));
-// });
+app.use(express.static(__dirname + '/public'));
 
 var db = new DbCon(config.sql.credentials);
 db.init();
@@ -161,8 +152,7 @@ app.get('/views/:v', function(req, res) {
 });
 
 app.get('*', function(req, res) {
-  // res.render('layout', {
-  //   title: 'Dankotuwa',
-  //   env: process.env.NODE_ENV
-  // });
+  res.render('layout', {
+    title: 'Dankotuwa'
+  });
 });
