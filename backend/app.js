@@ -148,10 +148,10 @@ app.post('/api/order', jsonParser, function(req, res) {
 });
 
 app.get('/views/:v', function(req, res) {
-  res.json(req.params.v);
+  res.render(req.params.v);
 });
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.render('layout', {
     title: 'Dankotuwa'
   });
