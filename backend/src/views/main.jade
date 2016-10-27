@@ -4,7 +4,7 @@ body
       p Dankotuwa
     div.col.ten.content-header
       div.content-header-name Sales Orders
-      input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off')
+      input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model="search")
 
   .row
     div.col.two.nav-content
@@ -32,7 +32,7 @@ body
         input(type='date', name='invoiced')
 
     div.col.ten.content-body
-      div(ng-repeat="(orderId, orderVals) in orders")
+      div(ng-repeat="(orderId, orderVals) in orders | filter: search")
         div(ng-repeat="order in orderVals")
           da-order(order="order")
   .row
