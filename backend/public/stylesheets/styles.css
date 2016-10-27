@@ -63,13 +63,13 @@
   font-size: 18px;
   color: #2c2d30;
   font-weight: 700;
-  padding-left: 24px;
+  padding-left: 4rem;
   width: 120px;
   display: inline-block;2
 }
 
 .sales-order-search-btn {
-  margin-left: 50%;
+  margin-left: 64%;
   height: 2.5rem;
   width: 12.75rem;
   display: inline-block;
