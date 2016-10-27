@@ -112,11 +112,6 @@
   overflow: auto;
 }
 
-.dealer-name, .city, .item-count {
-  background-color: #fff!important;
-  color: #525252!important;
-}
-
 .dealer-name {
   font-size: x-large;
 }
@@ -135,5 +130,5 @@
 }
 
 .item-count {
-
+  font-size: x-large;
 }

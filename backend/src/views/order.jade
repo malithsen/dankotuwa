@@ -1,12 +1,13 @@
 .body-col
-  div.head
-    div.row
-      div.dealer-name.col.three
-        p {{order.Name}}
-      div.city.col.seven
-        p Kadawatha
-      div.item-count.col.two
-        p {{order.items.length}}
-  div.items
-  div.time
-    p {{order.epoch}}
+  div.row
+    div.col.ten
+      div.head
+        div.row
+          div.dealer-name.col.three
+            p {{order.Name}}
+          div.city.col.nine
+            p Kadawatha
+      div.time
+        p(am-time-ago='order.epoch | amFromUnix')
+    div.col.item-count.two
+      p {{order.items.length}} Items
