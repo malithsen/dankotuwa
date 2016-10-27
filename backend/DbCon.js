@@ -36,22 +36,6 @@ DbCon.prototype.getCategories = function(cb) {
   });
 };
 
-DbCon.prototype.getDealers = function(cb) {
-  this.con.query('SELECT DealerID, Name FROM dealer', function(err,rows){
-    if(err) throw err;
-
-    cb(rows);
-  });
-};
-
-DbCon.prototype.getOrderDetails = function(orderId, cb) {
-  this.con.query('SELECT EmployeeID, DealerID, Correct_location FROM dealer_rep_order', function(err,rows){
-    if(err) throw err;
-
-    cb(rows);
-  });
-};
-
 DbCon.prototype.getOrdersByUser = function(repid, cb) {
   this.con.query('SELECT order_info.OrderNumber, Epoch, ProductID, CategoryID, Name FROM order_info, order_product, dealer where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND dealer.DealerID='+repid+';', function(err,rows){
     if(err) throw err;

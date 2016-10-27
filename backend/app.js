@@ -64,24 +64,6 @@ app.get('/api/orders/rep/:rep', function(req, res) {
   db.getOrdersByUser(repid, cb);
 });
 
-app.get('/api/dealers', function(req, res) {
-
-  var cb = function(data) {
-    res.json(data);
-  };
-  db.getDealers(cb);
-});
-
-app.get('/api/orderDetails/:orderId', function(req, res) {
-
-  var orderId = req.params.orderId;
-  var cb = function(data) {
-    res.json(data);
-  };
-
-  db.getOrderDetails(orderId, cb);
-});
-
 // app.get('/api/orders/after/:time', function(req, res) {
 //   var cb = function(data) {
 //     res.json(data);

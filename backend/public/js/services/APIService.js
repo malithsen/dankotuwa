@@ -18,12 +18,5 @@ angular.module('dankotuwaApp')
     });
   };
 
-  o.getDealers = function() {
-    return $http({
-      method: 'GET',
-      url: BackendUrl + '/api/dealers'
-    });
-  }
-
   return o;
 });
