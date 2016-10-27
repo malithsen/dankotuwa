@@ -1,2 +1,40 @@
 body
-  p test
+  .row
+    div.col.two.nav-header
+      p Dankotuwa
+    div.col.ten.content-header
+      div.content-header-name Sales Orders
+      input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off')
+
+  .row
+    div.col.two.nav-content
+      h4.reps-header Sales Reps
+      ul.reps-list
+        li(ng-repeat="rep in reps") &nbsp&nbsp&nbsp{{rep.UserName}}
+
+      br
+
+      div.invoiced
+        input(type='checkbox', name='invoiced')
+        | Show only invoiced sales
+
+      br
+      br
+      br
+
+      div.datefilter
+        span From
+        br
+        input(type='date', name='invoiced')
+        br
+        span To
+        br
+        input(type='date', name='invoiced')
+
+    div.col.ten.content-body
+      div(ng-repeat="(orderId, orderVals) in orders")
+        div(ng-repeat="order in orderVals")
+          da-order(order="order")
+  .row
+    div.col.tweleve.footer
+  

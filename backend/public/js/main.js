@@ -1,5 +1,7 @@
 var dankotuwaApp = angular.module('dankotuwaApp', ['ui.router']);
 
+dankotuwaApp.value("BackendUrl", "http://localhost:8080");
+
 dankotuwaApp.config(['$stateProvider', '$urlRouterProvider', "$locationProvider", "$httpProvider", function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise("/");

@@ -1,0 +1,139 @@
+.nav-header {
+  background: #3e313c;
+  color: #777;
+  padding: 5px;
+  min-height: 30px;
+  border-bottom: 1px solid #4d394b;
+  min-height: 63px;
+}
+
+.nav-header p {
+  text-align: center;
+  color: white;
+  font-size: 2.125rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.reps-header {
+  padding-left: 10px;
+  color: #ab9ba9;
+  text-transform: uppercase;
+}
+
+.reps-header:hover {
+  transition: color 0.5s ease;
+  color: #fff;
+}
+
+
+.reps-list {
+  list-style-type: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.datefilter {
+  text-align: center;
+}
+
+.reps-list > li:hover {
+  background: #352933;
+}
+
+.nav-content {
+  background: #3e313c;
+  color: #777;
+  padding: 5px;
+  min-height: 30px;
+  border-bottom: 1px solid #4d394b;
+  min-height: 92.7vh;
+}
+
+.content-header {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #777;
+  padding: 5px;
+  min-height: 63px;
+}
+
+.content-header-name {
+  padding-top: 13px;
+  font-size: 18px;
+  color: #2c2d30;
+  font-weight: 700;
+  padding-left: 24px;
+  width: 120px;
+  display: inline-block;2
+}
+
+.sales-order-search-btn {
+  margin-left: 50%;
+  height: 2.5rem;
+  width: 12.75rem;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+  font-size: 1.5rem;
+  border-radius: .55rem;
+  background: #FFF;
+  border: 1px solid rgba(214,214,214,.61);
+}
+
+.sales-order-search-btn:focus, .sales-order-search-btn:hover {
+  transition: border-color 0.4s ease;
+  border-color: #2780f8;
+  outline: 0;
+}
+
+.invoiced {
+  padding-left: 10px;
+}
+
+.body-col {
+  position: relative;
+  border: 1px solid #C9CEED;
+  .rounded(4px);
+  margin-top: 10px;
+  margin-bottom: 3px;
+  padding: 5px;
+  width: 87%;
+  left: 5rem;
+  border-radius: 10px;
+  padding-left: 30px;
+}
+
+.content-body {
+  height: 92.7vh;
+  overflow: auto;
+}
+
+.dealer-name, .city, .item-count {
+  background-color: #fff!important;
+  color: #525252!important;
+}
+
+.dealer-name {
+  font-size: x-large;
+}
+
+.city, .item-count {
+  padding-top: 18px;
+}
+
+.head {
+  height: 53px;
+  overflow: hidden;
+}
+
+.time {
+  color: #737373;
+}
+
+.item-count {
+
+}
