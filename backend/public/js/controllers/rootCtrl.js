@@ -10,7 +10,9 @@ angular.module('dankotuwaApp')
   function getOrders() {
     $scope.reps.forEach(function(rep) {
       APIService.getOrdersFromRep(rep.EmployeeID).then(function(res){
-        $scope.orders.push(res.data);
+        $scope.orders.push.apply($scope.orders, res.data);
+        // can be made more efficient with a promise. Good enough for the job
+        $scope.orders = _.orderBy($scope.orders, 'epoch', 'desc');
       });
     });
   };

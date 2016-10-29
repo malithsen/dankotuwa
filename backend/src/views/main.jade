@@ -32,9 +32,8 @@ body
         input(type='date', name='invoiced')
 
     div.col.ten.content-body
-      div(ng-repeat="(orderId, orderVals) in orders | filter: search")
-        div(ng-repeat="order in orderVals")
-          da-order(order="order")
+      div(ng-repeat="order in orders | filter: search")
+        da-order(order="order")
   .row
     div.col.tweleve.footer
   

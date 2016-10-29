@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/malithsen/dankotuwa",
+  "authors": [
+    "Malith Senaweera <malithsenaweera@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-moment": "~1.0.0",
+    "lodash": "~4.16.4"
+  }
+}

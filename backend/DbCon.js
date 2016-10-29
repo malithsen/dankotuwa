@@ -41,15 +41,19 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
     if(err) throw err;
 
     var data = {};
+    var response = [];
     rows.forEach(function(order) {
-      var d = {"ProductID": order.ProductID, "CategoryID": order.CategoryID};
+      var d = {"productID": order.ProductID, "categoryID": order.CategoryID};
       if (order.OrderNumber in data) {
         data[order.OrderNumber].items.push(d);
       } else {
-        data[order.OrderNumber] = {"epoch": order.Epoch, "Name": order.Name, "items": [d]};
+        data[order.OrderNumber] = {"orderNumber":order.OrderNumber, "epoch": order.Epoch, "name": order.Name, "items": [d]};
       }
     });
-    cb(data);
+    for (var key in data) {
+      response.push(data[key]);
+    }
+    cb(response);
   });
 };
 
