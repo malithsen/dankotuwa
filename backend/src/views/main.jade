@@ -4,13 +4,18 @@ body
       p Dankotuwa
     div.col.ten.content-header
       div.content-header-name Sales Orders
+      span(ng-if='newOrders', ng-click='reloadOrders()').newOrdersAvailable Click to see new orders
       input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model="search")
 
   .row
     div.col.two.nav-content
       h4.reps-header Sales Reps
       ul.reps-list
-        li(ng-repeat="rep in reps") &nbsp&nbsp&nbsp{{rep.UserName}}
+        li(ng-repeat="rep in reps")
+          div.repName
+            span &nbsp&nbsp&nbsp{{rep.UserName}}
+          div
+            span(ng-class="{'newOrderCount': rep.newOrders > 0}") {{rep.newOrders || 0}}
 
       br
 

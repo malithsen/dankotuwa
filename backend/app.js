@@ -7,7 +7,22 @@ var express = require('express'),
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var app = module.exports = express();
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var clientId;
+
+module.exports = {app: app, server: server};
+
+io.on('connection', function(socket){
+  console.log('a user connected', socket.id);
+  clientId = socket.id;
+});
+
+function notifyClient(repID) {
+  io.to(clientId).emit('order', {'repID': repID});
+}
+
 app.use(require('morgan')('combined'));
 
 app.use(function(req, res, next) {
@@ -125,6 +140,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 
 
   var successCb = function() {
+    notifyClient(repID); //send a notification to webapp
     return res.sendStatus(200);
   };
 

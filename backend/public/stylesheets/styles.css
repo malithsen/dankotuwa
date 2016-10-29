@@ -69,7 +69,7 @@
 }
 
 .sales-order-search-btn {
-  margin-left: 64%;
+  margin-left: 52%;
   height: 2.5rem;
   width: 12.75rem;
   display: inline-block;
@@ -131,4 +131,23 @@
 
 .item-count {
   font-size: x-large;
+}
+
+.repName {
+  width: 80%;
+  float: left;
+}
+
+.newOrderCount {
+  color: #fff;
+  background: #eb4d5c;
+  position: relative;
+  right: 7px;
+  border-radius: 9px;
+  padding: 2px 6px;
+}
+
+.newOrdersAvailable {
+  color: #EB4D5C;
+  cursor: pointer;
 }
