@@ -37,7 +37,7 @@ DbCon.prototype.getCategories = function(cb) {
 };
 
 DbCon.prototype.getOrdersByUser = function(repid, cb) {
-  this.con.query('SELECT order_info.OrderNumber, Epoch, ProductID, CategoryID, Name FROM order_info, order_product, dealer where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND dealer.DealerID='+repid+';', function(err,rows){
+  this.con.query('SELECT order_info.OrderNumber, Epoch, ProductID, CategoryID, Name FROM order_info, order_product, dealer_rep_order, dealer where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND order_info.OrderNumber=dealer_rep_order.OrderNumber AND dealer.DealerID=dealer_rep_order.DealerID;', function(err,rows){
     if(err) throw err;
 
     var data = {};
