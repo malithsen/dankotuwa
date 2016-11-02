@@ -17,11 +17,55 @@ html(ng-app='dankotuwaApp', lang="en")
     link(href='/stylesheets/grid.css', rel='stylesheet')
     link(href='/stylesheets/styles.css', rel='stylesheet')
 
+  body(ng-controller='rootCtrl')
+  .row
+    a(href='/')
+      div.col.two.nav-header
+        p Dankotuwa
+    div.col.ten.content-header
+      div.content-header-name Sales Orders
+      span(ng-if='newOrders', ng-click='reloadOrders()').newOrdersAvailable Click to see new orders
+      input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model="search")
 
-    section(ui-view)
+  .row
+    div.col.two.nav-content
+      h4.reps-header Sales Reps
+      ul.reps-list
+        li(ng-repeat="rep in reps")
+          div.repName
+            span &nbsp&nbsp&nbsp{{rep.UserName}}
+          div
+            span(ng-class="{'newOrderCount': rep.newOrders > 0}") {{rep.newOrders || 0}}
 
+      br
+
+      div.invoiced
+        input(type='checkbox', name='invoiced')
+        | Show only invoiced sales
+
+      br
+      br
+      br
+
+      div.datefilter
+        span From
+        br
+        input(type='date', name='invoiced')
+        br
+        span To
+        br
+        input(type='date', name='invoiced')
+
+    div.col.ten.content-body
+      section(ui-view)
+
+  .row
+    div.col.tweleve.footer
+  
     script(src='/js/main.js')
     script(src='/js/controllers/rootCtrl.js')
+    script(src='/js/controllers/OrderCtrl.js')
+    script(src='/js/controllers/DetailViewCtrl.js')
     script(src='/js/services/APIService.js')
     script(src='/js/services/socket.js')
     script(src='/js/directives/order.js')

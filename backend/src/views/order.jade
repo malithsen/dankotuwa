@@ -1,13 +1,15 @@
-.body-col
-  div.row
-    div.col.ten
-      div.head
-        div.row
-          div.dealer-name.col.four
-            p {{order.name}}
-          div.city.col.eight
-            p Kadawatha
-      div.time
-        p(am-time-ago='order.epoch | amFromUnix')
-    div.col.item-count.two
-      p {{order.items.length}} Items
+div(ng-repeat="order in orders | filter: search")
+  .body-col
+    a(href='', ng-click="goToDetailView(order)")
+      div.row
+        div.col.ten
+          div.head
+            div.row
+              div.dealer-name.col.four
+                p {{order.name}}
+              div.city.col.eight
+                p Kadawatha
+          div.time
+            p(am-time-ago='order.epoch | amFromUnix')
+        div.col.item-count.two
+          p {{order.items.length}} Items

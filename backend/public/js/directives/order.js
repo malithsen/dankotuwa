@@ -1,8 +1,12 @@
 angular.module('dankotuwaApp')
 
-.directive('daOrder', [function() {
+.directive('daOrder', ['$state', function($state) {
 
   var linkFn = function(scope, element) {
+    scope.goToDetailView = function() {
+      console.log("going to detailview");
+      $state.go('app.detailview', {data: []});
+    };
   };
 
   return {

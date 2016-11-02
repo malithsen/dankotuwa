@@ -1,6 +1,6 @@
 var dankotuwaApp = angular.module('dankotuwaApp', ['ui.router', 'angularMoment', 'angular-storage']);
 
-dankotuwaApp.value("BackendUrl", "http://ec2-54-244-208-146.us-west-2.compute.amazonaws.com:8080");
+dankotuwaApp.value("BackendUrl", "http://localhost:8080");
 
 dankotuwaApp.config(['$stateProvider', '$urlRouterProvider', "$locationProvider", "$httpProvider", function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
@@ -10,7 +10,15 @@ dankotuwaApp.config(['$stateProvider', '$urlRouterProvider', "$locationProvider"
   $stateProvider
     .state('/', {
       url: "/",
-      templateUrl: "views/main",
-      controller: 'rootCtrl'
+      templateUrl: "views/order",
+      controller: 'OrderCtrl',
+    })
+    .state('detailview', {
+      url: '/detailview',
+      templateUrl: "views/detailview",
+      controller: 'DetailViewCtrl',
+      params: {
+        data: null
+      }
     })
 }]);
