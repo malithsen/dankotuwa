@@ -3,6 +3,8 @@ angular.module('dankotuwaApp')
 .controller('rootCtrl', function($scope, APIService, socket, store) {
   console.log('root ctrl');
   var socket = io();
+
+  $scope.date = {'start':'', 'end': ''};
   $scope.reps = [];
   $scope.dealers = [];
   $scope.orders = [];
@@ -65,8 +67,18 @@ angular.module('dankotuwaApp')
         $scope.orders.push.apply($scope.orders, res.data);
         // can be made more efficient with a promise. Good enough for the job
         $scope.orders = _.orderBy($scope.orders, 'epoch', 'desc');
+        $scope.orderOrig = $scope.orders;
       });
     });
+  }
+
+  $scope.filter = function() {
+    console.log('date', moment($scope.date.start).valueOf());
+    var from = moment($scope.date.start).valueOf()/1000;
+    var to = moment($scope.date.end).valueOf()/1000;
+    if (to && from) {
+      $scope.orders = _.filter($scope.orderOrig, function(o) { console.log(o); return o.epoch > from && o.epoch < to; });
+    }
   }
  
   $scope.reloadOrders = function() {

@@ -50,11 +50,13 @@ html(ng-app='dankotuwaApp', lang="en")
       div.datefilter
         span From
         br
-        input(type='date', name='invoiced')
+        input(type='date', name='invoiced', ng-model='date.start')
         br
         span To
         br
-        input(type='date', name='invoiced')
+        input(type='date', name='invoiced', ng-model='date.end')
+
+        button.button.button-dark(ng-click="filter()") Filter
 
     div.col.ten.content-body
       section(ui-view)
