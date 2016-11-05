@@ -79,6 +79,16 @@ app.get('/api/orders/rep/:rep', function(req, res) {
   db.getOrdersByUser(repid, cb);
 });
 
+app.get('/api/order/signature/:orderid', function(req, res) {
+  if (!req.params.orderid) return;
+  var oid = req.params.orderid;
+
+  var cb = function(data) {
+    res.json(data);
+  };
+  db.getSignature(oid, cb);
+});
+
 // app.get('/api/orders/after/:time', function(req, res) {
 //   var cb = function(data) {
 //     res.json(data);
@@ -94,13 +104,6 @@ app.get('/api/orders/rep/:rep', function(req, res) {
 // });
 
 // app.get('/api/rep/:repid', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
-
-// app.get('/api/order/signature/:orderid', function(req, res) {
 //   var cb = function(data) {
 //     res.json(data);
 //   };

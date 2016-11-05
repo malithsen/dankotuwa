@@ -33,7 +33,7 @@ div.order-meta
         p : {{order.epoch | amFromUnix | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
   div.row
     div.col.three
-      button View Signature
+      button.button#signature-btn(ng-click='getSignature(order.orderNumber)') View Signature
     div.col.nine
 
 div.order-items
@@ -54,7 +54,4 @@ div.order-items
     div.col.two
       p {{item.quantity}}
     div.col.two
-      p 100
-
-
-p {{order}}
+      input.actual-quantity-input(type="number", max="{{item.quantity}}", min=0, required)

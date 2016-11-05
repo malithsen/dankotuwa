@@ -18,5 +18,12 @@ angular.module('dankotuwaApp')
     });
   };
 
+  o.getSignature = function(orderid) {
+    return $http({
+      method: 'GET',
+      url: BackendUrl + '/api/order/signature/' + orderid
+    });
+  }
+
   return o;
 });

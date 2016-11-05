@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "a0-angular-storage": "~0.0.15",
+    "angular-modal-service": "~0.10.1",
     "angular-moment": "~1.0.0",
     "components-font-awesome": "~4.7.0",
     "lodash": "~4.16.4",
