@@ -189,3 +189,42 @@
   opacity: .75;
 }
 
+.dealer-title p {
+  color: #333333;
+  font-size: 2.125rem;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+
+.order-meta, .order-items {
+  margin-left: 6rem;
+  font-size: large;
+}
+
+.order-meta {
+  position: relative;
+  border: 1px solid #C9CEED;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  padding: 5px;
+  width: 87%;
+  border-radius: 10px;
+  padding-left: 30px;
+}
+
+.order-items {
+  position: relative;
+  border: 1px solid #C9CEED;
+  margin-top: 50px;
+  margin-bottom: 3px;
+  padding: 5px;
+  width: 87%;
+  border-radius: 10px;
+  padding-left: 30px;
+}
+
+.orderId > p, .orderNumber > p, .date > p, .meta-value > p, .repName > p {
+  margin: 0;
+}
+

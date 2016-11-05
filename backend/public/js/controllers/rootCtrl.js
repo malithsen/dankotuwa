@@ -1,8 +1,11 @@
 angular.module('dankotuwaApp')
 
-.controller('rootCtrl', function($scope, APIService, socket, store) {
+.controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store) {
   console.log('root ctrl');
   var socket = io();
+
+  $rootScope.$state = $state;
+  $rootScope.$stateParams = $stateParams;
 
   $scope.date = {'start':'', 'end': ''};
   $scope.reps = [];

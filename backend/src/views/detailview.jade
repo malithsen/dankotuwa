@@ -1,1 +1,60 @@
+div.dealer-details
+  div.dealer-title
+    p {{order.name}}
+  div.city
+div.order-meta
+  div.row
+    div.col.three
+      div.orderNumber
+        p Order Number
+    div.col.nine
+      div.meta-value
+        p : {{order.orderNumber}}
+  div.row
+    div.col.three
+      div.orderId
+        p Dealer ID
+    div.col.nine
+      div.meta-value
+        p : {{order.dealerID}}
+  div.row
+    div.col.three
+      div.repName
+        p Sales Representative
+    div.col.nine
+      div.meta-value
+        p : {{order.repName}}
+  div.row
+    div.col.three
+      div.date
+        p Date
+    div.col.nine
+      div.meta-value
+        p : {{order.epoch | amFromUnix | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
+  div.row
+    div.col.three
+      button View Signature
+    div.col.nine
+
+div.order-items
+  div.row
+    div.col.four
+      p &nbsp
+    div.col.four
+      p &nbsp
+    div.col.two
+      p Requested
+    div.col.two
+      p Actual
+  div.row(ng-repeat="item in order.items")
+    div.col.four
+      p {{item.productName}}
+    div.col.four
+      p {{item.categoryName}}
+    div.col.two
+      p {{item.quantity}}
+    div.col.two
+      p 100
+
+
 p {{order}}

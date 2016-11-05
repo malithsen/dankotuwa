@@ -24,7 +24,7 @@ html(ng-app='dankotuwaApp', lang="en")
       div.col.two.nav-header
         p Dankotuwa
     div.col.ten.content-header
-      div.content-header-name Sales Orders
+      div(ng-bind="$state.current.params.pageTitle").content-header-name
       span(ng-if='newOrders', ng-click='reloadOrders()').newOrdersAvailable Click to see new orders
       input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model="search")
 

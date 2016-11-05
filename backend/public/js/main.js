@@ -12,13 +12,14 @@ dankotuwaApp.config(['$stateProvider', '$urlRouterProvider', "$locationProvider"
       url: "/",
       templateUrl: "views/order",
       controller: 'OrderCtrl',
+      params: {pageTitle: 'Sales Orders'}
     })
     .state('detailview', {
       url: '/detailview',
       templateUrl: "views/detailview",
       controller: 'DetailViewCtrl',
       params: {
-        data: null
+        data: null, pageTitle: 'Order Details'
       }
     })
 }]);
