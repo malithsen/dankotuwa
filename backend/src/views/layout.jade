@@ -18,38 +18,34 @@ html(ng-app='dankotuwaApp', lang="en")
     link(href='/stylesheets/grid.css', rel='stylesheet')
     link(href='/stylesheets/styles.css', rel='stylesheet')
     link(href="/lib/components-font-awesome/css/font-awesome.min.css", rel='stylesheet')
-
   body(ng-controller='rootCtrl')
   .row
     a(href='/')
-      div.col.two.nav-header
+      .col.two.nav-header
         p Dankotuwa
-    div.col.ten.content-header
-      div(ng-bind="$state.current.params.pageTitle").content-header-name
-      span(ng-if='newOrders', ng-click='reloadOrders()').newOrdersAvailable Click to see new orders
-      input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model="search")
-
+    .col.ten.content-header
+      .content-header-name(ng-bind='$state.current.params.pageTitle')
+      span.newOrdersAvailable(ng-if='newOrders', ng-click='reloadOrders()') Click to see new orders
+      .fake-input
+        i.fa.fa-search.search-icon
+        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search')
   .row
-    div.col.two.nav-content
+    .col.two.nav-content
       h4.reps-header Sales Reps
       ul.reps-list
-        li(ng-repeat="rep in reps")
-          div.repName
+        li(ng-repeat='rep in reps')
+          .repName
             span &nbsp&nbsp&nbsp{{rep.UserName}}
           div
             span(ng-class="{'newOrderCount': rep.newOrders > 0}") {{rep.newOrders || 0}}
-
       br
-
-      div.invoiced
+      .invoiced
         input(type='checkbox', name='invoiced')
         | Show only invoiced sales
-
       br
       br
       br
-
-      div.datefilter
+      .datefilter
         span From
         br
         input(type='date', name='invoiced', ng-model='date.start')
@@ -57,16 +53,12 @@ html(ng-app='dankotuwaApp', lang="en")
         span To
         br
         input(type='date', name='invoiced', ng-model='date.end')
-
-        button.button.button-dark(ng-click="filter()")
+        button.button.button-dark(ng-click='filter()')
           i.fa.fa-filter &nbsp&nbspFilter
-
-    div.col.ten.content-body
-      section(ui-view)
-
+    .col.ten.content-body
+      section(ui-view='')
   .row
-    div.col.tweleve.footer
-  
+    .col.tweleve.footer
     script(src='/js/main.js')
     script(src='/js/controllers/rootCtrl.js')
     script(src='/js/controllers/OrderCtrl.js')
