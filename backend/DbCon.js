@@ -65,6 +65,13 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
   });
 };
 
+
+DbCon.prototype.setInvoicedQuantity = function(orderID, productID, categoryID, invoicedQuantity) {
+  this.con.query('UPDATE order_product SET InvoicedQuantity = ? WHERE OrderNumber = ? AND ProductID = ? AND CategoryID = ?', [invoicedQuantity, orderID, productID, categoryID], function(err, rows) {
+    if(err) throw err;
+  });
+};
+
 DbCon.prototype.setOrderInfo = function(epoch, signature, cb) {
   this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch, sign: signature }, function(err,rows){
     if(err) throw err;

@@ -131,6 +131,19 @@ app.get('/api/order/signature/:orderid', function(req, res) {
 //   //db.getUsers()
 // });
 
+app.put('/api/order', jsonParser, function(req, res) {
+  if (!req.body) return res.sendStatus(400);
+  var orderNumber = req.body.orderid;
+  var items = req.body.items;
+
+  items.forEach(function(item) {
+    db.setInvoicedQuantity(orderNumber, item.productID, item.categoryID, item.invoicedQuantity);
+  });
+
+  return res.sendStatus(200);
+
+});
+
 app.post('/api/order', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);
   var epoch = req.body.epoch;

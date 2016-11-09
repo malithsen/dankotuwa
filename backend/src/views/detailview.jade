@@ -54,4 +54,9 @@ div.order-items
     div.col.two
       p {{item.quantity}}
     div.col.two
-      input.actual-quantity-input(type="number", max="{{item.quantity}}", min=0, required)
+      input.actual-quantity-input(type="number", max="{{item.quantity}}", min=0, ng-model="item.invoicedQuantity", required)
+  div.row
+    div.col.six
+      button.button.done-btn(ng-click='markOrder()') Done
+    div.col.six
+      button.button Cancel

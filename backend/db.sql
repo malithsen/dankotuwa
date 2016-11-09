@@ -208,6 +208,7 @@ CREATE TABLE `order_product` (
   `ProductID` bigint(30) NOT NULL,
   `CategoryID` bigint(30) NOT NULL,
   `Quantity` bigint(20) DEFAULT NULL,
+  `InvoicedQuantity` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`OrderNumber`,`ProductID`,`CategoryID`),
   KEY `fk_product` (`ProductID`),
   KEY `fk_category` (`CategoryID`),
@@ -222,7 +223,7 @@ CREATE TABLE `order_product` (
 
 LOCK TABLES `order_product` WRITE;
 /*!40000 ALTER TABLE `order_product` DISABLE KEYS */;
-INSERT INTO `order_product` VALUES (1,1,3,2),(1,2,2,2),(2,1,1,3),(2,2,1,3),(2,3,3,3),(3,2,1,1),(3,3,3,1),(29,2,2,4),(29,2,3,3),(30,1,1,2),(30,2,2,1);
+INSERT INTO `order_product` VALUES (1,1,3,2,NULL),(1,2,2,2,NULL),(2,1,1,3,NULL),(2,2,1,3,NULL),(2,3,3,3,NULL),(3,2,1,1,NULL),(3,3,3,1,NULL),(29,2,2,4,NULL),(29,2,3,3,NULL),(30,1,1,2,NULL),(30,2,2,1,NULL);
 /*!40000 ALTER TABLE `order_product` ENABLE KEYS */;
 UNLOCK TABLES;
 

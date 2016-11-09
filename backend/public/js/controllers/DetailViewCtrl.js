@@ -2,12 +2,21 @@ angular.module('dankotuwaApp')
 
 .controller('DetailViewCtrl', function($scope, $stateParams, APIService, ModalService) {
   $scope.order = $stateParams.data;
+
+  $scope.invoicedqty = {};
   console.log("DetailViewCtrl", $scope.order);
 
   $scope.getSignature = function(orderid) {
     APIService.getSignature(orderid).then(function(res) {
       console.log(res);
       showAModal(res.data.sign);
+    });
+  };
+
+  $scope.markOrder = function() {
+    console.log($scope.order);
+    APIService.setInvoicedQuantity($scope.order).then(function(res) {
+      console.log(res);
     });
   };
 
