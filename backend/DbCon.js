@@ -7,9 +7,25 @@ var DbCon = function (cred) {
 };
 
 DbCon.prototype.init = function () {
+
+  var self = this;
   this.con = mysql.createConnection(this.credentials);
 
-  this.con.connect();
+  this.con.connect(function(err) {
+    if(err) {
+      console.log('error when connecting to db:', err);
+      setTimeout(self.init, 2000);
+    }
+  });
+
+  this.con.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      self.init();
+    } else {
+      throw err;
+    }
+  });
 };
 
 DbCon.prototype.getReps = function(cb) {
