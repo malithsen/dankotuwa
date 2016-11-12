@@ -81,6 +81,12 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
   });
 };
 
+DbCon.prototype.setDealer = function(name, lat, lng, phone, address, city, cb) {
+  this.con.query('INSERT INTO dealer SET ?', {Name: name, Geo_lat: lat, Geo_lng:lng, Address: address, City: city, Phone:phone }, function(err, rows) {
+    if(err) throw err;
+    cb();
+  });
+};
 
 DbCon.prototype.setInvoicedQuantity = function(orderID, productID, categoryID, invoicedQuantity) {
   this.con.query('UPDATE order_product SET InvoicedQuantity = ? WHERE OrderNumber = ? AND ProductID = ? AND CategoryID = ?', [invoicedQuantity, orderID, productID, categoryID], function(err, rows) {

@@ -1,0 +1,44 @@
+<ion-view view-title="Dealer details">
+  <ion-content class="detail-view">
+    <div>
+      <div class="card">
+        <div class="card-content dealer-info">
+          <div class="contact-info">
+            <span class="card-title dealer-name">Add new dealer</span>
+          </div>
+          <hr size="1px">
+          
+        </div>
+      </div>
+      <div class="center">
+        <div class="group">
+          <input type="text" ng-model="dealer.name" required>
+          <span class="highlight"></span>
+          <span class="line"></span>
+          <label>Name</label>
+        </div>
+        <div class="group">
+          <input type="text" ng-model="dealer.address" required>
+          <span class="highlight"></span>
+          <span class="line"></span>
+          <label>Address</label>
+        </div>
+        <div class="group">
+          <input type="text" ng-model="dealer.city" required>
+          <span class="highlight"></span>
+          <span class="line"></span>
+          <label>City</label>
+        </div>
+        <div class="group">
+          <input type="number" ng-model="dealer.phone" required>
+          <span class="highlight"></span>
+          <span class="line"></span>
+          <label>Phone</label>
+        </div>
+        <button ng-click="showConfirm()" class="button button-warning raised">
+          Submit 
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

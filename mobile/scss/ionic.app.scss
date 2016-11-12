@@ -188,6 +188,11 @@ select{
   top: 24%;
   left: 21%;
 }
+
+.edit-img {
+  float: right;
+}
+
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
@@ -283,3 +288,107 @@ select{
     width: 100%;
     height: 60%;
 }
+
+/*New Dealer view*/
+
+.group {
+  position:relative;
+  margin-bottom:45px;
+  margin-left: 22%;
+  margin-top: 25px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.group input         {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575 !important;
+}
+.group input:focus     { outline:none; }
+
+/* label */
+.group label          {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label    {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS */
+.line  { position:relative; display:block; width:300px; }
+.line:before, .line:after   {
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.line:before {
+  left:50%;
+}
+.line:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .line:before, input:focus ~ .line:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER  */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+

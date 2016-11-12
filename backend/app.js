@@ -130,6 +130,22 @@ app.get('/api/order/signature/:orderid', function(req, res) {
 //   };
 //   //db.getUsers()
 // });
+app.post('/api/dealer', jsonParser, function(req, res) {
+  if (!req.body) return res.sendStatus(400);
+  var name = req.body.name;
+  var lat = req.body.lat;
+  var lng = req.body.lng;
+  var phone = req.body.phone;
+  var address = req.body.address;
+  var city = req.body.city;
+
+  var cb = function() {
+    return res.sendStatus(200);
+  };
+
+  db.setDealer(name, lat, lng, phone, address, city, cb);
+});
+
 
 app.put('/api/order', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);

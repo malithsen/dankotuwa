@@ -19,6 +19,22 @@ angular.module('dankotuwa')
     });
   };
 
+  o.sendDealerInfo = function(dealer, geo) {
+    var d = {};
+    d['name'] = dealer.name;
+    d['lat'] = geo.coords.latitude;
+    d['lng'] = geo.coords.longitude;
+    d['phone'] = dealer.phone;
+    d['address'] = dealer.address;
+    d['city'] = dealer.city;
+    console.log(d);
+    return $http({
+      method: 'POST',
+      data: JSON.stringify(d),
+      url: BackendUrl + '/api/dealer'
+    });
+  }
+
   o.sendOrder = function(items, dealerID) {
     var d = new Date();
     var seconds = Math.round(d.getTime() / 1000);

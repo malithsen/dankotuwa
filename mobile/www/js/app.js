@@ -158,6 +158,16 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
     }
   })
 
+  .state('app.newdealer', {
+    url: '/newdealer',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/newdealer.html',
+        controller: 'NewDealerCtrl'
+      }
+    }
+  })
+
   .state('app.welcome', {
     url: '/welcome',
     views: {
