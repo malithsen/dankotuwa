@@ -7,6 +7,7 @@
             Submit
           </button>
         </div>
+        <ion-toggle ng-model="order.remote" toggle-class="toggle-calm">Remote order</ion-toggle>
         <div ng-repeat="item in items" new-Item="item" products="products" categories="categories" on-remove="items.splice($index,1)"></div>
       </form>
       <div class="order-fabs">

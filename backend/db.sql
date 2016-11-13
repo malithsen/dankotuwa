@@ -185,6 +185,7 @@ CREATE TABLE `order_info` (
   `OrderNumber` bigint(30) NOT NULL AUTO_INCREMENT,
   `Epoch` bigint(10) DEFAULT NULL,
   `sign` text(500),
+  `Remote` boolean,
   PRIMARY KEY (`OrderNumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -195,7 +196,7 @@ CREATE TABLE `order_info` (
 
 LOCK TABLES `order_info` WRITE;
 /*!40000 ALTER TABLE `order_info` DISABLE KEYS */;
-INSERT INTO `order_info` VALUES (1,1471341682, "sdfdf232"),(2,1471341100, "sdfdf232"),(3,1471341699, "sdfdf232"),(29,1471451040, "sdfdf232"),(30,1471939714, "sdfdf232");
+INSERT INTO `order_info` VALUES (1,1471341682, "sdfdf232", 1),(2,1471341100, "sdfdf232", 0),(3,1471341699, "sdfdf232", 0),(29,1471451040, "sdfdf232", 1),(30,1471939714, "sdfdf232", 0);
 /*!40000 ALTER TABLE `order_info` ENABLE KEYS */;
 UNLOCK TABLES;
 

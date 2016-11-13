@@ -35,7 +35,7 @@ angular.module('dankotuwa')
     });
   }
 
-  o.sendOrder = function(items, dealerID) {
+  o.sendOrder = function(items, dealerID, isRemote) {
     var d = new Date();
     var seconds = Math.round(d.getTime() / 1000);
     var profile = store.get('profile');
@@ -48,6 +48,13 @@ angular.module('dankotuwa')
     d['atLocation'] = 1;
     d['items'] = items;
     d['signature'] = sign;
+
+    if (isRemote !== 0) {
+      d['remote'] = 1;
+    } else {
+      d['remote'] = 0;
+    }
+
     console.log(d);
     return $http({
       method: 'POST',

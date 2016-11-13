@@ -6,6 +6,7 @@ angular.module('dankotuwa')
   $scope.products = [];
   $scope.categories = [];
   $scope.items = [new Item()];
+  $scope.order = {remote: 0};
 
   function Item() {
     this.product = {};
@@ -50,6 +51,7 @@ angular.module('dankotuwa')
       if (status === true) {
         LE.log("Phone: ", $rootScope.model, " OS: ", $rootScope.version, "Order Submitted by :", store.get('profile').given_name, "No of items submitted :", $scope.items.length );
         console.log("submit", $scope.items);
+        console.log("Clicked okay", $scope.order);
         $scope.showConfirm();
       } else {
         //ionicToast.show(message, position, stick, time)
@@ -66,8 +68,7 @@ angular.module('dankotuwa')
 
     confirmPopup.then(function(res) {
       if(res) {
-        console.log("Clicked okay");
-        APIService.sendOrder($scope.items, $scope.location.id).then(function(res) {
+        APIService.sendOrder($scope.items, $scope.location.id, $scope.order.remote).then(function(res) {
           $scope.items = [new Item()];
           SignatureService.remove();
           ionicToast.show('Order posted.', 'bottom', false, 3000);

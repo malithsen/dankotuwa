@@ -169,6 +169,7 @@ app.post('/api/order', jsonParser, function(req, res) {
   var itemLst = req.body.items;
   var orderId;
   var sign = req.body.signature;
+  var remote = req.body.remote;
 
 
   var successCb = function() {
@@ -192,7 +193,7 @@ app.post('/api/order', jsonParser, function(req, res) {
     });
   };
 
-  db.setOrderInfo(epoch, sign, orderInfoCb);
+  db.setOrderInfo(epoch, sign, remote, orderInfoCb);
 });
 
 app.get('/views/:v', function(req, res) {

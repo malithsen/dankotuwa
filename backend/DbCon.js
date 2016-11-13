@@ -94,8 +94,9 @@ DbCon.prototype.setInvoicedQuantity = function(orderID, productID, categoryID, i
   });
 };
 
-DbCon.prototype.setOrderInfo = function(epoch, signature, cb) {
-  this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch, sign: signature }, function(err,rows){
+DbCon.prototype.setOrderInfo = function(epoch, signature, remote, cb) {
+  // remote is 1 if the order was placed through phone
+  this.con.query('INSERT INTO order_info SET ?', {Epoch: epoch, sign: signature, Remote: remote}, function(err,rows){
     if(err) throw err;
 
     cb(rows.insertId);
@@ -117,8 +118,4 @@ DbCon.prototype.setDealerRepOrder = function(orderID, repID, dealerID, locationS
   });
 };
 
-
-
-
 module.exports = DbCon;
-
