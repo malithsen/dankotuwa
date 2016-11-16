@@ -48,7 +48,11 @@ app.set('view engine', 'jade');
 app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
-app.use('/api', authenticate);
+
+// Protected endpointes
+app.use('/api/products', authenticate);
+app.use('/api/categories', authenticate);
+app.use('/api/dealer', authenticate);
 
 var db = new DbCon(config.sql.credentials);
 db.init();
