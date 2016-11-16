@@ -53,7 +53,7 @@ html(ng-app='dankotuwaApp', lang='en')
         span To
         br
         input(type='date', name='invoiced', ng-model='date.end')
-        button.button.button-dark(ng-click='filter()')
+        button.button.button-dark.filter-btn(ng-click='filter()')
           i.fa.fa-filter &nbsp&nbspFilter
     .col.ten.content-body
       section(ui-view='')

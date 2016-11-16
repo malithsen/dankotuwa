@@ -286,3 +286,8 @@
 .done-btn {
   float: right;
 }
+
+.filter-btn {
+  width: 130px;
+  padding: 10px;
+}
