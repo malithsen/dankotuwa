@@ -2,6 +2,8 @@
 
 var express = require('express'),
     bodyParser = require('body-parser'),
+    jwt = require('express-jwt'),
+    cors = require('cors'),
     config = require('./config'),
     DbCon = require('./DbCon');
 
@@ -12,7 +14,14 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var clientId;
 
+var authenticate = jwt({
+  secret: new Buffer('8ESodHfxRNW-SqMdJ--mIwDRT7fCfhh4mhAO_ObYbHtz5XHTzbE2a-gjY8ffiVr-', 'base64'),
+  audience: 'TUo0Y0t8YJ4v03cAcaIvoex7oIj5BecZ'
+});
+
 module.exports = {app: app, server: server};
+
+app.use(cors());
 
 io.on('connection', function(socket){
   console.log('a user connected', socket.id);
@@ -39,6 +48,7 @@ app.set('view engine', 'jade');
 app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
+app.use('/api', authenticate);
 
 var db = new DbCon(config.sql.credentials);
 db.init();

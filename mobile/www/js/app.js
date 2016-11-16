@@ -89,7 +89,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
+.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider, jwtOptionsProvider, jwtInterceptorProvider) {
   $stateProvider
 
   .state('app', {
@@ -194,5 +194,17 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
     callbackURL: location.href,
     loginState: 'login'
   });
+
+  // Configuration for angular-jwt
+  jwtOptionsProvider.config({
+    tokenGetter: function() {
+      return localStorage.getItem('token').replace(/['"]+/g, '');
+    },
+    whiteListedDomains: ['localhost'],
+    unauthenticatedRedirectPath: '/login'
+  });
+
+  //Push interceptor function to $httpProvider's interceptors
+  $httpProvider.interceptors.push('jwtInterceptor');
 
 });
