@@ -203,7 +203,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
         return token.replace(/['"]+/g, '');
       }
     },
-    whiteListedDomains: ['localhost'],
+    whiteListedDomains: ['ec2-54-244-208-146.us-west-2.compute.amazonaws.com', 'localhost'],
     unauthenticatedRedirectPath: '/login'
   });
 
