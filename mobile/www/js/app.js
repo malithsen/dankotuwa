@@ -198,7 +198,10 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
   // Configuration for angular-jwt
   jwtOptionsProvider.config({
     tokenGetter: function() {
-      return localStorage.getItem('token').replace(/['"]+/g, '');
+      var token = localStorage.getItem('token');
+      if (token !== null) {
+        return token.replace(/['"]+/g, '');
+      }
     },
     whiteListedDomains: ['localhost'],
     unauthenticatedRedirectPath: '/login'
