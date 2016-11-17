@@ -84,7 +84,7 @@
   border: 1px solid rgba(214,214,214,.61);
 }
 
-.sales-order-search-btn:focus, .sales-order-search-btn:hover, .actual-quantity-input:focus, .actual-quantity-input:hover {
+.sales-order-search-btn:focus:enabled, .sales-order-search-btn:hover:enabled, .actual-quantity-input:focus, .actual-quantity-input:hover {
   transition: border-color 0.4s ease;
   border-color: #2780f8;
   outline: 0;
@@ -182,7 +182,7 @@
   line-height: 1.3;
   background-color: #3E313C;
 }
-.button:hover {
+.button:hover:enabled {
   opacity: .65;
 }
 .button:active {
@@ -277,8 +277,8 @@
 .search-input{
   float:right;
   margin-right: 70px;
-
 }
+
 .search-icon{
   margin-top: 10%;  
 }

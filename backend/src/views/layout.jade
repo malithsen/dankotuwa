@@ -28,7 +28,7 @@ html(ng-app='dankotuwaApp', lang='en')
       span.newOrdersAvailable(ng-if='newOrders', ng-click='reloadOrders()') Click to see new orders
       .search-input
         i.fa.fa-search.search-icon
-        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search')
+        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle=="Order Details"')
   .row
     .col.two.nav-content
       h4.reps-header Sales Reps
@@ -48,12 +48,12 @@ html(ng-app='dankotuwaApp', lang='en')
       .datefilter
         span From
         br
-        input(type='date', name='invoiced', ng-model='date.start')
+        input(type='date', name='invoiced', ng-model='date.start', ng-disabled='$state.current.params.pageTitle=="Order Details"')
         br
         span To
         br
-        input(type='date', name='invoiced', ng-model='date.end')
-        button.button.button-dark.filter-btn(ng-click='filter()')
+        input(type='date', name='invoiced', ng-model='date.end', ng-disabled='$state.current.params.pageTitle=="Order Details"')
+        button.button.button-dark.filter-btn(ng-click='filter()', ng-disabled='$state.current.params.pageTitle=="Order Details"')
           i.fa.fa-filter &nbsp&nbspFilter
     .col.ten.content-body
       section(ui-view='')
