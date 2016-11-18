@@ -68,6 +68,7 @@ angular.module('dankotuwaApp')
     $scope.reps.forEach(function(rep) {
       APIService.getOrdersFromRep(rep.EmployeeID).then(function(res){
         $scope.orders.push.apply($scope.orders, res.data);
+        $scope.orders = _.filter($scope.orders, function(order) { return order.invoiced;});
         // can be made more efficient with a promise. Good enough for the job
         $scope.orders = _.orderBy($scope.orders, 'epoch', 'desc');
         $scope.orderOrig = $scope.orders;
@@ -75,8 +76,12 @@ angular.module('dankotuwaApp')
     });
   }
 
+  function refresh() {
+    $scope.orders = [];
+    getOrders();
+  }
+
   $scope.filter = function() {
-    console.log('date', moment($scope.date.start).valueOf());
     var from = moment($scope.date.start).valueOf()/1000;
     var to = moment($scope.date.end).valueOf()/1000;
     if (to && from) {
@@ -94,6 +99,13 @@ angular.module('dankotuwaApp')
     $scope.reps = res.data;
     getOrders();
     updateNewOrderCount();
+  });
+
+
+  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+    if (toState.name === "/") {
+      refresh()
+    }
   });
 
 });

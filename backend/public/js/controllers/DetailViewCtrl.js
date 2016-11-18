@@ -1,6 +1,6 @@
 angular.module('dankotuwaApp')
 
-.controller('DetailViewCtrl', function($scope, $stateParams, APIService, ModalService) {
+.controller('DetailViewCtrl', function($scope, $stateParams, $state, APIService, ModalService) {
   $scope.order = $stateParams.data;
 
   $scope.invoicedqty = {};
@@ -17,6 +17,7 @@ angular.module('dankotuwaApp')
     console.log($scope.order);
     APIService.setInvoicedQuantity($scope.order).then(function(res) {
       console.log(res);
+      $state.go('/')
     });
   };
 
