@@ -28,7 +28,9 @@ html(ng-app='dankotuwaApp', lang='en')
       span.newOrdersAvailable(ng-if='newOrders', ng-click='reloadOrders()') Click to see new orders
       .search-input
         i.fa.fa-search.search-icon
-        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle=="Order Details"')
+        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
+        a.settings-icon(ui-sref='settings')
+          i.fa.fa-cog
   .row
     .col.two.nav-content
       h4.reps-header Sales Reps
@@ -48,12 +50,12 @@ html(ng-app='dankotuwaApp', lang='en')
       .datefilter
         span From
         br
-        input(type='date', name='invoiced', ng-model='date.start', ng-disabled='$state.current.params.pageTitle=="Order Details"')
+        input(type='date', name='invoiced', ng-model='date.start', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
         br
         span To
         br
-        input(type='date', name='invoiced', ng-model='date.end', ng-disabled='$state.current.params.pageTitle=="Order Details"')
-        button.button.button-dark.filter-btn(ng-click='filter()', ng-disabled='$state.current.params.pageTitle=="Order Details"')
+        input(type='date', name='invoiced', ng-model='date.end', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
+        button.button.button-dark.filter-btn(ng-click='filter()', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
           i.fa.fa-filter &nbsp&nbspFilter
     .col.ten.content-body
       section(ui-view='')
@@ -63,5 +65,6 @@ html(ng-app='dankotuwaApp', lang='en')
     script(src='/js/controllers/rootCtrl.js')
     script(src='/js/controllers/OrderCtrl.js')
     script(src='/js/controllers/DetailViewCtrl.js')
+    script(src='/js/controllers/SettingsCtrl.js')
     script(src='/js/services/APIService.js')
     script(src='/js/services/socket.js')

@@ -276,7 +276,7 @@
 
 .search-input{
   float:right;
-  margin-right: 70px;
+  margin-right: 29px;
 }
 
 .search-icon{
@@ -290,4 +290,32 @@
 .filter-btn {
   width: 130px;
   padding: 10px;
+}
+
+/*Settings*/
+.settings-icon {
+  float: right;
+  margin-top: 1.8rem;
+  margin-left: 30px;
+  color: #4d394b;
+}
+
+.settings-view {
+  margin-left: 6rem;
+}
+
+.settings-heading > p {
+  color: #333333;
+  font-size: 2.125rem;
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+
+.db-input {
+  padding-top: 15px;
+}
+
+.report-download-btn {
+  margin-left: 0px;
+  margin-top: 20px;
 }
