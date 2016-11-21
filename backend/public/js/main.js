@@ -1,4 +1,4 @@
-var dankotuwaApp = angular.module('dankotuwaApp', ['ui.router', 'angularMoment', 'angular-storage', 'angularModalService']);
+var dankotuwaApp = angular.module('dankotuwaApp', ['ui.router', 'angularMoment', 'angular-storage', 'angularModalService', 'ngSanitize', 'ngCsv']);
 
 dankotuwaApp.value("BackendUrl", "http://localhost:8080");
 

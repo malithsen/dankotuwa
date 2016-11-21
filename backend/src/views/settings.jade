@@ -23,12 +23,12 @@
     .col.one
       span From
     .col.two
-      input(type='date')
+      input(type='date', ng-model='date.start')
     .col.one
       span To
     .col.two
-      input(type='date')
+      input(type='date', ng-model='date.end')
   .row
     .col.three
-      button.button.report-download-btn Download
+      button.button.report-download-btn(ng-csv="generateReport()", filename="data.csv") Export to CSV
       

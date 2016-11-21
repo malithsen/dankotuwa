@@ -20,6 +20,7 @@
     "angular-moment": "~1.0.0",
     "components-font-awesome": "~4.7.0",
     "lodash": "~4.16.4",
+    "ng-csv": "~0.3.6",
     "socket.io-client": "~1.5.1"
   }
 }

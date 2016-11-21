@@ -124,12 +124,6 @@ app.get('/api/order/signature/:orderid', function(req, res) {
 //   //db.getUsers()
 // });
 
-// app.get('/api/rep/:repid/:to/:from', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
 
 // app.get('/api/rep/location/:repid', function(req, res) {
 //   var cb = function(data) {
