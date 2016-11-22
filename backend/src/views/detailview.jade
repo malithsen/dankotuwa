@@ -31,6 +31,8 @@ div.order-meta
     div.col.nine
       div.meta-value
         p : {{order.epoch | amFromUnix | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
+  div.row.remote(ng-if="order.remote")
+    p Placed through phone
   div.row
     div.col.three
       button.button#signature-btn(ng-click='getSignature(order.orderNumber)') View Signature

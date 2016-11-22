@@ -79,6 +79,7 @@ angular.module('dankotuwaApp')
   function refresh() {
     $scope.orders = [];
     getOrders();
+    updateNewOrderCount();
   }
 
   $scope.filter = function() {
@@ -97,8 +98,6 @@ angular.module('dankotuwaApp')
   APIService.getReps().then(function(res) {
     console.log(res);
     $scope.reps = res.data;
-    getOrders();
-    updateNewOrderCount();
   });
 
 

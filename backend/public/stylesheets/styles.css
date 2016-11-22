@@ -292,6 +292,11 @@
   padding: 10px;
 }
 
+.remote > p {
+  font-size: medium;
+  color: #757575;
+}
+
 /*Settings*/
 .settings-icon {
   float: right;
