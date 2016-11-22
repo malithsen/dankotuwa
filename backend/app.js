@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     jwt = require('express-jwt'),
     cors = require('cors'),
+    twilio = require('twilio'),
     config = require('./config'),
     DbCon = require('./DbCon');
 
@@ -18,6 +19,8 @@ var authenticate = jwt({
   secret: new Buffer('8ESodHfxRNW-SqMdJ--mIwDRT7fCfhh4mhAO_ObYbHtz5XHTzbE2a-gjY8ffiVr-', 'base64'),
   audience: 'TUo0Y0t8YJ4v03cAcaIvoex7oIj5BecZ'
 });
+
+var client = twilio('AC92dd0511c473ba5840f39ab9eb531167', 'a18f3515bb41fea18bdf0f5c917524dc');
 
 module.exports = {app: app, server: server};
 
@@ -163,6 +166,12 @@ app.put('/api/order', jsonParser, function(req, res) {
   items.forEach(function(item) {
     db.setInvoicedQuantity(orderNumber, item.productID, item.categoryID, item.invoicedQuantity);
   });
+
+  // client.sendMessage({
+  //   to: '+94775286997',
+  //   from: '+13347815502',
+  //   body: 'Your order with order number %s has successfully been placed' % orderNumber
+  // });
 
   return res.sendStatus(200);
 

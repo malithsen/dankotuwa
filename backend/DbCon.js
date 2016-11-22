@@ -61,7 +61,7 @@ DbCon.prototype.getSignature = function(oid, cb) {
 };
 
 DbCon.prototype.getOrdersByUser = function(repid, cb) {
-  this.con.query('SELECT order_info.OrderNumber, Epoch, product.ProductID, category.CategoryID,ProductName, CategoryName, Quantity,dealer.Name, dealer.DealerID, sales_representative.Name AS repName, InvoicedQuantity FROM order_info, order_product, dealer_rep_order, dealer, product, category, sales_representative where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND order_info.OrderNumber=dealer_rep_order.OrderNumber AND dealer.DealerID=dealer_rep_order.DealerID AND order_product.ProductID = product.ProductID AND order_product.CategoryID = category.CategoryID AND sales_representative.EmployeeID = '+repid+';', function(err,rows){
+  this.con.query('SELECT order_info.OrderNumber, Epoch, product.ProductID, category.CategoryID,ProductName, CategoryName, Quantity,dealer.Name, dealer.DealerID, sales_representative.Name AS repName, InvoicedQuantity, Remote FROM order_info, order_product, dealer_rep_order, dealer, product, category, sales_representative where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND order_info.OrderNumber=dealer_rep_order.OrderNumber AND dealer.DealerID=dealer_rep_order.DealerID AND order_product.ProductID = product.ProductID AND order_product.CategoryID = category.CategoryID AND sales_representative.EmployeeID = '+repid+';', function(err,rows){
     if(err) throw err;
 
     var data = {};
@@ -71,7 +71,7 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
       if (order.OrderNumber in data) {
         data[order.OrderNumber].items.push(d);
       } else {
-        data[order.OrderNumber] = {"repID": repid, "repName": order.repName, "orderNumber":order.OrderNumber, "epoch": order.Epoch, "name": order.Name, "dealerID": order.DealerID, "invoiced":false, "items": [d]};
+        data[order.OrderNumber] = {"repID": repid, "repName": order.repName, "orderNumber":order.OrderNumber, "epoch": order.Epoch, "name": order.Name, "dealerID": order.DealerID, "invoiced":false, "remote": order.Remote, "items": [d]};
       }
     });
 
