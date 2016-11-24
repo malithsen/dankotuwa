@@ -100,11 +100,17 @@ angular.module('dankotuwaApp')
     $scope.reps = res.data;
   });
 
+  var stateChanged = false;
 
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if (toState.name === "/") {
-      refresh()
+      refresh();
+      stateChanged = true;
     }
   });
+
+  if (stateChanged === false) {
+    refresh();
+  }
 
 });
