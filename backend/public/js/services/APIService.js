@@ -38,5 +38,27 @@ angular.module('dankotuwaApp')
     });
   };
 
+  o.updateProductList = function(entry) {
+    console.log(entry);
+    var d = {'data':entry.join()};
+    console.log(d);
+    return $http({
+      method: 'PUT',
+      data: JSON.stringify(d),
+      url: BackendUrl + '/api/update/products'
+    });
+  };
+
+  o.updateCategoryList = function(entry) {
+    console.log(entry);
+    var d = {'data':entry.join()};
+    console.log(d);
+    return $http({
+      method: 'PUT',
+      data: JSON.stringify(d),
+      url: BackendUrl + '/api/update/categories'
+    });
+  };
+
   return o;
 });

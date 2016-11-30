@@ -177,6 +177,29 @@ app.put('/api/order', jsonParser, function(req, res) {
 
 });
 
+app.put('/api/update/products', jsonParser, function(req, res) {
+  var cb = function() {
+    res.sendStatus(200);
+  };
+
+  var data = req.body.data.split(',');
+  console.log(data);
+  db.updateProducts(Number(data[0]), data[1], data[2], cb);
+
+});
+
+app.put('/api/update/categories', jsonParser, function(req, res) {
+  var cb = function() {
+    res.sendStatus(200);
+  };
+
+  var data = req.body.data.split(',');
+  console.log(data);
+  db.updateCategories(Number(data[0]), data[1], cb);
+
+});
+
+
 app.post('/api/order', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);
   var epoch = req.body.epoch;

@@ -4,7 +4,7 @@
       p Update
   .row
     .col.four
-      p Update product database
+      p Update category database
     .col.eight
       input(type='file').db-input
   .row
@@ -12,7 +12,9 @@
       p Update product database
     .col.eight
       input(type='file').db-input
-
+  .row
+    .col-three
+      button.button(ng-click="getLists()") Update Db
   .row
     .col.tweleve.settings-heading
       p Reports

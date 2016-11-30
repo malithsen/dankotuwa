@@ -60,6 +60,24 @@ DbCon.prototype.getSignature = function(oid, cb) {
   });
 };
 
+DbCon.prototype.updateProducts = function(id, name, price, cb) {
+  console.log(id, name, price);
+
+  this.con.query('INSERT INTO product (ProductID, ProductName, Price) VALUES ('+id+', "'+name+'", '+price+') ON DUPLICATE KEY UPDATE Price=' + price, function(err, rows) {
+    if(err) throw err;
+    cb();
+  });
+};
+
+DbCon.prototype.updateCategories = function(id, name, cb) {
+  console.log(id, name);
+
+  this.con.query('INSERT INTO category (CategoryID, CategoryName) VALUES ('+id+', "'+name+'") ON DUPLICATE KEY UPDATE CategoryName="' + name + '";', function(err, rows) {
+    if(err) throw err;
+    cb();
+  });
+};
+
 DbCon.prototype.getOrdersByUser = function(repid, cb) {
   this.con.query('SELECT order_info.OrderNumber, Epoch, product.ProductID, category.CategoryID,ProductName, CategoryName, Quantity,dealer.Name, dealer.DealerID, sales_representative.Name AS repName, InvoicedQuantity, Remote FROM order_info, order_product, dealer_rep_order, dealer, product, category, sales_representative where order_info.OrderNumber IN (SELECT OrderNumber FROM dealer_rep_order where EmployeeID='+repid+') AND order_info.OrderNumber=order_product.OrderNumber AND order_info.OrderNumber=dealer_rep_order.OrderNumber AND dealer.DealerID=dealer_rep_order.DealerID AND order_product.ProductID = product.ProductID AND order_product.CategoryID = category.CategoryID AND sales_representative.EmployeeID = '+repid+';', function(err,rows){
     if(err) throw err;
