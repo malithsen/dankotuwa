@@ -3,7 +3,6 @@ angular.module('dankotuwaApp')
 .controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store) {
   console.log('root ctrl');
   var socket = io();
-  var stateChanged = false; //used to track whether it's the first load or coming back from a view
 
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
@@ -35,6 +34,7 @@ angular.module('dankotuwaApp')
   });
 
   function flushCounts() {
+    console.log('flushing counts');
     var d = {};
     var counts = store.get('newOrders');
     for (repID in counts) {
@@ -79,8 +79,12 @@ angular.module('dankotuwaApp')
 
   function refresh() {
     $scope.orders = [];
-    getOrders();
-    updateNewOrderCount();
+    APIService.getReps().then(function(res) {
+      console.log(res);
+      $scope.reps = res.data;
+      getOrders();
+      updateNewOrderCount();
+    });
   }
 
   $scope.filter = function() {
@@ -94,23 +98,12 @@ angular.module('dankotuwaApp')
   $scope.reloadOrders = function() {
     getOrders();
     flushCounts();
-  }
-
-  APIService.getReps().then(function(res) {
-    console.log(res);
-    $scope.reps = res.data;
-  });
-
+  };
 
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if (toState.name === "/") {
       refresh();
-      stateChanged = true;
     }
   });
-
-  if (stateChanged === false) {
-    refresh();
-  }
 
 });
