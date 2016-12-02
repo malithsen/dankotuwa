@@ -34,12 +34,7 @@ angular.module('dankotuwaApp')
       controller: function($scope, close) {
          $scope.close = close;
       }
-    }).then(function(modal) {
-      modal.close.then(function(result) {
-        $scope.message = result ? "You said Yes" : "You said No";
-      });
     });
-
   };
 
 });

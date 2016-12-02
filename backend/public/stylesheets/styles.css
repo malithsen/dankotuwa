@@ -21,11 +21,18 @@
   text-transform: uppercase;
 }
 
-.reps-header:hover {
+.reps-header:hover, .reps-message:hover {
   transition: color 0.5s ease;
-  color: #fff;
+  color: #fff!important;
 }
 
+.reps-message {
+  -webkit-margin-before: 1.33em;
+  -webkit-margin-after: 1.33em;
+  color: #ab9ba9!important;
+  text-align: center;
+  cursor: pointer;
+}
 
 .reps-list {
   list-style-type: none;

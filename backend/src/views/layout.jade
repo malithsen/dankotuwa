@@ -36,17 +36,18 @@ html(ng-app='dankotuwaApp', lang='en')
           i.fa.fa-cog
   .row
     .col.two.nav-content
-      h4.reps-header Sales Reps
+      .row
+        .col.eight
+          h4.reps-header Sales Reps&nbsp&nbsp
+        .reps-message.col.four
+          i.fa.fa-envelope
       ul.reps-list
         li(ng-repeat='rep in reps')
           .repName
             span &nbsp&nbsp&nbsp{{rep.UserName}}
           div
             span(ng-class="{'newOrderCount': rep.newOrders > 0}") {{rep.newOrders || 0}}
-      br
-      .invoiced
-        input(type='checkbox', name='invoiced')
-        | Show only invoiced sales
+
       br
       br
       br
