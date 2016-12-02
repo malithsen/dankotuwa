@@ -1,7 +1,7 @@
 var supertest = require("supertest");
 var should = require("should");
 var server = supertest.agent("http://localhost:8080");
-var app = require('../app').listen(8080);
+var app = require('../app').app.listen(8080);
 
 // UNIT test begin
 
@@ -12,30 +12,28 @@ describe("API endpoints :",function(){
     done();
   });
 
-  it("/api/products should return product list",function(done){
+  it("/api/products should return 401 with invalid token error",function(done){
 
     server
     .get('/api/products')
-    .expect("Content-type",/json/)
-    .expect(200)
+    // .expect("Content-type",/json/)
+    .expect(401)
     .end(function(err,res){
-      res.status.should.equal(200);
-      res.body[0].should.have.property('ProductID').which.is.a.Number();
-      res.body[0].should.have.property('ProductName');
+      res.status.should.equal(401);
+      res.text.should.be.equal('Invalid token');
       done();
     });
   });
 
-  it("/api/category should return category list",function(done){
+  it("/api/category should return 401 with invalid token error",function(done){
 
     server
     .get('/api/categories')
-    .expect("Content-type",/json/)
-    .expect(200)
+    // .expect("Content-type",/json/)
+    .expect(401)
     .end(function(err,res){
-      res.status.should.equal(200);
-      res.body[0].should.have.property('CategoryID').which.is.a.Number();
-      res.body[0].should.have.property('CategoryName');
+      res.status.should.equal(401);
+      res.text.should.be.equal('Invalid token');
       done();
     });
   });

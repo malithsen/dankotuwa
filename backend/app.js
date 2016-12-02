@@ -57,6 +57,12 @@ app.use('/api/products', authenticate);
 app.use('/api/categories', authenticate);
 app.use('/api/dealer', authenticate);
 
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('Invalid token');
+  }
+});
+
 var db = new DbCon(config.sql.credentials);
 db.init();
 
@@ -183,7 +189,6 @@ app.put('/api/update/products', jsonParser, function(req, res) {
   };
 
   var data = req.body.data.split(',');
-  console.log(data);
   db.updateProducts(Number(data[0]), data[1], data[2], cb);
 
 });
@@ -194,7 +199,6 @@ app.put('/api/update/categories', jsonParser, function(req, res) {
   };
 
   var data = req.body.data.split(',');
-  console.log(data);
   db.updateCategories(Number(data[0]), data[1], cb);
 
 });

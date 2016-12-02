@@ -61,8 +61,6 @@ DbCon.prototype.getSignature = function(oid, cb) {
 };
 
 DbCon.prototype.updateProducts = function(id, name, price, cb) {
-  console.log(id, name, price);
-
   this.con.query('INSERT INTO product (ProductID, ProductName, Price) VALUES ('+id+', "'+name+'", '+price+') ON DUPLICATE KEY UPDATE Price=' + price, function(err, rows) {
     if(err) throw err;
     cb();
@@ -70,8 +68,6 @@ DbCon.prototype.updateProducts = function(id, name, price, cb) {
 };
 
 DbCon.prototype.updateCategories = function(id, name, cb) {
-  console.log(id, name);
-
   this.con.query('INSERT INTO category (CategoryID, CategoryName) VALUES ('+id+', "'+name+'") ON DUPLICATE KEY UPDATE CategoryName="' + name + '";', function(err, rows) {
     if(err) throw err;
     cb();
@@ -100,10 +96,8 @@ DbCon.prototype.getOrdersByUser = function(repid, cb) {
 
     response.forEach(function(order) {
       order.items.forEach(function (item) {
-        console.log(item);
         if (item.invoicedQuantity === null) {
           order.invoiced = true;
-          console.log(order);
         }
       });
     });
