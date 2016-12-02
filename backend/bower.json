@@ -16,8 +16,10 @@
   ],
   "dependencies": {
     "a0-angular-storage": "~0.0.15",
+    "angular": "1.4.9",
     "angular-modal-service": "~0.10.1",
     "angular-moment": "~1.0.0",
+    "angular-ui-router": "0.2.18",
     "components-font-awesome": "~4.7.0",
     "lodash": "~4.16.4",
     "ng-csv": "~0.3.6",
