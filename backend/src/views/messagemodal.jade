@@ -1,0 +1,14 @@
+#custom-modal
+  #push-overlay
+    .row.push-head
+      .col.ten#push-head-title
+        p Send message to all reps
+      .col.two#push-close-btn
+        p(ng-click='close()') Close
+    .row.push-content
+      .col.twelve
+        textarea(ng-model="msg")#push-textbox
+    .row.push-footer
+      .col.twelve
+        button.send-btn(ng-click='sendpush(msg)') Send
+  #fade

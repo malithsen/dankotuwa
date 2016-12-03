@@ -60,5 +60,20 @@ angular.module('dankotuwaApp')
     });
   };
 
+  o.sendPush = function(msg) {
+    console.log(msg);
+    var headers = {
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5MWI2NzUyNS1lY2MzLTQ1ZDYtODdhNS0zOGQ1YjgyODRhOTEifQ.WIC-XA7WwcisPNVBZIHlz5yjj03Ajapi5cdqosT1ls8',
+      'Content-Type': 'application/json'
+    };
+    var d = '{"user_ids": ["0d8cb5c5-62d8-48bd-bebe-a3c63f676f75"],"profile": "dankotuwa","notification": {"message": "'+msg+'"}}';
+    return $http({
+      method: 'POST',
+      data: d,
+      url: 'https://api.ionic.io/push/notifications',
+      headers: headers
+    });
+  };
+
   return o;
 });

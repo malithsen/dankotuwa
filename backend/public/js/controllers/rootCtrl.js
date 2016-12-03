@@ -1,6 +1,6 @@
 angular.module('dankotuwaApp')
 
-.controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store) {
+.controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store, ModalService) {
   console.log('root ctrl');
   var socket = io();
 
@@ -86,6 +86,24 @@ angular.module('dankotuwaApp')
       updateNewOrderCount();
     });
   }
+
+  $scope.pushnotify = function() {
+
+    ModalService.showModal({
+      templateUrl: 'views/messagemodal',
+      controller: function($scope, close) {
+         $scope.close = close;
+
+        $scope.sendpush = function(msg) {
+          APIService.sendPush(msg).then(function(res) {
+            console.log("Pushed", res);
+            $scope.close();
+          });
+        }
+      }
+    });
+  };
+
 
   $scope.filter = function() {
     var from = moment($scope.date.start).valueOf()/1000;
