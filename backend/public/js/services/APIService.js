@@ -60,6 +60,17 @@ angular.module('dankotuwaApp')
     });
   };
 
+  o.updateRepsList = function(entry) {
+    console.log(entry);
+    var d = {'data':entry.join()};
+    console.log(d);
+    return $http({
+      method: 'PUT',
+      data: JSON.stringify(d),
+      url: BackendUrl + '/api/update/reps'
+    });
+  };
+
   o.sendPush = function(msg) {
     console.log(msg);
     var headers = {

@@ -23,9 +23,18 @@ angular.module('dankotuwaApp')
     })
   }
 
+  function updateRepsList(list) {
+    list.forEach(function(entry) {
+      if (entry.length !== 1) {
+        APIService.updateRepsList(entry);
+      }
+    })
+  }
+
   $scope.getLists = function() {
     var categoryfile = document.getElementsByClassName('db-input')[0].files;
     var productfile = document.getElementsByClassName('db-input')[1].files;
+    var repfile = document.getElementsByClassName('db-input')[2].files;
     if(categoryfile.length >= 1) {
 
       Papa.parse(categoryfile[0], {
@@ -38,6 +47,13 @@ angular.module('dankotuwaApp')
       Papa.parse(productfile[0], {
         complete: function(results) {
           updateProductList(results.data);
+        }
+      });
+    }
+    if(repfile.length >= 1) {
+      Papa.parse(repfile[0], {
+        complete: function(results) {
+          updateRepsList(results.data);
         }
       });
     }

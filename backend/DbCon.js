@@ -60,6 +60,13 @@ DbCon.prototype.getSignature = function(oid, cb) {
   });
 };
 
+DbCon.prototype.updateReps = function(name, username, email, cb) {
+  this.con.query('INSERT INTO sales_representative (Name, UserName, Email) VALUES ("'+name+'", "'+username+'", "'+email+'")', function(err, rows) {
+    if(err) throw err;
+    cb();
+  });
+};
+
 DbCon.prototype.updateProducts = function(id, name, price, cb) {
   this.con.query('INSERT INTO product (ProductID, ProductName, Price) VALUES ('+id+', "'+name+'", '+price+') ON DUPLICATE KEY UPDATE Price=' + price, function(err, rows) {
     if(err) throw err;

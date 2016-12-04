@@ -203,6 +203,15 @@ app.put('/api/update/categories', jsonParser, function(req, res) {
 
 });
 
+app.put('/api/update/reps', jsonParser, function(req, res) {
+  var cb = function() {
+    res.sendStatus(200);
+  };
+
+  var data = req.body.data.split(',');
+  db.updateReps(data[0], data[1], data[2], cb);
+});
+
 
 app.post('/api/order', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);

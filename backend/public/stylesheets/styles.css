@@ -329,7 +329,12 @@
   padding-top: 15px;
 }
 
-.report-download-btn {
+.update-db-btn {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.report-download-btn, .update-db-btn {
   margin-left: 0px;
   margin-top: 20px;
 }

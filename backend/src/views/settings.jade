@@ -13,8 +13,18 @@
     .col.eight
       input(type='file').db-input
   .row
+    .col.four
+      p Add new sales representative
+    .col.eight
+      input(type='file').db-input
+  .row
+    .col.four
+      p Update Dealer database
+    .col.eight
+      input(type='file').db-input
+  .row
     .col-three
-      button.button(ng-click="getLists()") Update Db
+      button.button.update-db-btn(ng-click="getLists()") Update Db
   .row
     .col.tweleve.settings-heading
       p Reports
