@@ -249,7 +249,7 @@ app.post('/api/order', jsonParser, function(req, res) {
   db.setOrderInfo(epoch, sign, remote, orderInfoCb);
 });
 
-app.get('/views/:v', function(req, res) {
+app.get('/:v', function(req, res) {
   res.render(req.params.v);
 });
 

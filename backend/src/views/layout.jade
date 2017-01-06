@@ -17,11 +17,14 @@ html(ng-app='dankotuwaApp', lang='en')
     script(src='/lib/ng-csv/build/ng-csv.min.js')
     script(src='/lib/angular-modal-service/dst/angular-modal-service.min.js')
     script(src='/lib/papaparse/papaparse.min.js')
+    script(src='/lib/auth0.js/build/auth0.min.js')
+    script(src='/lib/angular-auth0/dist/angular-auth0.js')
+    script(src='/lib/angular-jwt/dist/angular-jwt.js')
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
     link(href='/stylesheets/grid.css', rel='stylesheet')
     link(href='/stylesheets/styles.css', rel='stylesheet')
     link(href="/lib/components-font-awesome/css/font-awesome.min.css", rel='stylesheet')
-  body(ng-controller='rootCtrl')
+  body(ng-controller='rootCtrl', ui-view='main')
   .row
     a(href='/')
       .col.two.nav-header
@@ -32,7 +35,7 @@ html(ng-app='dankotuwaApp', lang='en')
       .search-input
         i.fa.fa-search.search-icon
         input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
-        a.settings-icon(ui-sref='settings')
+        a.settings-icon(ui-sref='login')
           i.fa.fa-cog
   .row
     .col.two.nav-content
@@ -62,7 +65,7 @@ html(ng-app='dankotuwaApp', lang='en')
         button.button.button-dark.filter-btn(ng-click='filter()', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
           i.fa.fa-filter &nbsp&nbspFilter
     .col.ten.content-body
-      section(ui-view='')
+      section(ui-view='content')
   .row
     .col.tweleve.footer
     script(src='/js/main.js')
@@ -70,5 +73,7 @@ html(ng-app='dankotuwaApp', lang='en')
     script(src='/js/controllers/OrderCtrl.js')
     script(src='/js/controllers/DetailViewCtrl.js')
     script(src='/js/controllers/SettingsCtrl.js')
+    script(src='/js/controllers/LoginCtrl.js')
     script(src='/js/services/APIService.js')
     script(src='/js/services/socket.js')
+    script(src='/js/services/AuthService.js')
