@@ -35,8 +35,17 @@ html(ng-app='dankotuwaApp', lang='en')
       .search-input
         i.fa.fa-search.search-icon
         input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
-        a.settings-icon(ui-sref='login')
-          i.fa.fa-cog
+        .dropdown
+          input.dropdown-toggle(type='text')
+          .settings-icon
+            i.fa.fa-ellipsis-v
+          ul.dropdown-content
+            li
+              a(ui-sref='settings') Settings
+            li
+              a(ui-sref='login') login
+            li
+              a(ng-click='logout()') Log out
   .row
     .col.two.nav-content
       .row

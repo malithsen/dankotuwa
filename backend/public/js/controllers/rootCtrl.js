@@ -1,6 +1,6 @@
 angular.module('dankotuwaApp')
 
-.controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store, ModalService) {
+.controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store, ModalService, authService) {
   console.log('root ctrl');
   var socket = io();
 
@@ -111,11 +111,15 @@ angular.module('dankotuwaApp')
     if (to && from) {
       $scope.orders = _.filter($scope.orderOrig, function(o) { console.log(o); return o.epoch > from && o.epoch < to; });
     }
-  }
+  };
  
   $scope.reloadOrders = function() {
     getOrders();
     flushCounts();
+  };
+
+  $scope.logout = function() {
+    authService.logout();
   };
 
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){

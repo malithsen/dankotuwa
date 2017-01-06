@@ -16,14 +16,12 @@ angular.module('dankotuwaApp')
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     authManager.unauthenticate();
+    $location.path('/login');
   }
 
   function onAuthenticated(error, authResult) {
     if (error) {
-      return $ionicPopup.alert({
-        title: 'Login failed!',
-        template: error
-      });
+      return console.log("login failed", error);
     }
 
     localStorage.setItem('id_token', authResult.idToken);
