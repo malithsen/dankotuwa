@@ -3,7 +3,7 @@
   color: #777;
   padding: 5px;
   border-bottom: 1px solid #4d394b;
-  min-height: 64px;
+  min-height: 63px;
 }
 
 .nav-header p {
@@ -60,7 +60,7 @@
   background: #fff;
   border: 1px solid #ccc;
   color: #777;
-  padding: 5px;
+  padding: 4px;
   min-height: 63px;
 }
 
