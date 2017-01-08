@@ -110,6 +110,8 @@ angular.module('dankotuwaApp')
     var to = moment($scope.date.end).valueOf()/1000;
     if (to && from) {
       $scope.orders = _.filter($scope.orderOrig, function(o) { console.log(o); return o.epoch > from && o.epoch < to; });
+    } else {
+      $scope.orders = $scope.orderOrig;
     }
   };
  
