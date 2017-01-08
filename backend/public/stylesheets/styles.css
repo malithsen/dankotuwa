@@ -278,6 +278,11 @@
   margin-left: 0px;
 }
 
+.button-disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 .actual-quantity-input {
   margin-top: 17px;
   width: 7.75rem;

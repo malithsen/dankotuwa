@@ -250,9 +250,7 @@ app.post('/api/order', jsonParser, function(req, res) {
 });
 
 app.get('/:v', function(req, res) {
-  if (req.params.v !== 'favicon.ico') {
-    res.render(req.params.v);
-  }
+  res.render(req.params.v);
 });
 
 app.get('/', function(req, res) {

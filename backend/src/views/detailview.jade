@@ -35,7 +35,7 @@ div.order-meta
     p Placed through phone
   div.row
     div.col.three
-      button.button#signature-btn(ng-click='getSignature(order.orderNumber)') View Signature
+      button.button#signature-btn(ng-click='showSignature()', ng-disabled='signature.length==0', ng-class="{'button-disabled': signature.length==0}") View Signature
     div.col.nine
 
 div.order-items

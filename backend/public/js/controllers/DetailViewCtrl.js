@@ -2,15 +2,21 @@ angular.module('dankotuwaApp')
 
 .controller('DetailViewCtrl', function($scope, $stateParams, $state, APIService, ModalService) {
   $scope.order = $stateParams.data;
+  $scope.signature = '';
 
   $scope.invoicedqty = {};
   console.log("DetailViewCtrl", $scope.order);
 
-  $scope.getSignature = function(orderid) {
-    APIService.getSignature(orderid).then(function(res) {
-      console.log(res);
-      showAModal(res.data.sign);
+  var fetchSignature = function() {
+    APIService.getSignature($scope.order.orderNumber).then(function(res) {
+      if (res.data.sign) {
+        $scope.signature = res.data.sign;
+      }
     });
+  };
+
+  $scope.showSignature = function() {
+    showAModal($scope.signature);
   };
 
   $scope.markOrder = function() {
@@ -36,5 +42,7 @@ angular.module('dankotuwaApp')
       }
     });
   };
+
+  fetchSignature();
 
 });
