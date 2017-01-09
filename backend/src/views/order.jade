@@ -8,7 +8,7 @@ div(ng-repeat="order in orders | filter: search")
               div.dealer-name.col.four
                 p {{order.name}}
               div.city.col.eight
-                p Kadawatha
+                p {{order.city}}
           div.time
             p(am-time-ago='order.epoch | amFromUnix')
         div.col.item-count.two
