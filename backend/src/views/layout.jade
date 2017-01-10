@@ -33,8 +33,8 @@ html(ng-app='dankotuwaApp', lang='en')
       .content-header-name(ng-bind='$state.current.params.pageTitle')
       span.newOrdersAvailable(ng-if='newOrders', ng-click='reloadOrders()') Click to see new orders
       .search-input
-        i.fa.fa-search.search-icon
-        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-disabled='$state.current.params.pageTitle!="Sales Orders"')
+        i.fa.fa-search.search-icon(ng-if='$state.current.params.pageTitle=="Sales Orders"')
+        input.sales-order-search-btn(type='text', placeholder='Search', autocomplete='off', ng-model='search', ng-hide='$state.current.params.pageTitle!="Sales Orders"')
         .dropdown
           input.dropdown-toggle(type='text')
           .settings-icon
