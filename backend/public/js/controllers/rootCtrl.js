@@ -90,7 +90,7 @@ angular.module('dankotuwaApp')
   $scope.pushnotify = function() {
 
     ModalService.showModal({
-      templateUrl: 'views/messagemodal',
+      templateUrl: 'messagemodal',
       controller: function($scope, close) {
          $scope.close = close;
 
