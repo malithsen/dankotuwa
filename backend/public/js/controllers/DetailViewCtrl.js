@@ -29,7 +29,7 @@ angular.module('dankotuwaApp')
 
   $scope.clear = function() {
     $scope.order.items.forEach(function(item){
-      item.invoicedQuantity = 0;
+      item.invoicedQuantity = '';
     });
   };
 
