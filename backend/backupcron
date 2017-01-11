@@ -1,0 +1,4 @@
+0 0 * * * /usr/bin/mysqldump < dankotuwa -u root
+-p | /bin/gzip > /backup/mysql/mysql-`date +\%m\%d\%y`.sql.gz;
+/usr/bin/scp -i /root/.ssh/id_rsa_backup /backup/mysql/mysql-`date
++\%m\%d\%y`.sql.gz  ADDRESS
