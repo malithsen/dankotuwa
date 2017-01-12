@@ -16,11 +16,11 @@ var io = require('socket.io')(server);
 var clientId;
 
 var authenticate = jwt({
-  secret: new Buffer('8ESodHfxRNW-SqMdJ--mIwDRT7fCfhh4mhAO_ObYbHtz5XHTzbE2a-gjY8ffiVr-', 'base64'),
-  audience: 'TUo0Y0t8YJ4v03cAcaIvoex7oIj5BecZ'
+  secret: new Buffer(config.jwt.secret, 'base64'),
+  audience: config.jwt.audience
 });
 
-var client = twilio('AC92dd0511c473ba5840f39ab9eb531167', 'a18f3515bb41fea18bdf0f5c917524dc');
+var client = twilio(config.twilio.secret, config.twilio.token);
 
 module.exports = {app: app, server: server};
 
