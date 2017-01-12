@@ -168,15 +168,18 @@ app.put('/api/order', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);
   var orderNumber = req.body.orderid;
   var items = req.body.items;
+  var phone = "+94" + req.body.phone;
 
   items.forEach(function(item) {
     db.setInvoicedQuantity(orderNumber, item.productID, item.categoryID, item.invoicedQuantity);
   });
 
-  // client.sendMessage({
-  //   to: '+94775286997',
-  //   from: '+13347815502',
-  //   body: 'Your order with order number %s has successfully been placed' % orderNumber
+  // client.messages.create({
+  //   to: phone,
+  //   from: config.twilio.number,
+  //   body: "Your order with order number %s has successfully been accepted" % orderNumber,
+  // }, function(err, message) {
+  //   console.log(message);
   // });
 
   return res.sendStatus(200);

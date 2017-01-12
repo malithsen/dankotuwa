@@ -29,6 +29,7 @@ angular.module('dankotuwaApp')
 
     var d = {};
     d['orderid'] = order.orderNumber;
+    d['phone'] = order.dealerPhone;
     d['items'] = order.items;
 
     return $http({
