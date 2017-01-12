@@ -59,6 +59,6 @@ div.order-items
       input.actual-quantity-input(type="number", max="{{item.quantity}}", min=0, ng-model="item.invoicedQuantity", required)
   div.row
     div.col.six
-      button.button.done-btn(ng-click='markOrder()') Done
+      button.button.done-btn(ng-click="confirm()", ng-class="{'button-disabled': order.items.length==1 && order.items[0].invoicedQuantity == undefined}") Done
     div.col.six
-      button.button(ng-click='clear()') Cancel
+      button.button(ng-click="clear()") Cancel

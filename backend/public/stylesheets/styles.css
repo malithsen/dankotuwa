@@ -389,7 +389,7 @@
   resize: none;
 }
 
-.send-btn {
+.send-btn, .confirm-btn {
   padding-left: 0.4em;
   background: #4d394b;
   color: #ab9ba9;
@@ -402,7 +402,7 @@
   margin-top: -10px;
 }
 
-.send-btn:hover:enabled {
+.send-btn:hover:enabled, .confirm-btn:hover:enabled,, .deny-btn:hover:enabled {
   opacity: .65;
 }
 
@@ -566,4 +566,34 @@
 
 .outer-form button:hover,.outer-form button:active,.form button:focus {
   background: rgba(68, 108, 179, 0.83);
+}
+
+#confirm-overlay {
+  background-color: #FAFAFA;
+  border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+  padding: 20px 20px 12px 20px;
+  position: fixed;
+  left: 50%;
+  margin-left: -200px;
+  top: 200px;
+  width: 400px;
+  z-index: 100;
+}
+
+.deny-btn {
+  padding-left: 0.4em;
+  background: #D0D0D0;
+  color: #2D2D2D;
+  padding: 5px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 100%;
+  border: none;
+  height: 40px;
+  margin-top: -10px;
+}
+
+.deny-btn:hover {
+
 }

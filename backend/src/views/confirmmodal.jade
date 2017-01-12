@@ -1,0 +1,11 @@
+#custom-modal
+  #confirm-overlay
+    .row.push-content
+      .col.twelve
+        p Are you sure you want to mark this order?
+    .row.push-footer
+      .col.six
+        button.confirm-btn(ng-click="confirmed()") Yes
+      .col.six
+        button.deny-btn(ng-click="close()") No
+  #fade

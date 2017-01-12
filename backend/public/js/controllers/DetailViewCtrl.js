@@ -15,16 +15,29 @@ angular.module('dankotuwaApp')
     });
   };
 
-  $scope.showSignature = function() {
-    showAModal($scope.signature);
-  };
-
-  $scope.markOrder = function() {
+  var markOrder = function() {
     console.log($scope.order);
     APIService.setInvoicedQuantity($scope.order).then(function(res) {
       console.log(res);
       $state.go('/')
     });
+  };
+
+  $scope.confirm = function() {
+    ModalService.showModal({
+      templateUrl: 'confirmmodal',
+      controller: function($scope, close) {
+        $scope.close = close;
+
+        $scope.confirmed = function(msg) {
+          markOrder();
+        }
+      }
+    });
+  };
+
+  $scope.showSignature = function() {
+    showAModal($scope.signature);
   };
 
   $scope.clear = function() {
