@@ -1,7 +1,6 @@
 angular.module('dankotuwa')
 
-.factory('APIService', function(BackendUrl, $http, store, SignatureService
-  ) {
+.factory('APIService', function(BackendUrl, $http, store, SignatureService) {
 
   var o = {};
 
