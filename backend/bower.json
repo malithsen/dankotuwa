@@ -16,19 +16,19 @@
   ],
   "dependencies": {
     "a0-angular-storage": "~0.0.15",
-    "angular": "1.4.9",
     "angular-auth0": "~1.0.5",
-    "angular-jwt": "~0.1.8",
     "angular-lock": "~1.0.5",
     "angular-modal-service": "~0.10.1",
     "angular-moment": "~1.0.0",
     "angular-sanitize": "~1.6.1",
     "angular-ui-router": "0.2.18",
-    "auth0.js": "~8.0.2",
-    "components-font-awesome": "~4.7.0",
+    "angular-csv-import": "~0.0.37",
     "lodash": "~4.16.4",
     "ng-csv": "~0.3.6",
     "papaparse": "~4.1.2",
-    "socket.io-client": "~1.5.1"
+    "socket.io-client": "~1.5.1",
+    "angular-jwt": "~0.1.8",
+    "socket.io": "~1.5.1",
+    "components-font-awesome": "~4.7.0"
   }
-}
+}s

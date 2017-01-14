@@ -1,6 +1,6 @@
 var dankotuwaApp = angular.module('dankotuwaApp', ['ui.router', 'angularMoment', 'angular-storage', 'angularModalService', 'ngSanitize', 'ngCsv', 'auth0.auth0', 'angular-jwt']);
 
-dankotuwaApp.value("BackendUrl", "http://localhost:8080");
+dankotuwaApp.value("BackendUrl", "https://ec2-54-202-222-202.us-west-2.compute.amazonaws.com");
 
 dankotuwaApp.config(['$stateProvider', '$urlRouterProvider', "$locationProvider", "$httpProvider", "angularAuth0Provider", function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, angularAuth0Provider) {
 
