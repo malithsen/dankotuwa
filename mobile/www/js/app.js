@@ -2,7 +2,7 @@
 
 angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0', 'angular-storage', 'angular-jwt','ionic-toast', 'jett.ionic.filter.bar'])
 
-.value("BackendUrl", "https://ec2-54-244-208-146.us-west-2.compute.amazonaws.com")
+.value("BackendUrl", "https://ec2-54-202-222-202.us-west-2.compute.amazonaws.com")
 
 
 .run(function($ionicPlatform, $rootScope, $location, auth, store, jwtHelper) {
@@ -203,7 +203,7 @@ angular.module('dankotuwa', ['ionic','ionic.service.core', 'ngCordova', 'auth0',
         return token.replace(/['"]+/g, '');
       }
     },
-    whiteListedDomains: ['ec2-54-244-208-146.us-west-2.compute.amazonaws.com', 'localhost'],
+    whiteListedDomains: ['ec2-54-202-222-202.us-west-2.compute.amazonaws.com', 'localhost'],
     unauthenticatedRedirectPath: '/login'
   });
 
