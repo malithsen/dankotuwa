@@ -22,6 +22,7 @@
     "angular-lock": "~1.0.5",
     "angular-modal-service": "~0.10.1",
     "angular-moment": "~1.0.0",
+    "angular-sanitize": "~1.6.1",
     "angular-ui-router": "0.2.18",
     "auth0.js": "~8.0.2",
     "components-font-awesome": "~4.7.0",
