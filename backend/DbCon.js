@@ -61,7 +61,7 @@ DbCon.prototype.getSignature = function(oid, cb) {
 };
 
 DbCon.prototype.updateReps = function(name, username, email, cb) {
-  this.con.query('INSERT INTO sales_representative (Name, UserName, Email) VALUES ("'+this.con.escape(name)+'", "'+this.con.escape(username)+'", "'+this.con.escape(email)+'")', function(err, rows) {
+  this.con.query('INSERT INTO sales_representative (Name, UserName, Email) VALUES ('+this.con.escape(name)+', '+this.con.escape(username)+', '+this.con.escape(email)+')', function(err, rows) {
     if(err) throw err;
     cb();
   });
