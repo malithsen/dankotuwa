@@ -63,7 +63,7 @@ angular.module('dankotuwaApp')
     var from = moment($scope.date.start).valueOf()/1000;
     var to = moment($scope.date.end).valueOf()/1000;
     $scope.exportData = []
-    $scope.data = _.filter($scope.orders, function(o) { console.log(o); return o.epoch > from && o.epoch < to; });
+    $scope.data = _.filter($scope.orders, function(o) { return o.epoch > from && o.epoch < to; });
     for (var d in $scope.data) {
       $scope.exportData.push(flatten($scope.data[d]))
     }

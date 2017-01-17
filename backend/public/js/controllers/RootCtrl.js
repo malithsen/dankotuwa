@@ -1,7 +1,6 @@
 angular.module('dankotuwaApp')
 
 .controller('rootCtrl', function($scope, $rootScope, $state, $stateParams, APIService, socket, store, ModalService, authService) {
-  console.log('root ctrl');
   var socket = io();
 
   $rootScope.$state = $state;
@@ -19,7 +18,6 @@ angular.module('dankotuwaApp')
   });
 
   socket.on('order', function(res){
-    console.log(res);
     var repID = res.repID;
     $scope.newOrders = true;
     var counts = store.get('newOrders') || {};
@@ -60,12 +58,10 @@ angular.module('dankotuwaApp')
         }
       }
     }
-    console.log($scope.reps);
   }
 
 
   function getOrders() {
-    console.log("getting new ones");
     $scope.reps.forEach(function(rep) {
       APIService.getOrdersFromRep(rep.EmployeeID).then(function(res){
         $scope.orders.push.apply($scope.orders, res.data);
