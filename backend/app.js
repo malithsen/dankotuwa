@@ -112,41 +112,6 @@ app.get('/api/order/signature/:orderid', function(req, res) {
   db.getSignature(oid, cb);
 });
 
-// app.get('/api/orders/after/:time', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
-
-// app.get('/api/order/:id', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
-
-// app.get('/api/rep/:repid', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
-
-
-// app.get('/api/rep/location/:repid', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
-
-// app.post('/api/rep/hours/:repid/', function(req, res) {
-//   var cb = function(data) {
-//     res.json(data);
-//   };
-//   //db.getUsers()
-// });
 app.post('/api/dealer', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);
   var name = req.body.name;
