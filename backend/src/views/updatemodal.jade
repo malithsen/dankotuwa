@@ -1,0 +1,11 @@
+#custom-modal
+  #confirm-overlay
+    .row.push-content
+      .col.twelve
+        p Are you sure you want to update the database?
+    .row.push-footer
+      .col.six
+        button.confirm-btn(ng-click="confirmed()") Yes
+      .col.six
+        button.deny-btn(ng-click="close()") No
+  #fade
